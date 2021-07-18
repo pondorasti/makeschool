@@ -1,0 +1,32 @@
+<div class="button">OK</div>
+<div class="button blue">Cancel</div>
+<div class="button" 
+  style="--button-color: #d00">Delete</div>
+
+<style>
+  .button {
+    --button-color: #0b0;
+    
+    display: inline-block;
+    padding: 1em;
+    border: solid 3px var(--button-color);
+    border-radius: 10px;
+    color: var(--button-color);
+  }
+  
+  .button:hover {
+    color: #fff;
+    background-color: var(--button-color);
+  }
+  
+  .button.blue {
+    --button-color: #66d;
+  }
+  
+  
+  
+  
+  body {
+    font-family: Helvetica;
+  }
+</style>

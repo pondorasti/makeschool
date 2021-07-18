@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <title>Syllabus Template Slides</title>
+    <link rel="stylesheet" href="./css/reveal.css" />
+    <link rel="stylesheet" href="./css/theme/black.css" id="theme" />
+    <link rel="stylesheet" href="./css/highlight/zenburn.css" />
+    <link rel="stylesheet" href="./css/print/paper.css" type="text/css" media="print" />
+    <link rel="stylesheet" href="./assets/Reveal/makeschool.css" />
+
+    <script>
+      document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>');
+    </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides"><section  data-markdown><script type="text/template">
+# FEW 2.5 - D3 Maps
+
+<!-- Put a link to the slides so that students can find them -->
+
+➡️ [**Slides**](https://make-school-courses.github.io/FEW-2.5-Data-Visualization-and-Web-Graphics/Slides/Lesson-11.html ':ignore')
+</script></section><section  data-markdown><script type="text/template">
+## Minute-by-Minute
+
+| **Elapsed** | **Time**  | **Activity**              |
+| ----------- | --------- | ------------------------- |
+| 0:00        | 0:05      | Overview + Learning Outcomes                |
+| 0:05        | 0:15      | How to measure the world                  |
+| 0:20        | 0:15      | Maps + Discussion       |
+| 0:35        | 0:45      | Mapping with D3 tutorial       |
+| 1:20        | 0:10      | BREAK                     |
+| 1:30        | 1:10      | Lab      |
+| 2:40        | 0:05      | Wrap up  |
+| TOTAL       | 2:45      | -                         |
+
+</script></section><section  data-markdown><script type="text/template">
+## Overview
+
+D3 is pretty amazing it seems to do everything even map the United States or the world! Today we'll learn how to work with maps in D3!
+</script></section><section  data-markdown><script type="text/template">
+## Why you should know this
+
+It's quite possible you may need to create a map and put things on it. While Google maps is amazing it's different tool for different uses. Google maps are also limited in the customization that is allowed. We can do a lot more with D3, let's learn how!
+</script></section><section  data-markdown><script type="text/template">
+## Learning Objectives
+
+1. Identify and describe geojson
+1. Describe and use map projection
+</script></section><section ><section data-markdown><script type="text/template">
+## How to measure the world?
+
+The world is a globe and we've divided it into latitude and longitude.
+
+**Read the following articles to better understand latitude and longitude**
+
+- https://www.maptools.com/tutorials/lat_lon/definitions
+- https://gisgeography.com/utm-universal-transverse-mercator-projection/
+</script></section><section data-markdown><script type="text/template">
+**In pairs, discuss why you would use latitude and longitude, and when you would use UTM**
+
+Fun site: find geo-coordinates for your home town:
+
+- https://www.latlong.net/
+</script></section></section><section ><section data-markdown><script type="text/template">
+## Maps
+
+Computer screens are flat. Maps displayed on computer screens are flat. If the world is described in coordinates, and the map is a globe, then it needs to be projected onto a flat surface. This is accomplished through some tricky math involving trigonometry.
+
+_Luckily D3 provides a suite of functions that handle map projections for you!_
+
+While it is great you don't have work out the math yourself you do have to understand that these projections are not perfect. Flattening a sphere onto a flat surface will always be imperfect.
+</script></section><section data-markdown><script type="text/template">
+## Discussion
+
+In pairs, discuss the following:
+
+- What is geojson?
+	- https://geojson.org/
+- Why do we need special projection models?
+	- https://d3indepth.com/geographic/
+
+We'll discuss as a class after 5 minutes of paired discussion
+</script></section></section><section ><section data-markdown><script type="text/template">
+## Mapping with D3 tutorial
+
+This is a great tutorial on mapping with D3. It uses v5 so it's up to date. Besides that it was written by a cartographer!
+
+- https://petrichor.studio/2018/05/21/get-started-creating-d3-maps/
+
+**Read the blog post. Then create a map of your own. Use the sample code provided in the codepen example to recreate the example on your desktop.**
+</script></section><section data-markdown><script type="text/template">
+Be sure to follow up with the links at the bottom of the post, as these have valuable info on creating and using maps.
+
+**Challenges**
+
+- Make the map work using the same TopoJSON that the tutorial uses
+- Try different projections
+	- https://github.com/d3/d3-geo#geoAzimuthalEqualArea
+- Edit the CSS to change the color of the fill and stroke
+</script></section></section><section  data-markdown><script type="text/template">
+<!-- .slide: data-background="#087CB8" -->
+## [**10m**] BREAK
+</script></section><section  data-markdown><script type="text/template">
+## Lab
+
+Work on your final project/presentations
+</script></section><section  data-markdown><script type="text/template">
+## After Class
+
+- Continue working on your [Final Visualization 3](Assignments/Data-Visualization-3.md), due 3/4 9:30am **Before Class!**
+</script></section><section  data-markdown><script type="text/template">
+## Additional Resources
+
+- https://petrichor.studio/2018/05/21/get-started-creating-d3-maps/
+- https://github.com/d3/d3-geo
+- https://observablehq.com/@d3/projection-comparison
+- https://observablehq.com/collection/@d3/d3-geo
+- https://d3indepth.com/geographic/
+</script></section></div>
+    </div>
+
+    <script src="./js/reveal.js"></script>
+
+    <script>
+      function extend() {
+        var target = {};
+        for (var i = 0; i < arguments.length; i++) {
+          var source = arguments[i];
+          for (var key in source) {
+            if (source.hasOwnProperty(key)) {
+              target[key] = source[key];
+            }
+          }
+        }
+        return target;
+      }
+
+      // Optional libraries used to extend on reveal.js
+      var deps = [
+        { src: './plugin/markdown/marked.js', condition: function() { return !!document.querySelector('[data-markdown]'); } },
+        { src: './plugin/markdown/markdown.js', condition: function() { return !!document.querySelector('[data-markdown]'); } },
+        { src: './plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+        { src: './plugin/zoom-js/zoom.js', async: true },
+        { src: './plugin/notes/notes.js', async: true },
+        { src: './plugin/math/math.js', async: true }
+      ];
+
+      // default options to init reveal.js
+      var defaultOptions = {
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+        transition: 'default', // none/fade/slide/convex/concave/zoom
+        dependencies: deps
+      };
+
+      // options from URL query string
+      var queryOptions = Reveal.getQueryHash() || {};
+
+      var options = extend(defaultOptions, {"controls":true,"progress":true,"autoPlayMedia":false,"slideNumber":"c/t","showSlideNumber":"all","controlsTutorial":true,"controlsLayout":"edges","transition":"slide","transitionSpeed":"medium","minScale":0.5,"maxScale":3}, queryOptions);
+    </script>
+
+
+    <script>
+      Reveal.initialize(options);
+    </script>
+  </body>
+</html>

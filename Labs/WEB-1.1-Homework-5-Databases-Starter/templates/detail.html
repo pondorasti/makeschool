@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+{#
+    TODO: Much of the data on this page is hard-coded! Replace the name, photo,
+    variety, date planted, & id with the plant object's actual data, using what
+    is passed from the route's context. 
+    
+    HINT: For example, you can use `plant.name` or `plant['name']` for the
+    plant's name.
+#}
+
+<main>
+        <h1>Tomato</h1>
+
+        <img src="https://www.almanac.com/sites/default/files/styles/primary_image_in_article/public/image_nodes/tomatoes_helios4eos_gettyimages-edit.jpeg?itok=4KrW14a4">
+
+        
+
+        <section id="info">
+            <h3>Info</h3>
+
+            <strong>Date Planted</strong>
+            3/20/2020
+            <br><br>
+
+            <strong>Variety</strong>
+            Early Girl
+            <br><br>
+
+            <a class="nav" href="/edit/123456">Edit Plant</a><br><br>
+        </section>
+
+        <form action="/harvest/123456" method="POST">
+            <fieldset>
+                <legend>Harvested:</legend>
+                
+                <label>
+                    Amount harvested
+                    <input type="text" name="harvested_amount" placeholder="e.g. 2 tomatoes">
+                </label>
+
+                <label>
+                    Date harvested
+                    <input type="date" name="date_planted">
+                </label>
+
+                <input type="submit" class="submit" value="Harvest!">
+            </fieldset>
+        </form>
+
+        {#
+            TODO: Create a for loop here to loop over all harvests (passed in 
+            from the route's context) and display their information.
+        #}
+        <section id="harvest-history">
+            <h3>Harvest History</h3>
+
+            <ul>
+                <li>5/15/2020: Harvested 3 tomatoes</li>
+                <li>5/18/2020: Harvested 2 tomatoes</li>
+            </ul>
+        </section>
+
+        <form action="/delete/123456" method='POST' id="delete-form" onsubmit="return confirm_delete()">
+            <input type="submit" class="nav" onclick="delete_modal()" value="Delete Plant">
+        </form>
+</main>
+
+{% endblock content %}

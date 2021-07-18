@@ -1,0 +1,61 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.spotify.com/v1/search?limit=20&offset=10&q=Indie&type=playlist
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - "*/*"
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - rest-client/2.0.2 (darwin16.7.0 x86_64) ruby/2.5.0p-1
+      Authorization:
+      - Bearer BQBj_AiSFlKCkNIMbCWEYjuJLl6n76QmVsHU6MGDgTUBLZqNiKZ4ALs6Kvm6ulbsW9O81JDdIHyXBndXyhUOxg
+      Host:
+      - api.spotify.com
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Fri, 06 Oct 2017 02:07:15 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Keep-Alive:
+      - timeout=600
+      Cache-Control:
+      - public, max-age=7200
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Methods:
+      - GET, POST, OPTIONS, PUT, DELETE
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Max-Age:
+      - '604800'
+      Access-Control-Allow-Headers:
+      - Accept, Authorization, Origin, Content-Type
+      Content-Encoding:
+      - gzip
+      X-Content-Type-Options:
+      - nosniff
+      Strict-Transport-Security:
+      - max-age=31536000;
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        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
+    http_version: 
+  recorded_at: Fri, 06 Oct 2017 02:07:15 GMT
+recorded_with: VCR 3.0.3

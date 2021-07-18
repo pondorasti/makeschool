@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<playground version='6.0' target-platform='osx' display-mode='rendered'>
+    <pages>
+        <page name='01-If-Statements'/>
+        <page name='02-If-Else'/>
+        <page name='03-Boolean-Logic'/>
+        <page name='04-Chaining-Ifs'/>
+        <page name='05-A-classic-challenge'/>
+    </pages>
+</playground>

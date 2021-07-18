@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>Store - {{ store.title }}</h1>
+
+<strong>Address:</strong> {{ store.address }}
+
+<h2>Items</h2>
+
+<div class="items">
+    {% for item in store.items %}
+    <div class="item-details">
+        <a href="/item/{{ item.id }}"><img src="{{ item.photo_url }}" alt="{{ item.name }}" width="200px">
+        <p><strong>{{ item.name }}</strong></p></a>
+        <p><strong>Price: ${{ item.price }}</strong></p>
+    </div>
+    {% endfor %}
+</div>
+
+
+<h2>Edit Store</h2>
+
+<form>
+    <fieldset>
+        <legend>Please enter your information:</legend>
+
+
+
+        <!-- TODO: Remove the next paragraph and use the `form` object passed in 
+            from the route to render a form. -->
+        <p><em>Form fields go here!</em></p>
+
+        <input type="submit" value="Submit">
+    </fieldset>
+</form>
+
+{% endblock %}

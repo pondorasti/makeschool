@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Challenge 4</title>
+  <style>
+    /* Style the list */
+    ul {
+      /* Remove the bullet */
+      list-style: none;
+    }
+
+    /* Style the blockquote */
+    blockquote {
+      /* make the font large */
+      font-size: 2em;
+      /* Set the font to a serif */
+      font-family: Georgia, 'Times New Roman', Times, serif;
+      /* Needs some line space */
+      line-height: 1.5;
+    }
+
+    /* Event numbered list items */
+    li:nth-child(even) {
+      /* Set the color */
+      color: #775;
+      /* Align the text to the right */
+      text-align: right;
+    }
+
+    /* Odd numbered list items */
+    li:nth-child(odd) {
+      /* Set the color */
+      color: #757;
+      /* Align the text to the left */
+      text-align: left;
+    }
+  
+    /* Style the first letter */
+    blockquote::first-letter {
+      /* Set the color */
+      color: #000;
+    }
+  
+
+    /* Style the author */
+    blockquote footer {
+      /* Make the font smaller */
+      font-size: 0.5em;
+      /* Make the font bold */
+      font-weight: bold;
+      /* Change the color */
+      color: #666;
+    }
+
+    /* Now style the footer at the bottom of the page */
+    /* This footer is a child of main. Use this selector: */
+    /* main > footer */
+    main > footer {
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+
+  <main>
+    <header>
+      <h1>Famous Quotes</h1>
+    </header>
+
+    <ul>
+      <li>
+        <blockquote>
+          <p>&ldquo;The first step toward success is taken when you refuse 
+            to be a captive of the environment in which you first 
+            find yourself.&rdquo;</p>
+          <footer>
+            <p>&mdash; Mark Caine</p>
+          </footer>
+        </blockquote>
+      </li>
+
+      <li>
+        <blockquote>
+          <p>&ldquo;Twenty years from now you will be more disappointed by 
+            the things that you didn't do than by the ones you 
+            did do.&rdquo;</p>
+          <footer>
+            <p>&mdash; Mark Twain</p>
+          </footer>
+        </blockquote>
+      </li>
+
+      <li>
+        <blockquote>
+          <p>&ldquo;Those who dare to fail miserably can achieve greatly.&rdquo;</p>
+          <footer>
+            <p>&mdash; John F. Kennedy</p>
+          </footer>
+        </blockquote>
+      </li>
+    </ul>
+
+    <footer>
+      <small>Copyright 2020 FamousQuotes.com</small>
+    </footer>
+  </main>
+</body>
+</html>

@@ -1,0 +1,123 @@
+:root {
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    max-height: 100vh;
+    margin-top: 0;
+}
+.container {
+    width: 100%;
+    margin: auto;
+    max-height: 100%;
+}
+
+.container h1 {
+    text-align: center;
+}
+
+.data-area {
+    width: 100%;
+    display: flex;
+    direction: row;
+}
+
+.chart {
+    width: 70%;
+    padding-bottom: 20px;
+}
+.ct-chart {
+    height: 80%;
+}
+
+.control {
+    width: 30%;
+    padding: 20px;
+    margin-right: 0;
+}
+
+.control-date {
+    display:flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+    margin-right: 0px;
+    height: 30px;
+}
+
+.underlined-input {
+    border: none;
+    border-bottom: 2px solid red;
+    text-align: center;
+}
+
+.control-date > .underlined-input {
+    padding-left: 15px;
+}
+
+.control-column > ul {
+    margin: 0;
+    padding: 0;
+}
+
+.control-column > ul > li {
+   cursor: pointer;
+   position: relative;
+   padding: 12px 8px 12px 40px;
+   list-style-type: none;
+   background: #eee;
+   font-size: 1em;
+   transition: 0.2s;
+
+   user-select: none;
+}
+
+.control-column > ul > li:hover {
+    background: #ddd;
+}
+
+.control-column > ul > li.checked {
+    background: #888;
+    color: #fff;
+}
+
+.control-column > ul > li.checked::before {
+    content: '';
+    position: absolute;
+    border-color: #fff;
+    border-style: solid;
+    border-width: 0 2px 2px 0;
+    top 10px;
+    left: 16px;
+    transform: rotate(45deg);
+    height: 15px;
+    width: 7px;
+}
+
+.control-column-item > input {
+    float: right;
+}
+
+.control-button {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.control-button > input {
+    width: 100px;
+    height: 30px;
+    border: none;
+    background-color: #eee;
+}
+
+.control-button > input:hover {
+    cursor: pointer;
+    background: #ddd;
+}
+
+.control-button > input:active {
+    background: #888;
+}
+
+

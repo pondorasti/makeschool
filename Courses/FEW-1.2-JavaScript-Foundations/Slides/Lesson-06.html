@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <title>Syllabus Template Slides</title>
+    <link rel="stylesheet" href="./css/reveal.css" />
+    <link rel="stylesheet" href="./css/theme/black.css" id="theme" />
+    <link rel="stylesheet" href="./css/highlight/zenburn.css" />
+    <link rel="stylesheet" href="./css/print/paper.css" type="text/css" media="print" />
+    <link rel="stylesheet" href="./assets/Reveal/makeschool.css" />
+
+    <script>
+      document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>');
+    </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides"><section  data-markdown><script type="text/template"><!-- .slide: data-background="./Images/header.svg" data-background-repeat="none" data-background-size="40% 40%" data-background-position="center 10%" class="header" -->
+# FEW 1.2 - Lesson 5 - Bundling JS
+
+<!-- Put a link to the slides so that students can find them -->
+
+➡️ [**Slides**](/Syllabus-Template/Slides/Lesson1.html ':ignore')
+</script></section><section  data-markdown><script type="text/template">
+## Minute-by-Minute
+
+| **Elapsed** | **Time** | **Activity** |
+| ----------- | -------- | ------------ |
+| 0:05 | 0:05 | admin |
+| 0:05 | 0:10 | [Overview: Bundling](#overview) |
+| 0:05 | 0:15 | [Learning Objectives](#learning-objectives) |
+| 0:10 | 0:25 | [Bundling and compiling JS](#bundling-and-compiling-js) |
+| 0:30 | 0:55 | [How to bundle code](#how-to-bundle-code) |
+| 1:05 | 0:10 | [BREAK](#break) |
+| 2:05 | 1:00 | [Lab](#lab) |
+| 2:35 | 0:30 | [Wrap Up and review](#wrap-up-and-review) |
+| 2:45 | 0:10 | admin |
+</script></section><section  data-markdown><script type="text/template">
+# Overview
+
+Bundling is a common practice used across the JS ecosystem. While JS is not compiled to machine code like other languages, JS files are processed heavily in modern applications. 
+</script></section><section  data-markdown><script type="text/template">
+## Why learn bundling
+
+- It's a professional best practice
+- Expect this to be used in a software job
+- Make more reliable apps
+- Make compatible applications
+</script></section><section  data-markdown><script type="text/template">
+## Learning Objectives
+
+1. Describe bundling
+1. Describe the raison d'etre of bundling
+1. Implement bundling system with webpack
+</script></section><section  data-markdown><script type="text/template">
+# Bundling and compiling JS
+
+Has anyone used bundling or JS compiler before? 
+
+What did it do? 
+</script></section><section  data-markdown><script type="text/template">
+## Bundling JS
+
+Modern JS applications are not just written in code and used. At the professional level, they are compiled/bundled. 
+</script></section><section  data-markdown><script type="text/template">
+JavaScript is a scripting language. This means it doesn't need to be compiled in a strict sense, processed and turned into machine code. 
+</script></section><section  data-markdown><script type="text/template">
+While it doesn't need to be turned into machine code we can still do work to make our code more reliable and compatible with the widest array of browsers. 
+</script></section><section  data-markdown><script type="text/template">
+A bundler is a tool that converts the source JS that you wrote into code that will be used in your published application/web site. 
+</script></section><section  data-markdown><script type="text/template">
+What does bundling do? 
+</script></section><section  data-markdown><script type="text/template">
+Bundling processes your sources file and produces new files.
+</script></section><section  data-markdown><script type="text/template">
+**What types of processing?**
+</script></section><section  data-markdown><script type="text/template">
+- **minify** - 🗜
+
+reduces file size by removing unnecessary characters: 
+</script></section><section  data-markdown><script type="text/template">
+- **uglify** - 🙀
+
+renames elements to obfuscate code and reduce file size
+</script></section><section  data-markdown><script type="text/template">
+- **Compile TypeScript** - 🦆 →  🦢
+
+Converts .ts files into .js files
+</script></section><section  data-markdown><script type="text/template">
+- **Compatibility** - 🔩
+
+Convert ES6 JS into JS that is compatible with older browsers
+</script></section><section  data-markdown><script type="text/template">
+- **bundling** - 🏀🏓🧱 → 📦
+
+combining all .js files into a single bundle.js file
+</script></section><section  data-markdown><script type="text/template">
+Try it out:
+
+Minify: https://javascript-minifier.com
+
+Uglify: https://skalman.github.io/UglifyJS-online/
+</script></section><section  data-markdown><script type="text/template">
+Read more about these: https://blog.logrocket.com/uglify-vs-babel-minify-vs-terser-a-mini-battle-royale/
+</script></section><section  data-markdown><script type="text/template">
+## Why call it bundling? 
+</script></section><section  data-markdown><script type="text/template">
+Another effect of the bundler is that it combines multiple .js files into a single .js file. 
+</script></section><section  data-markdown><script type="text/template">
+This provides an advantage when loading projects by reducing the number of streams your page requires to load itself. 
+
+Loading fewer files is faster.
+</script></section><section  data-markdown><script type="text/template">
+Each file is a separate stream. A browser has to provide overhead and manage each stream. More streams require more work, memory, and CPU. 
+</script></section><section  data-markdown><script type="text/template">
+In the end, bundling is the process of processing and combining files into a single file, often called bundle.js. This bundle.js is your "compiled" application. 
+</script></section><section  data-markdown><script type="text/template">
+## Libraries and npm 
+</script></section><section  data-markdown><script type="text/template">
+Have you used npm before?
+
+How did you use it? 
+
+What did it do?
+</script></section><section  data-markdown><script type="text/template">
+The bundling process will require npm. Let's take a look at npm. 
+</script></section><section  data-markdown><script type="text/template">
+You may have used npm before but have you ever thought about what npm is? Here is how npm describes itself. 
+</script></section><section  data-markdown><script type="text/template">
+> npm is the world’s largest software registry. Open-source developers from every continent use npm to share and borrow packages and many organizations use npm to manage private development as well.
+</script></section><section  data-markdown><script type="text/template">
+npm consists of three distinct components:
+
+- website
+- Command Line Interface (CLI)
+- package registry
+</script></section><section  data-markdown><script type="text/template">
+npm stores packages in a registry. Packages are programs (snippets of code).
+</script></section><section  data-markdown><script type="text/template">
+npm is a code library, a web site and a command-line tool that allows you to "check out" packages for use in your projects. 
+</script></section><section  data-markdown><script type="text/template">
+# How to bundle code
+</script></section><section  data-markdown><script type="text/template">
+You should all have npm installed. If not follow their guide here: https://docs.npmjs.com/about-npm-versions
+</script></section><section  data-markdown><script type="text/template">
+Create a new npm project in your Break Out directory. 
+
+`npm init -y`
+</script></section><section  data-markdown><script type="text/template">
+Install webpack. This is a bundler. It's the tool that will do the processing and bundling. 
+
+`npm install --save-dev webpack webpack-cli`
+</script></section><section  data-markdown><script type="text/template">
+## Setup directory 
+
+Setup some directories to manage your files. 
+</script></section><section  data-markdown><script type="text/template">
+Make the following folders: 
+
+- src (contains the code you write)
+- dist (holds code you will distribute)
+</script></section><section  data-markdown><script type="text/template">
+Arrange your files. You should already have some of the files. 
+
+- src/index.js (Code you wrote)
+- dist/index.html (Code compiled by webpack)
+- package.json
+- webpack.config.js
+</script></section><section  data-markdown><script type="text/template">
+In the end your directory will look like this:
+
+```
+|- package.json
+|- webpack.config.js
+|- /src
+  |- index.js
+|- /dist
+  |- index.html
+```
+</script></section><section  data-markdown><script type="text/template">
+Edit index.html. The script tag shoould point to `bundle.js`. 
+
+`<script src="bundle.js">__SCRIPT_END__`
+
+`bundle.js` doesn't exist yet...
+</script></section><section  data-markdown><script type="text/template">
+Notice we haven't created bundle.js. This file will be created in the next step by webpack. This will be the compiled, minified, and uglified file built from your JS code and code you might have imported from other libs. 
+</script></section><section  data-markdown><script type="text/template">
+## webpack.config.js
+</script></section><section  data-markdown><script type="text/template">
+Webpack is an industry-standard tool. You will see this tool in the future, expect to work with it. 
+
+The webpack.config.js file configures webpack, it is written in JavaScript. 
+</script></section><section  data-markdown><script type="text/template">
+Copy the code below and paste it into your webpack.config.js. 
+
+```
+const path = require('path')
+
+module.exports = {
+ entry: './src/index.js',
+ output: {
+ filename: 'bundle.js',
+ path: path.resolve(__dirname, 'dist')
+ }
+}
+```
+</script></section><section  data-markdown><script type="text/template">
+Examine the config file discuss it with another student. What do you think it will tell webpack to do? 
+</script></section><section  data-markdown><script type="text/template">
+- entry - start with src/index.js
+- output 
+ - filename - create a file named bundle.js
+ - path - put bundle.js in the dist/ folder 
+</script></section><section  data-markdown><script type="text/template">
+## Running Scripts
+
+You can run scripts from the command line. You did this earlier when you installed the npm packages. You can also store scripts in your package.json and run them with your project. 
+</script></section><section  data-markdown><script type="text/template">
+Open packages.json and find the scripts section. 
+
+edit package.json
+
+```
+{
+  ...
+  "scripts": {
+    "develop": "webpack --mode development --watch",
+    "build": "webpack --mode production"
+  },
+  ...
+}
+ ```
+</script></section><section  data-markdown><script type="text/template">
+Here you are adding two scripts
+
+- "develop": "webpack --mode development --watch"
+- "build": "webpack --mode production"
+</script></section><section  data-markdown><script type="text/template">
+The first is for development mode. Use this one when you are working on your project as a developer. 
+</script></section><section  data-markdown><script type="text/template">
+The second is the build script. Use this when you want to create the bundle.js and distribute your project to the world. 
+</script></section><section  data-markdown><script type="text/template">
+### Run your scripts
+
+Test your work. 
+</script></section><section  data-markdown><script type="text/template">
+Bundle your project in development mode: 
+
+`npm run develop`
+</script></section><section  data-markdown><script type="text/template">
+Running this script should launch Webpack in development mode. It should compile your .js files and create dist.bundle.js. 
+</script></section><section  data-markdown><script type="text/template">
+This mode uses the--watch flag. The watch flag monitors file changes you make and recompiles each time there is a change.
+</script></section><section  data-markdown><script type="text/template">
+Try it make some changes, save. Notice the terminal shows output each time you save. Telling us that webpack is working recompiling bundle.js. 
+</script></section><section  data-markdown><script type="text/template">
+Take a look at the distribution code in bundle.js. It is human readable, even if it isn't what you would have written. Note the file size of this file. For me it was 19k.
+</script></section><section  data-markdown><script type="text/template">
+Try production mode. 
+
+`npm run build`
+</script></section><section  data-markdown><script type="text/template">
+This script doesn't use the --watch flag
+
+`"build": "webpack --mode production"`
+</script></section><section  data-markdown><script type="text/template">
+Running it once builds your code for production. This should be your last step before distributing your work to the world. 
+</script></section><section  data-markdown><script type="text/template">
+Take a look at the distribution code in bundle.js. What happened? The code here has been minified and uglified. Check the file size. For me it was 5k. 
+
+<!-- .slide: data-background="#087CB8" -->
+# BREAK
+
+Take a 10-minute break
+</script></section><section  data-markdown><script type="text/template">
+# Lab
+
+Use the lab time to complete your project. 
+
+- Solve any final errors
+- Write a readme
+- Publish your work to GitHub Pages
+- Post a link to the Project tab in the Progress Tracker
+</script></section><section  data-markdown><script type="text/template">
+# Wrap Up and review
+
+- What is bundling? 
+- Why use it? 
+- Your thoughts? 
+- Use cases? 
+- What problems did you encounter? 
+- How did you solve them?
+</script></section><section  data-markdown><script type="text/template">
+## Additional Resources
+
+- https://javascript-minifier.com
+- https://skalman.github.io/UglifyJS-online/
+- https://blog.logrocket.com/uglify-vs-babel-minify-vs-terser-a-mini-battle-royale/
+- https://www.sitepoint.com/beginners-guide-webpack-module-bundling/
+</script></section></div>
+    </div>
+
+    <script src="./js/reveal.js"></script>
+
+    <script>
+      function extend() {
+        var target = {};
+        for (var i = 0; i < arguments.length; i++) {
+          var source = arguments[i];
+          for (var key in source) {
+            if (source.hasOwnProperty(key)) {
+              target[key] = source[key];
+            }
+          }
+        }
+        return target;
+      }
+
+      // Optional libraries used to extend on reveal.js
+      var deps = [
+        { src: './plugin/markdown/marked.js', condition: function() { return !!document.querySelector('[data-markdown]'); } },
+        { src: './plugin/markdown/markdown.js', condition: function() { return !!document.querySelector('[data-markdown]'); } },
+        { src: './plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+        { src: './plugin/zoom-js/zoom.js', async: true },
+        { src: './plugin/notes/notes.js', async: true },
+        { src: './plugin/math/math.js', async: true }
+      ];
+
+      // default options to init reveal.js
+      var defaultOptions = {
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+        transition: 'default', // none/fade/slide/convex/concave/zoom
+        dependencies: deps
+      };
+
+      // options from URL query string
+      var queryOptions = Reveal.getQueryHash() || {};
+
+      var options = extend(defaultOptions, {"controls":true,"progress":true,"autoPlayMedia":false,"slideNumber":"c/t","showSlideNumber":"all","controlsTutorial":true,"controlsLayout":"edges","transition":"slide","transitionSpeed":"medium","minScale":0.5,"maxScale":3}, queryOptions);
+    </script>
+
+
+    <script>
+      Reveal.initialize(options);
+    </script>
+  </body>
+</html>

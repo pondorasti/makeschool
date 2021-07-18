@@ -1,0 +1,69 @@
+[{
+    "name": "Austin City Limits",
+    "type": "music",
+    "date": "Oct 4, 2019",
+    "city": {
+        "name": "Austin",
+        "id": "1"
+    },
+    "lineup": [{
+        "name": "Metallica",
+        "id": "1"
+    },
+    {
+        "name": "Arctic Monkeys",
+        "id": "2"
+    },
+    {
+        "name": "Paul McCartney",
+        "id": "3"
+    },
+    {
+        "name": "Camila Cabello",
+        "id": "4"
+    }]
+},
+{
+    "name": "Coachella",
+    "type": "music",
+    "date": "Apr 12, 2019",
+    "city": {
+        "name": "Indio",
+        "id": "2"
+    },
+    "lineup": [{
+        "name": "Tame Impala",
+        "id": "6"
+    },{
+        "name": "Zedd",
+        "id": "7"
+    },{
+        "name": "Ariana Grande",
+        "id": "8"
+    },{
+        "name": "J Balvin",
+        "id": "9"
+    }]
+},{
+    "name": "Riot Fest",
+    "type": "music",
+    "date": "Sep 13, 2019",
+    "city": {
+        "name": "Chicago",
+        "id": "3"
+    },
+    "lineup": [{
+        "name": "NOFX",
+        "id": "10"
+    },{
+        "name": "Deftones",
+        "id": "11"
+    },{
+        "name": "Flogging Molly",
+        "id": "12"
+    },{
+        "name": "Misfits",
+        "id": "13"
+    }]
+}
+]

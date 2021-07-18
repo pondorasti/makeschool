@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  track_name: MyString
+  album_name: MyString
+  personal_ranking: 1
+
+two:
+  track_name: MyString
+  album_name: MyString
+  personal_ranking: 1

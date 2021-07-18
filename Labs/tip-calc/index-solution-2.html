@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Tip Calc</title>
+    <style>
+      body, html {
+        height: 100%;
+      }
+
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: Helvetica;
+        font-size: 20px;
+        line-height: 1.5;
+      }
+
+      .main {
+        display: flex;
+        flex-direction: row-reverse;
+      }
+
+      input {
+        border: 1px solid;
+        padding: 0.5em;
+        font-size: 1rem;
+      }
+
+      .right-side {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .output-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        width: 200px;
+      }
+
+      .display {
+        margin: 1rem;
+      }
+
+    </style>
+  </head>
+  <body>
+
+    <main class="main">
+      <div class="output-container">
+        <div class="display">Tip:<span id="display-tip"></span></div>
+        <div class="display">Total:<span id="display-total"></span></div>
+        <div class="display">Each:<span id="display-each"></span></div>
+        <div class="display">Calc Tip:<span id="display-calc-tip"></span></div>
+      </div>
+
+      <div class="right-side">
+        <div class="input-container">
+          <span class="label">Bill Amount</span>
+          <div class="input-with-buttons">
+            <button>-</button>
+            <input 
+              id="input-bill" 
+              value="10"
+              type="number">
+            <button>+</button>
+        </div>
+
+        <div class="input-container">
+          <span class="label">Tip %</span>
+          <div class="input-with-buttons">
+            <button>-</button>
+            <input 
+              id="input-tip" 
+              type="number" 
+              name="tip-percent" 
+              value="15">
+            <button>+</button>
+          </div>
+        </div>
+
+        <div class="input-container">
+          <span class="label">Number of People</span>
+          <div class="input-with-buttons">
+            <button>-</button>
+            <input 
+              id="input-people" 
+              type="number" 
+              value="1">
+            <button>+</button>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Code -->
+    <script>
+
+      const displayTip = document.getElementById('display-tip')
+      const displayTotal = document.getElementById('display-total')
+      const displayEach = document.getElementById('display-each')
+      const displayCalcTip = document.getElementById('display-calc-tip')
+
+      const inputBill = document.getElementById('input-bill')
+      const inputTip = document.getElementById('input-tip')
+      const inputPeople = document.getElementById('input-people')
+      
+      let tipPercent = 15
+      let bill = 10
+      let people = 1
+      let total = 0
+      let tip = 0
+
+      inputBill.addEventListener('input', function(e) {
+        const newBill = parseFloat(e.target.value)
+
+        console.log(e)
+        console.log(e.target.value)
+        console.log(newBill)
+        console.log(bill)
+
+        if (!isNaN(newBill)) {
+          bill = newBill
+        } else {
+          e.target.value = bill
+        }
+
+        calculateTip()
+      })
+
+      inputTip.addEventListener('input', function(e) {
+        const newTipPercent = parseFloat(e.target.value)
+
+        if (!isNaN(newTipPercent)) {
+          tipPercent = newTipPercent
+        } else {
+          e.target.value = tipPercent
+        }
+
+        calculateTip()
+      })
+
+      inputPeople.addEventListener('input', function(e) {
+        const newPeople = parseInt(e.target.value)
+        if (!isNaN(newPeople)) {
+          people = newPeople
+        } else {
+          e.target.value = newPeople
+        }
+
+        calculateTip()
+      })
+
+      function calculateTip() {
+        const tip = bill * tipPercent / 100
+        const total = bill + tip
+        const perPerson = total / people
+
+        // const calculatedTip = 
+
+        displayTip.innerHTML = tip.toFixed(2)
+        displayTotal.innerHTML = total.toFixed(2)
+        displayEach.innerHTML = perPerson.toFixed(2)
+      }
+
+      // Challenge make a tip calculator
+      // Google "tip calculator" for a good example
+
+      // Knowledge
+      // Basic JS 
+      // Events and listeners
+
+      // Stretch
+      // Make tip amount a field calculate the tip % from the tip entered
+      // Caclulate per person
+      // Reverse calculate percentage from amount
+
+    </script>
+  </body>
+</html>

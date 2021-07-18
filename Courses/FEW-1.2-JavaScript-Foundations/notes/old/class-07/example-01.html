@@ -1,0 +1,72 @@
+<!doctype html>
+<html>
+	<head>
+	<style>
+		.arena {
+			width: 400px;
+			height: 400px;
+			background-color: beige;
+			border: 1px solid;
+			position: relative;
+		}
+		.box {
+			width: 20px;
+			height: 20px;
+			background-color: red;
+			position: absolute;
+			left: 200px;
+			top: 200px;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="arena">
+		<div id="box" class="box"></div>
+	</div>
+	<p id="x-position">000</p>
+	<p id="y-position">000</p>
+	<p><span id="key-code"></span></p>
+	
+	<script>
+		// Get the box
+		const box = document.getElementById('box')
+		const x_position = document.getElementById('x-position')
+		const y_position = document.getElementById('y-position')
+		const key_code = document.getElementById('key-code')		
+
+		// Listen for key press
+		document.addEventListener('keydown', onKeyDown)
+		
+		let x = 200
+		let y = 200
+		
+		function onKeyDown(e) {
+			switch(e.keyCode) {
+				case 39: 
+					x += 5
+					break
+				case 37: 
+					x -= 5
+					break
+				case 38: 
+					y -= 5
+					break
+				case 40: 
+					y += 5
+					break
+				default: 
+					console.log(e.keyCode)
+			}
+		}
+		
+		function update() {
+			box.style.left = `${x}px`
+			box.style.top = `${y}px`
+			requestAnimationFrame(update)
+		}
+		
+		update()
+	</script>
+</body>
+</html>

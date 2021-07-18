@@ -1,0 +1,176 @@
+
+<canvas id="canvas" width="600" height="400"></canvas>
+
+<script>
+	const canvas = document.getElementById('canvas')
+	canvas.style.border = '1px solid'
+	const ctx = canvas.getContext('2d')
+
+	const data = new Set()
+	for (let i = 0; i < 30; i += 1) {
+		data.add(Math.random())
+	}
+	
+	// ----------------------------------------------
+	// Draw a rectangle
+
+	{
+		// const i = 0
+		// ctx.beginPath()	// Begin a path
+		// ctx.rect(200, 120, 100, 140) // draw a rectangle
+		// ctx.fillStyle = 'red' // set the fill style
+		// ctx.fill() // fill the rectangle
+	}
+	
+	
+	// ----------------------------------------------
+	// Draw 30 rectangles 
+	{
+		// // Divide the horizontal area by the number of elements
+		// const xStep = 600 / data.size 
+		// let i = 0 // Use this to count 
+		// // Do this function for each element
+		// data.forEach((val) => {
+		// 	const x = xStep * i // calculate the x value
+		// 	const y = val * 400	// calculate the y value
+		// 	ctx.beginPath() // begin a new path
+		// 	ctx.rect(x, y, 20, 20) // draw a rectangle
+		// 	ctx.fillStyle = '#39d' // Set the fill style
+		// 	ctx.fill() // fill the rectangle
+		// 	i += 1 // count
+		// })
+	}
+	
+	// ----------------------------------------------
+	// Draw bars from the bottom 
+	{
+		// const xStep = 600 / data.size 
+		// let i = 0
+		// data.forEach((val) => {
+		// 	const x = xStep * i 
+		// 	const y = val * 400	
+		// 	const h = 400 - y
+		// 	ctx.beginPath() 
+		// 	ctx.rect(x, y, 20, h) 
+		// 	// make a random color
+		// 	const hue = Math.floor(Math.random() * 360)
+		// 	ctx.fillStyle = `hsl(${hue}, 67%, 50%)` 
+		// 	ctx.fill() 
+		// 	i += 1 
+		// })
+	}
+	
+	
+	// ----------------------------------------------
+	// Draw a circle 
+	{
+		// ctx.beginPath() // Begin a path
+		// ctx.arc(300, 200, 180, 0, Math.PI * 2) // draw an arc
+		// ctx.fillStyle = 'green' // set the fill color
+		// ctx.fill() // fill the arc
+		// ctx.strokeStyle = 'brown' // set a stroke color
+		// ctx.lineWidth = 12 // set the line width
+		// ctx.stroke() // draw the stroke
+	}
+	
+	// ----------------------------------------------
+	// Draw an Arc 
+	{
+		// ctx.beginPath() 
+		// // Use the ending angle to draw an arc
+		// const angle = Math.random() * Math.PI * 2 
+		// ctx.arc(300, 200, 180, 0, angle) 
+		// ctx.strokeStyle = '#000' 
+		// ctx.lineWidth = 12 
+		// ctx.stroke() 
+	}
+	
+	// ----------------------------------------------
+	// Draw an Arc 
+	{
+		// ctx.beginPath() 
+		// // Use the starting angle to draw an arc
+		// const angle = Math.random() * Math.PI + Math.PI
+		// ctx.arc(300, 200, 180, Math.PI, angle) 
+		// ctx.strokeStyle = '#000' 
+		// ctx.lineWidth = 12 
+		// ctx.stroke() 
+	}
+	
+	// ----------------------------------------------
+	// Draw concentric arcs
+	{
+		// const step = 600 / 2 / data.size
+		// let i = 0
+		// data.forEach((val) => {
+		// 	ctx.beginPath() 
+		// 	const angle = val * Math.PI + Math.PI
+		// 	const radius = step * i
+		// 	ctx.arc(300, 400, radius, Math.PI, angle) 
+		// 	// make a random color
+		// 	const hue = Math.floor(Math.random() * 360)
+		// 	ctx.strokeStyle = `hsl(${hue}, 33%, 50%)`
+		// 	ctx.lineWidth = 9 
+		// 	ctx.stroke() 
+		// 	i += 1
+		// })
+	}
+	
+	// ----------------------------------------------
+	// Draw a line 
+	
+	{
+		// ctx.beginPath()	// Start a new path
+		// ctx.lineTo(50, 350) // move to a starting point
+		// ctx.lineTo(550, 50) // draw a line to this point
+		// ctx.lineWidth = 13 // set the width of a stroke
+		// ctx.strokeStyle = 'red' // set the color of the stroke
+		// ctx.stroke() // draw the stroke
+	}
+	
+	// ----------------------------------------------
+	// Draw a line from data
+	
+	{
+		// let i = 0 // Keep track of the steps
+		// // calculate the horizontal distance between each point
+		// const xStep = 600 / data.size
+		
+		// ctx.beginPath()	// Begin a new path
+		// ctx.moveTo(0, 400 * data[0]) // move to a starting point
+		
+		// // Draw lines from point to point looping through data
+		// data.forEach((val) => {
+		// 	// draw a line to this point
+		// 	ctx.lineTo(i * xStep + 10, 400 * val) 
+		// 	i += 1
+		// })
+		
+		// // After drawing the path set the linewidth and style
+		// ctx.lineWidth = 5 // set the width of a stroke
+		// ctx.strokeStyle = 'red' // set the color of the stroke
+		// ctx.stroke() // draw the stroke
+	}
+	
+	
+	// Create a new set
+	const mySet = new Set() // or new Set([1,2,3])
+	// Add elements 
+	mySet.add(1)
+	mySet.add(2)
+	mySet.add(3)
+	mySet.add(1)
+	console.log(mySet) // Set(3) {1, 2, 3}
+	// Count the set 
+	console.log(mySet.size) // 3
+	// Iterate over the set 
+	mySet.forEach((val, key) => {
+		console.log(val) // 1, 2, 3
+	})
+	// Check if an value exists 
+	console.log(mySet.has(1)) // true
+	console.log(mySet.has(5))	// false
+	// Remove an element from the set
+	mySet.delete(2) // returns true 
+	console.log(mySet.has(2))	// false
+</script>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <title>Syllabus Template Slides</title>
+    <link rel="stylesheet" href="./../../css/reveal.css" />
+    <link rel="stylesheet" href="./../../css/theme/black.css" id="theme" />
+    <link rel="stylesheet" href="./../../css/highlight/zenburn.css" />
+    <link rel="stylesheet" href="./../../css/print/paper.css" type="text/css" media="print" />
+    <link rel="stylesheet" href="./../../assets/Reveal/makeschool.css" />
+
+    <script>
+      document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>');
+    </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides"><section  data-markdown><script type="text/template"># Dictionaries Practice
+
+## Code the following challenges in a Swift Playground.
+
+1. Create an array where the key is the name of an app and the value is the time you spend on it daily. Enter a few examples.
+
+2. Give the following dictionary. Access a hex value of a color.
+
+```Swift
+var colorHex: [String:String] = [
+    "purple" : "#6C3483",
+    "blue" : "#2874A6",
+    "green": "#1E8449" ,
+    "orange" : "#D35400",
+    "yellow" : "#F1C40F",
+    "white" : "#FFFFFF",
+    "black" : "#000000"
+]
+```
+
+Try to access the value in a safe way. 😅
+
+3. Try adding a new color `red` with hex #f20707. Then print the dictionary to see the change.
+
+4. Delete any color from the dictionary. Then print the dictionary to see the change.
+</script></section></div>
+    </div>
+
+    <script src="./../../js/reveal.js"></script>
+
+    <script>
+      function extend() {
+        var target = {};
+        for (var i = 0; i < arguments.length; i++) {
+          var source = arguments[i];
+          for (var key in source) {
+            if (source.hasOwnProperty(key)) {
+              target[key] = source[key];
+            }
+          }
+        }
+        return target;
+      }
+
+      // Optional libraries used to extend on reveal.js
+      var deps = [
+        { src: './../../plugin/markdown/marked.js', condition: function() { return !!document.querySelector('[data-markdown]'); } },
+        { src: './../../plugin/markdown/markdown.js', condition: function() { return !!document.querySelector('[data-markdown]'); } },
+        { src: './../../plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+        { src: './../../plugin/zoom-js/zoom.js', async: true },
+        { src: './../../plugin/notes/notes.js', async: true },
+        { src: './../../plugin/math/math.js', async: true }
+      ];
+
+      // default options to init reveal.js
+      var defaultOptions = {
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+        transition: 'default', // none/fade/slide/convex/concave/zoom
+        dependencies: deps
+      };
+
+      // options from URL query string
+      var queryOptions = Reveal.getQueryHash() || {};
+
+      var options = extend(defaultOptions, {"controls":true,"progress":true,"autoPlayMedia":false,"slideNumber":"c/t","showSlideNumber":"all","controlsTutorial":true,"controlsLayout":"edges","transition":"slide","transitionSpeed":"medium","minScale":0.5,"maxScale":3}, queryOptions);
+    </script>
+
+
+    <script>
+      Reveal.initialize(options);
+    </script>
+  </body>
+</html>

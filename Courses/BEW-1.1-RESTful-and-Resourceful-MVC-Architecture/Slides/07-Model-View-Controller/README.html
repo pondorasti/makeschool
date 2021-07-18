@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <title>BEW 1.1 Slides</title>
+    <link rel="stylesheet" href="./../css/reveal.css" />
+    <link rel="stylesheet" href="./../css/theme/black.css" id="theme" />
+    <link rel="stylesheet" href="./../css/highlight/atom-one-light.css" />
+    <link rel="stylesheet" href="./../css/print/paper.css" type="text/css" media="print" />
+    <link rel="stylesheet" href="./../assets/Reveal/makeschool.css" />
+
+    <script>
+      document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>');
+    </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides"><section  data-markdown><script type="text/template"><!-- Run this slideshow via the following command: -->
+<!-- reveal-md README.md -w -->
+
+
+<!-- .slide: data-background="./../Images/header.svg" data-background-repeat="none" data-background-size="40% 40%" data-background-position="center 10%" class="header" -->
+# Model, View, Controller
+
+</script></section><section  data-markdown><script type="text/template">
+## Agenda
+
+1. Submit GIF Search [5 mins]
+1. Essential Question & Discussion [15 mins]
+1. Model, View, Controller [20 mins]
+1. Activity [40 mins]
+1. How Flask works / Quiz review [25 mins]
+</script></section><section  data-markdown><script type="text/template">
+## Submit GIF Search
+
+Visit [make.sc/submit-gif-search](http://make.sc/submit-gif-search) to submit.
+</script></section><section ><section data-markdown><script type="text/template">
+## Essential Question
+
+How do pages on the Web communicate with each other?
+</script></section><section data-markdown><script type="text/template">
+## Think, Pair, Share [15 mins]
+
+Let's say I go to Amazon.com, search for an item, and put it into my shopping cart.
+
+*How* does this happen? If Amazon were an app written in Flask, what would it look like? Write down *everything* you know.
+</script></section></section><section ><section data-markdown><script type="text/template">
+# Model, View, Controller
+</script></section><section data-markdown><script type="text/template">
+## Overview
+
+When we write code for a web server, we typically use a convention known as **Model, View, Controller**.
+
+![Restaurant](assets/restaurant.png)
+</script></section><section data-markdown><script type="text/template">
+## Controller
+
+The **controller** is like the waiter.
+
+In our Flask application, the **controller** is the routes contained in `app.py`.
+
+![Waiter](assets/waiter.jpeg)
+</script></section><section data-markdown><script type="text/template">
+## View
+
+The **view** is like the menu.
+
+In our Flask application, our **views** are the HTML pages. 
+
+![Menu](assets/menu.png)
+</script></section><section data-markdown><script type="text/template">
+## Model
+
+The **model** is like the food!
+
+In our Flask application, the **model** is the data being passed back and forth between the client and server.
+
+![Food](assets/food.png)
+</script></section></section><section  data-markdown><script type="text/template">
+## Activity
+
+1. What are the Model, View, and Controller, and what do they represent in our Flask app? Make sure each person understands before moving on.
+1. Choose a website that you use frequently and at least one way you interact with that website. Ex: Searching for cat videos on YouTube.
+1. Decide who will be the Model, View, Controller, and User. Write a short skit and have each person act out their role.
+1. Practice your skit!
+</script></section><section  data-markdown><script type="text/template">
+## Review
+
+Let's review the Dice Game activity [here](https://github.com/Make-School-Courses/BEW-1.1-RESTful-and-Resourceful-MVC-Architecture/tree/master/Examples/DiceGame/05-Unit-Tests).
+</script></section><section  data-markdown><script type="text/template">
+## Playlister Tutorial
+
+Check out the tutorial here: make.sc/playlister
+
+Due Thurs, Sept. 26
+</script></section><section  data-markdown><script type="text/template">
+## Announcements
+
+Quiz on Tuesday, Sept. 24 covering APIs, `curl`, `requests`, and testing</script></section></div>
+    </div>
+
+    <script src="./../js/reveal.js"></script>
+
+    <script>
+      function extend() {
+        var target = {};
+        for (var i = 0; i < arguments.length; i++) {
+          var source = arguments[i];
+          for (var key in source) {
+            if (source.hasOwnProperty(key)) {
+              target[key] = source[key];
+            }
+          }
+        }
+        return target;
+      }
+
+      // Optional libraries used to extend on reveal.js
+      var deps = [
+        { src: './../plugin/markdown/marked.js', condition: function() { return !!document.querySelector('[data-markdown]'); } },
+        { src: './../plugin/markdown/markdown.js', condition: function() { return !!document.querySelector('[data-markdown]'); } },
+        { src: './../plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+        { src: './../plugin/zoom-js/zoom.js', async: true },
+        { src: './../plugin/notes/notes.js', async: true },
+        { src: './../plugin/math/math.js', async: true }
+      ];
+
+      // default options to init reveal.js
+      var defaultOptions = {
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+        transition: 'default', // none/fade/slide/convex/concave/zoom
+        dependencies: deps
+      };
+
+      // options from URL query string
+      var queryOptions = Reveal.getQueryHash() || {};
+
+      var options = extend(defaultOptions, {"controls":true,"progress":true,"autoPlayMedia":false,"slideNumber":"c/t","showSlideNumber":"all","controlsTutorial":true,"controlsLayout":"edges","transition":"slide","transitionSpeed":"medium","minScale":0.5,"maxScale":3}, queryOptions);
+    </script>
+
+
+    <script>
+      Reveal.initialize(options);
+    </script>
+  </body>
+</html>

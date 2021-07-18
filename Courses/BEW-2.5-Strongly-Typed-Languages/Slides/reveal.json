@@ -1,0 +1,9 @@
+{
+  "width": "80%",
+  "height": "100%",
+  "margin": 0,
+  "minScale": 1,
+  "maxScale": 1,
+  "controls": true,
+  "progress": true
+}

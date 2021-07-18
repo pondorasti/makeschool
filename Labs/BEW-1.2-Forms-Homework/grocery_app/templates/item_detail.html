@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>Item - {{ item.name }}</h1>
+
+<p><img src="{{ item.photo_url }}" width="250px" height="250px"></p>
+
+<p><strong>Price:</strong> {{ item.price }}</p>
+
+<p><strong>Category:</strong> {{ item.category }}</p>
+
+<p><strong>Store:</strong> {{ item.store.title }}</p>
+
+
+<h2>Edit Item</h2>
+
+<form>
+    <fieldset>
+        <legend>Please enter your information:</legend>
+
+
+
+        <!-- TODO: Remove the next paragraph and use the `form` object passed in 
+            from the route to render a form. -->
+        <p><em>Form fields go here!</em></p>
+
+        <input type="submit" value="Submit">
+    </fieldset>
+</form>
+
+{% endblock %}

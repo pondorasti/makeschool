@@ -1,0 +1,32 @@
+<%= form_with(model: top_track, local: true) do |form| %>
+  <% if top_track.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(top_track.errors.count, "error") %> prohibited this top_track from being saved:</h2>
+
+      <ul>
+      <% top_track.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :track_name %>
+    <%= form.text_field :track_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :album_name %>
+    <%= form.text_field :album_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :personal_ranking %>
+    <%= form.number_field :personal_ranking %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

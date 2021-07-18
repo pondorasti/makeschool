@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <title>Syllabus Template Slides</title>
+    <link rel="stylesheet" href="./../css/reveal.css" />
+    <link rel="stylesheet" href="./../css/theme/black.css" id="theme" />
+    <link rel="stylesheet" href="./../css/highlight/zenburn.css" />
+    <link rel="stylesheet" href="./../css/print/paper.css" type="text/css" media="print" />
+    <link rel="stylesheet" href="./../assets/Reveal/makeschool.css" />
+
+    <script>
+      document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>');
+    </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides"><section  data-markdown><script type="text/template"># Introduction to iOS App Development
+
+## Minute-by-Minute
+
+| **Time(min)** | **Activity**                              |
+| ------------- | ------------------------------------------|
+| 5             | Introduction to course                    |
+| 5             | Objectives & Intro Mobile App Development |
+| 10            | Think-Pair-Share Pros & Cons Mobile Dev   |
+| 10            | Activity Featured App                     |
+| 10            | Activity - Native & Cross Platform        |
+| 10            | Break                                     |
+| 15            | TT iOS & Xcode                            |
+| 10            | Walkthrough Xcode                         |
+| 10            | TT UIKit                                  |
+| 15            | Activity: Identify elements in apps       |
+| 5             | Wrap up and Q&A                           |
+
+## Class Learning Objectives/Competencies
+
+By the end of this lesson, students should be able to:
+
+- Analyze what mobile app development entails
+- Identify pros and cons of mobile development
+- Discuss native development and cross platform frameworks
+- Identify current platform versions
+- Identify common elements in iOS apps
+- Familiarize with IDE & UIKit
+
+## Overview
+
+Slides:
+
+[Introduction to iOS App Development](https://docs.google.com/presentation/d/1U0K65MGwAeD9m8TiNnXustSiM-cVK-_y-Frvi3jXQTA/edit?usp=sharing)
+
+## Wrap Up
+
+Complete [Magic 8 Ball tutorial](https://www.makeschool.com/academy/track/learn-how-to-build-apps--magic-8-ball)
+
+## Additional Resources
+
+[iOS 12](https://www.apple.com/ios/ios-12/)<br>
+[Xcode 10](https://developer.apple.com/xcode/)<br>
+[Xcode 10 features](https://www.youtube.com/watch?v=RwO5HKuqLEg)<br>
+[Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/ios/overview/interface-essentials/)
+</script></section></div>
+    </div>
+
+    <script src="./../js/reveal.js"></script>
+
+    <script>
+      function extend() {
+        var target = {};
+        for (var i = 0; i < arguments.length; i++) {
+          var source = arguments[i];
+          for (var key in source) {
+            if (source.hasOwnProperty(key)) {
+              target[key] = source[key];
+            }
+          }
+        }
+        return target;
+      }
+
+      // Optional libraries used to extend on reveal.js
+      var deps = [
+        { src: './../plugin/markdown/marked.js', condition: function() { return !!document.querySelector('[data-markdown]'); } },
+        { src: './../plugin/markdown/markdown.js', condition: function() { return !!document.querySelector('[data-markdown]'); } },
+        { src: './../plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+        { src: './../plugin/zoom-js/zoom.js', async: true },
+        { src: './../plugin/notes/notes.js', async: true },
+        { src: './../plugin/math/math.js', async: true }
+      ];
+
+      // default options to init reveal.js
+      var defaultOptions = {
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+        transition: 'default', // none/fade/slide/convex/concave/zoom
+        dependencies: deps
+      };
+
+      // options from URL query string
+      var queryOptions = Reveal.getQueryHash() || {};
+
+      var options = extend(defaultOptions, {"controls":true,"progress":true,"autoPlayMedia":false,"slideNumber":"c/t","showSlideNumber":"all","controlsTutorial":true,"controlsLayout":"edges","transition":"slide","transitionSpeed":"medium","minScale":0.5,"maxScale":3}, queryOptions);
+    </script>
+
+
+    <script>
+      Reveal.initialize(options);
+    </script>
+  </body>
+</html>

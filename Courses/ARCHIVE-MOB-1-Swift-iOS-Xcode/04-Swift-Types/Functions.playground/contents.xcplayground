@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<playground version='6.0' target-platform='osx' display-mode='rendered' last-migration='0800'>
+    <pages>
+        <page name='01-Becoming-Functional'/>
+        <page name='02-Combining-Functions'/>
+        <page name='03-Draw-A-Square'/>
+        <page name='04-Custom-Functions'/>
+        <page name='05-A-Bigger-Challenge'/>
+        <page name='06-More-Custom-Functions'/>
+        <page name='07-Passing-Data-To-Functions'/>
+        <page name='08-Repeating-Code'/>
+        <page name='09-Even-More-Data'/>
+        <page name='10-Returning-Values'/>
+        <page name='11-Create-Something-Cool'/>
+    </pages>
+</playground>

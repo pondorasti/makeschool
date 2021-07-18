@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <title>Syllabus Template Slides</title>
+    <link rel="stylesheet" href="./../css/reveal.css" />
+    <link rel="stylesheet" href="./../css/theme/black.css" id="theme" />
+    <link rel="stylesheet" href="./../css/highlight/zenburn.css" />
+    <link rel="stylesheet" href="./../css/print/paper.css" type="text/css" media="print" />
+    <link rel="stylesheet" href="./../assets/Reveal/makeschool.css" />
+
+    <script>
+      document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>');
+    </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides"><section  data-markdown><script type="text/template"># [TITLE]
+
+<!-- INSTRUCTOR <aside class="notes"><p>1) Quiz for Initial Exercise is located: --&gt;</p>
+<h2 id="minute-by-minute">Minute-by-Minute</h2>
+<table>
+<thead>
+<tr>
+<th><strong>Elapsed</strong></th>
+<th><strong>Time</strong></th>
+<th><strong>Activity</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>0:00</td>
+<td>0:05</td>
+<td>Objectives</td>
+</tr>
+<tr>
+<td>0:05</td>
+<td>0:15</td>
+<td>Overview</td>
+</tr>
+<tr>
+<td>0:20</td>
+<td>0:30</td>
+<td>In Class Activity I</td>
+</tr>
+<tr>
+<td>0:50</td>
+<td>0:10</td>
+<td>BREAK</td>
+</tr>
+<tr>
+<td>1:00</td>
+<td>0:45</td>
+<td>In Class Activity II</td>
+</tr>
+<tr>
+<td>1:45</td>
+<td>0:05</td>
+<td>Wrap up review objectives</td>
+</tr>
+<tr>
+<td>TOTAL</td>
+<td>1:50</td>
+<td>-</td>
+</tr>
+</tbody></table>
+<h2 id="why-you-should-know-this-or-industry-application-5-min">Why you should know this or industry application (5 min)</h2>
+<p>The key to making a popular game app is polish: adding loads of well-considered details that set your game apart and bring it to life.</p>
+<p>To push your game to that next level &mdash; to really entertain and delight your users, to get them to engage with your game &mdash; you absolutely <em>must</em> add what is known as <strong>*&quot;juice.&quot;*</strong></p>
+<p>Adding juice means tricking out your game with special effects such as:</p>
+<ul>
+<li>Scenes and Scene Transitions</li>
+<li>Simple Animation (scaling, rotation, movement, and more)</li>
+<li>Music and Sound Effects</li>
+<li>Game Mechanics (including Victory or Game Over Conditions)</li>
+<li>Particle Effects (explosions, collisions, fire, etc.)</li>
+<li>Screen Effects</li>
+</ul>
+<p>When every interaction within your game world results in a cascade of visual and audible feedback really adds depth and dimension to the user experience and keeps users coming back for more.</p>
+<p>As you develop your game, you will get in the habit of adding juice to it as you go...</p>
+<blockquote>
+<p>Most of the tools to create the special effects listed above are already in your iOS toolkit; others, such as music and sound effects, can be found online or created with free or inexpensive software</p>
+</blockquote>
+<!-- TODO:  Describe "Juice" here -- it is an umbrella under which all topics in the outline for this lesson fit properly -->
+
+<!-- TODO: search ref books 1 and 2 for ideas on how to describe, exemplify "juice" -->
+
+
+
+<h2 id="learning-objectives-5-min">Learning Objectives (5 min)</h2>
+<ul>
+<li>iOS’s three built-in support mechanisms for playing both sound effects and background music, and how to use them to create sound FX in a game</li>
+<li>how to work with SpriteKit Particle Effects to create special effects</li>
+</ul>
+<ol start="2">
+<li>Implement in your running class project, AstroJunk:</li>
+</ol>
+<ul>
+<li>Background music</li>
+<li>Sound effects, in response to game events/mechanics</li>
+<li>SpriteKit Particle Systems to add explosions/fire in response to game entity events (collisions, etc.)</li>
+</ul>
+<h2 id="initial-exercise-20-min">Initial Exercise (20 min)</h2>
+<!-- From outline reworked on 8/6/19:
+
+Class 4: Adding “Juice” & Working With Scenes
+TV - Creating scenes (with custom init)
+Could we use the Space game and add levels? Will that adequately illustrate creating multiple scenes?
+TV - Changing scenes
+Game mechanics (win/lose conditions)
+TV - Creating a menus
+TV - Background music
+TV - Sound action
+AG Particle systems (SpriteKit)
+    Activity:
+Add explosions? Collisions? Between meteors and the ship
+Fire to the ship as it flies
+Debugging and/or testing
+
+-->
+
+
+
+
+<h2 id="sound--overviewtt-ii--20-min">Sound &mdash; [Overview/TT II]  (20 min)</h2>
+<blockquote>
+<p>George Lucas, the creator of the <em>Star Wars</em> movies, once famously said: &quot;The sound and music are 50% of the entertainment in a movie.&quot; <sup>3</br></p>
+</blockquote>
+<p>It&#39;s just as important in game apps.</p>
+<p>One of the biggest mistakes a game developer can make is to underestimate the power of audio.</p>
+<p>When a game includes awesome sound effects that respond to visible gameplay elements and great-sounding background music, players become immersed in the game&#39;s world.</p>
+<h3 id="sound-in-spritekit-apps">Sound in SpriteKit apps</h3>
+<p>Thankfully, the good folks at Apple realize the importance of sound! They&#39;ve included some really flexible, really cool sound capabilities in SpriteKit...</p>
+<p>iOS supports three built-in functional mechanisms in SpriteKit for including sound effects and music in your game:</p>
+<ol>
+<li><code>AVAudioPlayer</code> &mdash; Part of the <code>AVFoundation</code> framework. It&#39;s an audio player that provides playback of audio data from a file or from memory.</li>
+</ol>
+<ul>
+<li>Gives you the most power and control over audio playback.</li>
+<li>Requires the most work to implement.</li>
+</ul>
+<ol start="2">
+<li><code>SKAction</code> &mdash; Allows you to create sound <em>actions</em> &mdash; subclasses of <code>SKAction</code> that you can use to control your sound effects which can be implemented like any other <code>SKAction</code> (including participation in group or sequence actions).</li>
+</ol>
+<ul>
+<li>Best for short, one-time audio clips (not as good for background music or other long-playing sound files)</li>
+<li>Audio actions are instantaneous, which makes them more useful when chaining or reusing <code>SKAction</code> objects.</li>
+</ul>
+<ol start="3">
+<li><code>SKAudioNode</code> &mdash; A subclass of <code>SKNode</code> that plays audio.</li>
+</ol>
+<ul>
+<li>Good for background music or other audio for which you might want to control stop and start.</li>
+<li>Can also be used for Sound FX.</li>
+<li>Because it is a subclass of <code>SKNode</code>, you can also manipulate it by passing <code>SKAction</code> objects to it.</li>
+<li>Affords more power and control than <code>SKAction</code>, but has fewer controlling functions than <code>AVAudioPlayer</code>.</li>
+</ul>
+<p><em>Sources: Various Apple Docs</em></p>
+<h3 id="adding-background-music">Adding Background Music</h3>
+<p>Music plays an important part in setting the pace and emotional tone of a movie.</p>
+<p>In game apps, background music servers a similar purpose.</p>
+<p>And adding background music to your game is easy.</p>
+<p>But there are important considerations you should be aware of.</p>
+<p><strong>Considerations</strong> </br>
+Here are a few key points to consider when adding background music:</p>
+<ol>
+<li><p><strong>For long-running files</strong> &mdash; Use <code>AVAudioPlayer</code> for playing long-running files such as background music.</p>
+</li>
+<li><p><strong>Prevent Sound Delays</strong></p>
+</li>
+</ol>
+<ul>
+<li>load files ahead of time, before the sound needs to be played, to avoid playback delays (but weigh this against memory consumption: lots of long-running sound files can eat up memory)</li>
+</ul>
+<blockquote>
+<p><em>Typically music and large audio files should be streamed, if possible. For small sound effects, it’s better to preload them into memory for faster playback.</em></p>
+</blockquote>
+<ol start="3">
+<li><p><strong>Create utility classes</strong> &mdash; for handling audio, including <code>AVAudioPlayer</code> functions, loading sound files, and so on</p>
+</li>
+<li><p><strong>Use Asset Catalogs</strong> &mdash; To organize audio files, create a sound folder inside an Asset Catalog and store files there for loading</p>
+</li>
+</ol>
+<!-- TODO: add more key points..
+
+- see ref books for ideas and coverage  
+-->
+
+<p><strong>Two Implementation Options</strong> </br></p>
+<ol>
+<li><code>AVAudioPlayer</code> provides more power and control.</li>
+<li><code>SKAudioNode</code> is easier to implement</li>
+</ol>
+<p><strong><em>AVAudioPlayer Example</em></strong> </br>
+This simple, non-working code snippet illustrates the key steps needed to add background music to a game app by implementing an instance of <code>AVAudioPlayer</code>:</p>
+<pre><code class="language-Swift">import AVFoundation // 1)
+
+public var backgroundMusicPlayer: AVAudioPlayer? // 2)
+
+public func playBackgroundMusic(_ filename: String) {
+    let url = Bundle.main.url(forResource: filename, withExtension: nil) // 3)
+    if (url == nil) {
+      print(&quot;Could not find file: \(filename)&quot;)
+      return
+    }
+
+    var error: NSError? = nil
+    do {
+      backgroundMusicPlayer = try AVAudioPlayer(contentsOf: url!) // 4)
+    } catch let error1 as NSError {
+      error = error1
+      backgroundMusicPlayer = nil
+    }
+    if let player = backgroundMusicPlayer {
+      player.numberOfLoops = -1 // 5)
+      player.prepareToPlay() // 6)
+      player.play() // 7)
+    } else {
+      print(&quot;Could not create audio player: \(error!)&quot;)
+    }
+  }
+
+  // any place in your code you want to play the BG music...
+  playBackgroundMusic(&quot;backgroundMusic.wav&quot;) // 8)
+
+  // ...at some point, you want to stop playing...
+  backgroundMusicPlayer.stop() // 9)</code></pre>
+<p>Let&#39;s breakdown the key events in this code snippet:</p>
+<p>1) For access to the <code>AVAudioPlayer</code>, we imported the <code>AVFoundation</code> framework</p>
+<p>2) Here, we simply create an instance variable that is of type <code>Optional: AVAudioPlayer</code> for later use</p>
+<p>3) We want to pass the location (as a URL) of whatever file we want to play to the <code>AVAudioPlayer</code> variable:</p>
+<ul>
+<li>To get the location of the file, we use the <code>Bundle</code> class’s <code>url(forResource:, withExtension:)</code> function because it allows us to access the location of <strong><em>any</em></strong> resource that has been added to the app’s Xcode target</li>
+</ul>
+<p>4) Here, we pass the location of the file to play to the <code>AVAudioPlayer</code> instance, handling any of the typical file I/O errors that are commonly-known to occur</p>
+<p>5) To loop playback, you change the <code>numberOfLoops</code><sup>4</sup> property on your <code>AVAudioPlayer</code> instance:</p>
+<p>By setting the <code>numberOfLoops</code> property, you can make an <code>AVAudioPlayer</code> play its file a single time or a fixed number of times before stopping. Or you can set it to run continuously until it is sent a <code>pause</code> or a <code>stop</code> message.</p>
+<ul>
+<li>To make an <code>AVAudioPlayer</code> play one time and then stop:</li>
+</ul>
+<pre><code class="language-Swift">audioPlayer?.numberOfLoops = 0</code></pre>
+<blockquote>
+<p><em>This behavior is the same as the default behavior <code>AVAudioPlayer</code> &mdash; unless you configure it otherwise, <code>AVAudioPlayer</code> by default plays its sound only one time, stops the player, and unloads the player object from memory.</em></p>
+</blockquote>
+<ul>
+<li>Setting the <code>numberOfLoops</code> property to <code>1</code> will make <code>AVAudioPlayer</code> play twice, then stop:</li>
+</ul>
+<pre><code class="language-Swift">audioPlayer?.numberOfLoops = 1</code></pre>
+<p>After it’s finished playing, a second call to <code>play()</code> will rewind it and play it again.</p>
+<p>6) Calling the <code>prepareToPlay()</code> method on the player object minimizes the lag between calling the <code>play()</code> method and the start of sound output by preparing the audio player&#39;s hardware and memory buffers required for playback.</p>
+<blockquote>
+<p><em>Note that if the audio player is not already prepared for playback, the <code>prepareToPlay()</code> method will be called implicitly by the <code>play()</code> method when it is called, but this will likely result in the sound lag mentioned.</em></p>
+</blockquote>
+<p>7) Calling <code>play()</code> on the player will asynchronously play the sound file passed to the player</p>
+<p>8) At the desired point(s) in your code, call the <code>playBackgroundMusic()</code> function, passing in the audio file you want to play</p>
+<p>9) At key points in your game &mdash; when your Game Over Scene is presented, for example &mdash; you&#39;ll to stop playback:</p>
+<ul>
+<li>To stop playback, you use the <code>pause()</code> or <code>stop()</code> functions <sup>4</sup></li>
+</ul>
+<p><strong><em>SKAudioNode Example</em></strong> </br>
+The simplest way to add audio to a SpriteKit scene is to add a child <code>SKAudioNode</code> to it.</p>
+<p><code>SKAudioNode</code> was introduced in iOS 9 as an alternative to <code>SKAction.playSoundFileNamed(...)</code>.</p>
+<p><code>SKAudioNode</code> is much more powerful than its alternative:</p>
+<ul>
+<li>Sounds are played automatically using <code>AVFoundation</code>.</li>
+<li>Can be added as a child to a SpriteKit <code>SKNode</code>.</li>
+<li>The node can optionally add 3D spatial audio effects to the audio when it is played (3D audio mixing is added automatically if the attribute <code>isPositional</code> is set to <code>true</code>), which allows you to pan your audio left and right.</li>
+<li>It loops its audio file by default.</li>
+<li>It allows stopping and restarting audio whenever you want.</li>
+</ul>
+<pre><code class="language-Swift">let audioNode = SKAudioNode(fileNamed: &quot;drums.mp3&quot;)
+spriteKitViewController.scene.addChild(audioNode)
+audioNode.isPositional = false // 1)
+audioNode.run(SKAction.stop()) // 2)
+audioNode.run(SKAction.play()) // 3)</code></pre>
+<p>Let&#39;s examine what&#39;s happening in the code above:</p>
+<p>1) <code>isPositional</code> is a Boolean property that indicates whether the node’s audio is altered based on the position of the node.</p>
+<ul>
+<li><p>The default value is <code>true</code>, the audio mixer considers the position and velocity of the <code>SKAudioNode</code> relative to scene&#39;s current listener<sup>5</sup> node. This means the audio is attached to the node and, if the node moves, the audio moves with it.</p>
+</li>
+<li><p>If <code>false</code>, then the sound is played normally.</p>
+</li>
+</ul>
+<p>2) Pass an <code>SKAction</code> to the node to stop audio playback.</p>
+<p>3) Restart audio playback.</p>
+<p><em>Sources:</em> </br></p>
+<ul>
+<li><a href="https://developer.apple.com/documentation/spritekit/skscene/using_audio_nodes_with_the_scene_s_listener">https://developer.apple.com/documentation/spritekit/skscene/using_audio_nodes_with_the_scene_s_listener</a></li>
+<li><a href="https://tutorials.tinyappco.com/SwiftGames/Sound">https://tutorials.tinyappco.com/SwiftGames/Sound</a></li>
+</ul>
+<h3 id="adding-sound-fx">Adding Sound FX</h3>
+<p>Adding sounds effects that play at just the right moments is another great way to add &quot;juice&quot; to your game, as they can also significantly enhance user immersion in your game&#39;s world.</p>
+<p>One of the best initial strategies for adding sound to your game is to tie effects to game events. Examples:</p>
+<ol>
+<li><strong>Game State events</strong> &mdash; which can include:</li>
+</ol>
+<ul>
+<li>Game start</li>
+<li>Game over (Win/Lose conditions)</li>
+<li>New game level achieved</li>
+<li>Game progress is paused</li>
+<li>Game reload from a saved state</li>
+</ul>
+<ol start="2">
+<li><strong>Player events</strong> &mdash; such as:</li>
+</ol>
+<ul>
+<li>Collisions</li>
+<li>Points scored</li>
+<li>Loot, powers or weapons acquired</li>
+</ul>
+<!-- TODO: 888 see Game State Management section in ref book on 3D games for ideas on when you would add sound to act as Game State cues  -->
+
+
+<p><strong>Simple Example</strong> </br>
+Listed below are several sound actions created with <code>SKAction.playSoundFileNamed(...)</code> that one might set as constants in a utility file or in a project&#39;s <code>GameScene</code> file:</p>
+<pre><code class="language-Swift">let soundGameStart = SKAction.playSoundFileNamed(&quot;gameStart.wav&quot;, waitForCompletion: true)
+let soundCoinDrop = SKAction.playSoundFileNamed(&quot;coinDrop.wav&quot;, waitForCompletion: true)
+let soundPointScored = SKAction.playSoundFileNamed(&quot;pointScored.wav&quot;, waitForCompletion: true)
+let wallCollisionSound: SKAction = SKAction.playSoundFileNamed(&quot;hitWall.wav&quot;, waitForCompletion: false)
+let soundGameOver = SKAction.playSoundFileNamed(&quot;player_die.wav&quot;, waitForCompletion: false)
+let soundWin = SKAction.playSoundFileNamed(&quot;winning.wav&quot;, waitForCompletion: false)</code></pre>
+<ul>
+<li>Each sound action will load and play an audio file.</li>
+<li>Because they were defined before they were needed, they will be preloaded into memory &mdash; which prevents the game from stalling when you play any of them for the first time. (Typically music and large audio files should be streamed, but for small sound effects, it’s better to preload them into memory for faster playback.
+)</li>
+</ul>
+<p>To play them, pass them to a <code>run()</code> function, just as you did with any <code>SKAction</code> in previous lessons:</p>
+<pre><code class="language-Swift">run(wallCollisionSound)</code></pre>
+<p><strong>Sequence Example</strong> </br>
+One of the cool things about sound actions created using <code>SKAction.playSoundFileNamed(...)</code> is that you can associate them with a set of actions &mdash; perhaps a set of actions that all occur at the time of some game event &mdash; and include them in group or sequence actions.</p>
+<p>Expanding on the set of actions declared in the example above (and assuming that <code>action1</code> and <code>action2</code> are <code>SKActions</code> declared somewhere else), we could include a sound action as one of the actions that are executed together as part of a sequence:</p>
+<pre><code class="language-Swift">let sequenceWallCollisionAction = SKAction.sequence([action1, action2, wallCollisionSound])</code></pre>
+<p><strong>Random Selection Example</strong> </br>
+To add variety to your game&#39;s world, <code>SKAction.playSoundFileNamed(...)</code> also let&#39;s you set up an array of similar effects from which your code can randomly choose a sound file to play:</p>
+<pre><code class="language-Swift">let soundCarCrashesArray = [
+  SKAction.playSoundFileNamed(&quot;carCrash1.wav&quot;, waitForCompletion: false),
+  SKAction.playSoundFileNamed(&quot;carCrash2.wav&quot;, waitForCompletion: false),
+  SKAction.playSoundFileNamed(&quot;carCrash3.wav&quot;, waitForCompletion: false)
+]</code></pre>
+<p>Then, depending on game conditions, you could choose which of the similar effects to run:</p>
+<pre><code class="language-Swift"> run(soundCarCrashesArray[2])</code></pre>
+<blockquote>
+<p><strong><em>TIP:</em></strong> <em>As you can imagine, you might also randomize the index of the array, which could allow your game to appear lively by choosing similar sounds, at random, for the same or similar game events.</em></p>
+</blockquote>
+<h2 id="in-class-activity-ii-30-min">In Class Activity II (30 min)</h2>
+<p>Let&#39;s add audio to AstroJunk...</p>
+<h3 id="as-individuals">As Individuals</h3>
+<p>Using the audio files you gathered in the previous lesson:</p>
+<ul>
+<li>Add background music to be played while the game runs. Make the music stop at Game Over and any other appropriate game states</li>
+<li>Add sound FX to appropriate game events (collisions, points scored, etc.)</li>
+</ul>
+<h2 id="particle-emitter">Particle emitter</h2>
+<p>Adding particle systems to your games is an effective way to add special effects. With particle systems you can simulate: water, smoke, fire, snow, stars, sparks, rain, bubbles, explosions, and much more.</p>
+<p>How the effect is created is by using a small image texture and a configuration file.</p>
+<p><img src="assets/particle1.png" alt="particle1"> <img src="assets/particle2.png" alt="particle2">
+<em>Source: 2D Apple Games by Tutorials</em></p>
+<p>SpriteKit makes it easy to create and use particle systems by giving you a special node nam [ed <code>SKEmitterNode</code>, its purpose is to make particle systems and render them as quickly as possible.
+You can create particles programmatically or with the particle editor. The second one is helpful to use since you can make changes to the values making up the particle and see the results being animated.</p>
+<p>To do this, you simply create a new file with the iOS/Resource/SpriteKit Particle File template. This will create an .sks file that can be modified with the editor.</p>
+<p>Once in code you’ll only need to instantiate the particles with the file and a position. Then add the particle emitter as child in the scene.</p>
+<pre><code class="language-Swift">let fireEmitter = SKEmitterNode(fileNamed: &quot;Fire.sks&quot;)!
+fireEmitter.position = CGPoint(x: 200, y: 200)
+addChild(fireEmitter)
+</code></pre>
+<p>You can check what all the properties do <a href="particleProperties.md">here</a>.</p>
+<h2 id="activity">Activity</h2>
+<p>Create an .sks file for a new particle emitter. You want to add fire to the spaceship as it flies. Play around with all the values of the particle emitter until you’re happy with the result.</p>
+<p>This is an example of how it might turn out like:</p>
+<p><img src="assets/fire.gif" alt="particle2"></p>
+<!-- Resume: AstroJunk -- add Win / Loss conditions, such as Victory points for capturing debris, or Loss avoidance (negative points for getting hit by bombs/asteroids, or letting debris pass)
+- present GameOverScene, with requisite graphic and sound effects for either (a) Win conditions or (b) Loss conditions...
+- will require adding graphics
+
+Q: Add a menu to allow player to (1) Start Over (2) Go to next level? ...or other?
+-->
+
+
+<h1 id="after-class">After Class</h1>
+<p>Assignments:</p>
+<ol>
+<li>Review:</li>
+</ol>
+<p>-</p>
+<h2 id="wrap-up-5-min">Wrap Up (5 min)</h2>
+<ul>
+<li>Continue working on your current tutorial</li>
+<li>Complete reading</li>
+<li>Complete challenges</li>
+</ul>
+<h2 id="additional-resources">Additional Resources</h2>
+<ul>
+<li>The &quot;Conrolling the Audio of a Node&quot; section of the <a href="https://developer.apple.com/documentation/spritekit/skaction/action_initializers">Action Initializers - Apple docs</a></li>
+<li>Functions and properties in the &quot;Configuring and Controlling Playback&quot; and &quot;Managing Information About a Sound&quot; sections of the <a href="https://developer.apple.com/documentation/avfoundation/avaudioplayer">AVAudioPlayer - Apple docs</a> <sup>4</sup> especially how to:
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - stop
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - pause
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - rewind</li>
+</ul>
+<!-- < look up other AVAudioPlayer functions -- see Apple docs for list:
+To rewind an audio player, you change the currentTime property.
+
+To rewind an audio player, you change the currentTime property.
+
+To rewind an audio player, you change the currentTime property. -->
+
+<ol start="15">
+<li><a href="https://en.wikipedia.org/wiki/AVFoundation">AVFoundation - wikipedia</a></li>
+<li><a href="https://developer.apple.com/av-foundation/">AVFoundation - Apple Docs</a></li>
+<li><a href="https://developer.apple.com/documentation/avfoundation">AVFoundation - Apple Docs</a></li>
+<li><a href="https://developer.apple.com/documentation/avfoundation/audio_track_engineering">Audio Track Engineering - Apple Docs</a></li>
+<li><a href="https://developer.apple.com/library/archive/documentation/AudioVideo/Conceptual/AVFoundationPG/Articles/00_Introduction.html">About AVFoundation - Apple Docs</a></li>
+<li><a href="https://developer.apple.com/documentation/spritekit/skaudionode">SKAudioNode - Apple Docs</a></li>
+<li><a href="https://www.hackingwithswift.com/read/36/6/background-music-with-skaudionode-an-intro-plus-game-over">Background music with SKAudioNode, an intro, plus game over - an article</a></li>
+<li><a href="https://developer.apple.com/documentation/spritekit/skaction/1417664-playsoundfilenamed"><code>playSoundFileNamed(_:waitForCompletion:)</code> - Apple Docs</a></li>
+<li><a href="https://developer.apple.com/documentation/spritekit/skscene/1520363-listener"><code>listener</code> (property) - Apple docs</a></li>
+</ol>
+</aside></script></section></div>
+    </div>
+
+    <script src="./../js/reveal.js"></script>
+
+    <script>
+      function extend() {
+        var target = {};
+        for (var i = 0; i < arguments.length; i++) {
+          var source = arguments[i];
+          for (var key in source) {
+            if (source.hasOwnProperty(key)) {
+              target[key] = source[key];
+            }
+          }
+        }
+        return target;
+      }
+
+      // Optional libraries used to extend on reveal.js
+      var deps = [
+        { src: './../plugin/markdown/marked.js', condition: function() { return !!document.querySelector('[data-markdown]'); } },
+        { src: './../plugin/markdown/markdown.js', condition: function() { return !!document.querySelector('[data-markdown]'); } },
+        { src: './../plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+        { src: './../plugin/zoom-js/zoom.js', async: true },
+        { src: './../plugin/notes/notes.js', async: true },
+        { src: './../plugin/math/math.js', async: true }
+      ];
+
+      // default options to init reveal.js
+      var defaultOptions = {
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+        transition: 'default', // none/fade/slide/convex/concave/zoom
+        dependencies: deps
+      };
+
+      // options from URL query string
+      var queryOptions = Reveal.getQueryHash() || {};
+
+      var options = extend(defaultOptions, {"controls":true,"progress":true,"autoPlayMedia":false,"slideNumber":"c/t","showSlideNumber":"all","controlsTutorial":true,"controlsLayout":"edges","transition":"slide","transitionSpeed":"medium","minScale":0.5,"maxScale":3}, queryOptions);
+    </script>
+
+
+    <script>
+      Reveal.initialize(options);
+    </script>
+  </body>
+</html>

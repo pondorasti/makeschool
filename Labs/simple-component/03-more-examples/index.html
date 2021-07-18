@@ -1,0 +1,54 @@
+<html>
+<head>
+  <script src="./frmwrk-blink.js"></script>
+  <script src="./frmwrk-copy.js"></script>
+  <script src="./frmwrk-counter.js"></script>
+  <script src="./my-element.js"></script>
+  <script src="./frmwrk-copy-2.js"></script>
+  <style>
+    hello-world {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Custom elements can not be self colsing -->
+  <hello-world name="Frango"></hello-world>
+  <hello-card>
+    <h2 slot="headerLine">Card 1</h2>
+    <p slot="contentLine">Isn't it a fine day.</p>
+  </hello-card>
+  <hello-card>
+      <h2 slot="headerLine">Card 2</h2>
+      <p slot="contentLine">Rootbeer floats anyone?</p>
+    </hello-card>
+
+  <frmwrk-copy title="Hello"></frmwrk-copy>
+
+  <frmwrk-blink title="hola" time="5"></frmwrk-blink>
+
+  <frmwrk-counter></frmwrk-counter>
+
+  <hr>
+  <frmwrk-copy-2>
+    <span slot="name">Soggybag</span>
+  </frmwrk-copy-2>
+  <hr>
+
+  
+
+  <script src="./getters-setters.js"></script>
+  <script src="./hello-card.js"></script>
+
+  <script>
+    console.log('-----------------------')
+    console.log(customElements)
+    Promise.all([
+        customElements.whenDefined('frmwrk-copy'),
+        customElements.whenDefined('frmwrk-blink'),
+      ])
+        .then(_ => console.log('copy and blink defined'));
+  </script>
+</body>
+</html>

@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <title>Syllabus Template Slides</title>
+    <link rel="shortcut icon" href="./../favicon.ico"/>
+    <link rel="stylesheet" href="./../dist/reveal.css" />
+    <link rel="stylesheet" href="./../dist/theme/white.css" id="theme" />
+    <link rel="stylesheet" href="./../css/highlight/zenburn.css" />
+    <link rel="stylesheet" href="./../assets/Reveal/makeschool.css" />
+
+    <script>
+      document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>');
+    </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides"><section  data-markdown><script type="text/template"><!-- .slide: data-background="./Images/header.svg" data-background-repeat="none" data-background-size="40% 40%" data-background-position="center 10%" class="header" -->
+# SwiftUI Pt. 2
+
+<!-- Put a link to the slides so that students can find them -->
+
+➡️ [**Slides**](https://make-school-courses.github.io/MOB-2.9-Technical-Seminar-MOB/Slides/Lesson2/Lesson2.html ':ignore')
+<!-- > -->
+
+## Learning Objectives
+
+1. Create Lists using the `ForEach` loop
+1. Create a tab bar based app structure
+1. Create an app with SwiftUI + Combine + MVVM
+1. Create UML diagrams
+</script></section><section ><section data-markdown><script type="text/template">
+## Lists
+
+Starting simple, with a static list
+
+```swift
+List {
+  Text("Friday")
+  Text("Saturday")
+  Text("Sunday")
+}
+```
+</script></section><section data-markdown><script type="text/template">
+Wrapping it in a NavigationView
+
+```swift
+NavigationView{
+  List {
+    Text("Friday")
+    Text("Saturday")
+    Text("Sunday")
+  }
+  .navigationTitle("Weekend")
+}
+```
+</script></section><section data-markdown><script type="text/template">
+Add a struct to handle data:
+
+```swift
+struct WeekDay: Identifiable {
+    var id: String { name }
+    var name: String
+}
+```
+</script></section><section data-markdown><script type="text/template">
+Use structs instead of static data.
+
+```swift
+let days = [WeekDay(name: "Friday"), WeekDay(name: "Saturday"), WeekDay(name: "Sunday")]
+var body: some View {
+    NavigationView{
+      List {
+        ForEach(days){ dayName in
+            Text(dayName.name)
+        }
+      }
+      .navigationTitle("Weekend")
+    }
+}
+```
+</script></section></section><section ><section data-markdown><script type="text/template">
+## Challenge
+
+Add the next struct:
+
+```swift
+struct WeekSection: Identifiable {
+    var id: String { name }
+    var name: String
+    var days: [WeekDay]
+}
+```
+
+and change your data to be:
+```swift
+let weekSections = [WeekSection(name: "Work days", days:[WeekDay(name: "Monday"), WeekDay(name: "Tuesday"), WeekDay(name: "Wednesday")]), WeekSection(name: "Weekend days", days:[WeekDay(name: "Friday"), WeekDay(name: "Saturday"), WeekDay(name: "Sunday")])]
+```
+</script></section><section data-markdown><script type="text/template">
+Create the following variation:
+
+![list](assets/list.png)
+
+Look into [Section](https://developer.apple.com/documentation/swiftui/section)
+</script></section></section><section  data-markdown><script type="text/template">
+## Creating a tab bar
+
+Follow this video:
+
+<iframe src="https://youtube.com/embed/Ck7uN5ZKzf8?t=71" data-autoplay  width="700" height="500"></iframe>
+</script></section><section  data-markdown><script type="text/template">
+## SwiftUI + Combine + MVVM
+
+First a review:
+
+- What do you know about MVVM?
+- What do you know about Combine?
+
+Add your answers [here](https://jamboard.google.com/d/1vba5Z04ar9lVVb_M_9F9gasBIS3j0eGu046MdbcTLGQ/edit?usp=sharing)
+</script></section><section  data-markdown><script type="text/template">
+Tutorial Overview
+
+- questions
+- clarifications
+- review of changes
+</script></section><section ><section data-markdown><script type="text/template">
+## Diagraming an architecture
+
+It's important to know how to read and create UML diagrams. Specially if you expect other developers to collaborate with your codebase or if you are being introduced to a new project.
+
+**Create a UML diagram of the Weather app** (The first View only). Make it as detailed as possible, imagine you'll use this to present at the next team meeting and there are people new to the project. 😎
+
+Send it to the slack channel.
+</script></section><section data-markdown><script type="text/template">
+[How to draw class diagrams](https://creately.com/blog/diagrams/class-diagram-tutorial/#Definition)
+</script></section></section><section  data-markdown><script type="text/template">
+## Additional Resources
+
+1. [Lists with SwiftUI](https://www.hackingwithswift.com/quick-start/swiftui/building-a-menu-using-list)
+</script></section></div>
+    </div>
+
+    <script src="./../dist/reveal.js"></script>
+
+    <script src="./../plugin/markdown/markdown.js"></script>
+    <script src="./../plugin/highlight/highlight.js"></script>
+    <script src="./../plugin/zoom/zoom.js"></script>
+    <script src="./../plugin/notes/notes.js"></script>
+    <script src="./../plugin/math/math.js"></script>
+    <script>
+      function extend() {
+        var target = {};
+        for (var i = 0; i < arguments.length; i++) {
+          var source = arguments[i];
+          for (var key in source) {
+            if (source.hasOwnProperty(key)) {
+              target[key] = source[key];
+            }
+          }
+        }
+        return target;
+      }
+
+      // default options to init reveal.js
+      var defaultOptions = {
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+        transition: 'default', // none/fade/slide/convex/concave/zoom
+        plugins: [
+          RevealMarkdown,
+          RevealHighlight,
+          RevealZoom,
+          RevealNotes,
+          RevealMath
+        ]
+      };
+
+      // options from URL query string
+      var queryOptions = Reveal().getQueryHash() || {};
+
+      var options = extend(defaultOptions, {"controls":true,"progress":true,"autoPlayMedia":false,"slideNumber":"c/t","showSlideNumber":"all","controlsTutorial":true,"controlsLayout":"edges","transition":"slide","transitionSpeed":"medium","minScale":0.5,"maxScale":3}, queryOptions);
+    </script>
+
+
+    <script>
+      Reveal.initialize(options);
+    </script>
+  </body>
+</html>

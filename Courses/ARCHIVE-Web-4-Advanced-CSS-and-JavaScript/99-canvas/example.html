@@ -1,0 +1,68 @@
+<canvas width="500" height="500"></canvas>
+
+<script>
+  const canvas = document.querySelector('canvas');
+  const ctx = canvas.getContext('2d');
+
+  const allBoxes = []
+  
+  const numberOfBoxes = Math.round(Math.random() * 150 + 150);
+
+  function Box(x, y, hue, size) {
+    this.x     = x
+    this.y     = y
+    this.size  = size  || 50
+    this.color
+    this.setHue(hue)
+  }
+  
+  Box.prototype.setHue = function(hue) {
+    this.hue = hue % 360 || 0
+    this.color = `hsla(${this.hue}, 100%, 50%, 0.5)`
+  }
+  
+  Box.prototype.render = function(ctx) {
+    ctx.fillStyle = this.color;
+    ctx.fillRect(this.x, this.y, this.size, this.size)
+  }
+  
+  function makeBoxes() {
+    for (var i = 0; i < numberOfBoxes; i++) {
+      const hue = Math.random() * 360;
+      const a = Math.random()
+      const size = Math.random() * 125 + 25
+      const x = Math.random() * canvas.width - (size / 2)
+      const y = Math.random() * canvas.height - (size / 2)
+      
+      const box = new Box(x, y, hue, size)
+      box.render(ctx)
+      allBoxes.push(box)
+    }
+  }
+  
+  makeBoxes()
+  
+  function onFrame() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height)
+    
+    allBoxes.forEach(function(box) {
+      box.setHue(box.hue + 2)
+      box.render(ctx)
+    })
+    
+    requestAnimationFrame(onFrame)
+  }
+  
+  requestAnimationFrame(onFrame)
+  
+  
+
+</script>
+
+
+<style>
+  canvas {
+    border: 4px solid #000;
+  }
+
+</style>

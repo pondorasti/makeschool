@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>Grocery Store Tracker</h1>
+
+<p><em>The best place to track prices and find the hottest deals!</em></p>
+
+<h2>All Stores</h2>
+
+{% for store in all_stores %}
+<div class="store">
+    <a href="/store/{{ store.id }}">{{ store.title }}</a> - 
+    {{ store.items|length }} items
+    <p><strong>Address:</strong> {{ store.address }}</p>
+</div>
+{% endfor %}
+
+{% endblock %}

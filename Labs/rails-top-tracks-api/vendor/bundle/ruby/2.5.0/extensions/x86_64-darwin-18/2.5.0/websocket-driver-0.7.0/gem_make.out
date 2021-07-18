@@ -1,0 +1,15 @@
+current directory: /Users/droxey/dev/repos/rails-top-tracks-api/vendor/bundle/ruby/2.5.0/gems/websocket-driver-0.7.0/ext/websocket-driver
+/usr/local/opt/ruby/bin/ruby -r ./siteconf20181108-97417-20zk1t.rb extconf.rb
+creating Makefile
+
+current directory: /Users/droxey/dev/repos/rails-top-tracks-api/vendor/bundle/ruby/2.5.0/gems/websocket-driver-0.7.0/ext/websocket-driver
+make "DESTDIR=" clean
+
+current directory: /Users/droxey/dev/repos/rails-top-tracks-api/vendor/bundle/ruby/2.5.0/gems/websocket-driver-0.7.0/ext/websocket-driver
+make "DESTDIR="
+compiling websocket_mask.c
+linking shared-object websocket_mask.bundle
+
+current directory: /Users/droxey/dev/repos/rails-top-tracks-api/vendor/bundle/ruby/2.5.0/gems/websocket-driver-0.7.0/ext/websocket-driver
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 websocket_mask.bundle ./.gem.20181108-97417-1ei0dq

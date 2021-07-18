@@ -1,0 +1,102 @@
+<div id="world-container">
+  <div id="world" class="world">
+    <div class="thing" 
+     style="--x:100; --y:0; --z:-400">
+      <h1>Box A</h1>
+    </div>
+    <div class="thing" 
+     style="--x:200; --y:100; --z:0">
+      <h1>Box B</h1>
+    </div>
+    <div class="thing" 
+     style="--x:-100; --y:-100; --z:-100">
+      <h1>Box C</h1>
+    </div>
+    <div class="thing" 
+     style="--x:60; --y:100; --z:-200">
+      <h1>Box D</h1>
+    </div>
+    <div class="thing" 
+     style="--x:400; --y:300; --z:0">
+      <h1>Box E</h1>
+    </div>
+  </div>
+</div>
+
+
+<style>
+  body,
+  html {
+    height: 100%;
+    margin: 0;
+  }
+  
+  #world-container {
+    perspective: 400px;
+    height: calc(100% - 8px);
+    border: 4px solid #000;
+  }
+  
+  .world {
+    --x: 0;
+    --y: 0;
+    --z: 0;
+    
+    position: absolute;
+    transition: 400ms;
+    transform-style: preserve-3d;
+    
+    width: 100%;
+    height: 100%;
+    
+    transform: 
+      translateX(calc(var(--x) * 1px + 50%)) 
+      translateY(calc(var(--y) * 1px + 50%)) 
+      translateZ(calc(var(--z) * 1px));
+  }
+  
+  .thing {
+    position: absolute;
+    background-color: red;
+    width: 100px;
+    height: 100px;
+    transform: 
+      translateX(calc(var(--x) * 1px)) 
+      translateY(calc(var(--y) * 1px)) 
+      translateZ(calc(var(--z) * 1px));
+    /* transform: translate3d(var(--x), var(--y), var(--z)); */
+  }
+
+</style>
+
+<script>
+  const things = document.getElementsByClassName('thing')
+  const world = document.getElementById('world')
+  
+  console.log(world.style.transform)
+  
+  window.addEventListener('click', clickWorld, true)
+    
+  function clickWorld(e) {
+    console.log('click world')
+    moveWorld(0, 0, 0)
+  }
+
+  for (var i = 0; i < things.length; i++) {
+    const thing = things[i]
+    thing.onclick = clickThing
+  }
+
+  function clickThing(e) {
+    const x = e.currentTarget.style.getPropertyValue('--x')
+    const y = e.currentTarget.style.getPropertyValue('--y')
+    const z = e.currentTarget.style.getPropertyValue('--z')
+    moveWorld(x, y, z)
+  }
+
+  function moveWorld(x, y, z) {
+    world.style.setProperty('--x', -x)
+    world.style.setProperty('--y', -y)
+    world.style.setProperty('--z', -z)
+  }
+</script>

@@ -1,0 +1,12 @@
+<div class="row" id="pets">
+  {{#each pets}}
+    <div class="col-sm-4">
+      <div class="thumbnail">
+        <a href="/pets/{{this._id}}">
+          <h3>{{this.name}}</h3>
+        </a>
+        <p>{{this.description}}</p>
+      </div>
+    </div>
+  {{/each}}      
+</div>

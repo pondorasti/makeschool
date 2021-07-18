@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Graphing a time series</title>
+        <link rel="stylesheet" href="//cdn.jsdelivr.net/chartist.js/latest/chartist.min.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+        <link rel="stylesheet" href="/static/index.css">
+    </head>
+    <body>
+        <div class="container">
+            <h1>Graphing with Chartist</h1>
+            <div class="data-area">
+                <div class="control">
+                    
+                    <h3>Time Frame</h3>
+                    <div class="control-date">
+                        <input class="underlined-input" type="number" value="2004" min="2004" max="2017">
+                        <p>to</p>
+                        <input class="underlined-input" type="number" value="2005" min="2004" max="2017">
+                    </div>
+                    <h3>Selected columns</h3>
+                    <div class="control-column">
+                        <ul>
+                            <li class="control-column-item checked">
+                                Diet
+                                <input type="color" value="#0140BA"/>
+                            </li>
+                            <li class="control-column-item checked">
+                                Gym
+                                <input type="color" value="#01FF04"/>
+                            </li>
+                            <li class="control-column-item">
+                                Finance
+                                <input type="color" value="#F3F6C3"/>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="control-button">
+                        <input type="button" onclick="updateChart()" value="Update chart">
+                    </div>
+                </div>
+                <div class="chart">
+                    <div class="ct-chart ct-perfect-fourth"></div>
+                </div>
+
+            </div>
+        </div>
+        <script src="//cdn.jsdelivr.net/chartist.js/latest/chartist.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.js"></script>
+        <script src="/static/index.js"></script>
+    </body>
+</html>
+

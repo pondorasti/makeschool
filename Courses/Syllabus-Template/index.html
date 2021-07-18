@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- UPDATE: Add description, author, og:site_name, og:title, and og:description text for your course. -->
+    <!-- NOTE: Text presented in ALL_CAPS indicate values you should replace. -->
+    <title>Syllabus Template</title>
+    <meta name="description" content="To be used as a template for your course">
+    <meta name="author" content="INSTRUCTOR_NAME (INSTRUCTOR_NAME@makeschool.com)">
+    <meta property="og:site_name" content="Syllabus Template">
+    <meta property="og:title" content="Syllabus Template">
+    <meta property="og:description" content="To be used as a template for your course">
+    <!-- END CUSTOMIZATION -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <link rel="apple-touch-icon" sizes="500x500" href="https://www.makeschool.com/assets/apple-touch-icon-bac21dc3895855ecf9b4a76e8da48a91fa59db1bc7358d7cd33576b63fac2eab.png">
+    <link rel="icon" type="image/png" href="https://www.makeschool.com/assets/favicon_500x500-010a022696e85dab6be51930d58c18cb7c94bb94fc6d326ece1c78bc2bdd268f.png"
+      sizes="500x500">
+    <link rel="icon" type="image/png" href="https://www.makeschool.com/assets/favicon_50x50-68cece25ffd4ff9e6545769d8a525b9ba532d432318c94e33fca9b96edb8cf6a.png"
+      sizes="50x50">
+    <meta name="keywords" content="makeschool">
+    <meta property="og:type" content="website">
+    <!-- UPDATE: Make sure to update all REPO_NAME values for your course repo in the following object.-->
+    <meta property="og:url" content="https://make-school-courses.github.io/REPO_NAME_HERE">
+    <meta property="og:image" content="http://make-school-courses.github.io/REPO_NAME_HERE/Web/logo-icononly.svg">
+    <meta property="og:image:secure_url" content="https://make-school-courses.github.io/REPO_NAME_HERE/Web/logo-icononly.svg">
+    <meta property="og:image:type" content="image/svg">
+    <meta property="og:image:width" content="250">
+    <meta property="og:image:height" content="250">
+    <meta property="og:image:alt" content="Make School">
+    <link rel="stylesheet" href="//unpkg.com/docsify/lib/themes/vue.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify-darklight-theme@latest/dist/style.min.css"
+        title="docsify-darklight-theme" type="text/css">
+    <link rel="stylesheet" href="Web/style.css">
+  </head>
+  <body>
+    <div id="app"></div>
+    <!-- UPDATE: Make sure to update NAME, REPO, and NAMESPACE below-->
+    <script>
+      window.$docsify = {
+        logo: 'Web/logo-icononly.svg',
+        // Update to Course Name
+        name: 'Syllabus Template',
+        // Replace with REPO_NAME
+        repo: 'Make-School-Courses/Syllabus-Template',
+        themeColor: '#126893',
+        formatUpdated: '{MM}/{DD} {HH}:{mm}',
+        executeScript: true,
+        auto2top: true,
+        autoHeader: true,
+        loadSidebar: true,
+        maxLevel: 6,
+        subMaxLevel: 2,
+        el: "#app",
+        maxLevel: 3,
+        loadNavbar: true,
+        themeable: {
+          readyTransition: true,
+          responsiveTables: true
+        },
+        search: {
+          maxAge: 86400000, // Expiration time, the default one day
+          paths: "auto",
+          placeholder: 'Search class content...',
+          noData: 'No Results!',
+          depth: 4,
+          hideOtherSidebarContent: false,
+          // Replace with REPO_NAME
+          namespace: 'Syllabus-Template',
+        },
+        copyCode: {
+          buttonText: '📋 Click to Copy',
+          errorText: '',
+          successText: '✓'
+        },
+        'flexible-alerts': {
+          style: 'flat'
+        },
+        tabs: {
+          persist: true, // default
+          sync: true, // default
+          theme: 'classic', // default
+          tabComments: true, // default
+          tabHeadings: true // default
+        },
+        pagination: {
+          previousText: 'Previous Module',
+          nextText: 'Next Module',
+          crossChapter: true,
+          crossChapterText: true
+        },
+        requestHeaders: {
+          'cache-control': 'max-age=180'
+        },
+        darklightTheme: {
+          siteFont: "PT Sans",
+          defaultTheme: 'dark',
+          codeFontFamily: 'Roboto Mono, Monaco, courier, monospace',
+          bodyFontSize: '17px',
+          dark: {
+            accent: '#4BB1E4',
+            toogleBackground: '#F5F6F8',
+            background: '#091a28',
+            textColor: '#b4b4b4',
+            codeTextColor: '#ffffff',
+            codeBackgroudColor: '#0e2233',
+            borderColor: '#0d2538',
+            blockQuoteColour: '#858585',
+            highlightColor: '#d22778',
+            sidebarSublink: '#b4b4b4',
+            codeTypeColor: '#ffffff',
+            coverBackground: 'linear-gradient(to left bottom, hsl(118, 100%, 85%) 0%,hsl(181, 100%, 85%) 100%)',
+            toogleImage: 'url(https://cdn.jsdelivr.net/npm/docsify-darklight-theme@latest/icons/sun.svg)'
+          },
+          light: {
+            accent: '#087CB8',
+            toogleBackground: '#091a28',
+            background: '#F5F6F8',
+            textColor: '#34495e',
+            codeTextColor: '#525252',
+            codeBackgroudColor: '#f8f8f8',
+            borderColor: 'rgba(0, 0, 0, 0.07)',
+            blockQuoteColor: '#858585',
+            highlightColor: '#d22778',
+            sidebarSublink: '#0D4062',
+            codeTypeColor: '#091a28',
+            coverBackground: 'linear-gradient(to left bottom, hsl(118, 100%, 85%) 0%,hsl(181, 100%, 85%) 100%)',
+            toogleImage: 'url(https://cdn.jsdelivr.net/npm/docsify-darklight-theme@latest/icons/moon.svg)'
+          }
+        }
+      }
+    </script>
+    <script src="//unpkg.com/docsify-themeable"></script>
+    <script src="//unpkg.com/docsify/lib/docsify.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/rizdaprasetya/docsify-fix-pageload-scroll@master/index.js"></script>
+    <script src="//unpkg.com/docsify/lib/plugins/search.min.js"></script>
+    <script src="//unpkg.com/docsify/lib/plugins/emoji.min.js"></script>
+    <script src="//unpkg.com/docsify/lib/plugins/external-script.min.js"></script>
+    <script src="//unpkg.com/docsify-copy-code@2"></script>
+    <script src="https://cdn.jsdelivr.net/npm/docsify-tabs@1"></script>
+    <script src="https://unpkg.com/docsify-plugin-flexible-alerts"></script>
+    <script src="//unpkg.com/prismjs/components/prism-bash.min.js"></script>
+    <script src="//unpkg.com/prismjs/components/prism-handlebars.min.js"></script>
+    <script src="//unpkg.com/prismjs/components/prism-javascript.min.js"></script>
+    <script src="//unpkg.com/prismjs/components/prism-json.min.js"></script>
+    <script src="//unpkg.com/prismjs/components/prism-markdown.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/docsify-darklight-theme@latest/dist/index.min.js" type="text/javascript">
+    </script>
+    <script>
+      if (typeof navigator.serviceWorker !== 'undefined') {
+        navigator.serviceWorker.register('Web/sw.js')
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title></title>
+	</head>
+	<body>
+		<h1>Web Components</h1>
+		<p>This page has a few of the standard components. 
+			These use the shadow DOM to display sub-elements
+			that are not visible in the "light" DOM.
+		</p>
+
+		<p>Follow these steps:</p>
+
+		<ol>
+			<li>Open this page in your browser</li>
+			<li>Open the web inspector.</li>
+			<li>Turn on "Show User-Agent Shadow DOM" option.
+				<ul>
+					<li>Chrome: In the inspector go to settings, scroll to Elements and check the box: "Show user agent shadow DOM"</li>
+					<li>Safari: Click the `<>` button in the inspector. (the current version of safari seems to have removed htis option and shows the shadow DOM by default?)</li>
+				</ul>
+			<li>Inpsect each of the elements below. Specifically you're looking at the shadow DOM for that element and what you find there.</li>
+		</ol>
+
+		<form>
+			<label>
+				Text Label
+				<input type="text">
+			</label>
+			<label>
+				Text Label
+				<input type="number">
+			</label>
+			<label>
+				Text Label
+				<input type="range">
+			</label>
+			<label>
+				Text Label
+				<input type="color">
+			</label>
+			<label>
+				Text Label
+				<input type="datetime">
+			</label>
+		</form>
+	</body>
+</html>

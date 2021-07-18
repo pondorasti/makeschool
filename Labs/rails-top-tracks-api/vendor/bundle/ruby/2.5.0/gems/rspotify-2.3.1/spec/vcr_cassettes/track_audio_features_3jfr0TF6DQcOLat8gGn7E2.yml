@@ -1,0 +1,61 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.spotify.com/v1/audio-features/3jfr0TF6DQcOLat8gGn7E2
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - "*/*"
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - rest-client/2.0.2 (darwin16.7.0 x86_64) ruby/2.5.0p-1
+      Authorization:
+      - Bearer BQBj_AiSFlKCkNIMbCWEYjuJLl6n76QmVsHU6MGDgTUBLZqNiKZ4ALs6Kvm6ulbsW9O81JDdIHyXBndXyhUOxg
+      Host:
+      - api.spotify.com
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Fri, 06 Oct 2017 01:50:00 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Keep-Alive:
+      - timeout=600
+      Cache-Control:
+      - private, max-age=0
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Methods:
+      - GET, POST, OPTIONS, PUT, DELETE
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Max-Age:
+      - '604800'
+      Access-Control-Allow-Headers:
+      - Accept, Authorization, Origin, Content-Type
+      Content-Encoding:
+      - gzip
+      X-Content-Type-Options:
+      - nosniff
+      Strict-Transport-Security:
+      - max-age=31536000;
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        H4sIAAAAAAAAAISQyW6DMBCG73kKxLkBYyAQzl0ulapKvSPXDMk0xkZeIqGq794wbtSe0uN8/2LPfG6SJB2EliDeUaFf0qRLWFZX7d2qgAZ7uLKSEzsBgZoGZcKgwbmVbJus3u8IT2aAFRU0uRlAHvHqYxkreUmKkCY4j/JXKtrYgNp5GybQXqg/Qcb4LkYVnuFX4EVD9CwUXJaJsOJxCw/TbFbU1penWWTLTK5UhAFNP4LwwYJL4+MDSeXHaNnb4+7+Vb48C98ennTzwKMlWCSPm43Hcem8FfLU3UqQoz9aGCl49H52XZ6LGbOfkkyaKT8XOTldfqtMaKEWh64PVv1XRxtur4mbtUOwwqPR/UR35Q0v91X8PU7QOzxoutMqVpuvbwAAAP//AwC/DSQDPgIAAA==
+    http_version: 
+  recorded_at: Fri, 06 Oct 2017 01:50:00 GMT
+recorded_with: VCR 3.0.3

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <title>Syllabus Template Slides</title>
+    <link rel="shortcut icon" href="./../favicon.ico"/>
+    <link rel="stylesheet" href="./../dist/reveal.css" />
+    <link rel="stylesheet" href="./../dist/theme/white.css" id="theme" />
+    <link rel="stylesheet" href="./../css/highlight/zenburn.css" />
+    <link rel="stylesheet" href="./../assets/Reveal/makeschool.css" />
+
+    <script>
+      document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>');
+    </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides"><section  data-markdown><script type="text/template"><!-- Run this slideshow via the following command: -->
+<!-- reveal-md README.md -w -->
+
+
+<!-- .slide: class="header" -->
+
+# Lab Session
+
+## [Slides](https://make-school-courses.github.io/MOB-2.1-Local-Persistence-in-iOS/Slides/Lab/README.html ':ignore')
+</script></section><section  data-markdown><script type="text/template">
+## Agenda
+
+- Final project introduction
+- Lab time + office hours
+</script></section><section  data-markdown><script type="text/template">
+## Final project
+
+[Final project specifications](https://github.com/Make-School-Courses/MOB-2.1-Local-Persistence-in-iOS/blob/master/Assignments/Taskee/specifications.md)
+</script></section><section  data-markdown><script type="text/template">
+## Lab time - Suggestions
+
+Finish [this activity from last class](https://github.com/amelinagzz/Realm-starter) and complete the unit tests.
+
+- Additionally you can research how Core Data and Testing work together.
+</script></section><section  data-markdown><script type="text/template">
+## Lab time - Suggestions
+
+Clone this repo and integrate Realm with Cocoa pods:
+
+[TriviaTime Starter](https://github.com/Product-College-Labs/TriviaTime)
+
+Stretch challenges:
+- Add Realm notifications to the app to automatically update the table when answering questions.
+</script></section><section  data-markdown><script type="text/template">
+## Lab time - Suggestions
+
+Follow this [Realm tutorial](https://docs.realm.io/sync/getting-started-1/step-1-my-first-realm-app) to explore how to use Realm Cloud and Realm Studio.
+
+Topics:
+
+- Realm Notifications
+- Realm Cloud
+
+</script></section><section  data-markdown><script type="text/template">
+## Lab time - Suggestions
+
+Work on the final project so you might have enough time to do the stretch challenges. 😬
+</script></section><section  data-markdown><script type="text/template">
+## Lab time - Suggestions
+
+Watch some [WWDC2020 videos](https://developer.apple.com/videos/), there are a lot so pick some that you find interesting
+</script></section><section  data-markdown><script type="text/template">
+## Lab time - Suggestions
+
+Get help with current blockers.
+</script></section></div>
+    </div>
+
+    <script src="./../dist/reveal.js"></script>
+
+    <script src="./../plugin/markdown/markdown.js"></script>
+    <script src="./../plugin/highlight/highlight.js"></script>
+    <script src="./../plugin/zoom/zoom.js"></script>
+    <script src="./../plugin/notes/notes.js"></script>
+    <script src="./../plugin/math/math.js"></script>
+    <script>
+      function extend() {
+        var target = {};
+        for (var i = 0; i < arguments.length; i++) {
+          var source = arguments[i];
+          for (var key in source) {
+            if (source.hasOwnProperty(key)) {
+              target[key] = source[key];
+            }
+          }
+        }
+        return target;
+      }
+
+      // default options to init reveal.js
+      var defaultOptions = {
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+        transition: 'default', // none/fade/slide/convex/concave/zoom
+        plugins: [
+          RevealMarkdown,
+          RevealHighlight,
+          RevealZoom,
+          RevealNotes,
+          RevealMath
+        ]
+      };
+
+      // options from URL query string
+      var queryOptions = Reveal().getQueryHash() || {};
+
+      var options = extend(defaultOptions, {"controls":true,"progress":true,"autoPlayMedia":false,"slideNumber":"c/t","showSlideNumber":"all","controlsTutorial":true,"controlsLayout":"edges","transition":"slide","transitionSpeed":"medium","minScale":0.5,"maxScale":3}, queryOptions);
+    </script>
+
+
+    <script>
+      Reveal.initialize(options);
+    </script>
+  </body>
+</html>

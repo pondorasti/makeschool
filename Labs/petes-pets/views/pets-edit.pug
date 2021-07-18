@@ -1,0 +1,33 @@
+extends layout
+
+block content
+    
+    .row.justify-content-center
+        .col-sm-6
+            legend New Pet
+            form(action=`/pets/${pet._id}?_method=PUT`, method="POST")
+                .form-group
+                    label Name
+                    input.form-control(name="name" value=pet.name)
+                .form-group
+                    label Birthday
+                    input.form-control(name="birthday" value=pet.birthday)   
+                .form-group
+                    label Species
+                    input.form-control(name="species" value=pet.species)    
+                .form-group
+                    label Rectangular Image URL
+                    input.form-control(name="picUrl" value=pet.picUrl) 
+                .form-group
+                    label Square Image URL
+                    input.form-control(name="picUrlSq" value=pet.picUrlSq) 
+                .form-group
+                    label Favorite Food
+                    input.form-control(name="favoriteFood" value=pet.favoriteFood)    
+                .form-group
+                    label Description
+                    textarea.form-control(name="description")= pet.description
+                button(type="submit").btn.btn-primary Save
+            .text-right
+                form(action=`/pets/${pet._id}?_method=DELETE`, method="POST")
+                    button(type="submit").btn.btn-danger Remove

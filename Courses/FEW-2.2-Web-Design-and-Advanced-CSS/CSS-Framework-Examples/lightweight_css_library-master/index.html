@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/107/three.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Lato:300|Open+Sans:800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="custom-config.css">
+  <title>Document</title>
+</head>
+<body>
+  <header class="bg-header">
+    <section ><a href="#" class="header-logo logo-color">Logo</a></section>
+  </header>
+  <nav class="navbar sticky bg-nav-color">
+
+    <ul class="nav-title">
+      <li><a href="http://SomeSite.com"><h1>TITLE</h1></a></li>
+    </ul>
+    <section class="nav-section" >
+      <ul>
+        <li>
+          <a href="https://jaytria.com">Link One</a>
+        </li>
+        <li>
+          <a href="https://jaytria.com">Link Two</a>
+        </li>
+        <li>
+          <a href="https://jaytria.com">Link Three</a>
+        </li>
+      </ul>
+    </section>
+    <section class="hamburger-menu bg-hamburger-menu">
+      <div class="hamburger-menu-icon">&equiv;</div>
+      <div class="hamburger-menu-dropdown bg-hamburger-menu-color" >
+        <ul>
+          <li><a href="http://xkcd.greatness.co.uk">Item one</a></li>
+          <li><a href="http://jaytria.com">Item one</a></li>
+        </ul>
+      </div>
+  </section>
+</nav>
+  <section class="panel-overlay hide">
+    <div class="panel-overlay-content">
+      This is where your content for the panel overlay goes.
+
+    </div>
+  </section>
+  <section>
+    <div id="a" class="alert">Hello! Do you have a moment to talk about out lord and savior Poseidon, God of the sea?
+      <span class="close-box">x</span>
+    </div>
+
+    <div class="alert warning">Warning: Pay heed to this message or you may find yourself in an unfortunate circumstance.
+        <span class="close-box">x</span>
+    </div>
+
+    <div class="alert error">Error: Scary things are happening right now.
+        <span class="close-box">x</span>
+    </div>
+    <section class="main-card"></section>
+
+
+
+</section>
+<article class="article-row">
+  <section class="col-row">
+    <h2>This is some fantastic content</h2>
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    </p>
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    </p>
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    </p>
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    </p>
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    </p>
+  </section>
+
+  <section class="col-row">
+    <div id="3d-demo"></div>
+    <script>
+      var scene = new THREE.Scene();
+      var camera = new THREE.PerspectiveCamera(
+          75,
+          300/400,
+          0.1,
+          1000
+      );
+      camera.position.z = 5;
+      var renderer = new THREE.WebGLRenderer({antialias: true});
+      renderer.setClearColor("#e5e5e5");
+      renderer.setSize(300, 400);
+      document.getElementById("3d-demo").appendChild(renderer.domElement)
+
+      //On window resize change canvas
+      window.addEventListener('resize', ()=>{
+        renderer.setSize(300, 400);
+        camera.aspect = 300 / 400;
+        camera.updateProjectionMatrix();
+      })
+
+      var raycaster = new THREE.Raycaster();
+      var mouse = new THREE.Vector2();
+
+      var geometry = new THREE.BoxGeometry(1, 1, 1);
+      var material = new THREE.MeshLambertMaterial({color:0xAFB700});
+      var mesh = new THREE.Mesh(geometry, material);
+
+      scene.add(mesh)
+
+      
+      var light = new THREE.PointLight(0xFFFFFF, 1, 500);
+      light.position.set(10, 0, 25);
+      scene.add(light)
+
+      var render = function(){
+        //Redraw when screen is resized
+        requestAnimationFrame(render);
+        mesh.rotation.x += 0.01;
+        mesh.rotation.y += 0.001;
+        renderer.render(scene, camera);
+      }
+
+
+
+      render()
+
+      this.tl = new TimelineMax({paused: true});
+      this.tl.to(this.mesh.scale, 1, {x:2, ease: Expo.easeOut});
+      this.tl.to(this.mesh.scale, .5, {x:.5, ease: Expo.easeOut});
+      this.tl.to(this.mesh.position, .5, {x:2, ease: Expo.easeOut});
+      this.tl.to(this.mesh.rotation, .5, {y: Math.PI*.5, ease: Expo.easeOut}, "=-1.5");
+    
+    </script>
+
+  </section>
+  
+</article>
+<section class="hero-block">
+  <h2>This is some more fantastic content</h2>
+  <p>
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+  </p>
+</section>
+
+<section class="bg-url1 hero-block parallax">
+  <p>This is a small chunk of text that appears with parallax</p>
+</section>
+
+<section class="hero-block parallax bg-table-example">
+  <p> Check out this crazy table!</p>
+
+  <table>
+    <tr><th>col one</th><th>col two</th><th>col three</th></tr>
+    <tr><td class="hover">one</td><td>two</td><td>three</td></tr>
+    <tr><td class="hover">four</td> <td>five</td><td>six</td></tr>
+    <tr class="hover"><td>seven</td> <td>eight</td><td>nein</td></tr>
+  </table>
+</section>
+<section class="hero-block parallax bg-url2">
+  <p>Send us all your info!</p>
+  <form action="">
+    <input type="text">
+    <input type="checkbox">
+    <button type="submit">Send Away</button>
+  </form>
+</section>
+  <footer>
+    <section class="col">
+      <span class="footer-title">
+        <a href="http://google.com"><h2>Title One</h2></a>
+      </span>
+      <ul>
+        <li>
+        <a href="http://google.com">Title One</a>
+        </li>
+        <li>
+            <a href="http://google.com">Link Two</a>
+        </li>      
+        <li>
+            <a href="http://google.com">Link Three</a>
+        </li>
+      </ul>
+    </section>
+
+    <section class="col">
+        <span class="footer-title">
+          <a href="http://jkjoogle.com"><h2>Title One</h2></a>
+        </span>
+        <ul>
+          <li>
+            <a href="http://xazabbad.com">Link One</a>
+          </li>
+          <li>
+              <a href="http://xyzabc.com">Link Two</a>
+          </li>      
+          <li>
+              <a href="http://google.com">Link Three</a>
+          </li>
+        </ul>
+      </section>
+
+      <section class="col">
+          <span class="footer-title">
+            <h2>Title One</h2>
+          </span>
+          <ul>
+            <li>
+              <a href="http://google.com">Link One</a>
+            </li>
+            <li>
+                <a href="http://google.com">Link Two</a>
+            </li>      
+            <li>
+                <a href="http://google.com">Link Three</a>
+            </li>
+          </ul>
+        </section>
+  </footer>
+  <section class="sub-footer">
+        <h2>Title One</h2>
+        <ul>
+          <li>
+            <a href="http://google.com">Link One</a>
+          </li>
+          <li>
+              <a href="http://google.com">Link Two</a>
+          </li>      
+          <li>
+              <a href="http://google.com">Link Three</a>
+          </li>
+        </ul>
+  </section>
+<script src="scripts.js"></script>
+</body>
+</html>

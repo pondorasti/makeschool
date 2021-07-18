@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>BEW 2.2: DevOps & Deployments</title>
+    <meta name="description"
+      content="In this course students will learn the two main flavors of Developer Operations (DevOps), one that uses containers and one that does not. Students will learn the leading container pattern with Docker and explore the pros and cons of containers by implementing them. Students will also learn about DevOps without containers using AWS and S3 tools. The course will tie both these patterns together with generic DevOp patterns, such as environmental design, development controls, and uptime management.">
+    <meta name="author" content="Dani Roxberry (dani@makeschool.com)">
+    <meta property="og:site_name" content="BEW 2.2: DevOps & Deployments">
+    <meta property="og:title" content="BEW 2.2: DevOps & Deployments">
+    <meta property="og:description"
+      content="In this course students will learn the two main flavors of Developer Operations (DevOps), one that uses containers and one that does not. Students will learn the leading container pattern with Docker and explore the pros and cons of containers by implementing them. The course will tie these patterns together with generic DevOps patterns, such as environmental design, development controls, and uptime management.">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport"
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <link rel="apple-touch-icon" sizes="500x500"
+      href="https://www.makeschool.com/assets/apple-touch-icon-bac21dc3895855ecf9b4a76e8da48a91fa59db1bc7358d7cd33576b63fac2eab.png">
+    <link rel="icon" type="image/png"
+      href="https://www.makeschool.com/assets/favicon_500x500-010a022696e85dab6be51930d58c18cb7c94bb94fc6d326ece1c78bc2bdd268f.png"
+      sizes="500x500">
+    <link rel="icon" type="image/png"
+      href="https://www.makeschool.com/assets/favicon_50x50-68cece25ffd4ff9e6545769d8a525b9ba532d432318c94e33fca9b96edb8cf6a.png"
+      sizes="50x50">
+    <meta name="keywords" content="makeschool, docker, devops, deployment">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://make-school-courses.github.io/BEW-2.2-Docker-DevOps-Deployments">
+    <meta property="og:image"
+      content="http://make-school-courses.github.io/BEW-2.2-Docker-DevOps-Deployments/Web/logo-icononly.svg">
+    <meta property="og:image:secure_url"
+      content="https://make-school-courses.github.io/BEW-2.2-Docker-DevOps-Deployments/Web/logo-icononly.svg">
+    <meta property="og:image:type" content="image/svg">
+    <meta property="og:image:width" content="250">
+    <meta property="og:image:height" content="250">
+    <meta property="og:image:alt" content="Make School">
+    <link rel="stylesheet" href="//unpkg.com/docsify/lib/themes/vue.css">
+    <link rel="stylesheet" href="//unpkg.com/docsify-gifcontrol/dist/docsify-gifcontrol.css">
+    <link rel="stylesheet" href="Web/style.css">
+  </head>
+  <body>
+    <div id="app"></div>
+    <script>
+      window.$docsify = {
+        logo: 'Web/logo-icononly.svg',
+        name: 'BEW 2.2',
+        repo: 'Make-School-Courses/BEW-2.2-Docker-DevOps-Deployments',
+        themeColor: '#126893',
+        formatUpdated: '{MM}/{DD} {HH}:{mm}',
+        executeScript: true,
+        auto2top: true,
+        autoHeader: true,
+        loadSidebar: true,
+        maxLevel: 6,
+        subMaxLevel: 2,
+        el: "#app",
+        maxLevel: 3,
+        loadNavbar: true,
+        themeable: {
+          readyTransition: true,
+          responsiveTables: true
+        },
+        search: {
+          maxAge: 86400000, // Expiration time, the default one day
+          paths: "auto",
+          placeholder: 'Search class content...',
+          noData: 'No Results!',
+          depth: 4,
+          hideOtherSidebarContent: false,
+          namespace: 'BEW-2.2-Docker-DevOps-Deployments',
+        },
+        copyCode: {
+          buttonText: '📋 Click to Copy',
+          errorText: '',
+          successText: '✓'
+        },
+        'flexible-alerts': {
+          style: 'flat'
+        },
+        tabs: {
+          persist: true, // default
+          sync: true, // default
+          theme: 'classic', // default
+          tabComments: true, // default
+          tabHeadings: true // default
+        },
+        pagination: {
+          previousText: 'Previous Module',
+          nextText: 'Next Module',
+          crossChapter: true,
+          crossChapterText: true
+        },
+        requestHeaders: {
+          'cache-control': 'max-age=600'
+        },
+        gifcontrol: {
+          mode: 'hover',
+          loadingWidth: '300px',
+          loadingHeight: '200px',
+          overlayColor: 'rgba(255, 255, 255, 0.7)',
+          iconColor: 'rgba(45, 140, 240, 0.8)',
+          playIcon: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm115.7 272l-176 101c-15.8 8.8-35.7-2.5-35.7-21V152c0-18.4 19.8-29.8 35.7-21l176 107c16.4 9.2 16.4 32.9 0 42z"/></svg>',
+          errorIcon: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path d="M569.517 440.013C587.975 472.007 564.806 512 527.94 512H48.054c-36.937 0-59.999-40.055-41.577-71.987L246.423 23.985c18.467-32.009 64.72-31.951 83.154 0l239.94 416.028zM288 354c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z"/></svg>',
+          errorText: "Error loading image",
+          errorTextColor: "rgb(150, 150, 150)",
+          spinnerBarColor: 'rgb(45, 140, 240)',
+          spinnerTrackColor: 'rgba(45, 140, 240, .3)',
+        },
+      }
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/docsify-themeable@0"></script>
+    <script src="//unpkg.com/docsify/lib/docsify.min.js"></script>
+    <script src="//unpkg.com/docsify/lib/plugins/search.min.js"></script>
+    <script src="//unpkg.com/docsify/lib/plugins/emoji.min.js"></script>
+    <script src="//unpkg.com/docsify/lib/plugins/external-script.min.js"></script>
+    <script src="//unpkg.com/docsify-copy-code@2"></script>
+    <script src="https://cdn.jsdelivr.net/npm/docsify-tabs@1"></script>
+    <script src="https://unpkg.com/docsify-plugin-flexible-alerts"></script>
+
+    <!-- https://gbodigital.github.io/docsify-gifcontrol/#/options  -->
+    <script src="//unpkg.com/docsify-gifcontrol/dist/docsify-gifcontrol.js"></script>
+    <script src="//unpkg.com/docsify-pagination/dist/docsify-pagination.min.js"></script>
+
+    <script src="//unpkg.com/prismjs/components/prism-bash.min.js"></script>
+    <script src="//unpkg.com/prismjs/components/prism-docker.min.js"></script>
+    <script src="//unpkg.com/prismjs/components/prism-json.min.js"></script>
+    <script src="//unpkg.com/prismjs/components/prism-nginx.min.js"></script>
+    <script src="//unpkg.com/prismjs/components/prism-python.min.js"></script>
+    <script src="//unpkg.com/prismjs/components/prism-yaml.min.js"></script>
+    <script>
+      if (typeof navigator.serviceWorker !== 'undefined') {
+        navigator.serviceWorker.register('Web/sw.js')
+      }
+    </script>
+  </body>
+</html>

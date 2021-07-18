@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Challenge 3</title>
+  <style>
+    /* Style the blockquote */
+    blockquote {
+      /* make the font size large size : 2em */
+      
+      /* Use a serif font family : Georgia */
+      
+      /* Needs some line space use 1.5 */
+      
+      /* Set the color #777 medium gray */
+      
+      /* Use text-align: right */
+      
+    }
+
+    /* Style the first letter */
+    /* Look at this selector it applies it's rules only to the first 
+    letter of the blockaquote */
+    blockquote::first-letter {
+      /* Set the color #000 */
+      
+    }
+
+    /* Style the author */
+    /* Look at this selector. The styles are only applied to footer 
+    tags that are inside a blockquote */
+    blockquote footer {
+      /* Make the font smaller size 0.5em */
+      
+      /* Make the font bold */
+      
+      /* Change the color #666 */
+      
+    }
+
+    /* Notice the styles above don't apply to the footer at the 
+    the bottom of the page because it is not inside a blockquote. */
+
+    /* Stretch Challenges: 
+      - Adjust the values here to taste
+        - Change the font-size 
+        - Change the line-height
+        - Change the color
+        - Add a rule that applies to the body tag
+          - Change the background color
+          - Adjust the foreground color to make sure the text is easy to read
+        - Add a style for the footer at the bottom of the page
+     */
+  </style>
+</head>
+
+<body>
+  <blockquote>
+    &ldquo;The first step toward success is taken when you refuse 
+    to be a captive of the environment in which you first 
+    find yourself.&rdquo;
+    <footer>
+      <p>&mdash; Mark Caine</p>
+    </footer>
+  </blockquote>
+  <footer>
+    <small>Copyright 2020</small>
+  </footer>
+</body>
+</html>
+  

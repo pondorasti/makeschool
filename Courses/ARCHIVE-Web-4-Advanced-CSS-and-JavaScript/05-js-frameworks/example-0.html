@@ -1,0 +1,60 @@
+<div id="main">
+  
+</div>
+ 
+
+ <script>
+  
+  function Box() {
+    this.x = 0
+    this.y = 0
+    this.r = 0
+    
+    this.dx = 10
+    
+    this.el = document.createElement('div')
+    this.el.style.width = '40px'
+    this.el.style.height = '40px'
+    this.el.style.border = 'solid 1px #000'
+    this.el.style.position = 'absolute'
+    
+  }
+  
+  Box.prototype.update = function() {
+    this.x += this.dx
+    this.r = (this.r + 2) % 360
+    this.el.style.transform = `translate(${this.x}px, ${this.y}px) rotate(${this.r}deg)`
+    if (this.x > 400) {
+      this.reset()
+    }
+  }
+  
+  Box.prototype.remove = function() {
+    this.el.remove()
+  }
+  
+  Box.prototype.reset = function() {
+    this.x = 0
+  }
+  
+  
+  const boxes = []
+  const main = document.getElementById('main')
+  
+  for (let i = 0; i < 10; i++) {
+    const box = new Box()
+    main.appendChild(box.el)
+    box.y = Math.random() * 400
+    boxes.push(box)
+  }
+  
+   
+  function onFrame() {
+    boxes.forEach(function(box) {
+      box.update()
+    })
+    requestAnimationFrame(onFrame) 
+  }
+   
+   requestAnimationFrame(onFrame) 
+</script>

@@ -1,0 +1,31 @@
+{
+  "name": "node-app",
+  "version": "1.0.0",
+  "description": "A sample node app",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "node",
+    "app"
+  ],
+  "author": "MakeSchool - Lucas Arruda",
+  "license": "MIT",
+  "dependencies": {
+    "bcrypt": "^1.0.3",
+    "bluebird": "^3.5.1",
+    "cookie-parser": "^1.4.3",
+    "express": "^4.16.3",
+    "express-hbs": "^1.0.4",
+    "sqlite": "^2.9.1"
+  },
+  "devDependencies": {
+    "nodemon": "^1.17.3"
+  },
+  "engines": {
+    "node": "8.11.x"
+  }
+}

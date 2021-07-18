@@ -1,0 +1,11 @@
+{
+  "spellright.language": "en",
+  "spellright.documentTypes": ["markdown", "latex", "plaintext"],
+  "[markdown]": {
+    "editor.tabSize": 4
+  },
+  "markdownlint.config": {
+    "MD033": false,
+    "MD014": false
+  }
+}

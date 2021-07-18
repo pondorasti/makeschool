@@ -1,0 +1,174 @@
+body {
+    color: #222;
+    font-family: 'Helvetica', sans-serif;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    padding-bottom: 100px;
+}
+
+main {
+    width: 800px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    margin: auto;
+    margin-top: 20px;
+    min-height: 100vh;
+}
+
+section {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+nav {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    background-color: #229954;
+    position: relative;
+    top: 0;
+    left: 0
+}
+
+nav a {
+    margin: auto 0;
+    padding: 0 25px;
+    background-color: #229954;
+    color: white;
+    text-decoration: none;
+}
+
+footer {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    background-color: #229954;
+    color: white;
+    position: absolute;
+    bottom: 0;
+    left: 0
+}
+
+a.nav, input.nav, form input.submit {
+    border: none;
+    background-color: #229954;
+    border-radius: 3px;
+    color: white;
+    padding: 10px 15px;
+    text-decoration: none;
+    font-size: 1em;
+}
+
+div#content {
+    width: 100%;
+    text-align: center;
+}
+
+div#items {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    margin-top: 50px;
+}
+
+div.card {
+    /* box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s; */
+    border: 1px solid #229954;
+    border-radius: 10px;
+    width: 200px;
+    height: 200px;
+    margin: 30px;
+}
+
+div.card img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+div.card-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 50px;
+}
+
+div.card-content a {
+    color: #229954;
+    font-weight: bold;
+    text-decoration: none;
+    align-self: center;
+}
+
+h1, h2, h3 {
+    color: #229954;
+    font-family: 'Homemade Apple', cursive;
+}
+
+form {
+    width: 100%;
+    margin: 30px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+form fieldset {
+    border: 1px solid #229954;
+    border-radius: 20px;
+    padding: 10px 20px;
+    width: 100%;
+}
+
+form legend {
+    color: #229954;
+    text-align: center;
+    font-family: 'Homemade Apple', cursive;
+}
+
+form label {
+    display: flex;
+    flex-direction: column;
+    margin: 5px 0;
+}
+
+form input {
+    border: 1px solid #229954;
+    padding: 10px;
+    margin: 10px 0;
+    max-width: 700px;
+}
+
+form input.submit {
+    align-self: flex-end;
+}
+
+form#delete-form {
+    display: flex;
+    align-items: center;
+}
+
+div.info {
+    margin-top: 30px;
+}
+
+div.harvest-history {
+    margin: 30px 0;
+    color: #666;
+}

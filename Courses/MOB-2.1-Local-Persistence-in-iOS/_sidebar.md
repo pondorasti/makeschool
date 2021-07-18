@@ -1,0 +1,14 @@
+- **[Syllabus](README.md)**
+- **Lessons**
+  - [Intro to persistence](Lessons/Lesson1/README.md)
+  - [Plist & UserDefaults](Lessons/Lesson2/README.md)
+  - [NSCoder & Codable](Lessons/Lesson3/README.md)
+  - [FileSystem](Lessons/Lesson4/README.md)
+  - [Keychain](Lessons/Lesson6/README.md)
+  - [Intro to CD](Lessons/Lesson5/README.md)
+  - [CD - Relationships](Lessons/Lesson7/README.md)
+  - [CD - Fetching Data](Lessons/Lesson8/README.md)
+  - [CD - Multiple Contexts](Lessons/Lesson9/README.md)
+  - [Realm](Lessons/Lesson10/README.md)
+  - [Lab](Lessons/Lab/README.md)
+  - [Cloud Kit Pt. 1](Lessons/Lesson11/README.md)

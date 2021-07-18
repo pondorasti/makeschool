@@ -1,0 +1,1 @@
+This small cell contains a bucket and a broken wooden stool. 

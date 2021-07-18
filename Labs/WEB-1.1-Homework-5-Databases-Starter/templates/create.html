@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+<main>
+    <h1>New Plant</h1>
+
+    <form method='POST'>
+        <fieldset>
+            <legend>Please fill out your plant's info:</legend>
+
+            <label>
+                Plant's name:
+                <input type="text" name="plant_name">
+            </label>
+            
+            <label>
+                Plant's variety:
+                <input type="text" name="variety">
+            </label>
+
+            <label>
+                Plant's photo URL:
+                <input type="url" name="photo">
+            </label>
+
+            <label>
+                Date planted:
+                <input type="date" name="date_planted">
+            </label>
+
+            <input type="submit" class="submit" value="Submit!">
+        </fieldset>
+    </form>
+</main>
+
+{% endblock content %}

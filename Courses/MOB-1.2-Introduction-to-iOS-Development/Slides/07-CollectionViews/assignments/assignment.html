@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <title>Syllabus Template Slides</title>
+    <link rel="shortcut icon" href="./../../favicon.ico"/>
+    <link rel="stylesheet" href="./../../dist/reveal.css" />
+    <link rel="stylesheet" href="./../../dist/theme/white.css" id="theme" />
+    <link rel="stylesheet" href="./../../css/highlight/zenburn.css" />
+    <link rel="stylesheet" href="./../../assets/Reveal/makeschool.css" />
+
+    <script>
+      document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>');
+    </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides"><section  data-markdown><script type="text/template">
+## Building a collectionView
+
+In pairs, get the following collection view working as indicated.
+
+1. Download the [starter project](https://github.com/amelinagzz/collectionView-starter) and finish the implementation of the `UICollectionView`. First 2 *TODOs*.
+2. Experiment changing the values in the flow layout until you achieve something like this. You can find the methods in an extension at the end of the file.
+
+![collectionview](collectionview.png)<br><br>
+
+3. Now instead of using the default flow layout. Use the subclass `CustomFlowLayout`. You will need to comment out the extension for  `UICollectionViewDelegateFlowLayout` to use the custom one.
+
+```swift
+let flow = CustomFlowLayout()
+let collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: flow)
+```
+
+4. The new layout displays one column only. Run it and see how it looks in both portrait and landscape mode. Run the project to see if you get the single column in both orientations.
+
+5. This works ok but we can make better use of the space when it's on landscape mode by having more columns.
+
+```swift
+let availableWidth = cv.bounds.inset(by: cv.layoutMargins).size.width
+let minColumnWidth = CGFloat(300)
+let maxNumColumns = Int(availableWidth/minColumnWidth)
+let cellWidth = (availableWidth / CGFloat(maxNumColumns)).rounded(.down)
+
+self.itemSize = CGSize(width: cellWidth, height: 70.0)
+
+```
+
+Try the code above and see if we optimized the space. Every time our device rotates, the previous layout invalidates and the new one recalculates the item size.
+</script></section></div>
+    </div>
+
+    <script src="./../../dist/reveal.js"></script>
+
+    <script src="./../../plugin/markdown/markdown.js"></script>
+    <script src="./../../plugin/highlight/highlight.js"></script>
+    <script src="./../../plugin/zoom/zoom.js"></script>
+    <script src="./../../plugin/notes/notes.js"></script>
+    <script src="./../../plugin/math/math.js"></script>
+    <script>
+      function extend() {
+        var target = {};
+        for (var i = 0; i < arguments.length; i++) {
+          var source = arguments[i];
+          for (var key in source) {
+            if (source.hasOwnProperty(key)) {
+              target[key] = source[key];
+            }
+          }
+        }
+        return target;
+      }
+
+      // default options to init reveal.js
+      var defaultOptions = {
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+        transition: 'default', // none/fade/slide/convex/concave/zoom
+        plugins: [
+          RevealMarkdown,
+          RevealHighlight,
+          RevealZoom,
+          RevealNotes,
+          RevealMath
+        ]
+      };
+
+      // options from URL query string
+      var queryOptions = Reveal().getQueryHash() || {};
+
+      var options = extend(defaultOptions, {"controls":true,"progress":true,"autoPlayMedia":false,"slideNumber":"c/t","showSlideNumber":"all","controlsTutorial":true,"controlsLayout":"edges","transition":"slide","transitionSpeed":"medium","minScale":0.5,"maxScale":3}, queryOptions);
+    </script>
+
+
+    <script>
+      Reveal.initialize(options);
+    </script>
+  </body>
+</html>

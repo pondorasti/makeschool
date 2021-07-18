@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="101px" height="115px" viewBox="0 0 101 115" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 42 (36781) - http://www.bohemiancoding.com/sketch -->
+    <title>Sunny</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="01n" transform="translate(-50.000000, -42.000000)" stroke="#000000" stroke-width="9">
+            <g id="Sunny" transform="translate(52.000000, 46.000000)">
+                <circle id="Oval-30" cx="48" cy="54" r="23"></circle>
+                <path d="M48.5,16.6789474 L48.5,0.899301308 M80.387967,35.0894737 L94.0535413,27.1996507 M80.387967,71.9105263 L94.0535413,79.8003493 M48.5,90.3210526 L48.5,106.100699 M16.612033,71.9105263 L2.94645868,79.8003493 M16.612033,35.0894737 L2.94645868,27.1996507" id="Line" stroke-linecap="round"></path>
+            </g>
+        </g>
+    </g>
+</svg>

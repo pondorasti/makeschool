@@ -1,0 +1,74 @@
+
+<div id='main'></div>
+
+<script>
+	class Widget extends HTMLElement {
+		constructor() {
+			// Always call super first in constructor
+		 	super();
+
+			// Element functionality written in here
+			
+			
+		}
+	}
+	
+	async function fetchNews() {
+//		const res = await fetch() 
+//		const json = await res.json()
+			
+		const json = ['AAA', 'BBB', 'CCC']
+		
+		const main = document.querySelector('#main')
+		json.forEach(article => {
+			const el = document.createElement('news-article')
+			el.article = article
+			main.appendChild(el)
+		})
+	}
+	
+	fetchNews()
+</script>
+
+<!--
+<expanding-list>
+	<li>UK
+			<ul>
+				<li>Yorkshire
+					<ul>
+						<li>Leeds
+							<ul>
+								<li>Train station</li>
+								<li>Town hall</li>
+								<li>Headrow</li>
+							</ul>
+						</li>
+						<li>Bradford</li>
+						<li>Hull</li>
+					</ul>
+				</li>
+		</ul>
+	</li>
+	<li>USA
+		<ul>
+			<li>California
+				<ul>
+					<li>Los Angeles</li>
+					<li>San Francisco</li>
+					<li>Berkeley</li>
+				</ul>
+			</li>
+			<li>Nevada</li>
+			<li>Oregon</li>
+		</ul>
+	</li>
+</expanding-list>
+
+<popup-info img="img/alt.png" text="Your card validation code (CVC)
+  is an extra security feature — it is the last 3 or 4 numbers on the
+  back of your card."></popup-info>
+-->
+
+<!--
+<script src="popup-info.js"></script>
+<script src="expanding-list.js"></script>-->

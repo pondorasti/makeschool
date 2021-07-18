@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <title>Syllabus Template Slides</title>
+    <link rel="stylesheet" href="./../css/reveal.css" />
+    <link rel="stylesheet" href="./../css/theme/black.css" id="theme" />
+    <link rel="stylesheet" href="./../css/highlight/zenburn.css" />
+    <link rel="stylesheet" href="./../css/print/paper.css" type="text/css" media="print" />
+    <link rel="stylesheet" href="./../assets/Reveal/makeschool.css" />
+
+    <script>
+      document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>');
+    </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides"><section  data-markdown><script type="text/template"># Introduction to OOP
+
+## Minute-by-Minute
+
+| **Time(min)** | **Activity**                  |
+| ------------- | ---------------------------   |
+| 5             | Intro & Objectives            |
+| 15            | TT on OOP (What, why, how)    |
+| 30            | Playground OOP (Chapters 1-4) |
+| 10            | Break                         |
+| 10            | TT Subclassing & Inheritance  |
+| 35            | Playground OOP (Chapters 5-8) |
+| 5             | Wrap up & Q&A                 |
+
+## Class Learning Objectives/Competencies
+By the end of this lesson, students should be able to:
+
+- Define a class
+- Create an instance of a class
+- Define properties and type on a class
+- Define methods on a class
+- Distinguish between a function and a method
+- Distinguish between a variable and a property
+- Distinguish between Static vs Class methods
+- Define and create a subclass of an existing class
+- Identify and define `self` in a class
+
+## Overview
+Slides: [OOP in Games](https://docs.google.com/presentation/d/1RKt5hiE30_opdI9euTtXJJ3oeFtIb4dTJ-a6ETlw0Z8/edit?usp=sharing)
+
+[OOP Playgrounds](https://github.com/Product-College-Labs/object-oriented-programming-in-swift/archive/master.zip)
+<!-- https://github.com/Product-College-Labs/object-oriented-programming-in-swift.git -->
+
+## In Class Activity
+
+[OOP Challenges](https://github.com/MakeSchool-Tutorials/Intro-Object-Oriented-Programming-Playground/archive/master.zip)
+<!-- https://github.com/MakeSchool-Tutorials/Intro-Object-Oriented-Programming-Playground.git -->
+
+- Bubble Pop Game Challenges. Use OOP to improve your game.
+  - Your doing a lot of work in the GameScene it would be good to move some of this into another file.
+    - Make a class Box. It should handle the following
+      - Set the size of the box
+      - set the color of the box
+      - set the name of the box
+      - Stretch goals
+        - Position the box
+        - Animate and remove box
+  - Stretch goals
+    - Make a class for score label
+      - It should set all the default properties of the label
+      - It should have a method that updates the score it displays
+      - When the score changes the label counts up to the new value
+    - It would be cool if some points appeared at the location of a box that was tapped. This should show the points scored and animate up the screen, fade out, and remove itself. **Make this a class!**
+    - Make a particle system that appears at the location of a bubble when it has been tapped. This particle
+    should remove itself after a short animation.
+      - Make a sub class SKEmitterNode
+
+**Note**
+
+The Playgrounds contains a link to the material for the Walkthrough on OOP and the challenges for students in the same git repository. When downloaded/cloned you get access to both Playgrounds.
+
+## Wrap Up
+- Complete the game and upload to Github.
+</script></section></div>
+    </div>
+
+    <script src="./../js/reveal.js"></script>
+
+    <script>
+      function extend() {
+        var target = {};
+        for (var i = 0; i < arguments.length; i++) {
+          var source = arguments[i];
+          for (var key in source) {
+            if (source.hasOwnProperty(key)) {
+              target[key] = source[key];
+            }
+          }
+        }
+        return target;
+      }
+
+      // Optional libraries used to extend on reveal.js
+      var deps = [
+        { src: './../plugin/markdown/marked.js', condition: function() { return !!document.querySelector('[data-markdown]'); } },
+        { src: './../plugin/markdown/markdown.js', condition: function() { return !!document.querySelector('[data-markdown]'); } },
+        { src: './../plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+        { src: './../plugin/zoom-js/zoom.js', async: true },
+        { src: './../plugin/notes/notes.js', async: true },
+        { src: './../plugin/math/math.js', async: true }
+      ];
+
+      // default options to init reveal.js
+      var defaultOptions = {
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+        transition: 'default', // none/fade/slide/convex/concave/zoom
+        dependencies: deps
+      };
+
+      // options from URL query string
+      var queryOptions = Reveal.getQueryHash() || {};
+
+      var options = extend(defaultOptions, {"controls":true,"progress":true,"autoPlayMedia":false,"slideNumber":"c/t","showSlideNumber":"all","controlsTutorial":true,"controlsLayout":"edges","transition":"slide","transitionSpeed":"medium","minScale":0.5,"maxScale":3}, queryOptions);
+    </script>
+
+
+    <script>
+      Reveal.initialize(options);
+    </script>
+  </body>
+</html>

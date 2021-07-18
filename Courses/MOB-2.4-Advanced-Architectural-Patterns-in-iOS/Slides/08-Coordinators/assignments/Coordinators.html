@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <title>Syllabus Template Slides</title>
+    <link rel="stylesheet" href="./../../css/reveal.css" />
+    <link rel="stylesheet" href="./../../css/theme/black.css" id="theme" />
+    <link rel="stylesheet" href="./../../css/highlight/zenburn.css" />
+    <link rel="stylesheet" href="./../../css/print/paper.css" type="text/css" media="print" />
+    <link rel="stylesheet" href="./../../assets/Reveal/makeschool.css" />
+
+    <script>
+      document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>');
+    </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides"><section  data-markdown><script type="text/template">## In Class Activity
+
+### Individually
+
+**Required Resources:**
+1. Download the starter app: [iOS-CoordinatorsActivity1_B](https://github.com/Make-School-Labs/iOS-CoordinatorsActivity1_B)
+
+**Background:**
+
+The `iOS-CoordinatorsActivity1_B` app is incomplete.
+
+Instead of pushing and presenting ViewControllers from other view controllers, the app seeks to implement the Coordinator pattern.
+
+When completed, all screen navigation will be managed by coordinators.
+
+Currently, the app contains implementations of two protocols for:
+
+&nbsp;&nbsp;&nbsp;&nbsp; - The Coordinator protocol - for navigation </br>
+&nbsp;&nbsp;&nbsp;&nbsp; - The Storyboarded protocol - for dynamically instantiating View Controller objects from the Main Storyboard bundle </br>
+
+__*Navigation Protocol*__
+```Swift
+protocol Coordinator {
+    var childCoordinators: [Coordinator] { get set }
+    var navigationController: UINavigationController { get set }
+
+    func start()
+}
+```
+
+__*VC Creation Protocol*__
+
+```Swift
+protocol Storyboarded {
+    static func instantiate() -> Self
+}
+```
+
+__*Note that:*__
+- the main VC (`ViewController`) is __*not*__ configured as the "Initial View Controller" in the storyboad
+- in order to be created dynamically, all VCs are given a `StoryBoard ID`
+
+**- TODO -** </br>
+The code in the app is nearly complete. Your job is to:
+- analyze the app's structure wrt how it is creating view controllers
+- complete any missing code so that the `BuyViewController` and `CreateAccountViewController` are presented using the Coordinator pattern instead of typical iOS navigation process (*see* The Pushing Problem *above*)
+
+
+> **TIP:** Look for the //TODO: annotations we left in the app for you...
+
+
+*Adapted from:* </br>
+https://www.hackingwithswift.com/articles/175/advanced-coordinator-pattern-tutorial-ios
+
+
+<!-- INSTRUCTOR <aside class="notes"><p>solutions for Activity 1 are hidden below Additional Resources --&gt;</p>
+</aside></script></section></div>
+    </div>
+
+    <script src="./../../js/reveal.js"></script>
+
+    <script>
+      function extend() {
+        var target = {};
+        for (var i = 0; i < arguments.length; i++) {
+          var source = arguments[i];
+          for (var key in source) {
+            if (source.hasOwnProperty(key)) {
+              target[key] = source[key];
+            }
+          }
+        }
+        return target;
+      }
+
+      // Optional libraries used to extend on reveal.js
+      var deps = [
+        { src: './../../plugin/markdown/marked.js', condition: function() { return !!document.querySelector('[data-markdown]'); } },
+        { src: './../../plugin/markdown/markdown.js', condition: function() { return !!document.querySelector('[data-markdown]'); } },
+        { src: './../../plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+        { src: './../../plugin/zoom-js/zoom.js', async: true },
+        { src: './../../plugin/notes/notes.js', async: true },
+        { src: './../../plugin/math/math.js', async: true }
+      ];
+
+      // default options to init reveal.js
+      var defaultOptions = {
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+        transition: 'default', // none/fade/slide/convex/concave/zoom
+        dependencies: deps
+      };
+
+      // options from URL query string
+      var queryOptions = Reveal.getQueryHash() || {};
+
+      var options = extend(defaultOptions, {"controls":true,"progress":true,"autoPlayMedia":false,"slideNumber":"c/t","showSlideNumber":"all","controlsTutorial":true,"controlsLayout":"edges","transition":"slide","transitionSpeed":"medium","minScale":0.5,"maxScale":3}, queryOptions);
+    </script>
+
+
+    <script>
+      Reveal.initialize(options);
+    </script>
+  </body>
+</html>

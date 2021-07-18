@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <title>BEW 1.1 Slides</title>
+    <link rel="stylesheet" href="./../css/reveal.css" />
+    <link rel="stylesheet" href="./../css/theme/black.css" id="theme" />
+    <link rel="stylesheet" href="./../css/highlight/atom-one-light.css" />
+    <link rel="stylesheet" href="./../css/print/paper.css" type="text/css" media="print" />
+    <link rel="stylesheet" href="./../assets/Reveal/makeschool.css" />
+
+    <script>
+      document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>');
+    </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides"><section  data-markdown><script type="text/template">
+<!-- .slide: class="header" -->
+
+# Presentation Practice & Lab Day
+
+</script></section><section  data-markdown><script type="text/template">
+## [**5m**] Objectives
+
+**By the end of this class, you'll be able to...**
+
+1. Identify your public speaking strengths and weaknesses.
+1. Give a mock presentation in a small group.
+1. Identify any blockers or difficulties you face with the Contractor Project.
+</script></section><section ><section data-markdown><script type="text/template">
+# Presentation Skill Practice
+</script></section><section data-markdown><script type="text/template">
+## Presentation Rubric [5 minutes]
+
+Read over the presentation rubric and identify **3 public speaking skills** that you would like to improve on.
+
+Find a partner and share.
+</script></section><section data-markdown><script type="text/template">
+## Presentation Practice [15 minutes]
+
+<ol><li>
+
+On your own, write an outline of what you will talk about in your presentation. Topics to include are: **your project idea/wireframes, your work thus far, and the challenges remaining.**
+
+</li>
+<!-- .element: class="fragment" -->
+
+<li>
+With your partner, give your presentation as if you were speaking to an audience. Don't worry if it's not done yet; this is just practice!
+</li>
+<!-- .element: class="fragment" -->
+
+<li>
+Exchange feedback based on the presentation rubric.
+</li>
+<!-- .element: class="fragment" -->
+</ol>
+</script></section><section data-markdown><script type="text/template">
+## Small Group Practice [20 minutes]
+
+In your small group, give your presentation again. Limit each presenter to 2 minutes or less, then spend 2 minutes giving feedback (Glows and Grows).
+</script></section></section><section ><section data-markdown><script type="text/template">
+# Lab/Workshop
+</script></section><section data-markdown><script type="text/template">
+## Lab Instructions
+
+Write your name on the board, along with the topic you'd like help with (e.g. MongoDB, Bootstrap, Heroku).
+
+If you see a topic you feel confident with, jump in and help someone else out!
+</script></section></section><section  data-markdown><script type="text/template">
+## Announcements
+
+- Final presentations on Thursday - 2 minutes each, present your project idea & code
+- Contractor Project due Thursday midnight
+- No class Monday - Indigenous Peoples Day
+- Intensive starts on Tuesday, Oct. 15</script></section></div>
+    </div>
+
+    <script src="./../js/reveal.js"></script>
+
+    <script>
+      function extend() {
+        var target = {};
+        for (var i = 0; i < arguments.length; i++) {
+          var source = arguments[i];
+          for (var key in source) {
+            if (source.hasOwnProperty(key)) {
+              target[key] = source[key];
+            }
+          }
+        }
+        return target;
+      }
+
+      // Optional libraries used to extend on reveal.js
+      var deps = [
+        { src: './../plugin/markdown/marked.js', condition: function() { return !!document.querySelector('[data-markdown]'); } },
+        { src: './../plugin/markdown/markdown.js', condition: function() { return !!document.querySelector('[data-markdown]'); } },
+        { src: './../plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+        { src: './../plugin/zoom-js/zoom.js', async: true },
+        { src: './../plugin/notes/notes.js', async: true },
+        { src: './../plugin/math/math.js', async: true }
+      ];
+
+      // default options to init reveal.js
+      var defaultOptions = {
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+        transition: 'default', // none/fade/slide/convex/concave/zoom
+        dependencies: deps
+      };
+
+      // options from URL query string
+      var queryOptions = Reveal.getQueryHash() || {};
+
+      var options = extend(defaultOptions, {"controls":true,"progress":true,"autoPlayMedia":false,"slideNumber":"c/t","showSlideNumber":"all","controlsTutorial":true,"controlsLayout":"edges","transition":"slide","transitionSpeed":"medium","minScale":0.5,"maxScale":3}, queryOptions);
+    </script>
+
+
+    <script>
+      Reveal.initialize(options);
+    </script>
+  </body>
+</html>

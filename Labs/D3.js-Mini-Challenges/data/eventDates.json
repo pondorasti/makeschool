@@ -1,0 +1,18 @@
+[
+    {"date": "January 1, 1970", "event": "A"},
+    {"date": "April 1, 1970", "event": "B"},
+    {"date": "July 1, 1970", "event": "C"},
+    {"date": "October 1, 1970", "event": "D"},
+    {"date": "January 1, 1971", "event": "E"},
+    {"date": "April 1, 1971", "event": "F"},
+    {"date": "July 1, 1971", "event": "G"},
+    {"date": "October 1, 1971", "event": "H"},
+    {"date": "January 1, 1972", "event": "I"},
+    {"date": "April 1, 1972", "event": "J"},
+    {"date": "July 1, 1972", "event": "K"},
+    {"date": "October 1, 1972", "event": "L"},
+    {"date": "January 1, 1973", "event": "M"},
+    {"date": "April 1, 1973", "event": "N"},
+    {"date": "July 1, 1973", "event": "O"},
+    {"date": "October 1, 1973", "event": "P"}
+]

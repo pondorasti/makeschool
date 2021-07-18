@@ -1,0 +1,24 @@
+
+// Card styles 
+
+.card {
+  border: 2px solid;
+  border-radius: 0;
+  margin: auto;
+  max-width: 400px;
+}
+
+.card header {
+  background-color: #fff;
+  padding: 1rem;
+}
+
+.card h1 {
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+.card p {
+  margin: 1rem;
+}

@@ -1,0 +1,801 @@
+[{
+  "id": 1,
+  "name": "Zoolab",
+  "category": "Toys",
+  "description": "Persevering systematic core",
+  "price": "$12.07",
+  "rating": 3.0,
+  "units": 632
+}, {
+  "id": 2,
+  "name": "Lotstring",
+  "category": "Kids",
+  "description": "Reduced human-resource superstructure",
+  "price": "$185.21",
+  "rating": 3.0,
+  "units": 241
+  }, {
+  "id": 3,
+  "name": "Fintone",
+  "category": "Electronics",
+  "description": "Synergistic optimal middleware",
+  "price": "$190.79",
+  "rating": 3.1,
+  "units": 962
+  }, {
+  "id": 4,
+  "name": "Rank",
+  "category": "Games",
+  "description": "Expanded cohesive frame",
+  "price": "$24.49",
+  "rating": 1.0,
+  "units": 383
+}, {
+  "id": 5,
+  "name": "Opela",
+  "category": "Music",
+  "description": "Customizable asymmetric installation",
+  "price": "$12.68",
+  "rating": 0.2,
+  "units": 574
+}, {
+  "id": 6,
+  "name": "Bitchip",
+  "category": "Garden",
+  "description": "Virtual encompassing matrices",
+  "price": "$119.62",
+  "rating": 4.5,
+  "units": 874
+}, {
+  "id": 7,
+  "name": "Flowdesk",
+  "category": "Home",
+  "description": "Face to face actuating data-warehouse",
+  "price": "$135.18",
+  "rating": 2.4,
+  "units": 213
+}, {
+  "id": 8,
+  "name": "Trippledex",
+  "category": "Sports",
+  "description": "Triple-buffered 4th generation Graphical User Interface",
+  "price": "$139.52",
+  "rating": 2.9,
+  "units": 22
+}, {
+  "id": 9,
+  "name": "Job",
+  "category": "Sports",
+  "description": "Enhanced 3rd generation policy",
+  "price": "$103.63",
+  "rating": 4.5,
+  "units": 40
+}, {
+  "id": 10,
+  "name": "Lotlux",
+  "category": "Industrial",
+  "description": "Integrated contextually-based array",
+  "price": "$82.70",
+  "rating": 3.1,
+  "units": 561
+}, {
+  "id": 11,
+  "name": "Flexidy",
+  "category": "Computers",
+  "description": "Face to face leading edge pricing structure",
+  "price": "$101.72",
+  "rating": 1.4,
+  "units": 442
+}, {
+  "id": 12,
+  "name": "Alpha",
+  "category": "Games",
+  "description": "Multi-tiered 3rd generation installation",
+  "price": "$83.68",
+  "rating": 3.9,
+  "units": 951
+}, {
+  "id": 13,
+  "name": "Bamity",
+  "category": "Sports",
+  "description": "Switchable zero tolerance initiative",
+  "price": "$44.33",
+  "rating": 4.7,
+  "units": 521
+}, {
+  "id": 14,
+  "name": "Alphazap",
+  "category": "Jewelery",
+  "description": "Persistent system-worthy functionalities",
+  "price": "$75.14",
+  "rating": 4.4,
+  "units": 88
+}, {
+  "id": 15,
+  "name": "Latlux",
+  "category": "Music",
+  "description": "Focused object-oriented open architecture",
+  "price": "$146.13",
+  "rating": 3.5,
+  "units": 620
+}, {
+  "id": 16,
+  "name": "Cardguard",
+  "category": "Outdoors",
+  "description": "Ameliorated zero tolerance service-desk",
+  "price": "$150.07",
+  "rating": 4.8,
+  "units": 94
+}, {
+  "id": 17,
+  "name": "Cookley",
+  "category": "Games",
+  "description": "Digitized user-facing challenge",
+  "price": "$127.27",
+  "rating": 1.0,
+  "units": 242
+}, {
+  "id": 18,
+  "name": "Cookley",
+  "category": "Kids",
+  "description": "Programmable real-time instruction set",
+  "price": "$26.06",
+  "rating": 3.4,
+  "units": 785
+}, {
+  "id": 19,
+  "name": "Pannier",
+  "category": "Books",
+  "description": "Managed bi-directional database",
+  "price": "$87.14",
+  "rating": 4.0,
+  "units": 262
+}, {
+  "id": 20,
+  "name": "Ventosanzap",
+  "category": "Garden",
+  "description": "Compatible 4th generation synergy",
+  "price": "$128.55",
+  "rating": 3.4,
+  "units": 818
+}, {
+  "id": 21,
+  "name": "Zaam-Dox",
+  "category": "Toys",
+  "description": "Enterprise-wide non-volatile instruction set",
+  "price": "$158.16",
+  "rating": 2.7,
+  "units": 49
+}, {
+  "id": 22,
+  "name": "Bigtax",
+  "category": "Beauty",
+  "description": "Persevering 4th generation task-force",
+  "price": "$114.45",
+  "rating": 2.2,
+  "units": 812
+}, {
+  "id": 23,
+  "name": "Zaam-Dox",
+  "category": "Outdoors",
+  "description": "Optimized intangible alliance",
+  "price": "$23.97",
+  "rating": 4.6,
+  "units": 745
+}, {
+  "id": 24,
+  "name": "Pannier",
+  "category": "Shoes",
+  "description": "Face to face motivating leverage",
+  "price": "$104.54",
+  "rating": 2.8,
+  "units": 181
+}, {
+  "id": 25,
+  "name": "Latlux",
+  "category": "Home",
+  "description": "Focused multi-state framework",
+  "price": "$19.50",
+  "rating": 3.5,
+  "units": 502
+}, {
+  "id": 26,
+  "name": "Alpha",
+  "category": "Toys",
+  "description": "Managed contextually-based concept",
+  "price": "$173.47",
+  "rating": 0.5,
+  "units": 587
+}, {
+  "id": 27,
+  "name": "Biodex",
+  "category": "Kids",
+  "description": "Vision-oriented well-modulated model",
+  "price": "$89.86",
+  "rating": 0.0,
+  "units": 851
+}, {
+  "id": 28,
+  "name": "Sub-Ex",
+  "category": "Clothing",
+  "description": "Self-enabling 24 hour adapter",
+  "price": "$172.23",
+  "rating": 4.7,
+  "units": 881
+}, {
+  "id": 29,
+  "name": "Pannier",
+  "category": "Health",
+  "description": "Triple-buffered asynchronous help-desk",
+  "price": "$107.68",
+  "rating": 1.8,
+  "units": 154
+}, {
+  "id": 30,
+  "name": "Bamity",
+  "category": "Electronics",
+  "description": "Persistent optimizing neural-net",
+  "price": "$11.73",
+  "rating": 4.2,
+  "units": 673
+}, {
+  "id": 31,
+  "name": "Fixflex",
+  "category": "Games",
+  "description": "Compatible mission-critical algorithm",
+  "price": "$127.21",
+  "rating": 2.0,
+  "units": 160
+}, {
+  "id": 32,
+  "name": "Bytecard",
+  "category": "Grocery",
+  "description": "Proactive system-worthy support",
+  "price": "$71.63",
+  "rating": 4.0,
+  "units": 595
+}, {
+  "id": 33,
+  "name": "Opela",
+  "category": "Movies",
+  "description": "Adaptive impactful matrices",
+  "price": "$29.83",
+  "rating": 0.7,
+  "units": 624
+}, {
+  "id": 34,
+  "name": "Kanlam",
+  "category": "Electronics",
+  "description": "Multi-tiered fault-tolerant utilisation",
+  "price": "$144.86",
+  "rating": 2.4,
+  "units": 481
+}, {
+  "id": 35,
+  "name": "Stringtough",
+  "category": "Toys",
+  "description": "Proactive attitude-oriented frame",
+  "price": "$55.45",
+  "rating": 4.6,
+  "units": 992
+}, {
+  "id": 36,
+  "name": "Regrant",
+  "category": "Clothing",
+  "description": "Intuitive zero administration challenge",
+  "price": "$72.87",
+  "rating": 4.0,
+  "units": 817
+}, {
+  "id": 37,
+  "name": "Tampflex",
+  "category": "Toys",
+  "description": "Seamless multi-state Graphic Interface",
+  "price": "$154.17",
+  "rating": 5.0,
+  "units": 436
+}, {
+  "id": 38,
+  "name": "Aerified",
+  "category": "Baby",
+  "description": "Progressive full-range interface",
+  "price": "$33.74",
+  "rating": 1.4,
+  "units": 371
+}, {
+  "id": 39,
+  "name": "Home Ing",
+  "category": "Industrial",
+  "description": "Versatile responsive framework",
+  "price": "$91.56",
+  "rating": 0.1,
+  "units": 901
+}, {
+  "id": 40,
+  "name": "Duobam",
+  "category": "Sports",
+  "description": "Persistent real-time forecast",
+  "price": "$59.79",
+  "rating": 2.8,
+  "units": 810
+}, {
+  "id": 41,
+  "name": "Bamity",
+  "category": "Home",
+  "description": "Progressive content-based leverage",
+  "price": "$45.17",
+  "rating": 3.1,
+  "units": 951
+}, {
+  "id": 42,
+  "name": "Fix San",
+  "category": "Automotive",
+  "description": "Triple-buffered heuristic open system",
+  "price": "$14.25",
+  "rating": 3.7,
+  "units": 854
+}, {
+  "id": 43,
+  "name": "Fix San",
+  "category": "Industrial",
+  "description": "Integrated explicit intranet",
+  "price": "$124.77",
+  "rating": 4.2,
+  "units": 102
+}, {
+  "id": 44,
+  "name": "Treeflex",
+  "category": "Toys",
+  "description": "Operative systematic paradigm",
+  "price": "$176.02",
+  "rating": 2.8,
+  "units": 677
+}, {
+  "id": 45,
+  "name": "Vagram",
+  "category": "Outdoors",
+  "description": "User-friendly 3rd generation throughput",
+  "price": "$104.97",
+  "rating": 4.6,
+  "units": 12
+}, {
+  "id": 46,
+  "name": "Quo Lux",
+  "category": "Toys",
+  "description": "Diverse local encoding",
+  "price": "$119.59",
+  "rating": 0.1,
+  "units": 616
+}, {
+  "id": 47,
+  "name": "Holdlamis",
+  "category": "Toys",
+  "description": "De-engineered non-volatile contingency",
+  "price": "$56.61",
+  "rating": 0.5,
+  "units": 960
+}, {
+  "id": 48,
+  "name": "Namfix",
+  "category": "Tools",
+  "description": "Managed didactic access",
+  "price": "$17.23",
+  "rating": 3.1,
+  "units": 863
+}, {
+  "id": 49,
+  "name": "Zathin",
+  "category": "Jewelery",
+  "description": "Self-enabling even-keeled utilisation",
+  "price": "$163.34",
+  "rating": 0.1,
+  "units": 686
+}, {
+  "id": 50,
+  "name": "Transcof",
+  "category": "Home",
+  "description": "Cross-platform contextually-based frame",
+  "price": "$136.59",
+  "rating": 0.3,
+  "units": 390
+}, {
+  "id": 51,
+  "name": "Bamity",
+  "category": "Toys",
+  "description": "Seamless leading edge projection",
+  "price": "$85.93",
+  "rating": 2.5,
+  "units": 961
+}, {
+  "id": 52,
+  "name": "Rank",
+  "category": "Shoes",
+  "description": "Function-based explicit protocol",
+  "price": "$56.77",
+  "rating": 4.3,
+  "units": 159
+}, {
+  "id": 53,
+  "name": "Pannier",
+  "category": "Automotive",
+  "description": "Enterprise-wide bifurcated utilisation",
+  "price": "$184.40",
+  "rating": 1.3,
+  "units": 250
+}, {
+  "id": 54,
+  "name": "Job",
+  "category": "Kids",
+  "description": "Enhanced attitude-oriented approach",
+  "price": "$97.48",
+  "rating": 0.0,
+  "units": 115
+}, {
+  "id": 55,
+  "name": "Span",
+  "category": "Toys",
+  "description": "Monitored multi-tasking secured line",
+  "price": "$199.95",
+  "rating": 4.4,
+  "units": 417
+}, {
+  "id": 56,
+  "name": "Tempsoft",
+  "category": "Computers",
+  "description": "Pre-emptive high-level customer loyalty",
+  "price": "$183.31",
+  "rating": 4.4,
+  "units": 237
+}, {
+  "id": 57,
+  "name": "Span",
+  "category": "Health",
+  "description": "Integrated directional definition",
+  "price": "$82.00",
+  "rating": 4.4,
+  "units": 467
+}, {
+  "id": 58,
+  "name": "Aerified",
+  "category": "Movies",
+  "description": "Fully-configurable zero defect task-force",
+  "price": "$181.20",
+  "rating": 1.0,
+  "units": 97
+}, {
+  "id": 59,
+  "name": "Gembucket",
+  "category": "Computers",
+  "description": "Object-based high-level intranet",
+  "price": "$20.61",
+  "rating": 3.3,
+  "units": 894
+}, {
+  "id": 60,
+  "name": "Alphazap",
+  "category": "Health",
+  "description": "Expanded bottom-line framework",
+  "price": "$173.90",
+  "rating": 3.5,
+  "units": 460
+}, {
+  "id": 61,
+  "name": "Cookley",
+  "category": "Baby",
+  "description": "User-centric well-modulated contingency",
+  "price": "$33.27",
+  "rating": 2.9,
+  "units": 19
+}, {
+  "id": 62,
+  "name": "Bigtax",
+  "category": "Kids",
+  "description": "Extended system-worthy flexibility",
+  "price": "$113.27",
+  "rating": 2.1,
+  "units": 688
+}, {
+  "id": 63,
+  "name": "Bamity",
+  "category": "Grocery",
+  "description": "Cross-platform discrete software",
+  "price": "$27.24",
+  "rating": 1.6,
+  "units": 335
+}, {
+  "id": 64,
+  "name": "Fintone",
+  "category": "Shoes",
+  "description": "Phased holistic secured line",
+  "price": "$134.43",
+  "rating": 2.1,
+  "units": 45
+}, {
+  "id": 65,
+  "name": "Wrapsafe",
+  "category": "Electronics",
+  "description": "Focused discrete knowledge base",
+  "price": "$50.53",
+  "rating": 1.5,
+  "units": 70
+}, {
+  "id": 66,
+  "name": "Mat Lam Tam",
+  "category": "Home",
+  "description": "Fully-configurable multi-state superstructure",
+  "price": "$83.41",
+  "rating": 4.5,
+  "units": 402
+}, {
+  "id": 67,
+  "name": "Job",
+  "category": "Home",
+  "description": "Quality-focused optimal function",
+  "price": "$120.60",
+  "rating": 4.2,
+  "units": 994
+}, {
+  "id": 68,
+  "name": "Konklab",
+  "category": "Electronics",
+  "description": "Secured dedicated protocol",
+  "price": "$67.16",
+  "rating": 0.8,
+  "units": 771
+}, {
+  "id": 69,
+  "name": "Namfix",
+  "category": "Baby",
+  "description": "Devolved value-added artificial intelligence",
+  "price": "$121.99",
+  "rating": 1.0,
+  "units": 386
+}, {
+  "id": 70,
+  "name": "Andalax",
+  "category": "Outdoors",
+  "description": "Front-line responsive success",
+  "price": "$153.77",
+  "rating": 4.4,
+  "units": 273
+}, {
+  "id": 71,
+  "name": "Kanlam",
+  "category": "Jewelery",
+  "description": "Upgradable explicit success",
+  "price": "$34.29",
+  "rating": 0.0,
+  "units": 494
+}, {
+  "id": 72,
+  "name": "Konklux",
+  "category": "Computers",
+  "description": "Reduced non-volatile info-mediaries",
+  "price": "$81.17",
+  "rating": 3.4,
+  "units": 637
+}, {
+  "id": 73,
+  "name": "Sonsing",
+  "category": "Toys",
+  "description": "Open-architected exuding complexity",
+  "price": "$54.75",
+  "rating": 1.3,
+  "units": 493
+}, {
+  "id": 74,
+  "name": "Treeflex",
+  "category": "Movies",
+  "description": "De-engineered disintermediate emulation",
+  "price": "$143.61",
+  "rating": 2.0,
+  "units": 42
+}, {
+  "id": 75,
+  "name": "Solarbreeze",
+  "category": "Industrial",
+  "description": "Reverse-engineered optimizing internet solution",
+  "price": "$97.13",
+  "rating": 3.7,
+  "units": 273
+}, {
+  "id": 76,
+  "name": "Fixflex",
+  "category": "Computers",
+  "description": "Profound composite projection",
+  "price": "$61.48",
+  "rating": 4.7,
+  "units": 157
+}, {
+  "id": 77,
+  "name": "Redhold",
+  "category": "Music",
+  "description": "Front-line explicit knowledge user",
+  "price": "$58.54",
+  "rating": 3.0,
+  "units": 182
+}, {
+  "id": 78,
+  "name": "Domainer",
+  "category": "Computers",
+  "description": "Phased 4th generation projection",
+  "price": "$134.36",
+  "rating": 3.2,
+  "units": 467
+}, {
+  "id": 79,
+  "name": "Overhold",
+  "category": "Clothing",
+  "description": "Expanded systemic model",
+  "price": "$41.11",
+  "rating": 3.5,
+  "units": 856
+}, {
+  "id": 80,
+  "name": "Lotlux",
+  "category": "Health",
+  "description": "Optimized composite knowledge user",
+  "price": "$196.62",
+  "rating": 3.4,
+  "units": 803
+}, {
+  "id": 81,
+  "name": "Keylex",
+  "category": "Music",
+  "description": "Secured stable benchmark",
+  "price": "$28.79",
+  "rating": 0.5,
+  "units": 657
+}, {
+  "id": 82,
+  "name": "Rank",
+  "category": "Baby",
+  "description": "Re-contextualized mission-critical time-frame",
+  "price": "$83.57",
+  "rating": 0.7,
+  "units": 70
+}, {
+  "id": 83,
+  "name": "Overhold",
+  "category": "Beauty",
+  "description": "Seamless bi-directional leverage",
+  "price": "$164.63",
+  "rating": 3.2,
+  "units": 935
+}, {
+  "id": 84,
+  "name": "Aerified",
+  "category": "Music",
+  "description": "Networked real-time ability",
+  "price": "$107.98",
+  "rating": 3.3,
+  "units": 289
+}, {
+  "id": 85,
+  "name": "Viva",
+  "category": "Shoes",
+  "description": "Fully-configurable regional knowledge base",
+  "price": "$60.65",
+  "rating": 4.7,
+  "units": 944
+}, {
+  "id": 86,
+  "name": "Greenlam",
+  "category": "Garden",
+  "description": "Adaptive object-oriented capability",
+  "price": "$169.09",
+  "rating": 3.1,
+  "units": 331
+}, {
+  "id": 87,
+  "name": "Solarbreeze",
+  "category": "Games",
+  "description": "Synchronised human-resource success",
+  "price": "$69.41",
+  "rating": 3.0,
+  "units": 996
+}, {
+  "id": 88,
+  "name": "Tresom",
+  "category": "Tools",
+  "description": "Operative even-keeled Graphic Interface",
+  "price": "$156.20",
+  "rating": 2.8,
+  "units": 437
+}, {
+  "id": 89,
+  "name": "Kanlam",
+  "category": "Sports",
+  "description": "Mandatory non-volatile monitoring",
+  "price": "$149.10",
+  "rating": 2.2,
+  "units": 892
+}, {
+  "id": 90,
+  "name": "Pannier",
+  "category": "Automotive",
+  "description": "Up-sized didactic hardware",
+  "price": "$104.76",
+  "rating": 4.5,
+  "units": 750
+}, {
+  "id": 91,
+  "name": "Span",
+  "category": "Electronics",
+  "description": "Customer-focused client-driven neural-net",
+  "price": "$68.44",
+  "rating": 2.5,
+  "units": 716
+}, {
+  "id": 92,
+  "name": "Trippledex",
+  "category": "Shoes",
+  "description": "Centralized content-based system engine",
+  "price": "$81.57",
+  "rating": 1.2,
+  "units": 241
+}, {
+  "id": 93,
+  "name": "Lotstring",
+  "category": "Toys",
+  "description": "Multi-lateral uniform customer loyalty",
+  "price": "$127.32",
+  "rating": 1.8,
+  "units": 617
+}, {
+  "id": 94,
+  "name": "Subin",
+  "category": "Clothing",
+  "description": "Public-key regional middleware",
+  "price": "$128.14",
+  "rating": 0.1,
+  "units": 394
+}, {
+  "id": 95,
+  "name": "Overhold",
+  "category": "Shoes",
+  "description": "Virtual background parallelism",
+  "price": "$52.69",
+  "rating": 1.7,
+  "units": 127
+}, {
+  "id": 96,
+  "name": "Matsoft",
+  "category": "Outdoors",
+  "description": "Cloned foreground secured line",
+  "price": "$81.40",
+  "rating": 3.8,
+  "units": 182
+}, {
+  "id": 97,
+  "name": "Otcom",
+  "category": "Beauty",
+  "description": "Expanded analyzing ability",
+  "price": "$19.34",
+  "rating": 0.7,
+  "units": 802
+}, {
+  "id": 98,
+  "name": "Regrant",
+  "category": "Health",
+  "description": "Virtual context-sensitive definition",
+  "price": "$196.32",
+  "rating": 2.6,
+  "units": 76
+}, {
+  "id": 99,
+  "name": "Redhold",
+  "category": "Clothing",
+  "description": "Persevering next generation extranet",
+  "price": "$34.05",
+  "rating": 4.9,
+  "units": 402
+}, {
+  "id": 100,
+  "name": "Transcof",
+  "category": "Sports",
+  "description": "Re-contextualized modular archive",
+  "price": "$117.20",
+  "rating": 3.1,
+  "units": 871
+}]

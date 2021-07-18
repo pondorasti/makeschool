@@ -1,0 +1,42 @@
+[
+    {
+      "conference_name": "Learning D3",
+      "tickets_sold": 100,
+      "tickets_available": 125
+    },
+    {
+      "conference_name": "D3 for Data Scientists",
+      "tickets_sold": 250,
+      "tickets_available": "300"
+    },
+    {
+      "conference_name": "Python for Web Programming",
+      "tickets_sold": 500,
+      "tickets_available": 550
+    },
+    {
+      "conference_name": "GDG",
+      "tickets_sold": 263,
+      "tickets_available": 346
+    },
+    {
+      "conference_name": "Def Con",
+      "tickets_sold": 369,
+      "tickets_available": 332
+    },
+    {
+      "conference_name": "DevOps Days",
+      "tickets_sold": 389,
+      "tickets_available": 455
+    },
+    {
+      "conference_name": "GopherCon",
+      "tickets_sold": 360,
+      "tickets_available": 252
+    },
+    {
+      "conference_name": "Front Staack",
+      "tickets_sold": 394,
+      "tickets_available": 366
+    }
+  ]

@@ -1,0 +1,1454 @@
+﻿ID,Location,Track,Week,Rating (Num),Schedule Pacing
+134,San Francisco,"Apps, Explorer",Week 1,3,Just right
+36,Los Angeles,Apps,Week 1,4,A little too fast
+117,San Francisco,Games,Week 1,4,Way too slow
+253,,,Week 2,4,A little too fast
+350,New York City,"Apps, Explorer",Week 1,4,Just right
+23,Redwood City,Apps,Week 1,5,Just right
+28,Los Angeles,Apps,Week 7,5,Just right
+65,San Francisco,Apps,Week 1,5,A little too slow
+101,Santa Clara,Apps,Week 1,5,A little too slow
+124,Santa Clara,Apps,Week 1,5,Just right
+157,Redwood City,Apps,Week 2,5,Just right
+170,Oakland,Apps,Week 2,5,Just right
+255,San Francisco,Apps,Week 2,5,Way too fast
+289,Washington DC,Apps,Week 1,5,Just right
+299,Washington DC,"Apps, Explorer",Week 1,5,A little too slow
+307,,,Week 3,5,A little too slow
+319,Redwood City,Apps,Week 3,5,Just right
+336,New York City,Apps,Week 1,5,A little too slow
+441,San Francisco,"Apps, Explorer",Week 3,5,Just right
+482,Santa Clara,Apps,Week 3,5,Just right
+37,Los Angeles,Games,Week 1,6,Just right
+41,Chicago,"Apps, Explorer",Week 1,6,Just right
+45,Chicago,Apps,Week 1,6,A little too slow
+47,Chicago,Apps,Week 1,6,A little too slow
+77,San Francisco,Apps,Week 1,6,A little too fast
+78,San Francisco,Apps,Week 1,6,A little too fast
+94,San Francisco,"Apps, Explorer",Week 1,6,Just right
+193,Santa Clara,Apps,Week 2,6,Just right
+251,San Francisco,"Apps, Explorer",Week 2,6,Just right
+254,San Francisco,Apps,Week 2,6,Way too fast
+276,Santa Clara,Apps,Week 2,6,Just right
+294,Washington DC,Apps,Week 1,6,Way too fast
+314,Redwood City,Apps,Week 3,6,A little too slow
+340,,,Week 1,6,A little too slow
+347,New York City,Games,Week 1,6,A little too fast
+349,New York City,Apps,Week 1,6,Just right
+397,Santa Clara,Games,Week 3,6,Way too slow
+429,Santa Clara,Apps,Week 3,6,Just right
+438,San Francisco,"Apps, Explorer",Week 3,6,Just right
+452,San Francisco,Apps,Week 3,6,Way too fast
+455,San Francisco,"Apps, Explorer",Week 3,6,Just right
+472,San Francisco,Apps,Week 3,6,A little too fast
+484,Oakland,Apps,Week 3,6,A little too slow
+489,,,Week 1,6,A little too slow
+20,Redwood City,Apps,Week 1,7,A little too slow
+26,Los Angeles,Apps,Week 1,7,A little too fast
+35,Los Angeles,Apps,Week 1,7,Just right
+38,Chicago,Apps,Week 1,7,A little too fast
+48,San Francisco,VR,Week 1,7,A little too slow
+62,San Francisco,Apps,Week 1,7,A little too fast
+67,San Francisco,Apps,Week 1,7,Just right
+72,San Francisco,Apps,Week 1,7,A little too fast
+75,San Francisco,Apps,Week 1,7,A little too fast
+85,Santa Clara,Apps,Week 1,7,A little too fast
+87,San Francisco,Apps,Week 1,7,A little too fast
+104,San Francisco,"Apps, Explorer",Week 1,7,A little too fast
+107,San Francisco,Games,Week 1,7,Just right
+118,San Francisco,"Apps, Explorer",Week 1,7,Just right
+122,Santa Clara,Apps,Week 1,7,Just right
+136,San Francisco,"Apps, Explorer",Week 1,7,Just right
+140,San Francisco,"Apps, Explorer",Week 1,7,A little too fast
+155,San Francisco,Apps,Week 1,7,Just right
+162,Redwood City,Apps,Week 2,7,Just right
+175,Chicago,Apps,Week 2,7,A little too slow
+192,Santa Clara,Apps,Week 2,7,Just right
+199,Santa Clara,Apps,Week 2,7,A little too fast
+222,Los Angeles,Apps,Week 2,7,A little too fast
+223,San Francisco,"Apps, Explorer",Week 2,7,Just right
+226,San Francisco,"Apps, Explorer",Week 2,7,Just right
+247,San Francisco,"Apps, Explorer",Week 2,7,Just right
+249,San Francisco,Apps,Week 2,7,A little too fast
+257,San Francisco,Apps,Week 2,7,A little too fast
+258,San Francisco,Apps,Week 2,7,A little too fast
+266,San Francisco,Apps,Week 2,7,A little too fast
+270,San Francisco,Games,Week 2,7,Just right
+287,Atlanta,"Apps, Explorer",Week 2,7,A little too fast
+295,Washington DC,Apps,Week 1,7,Just right
+305,Oakland,Apps,Week 2,7,A little too slow
+318,Redwood City,Apps,Week 3,7,Just right
+327,Redwood City,Apps,Week 3,7,Just right
+329,Washington DC,Apps,Week 2,7,Just right
+339,New York City,Apps,Week 1,7,Just right
+343,New York City,Apps,Week 1,7,A little too slow
+344,New York City,Games,Week 1,7,Just right
+346,New York City,Games,Week 1,7,Just right
+353,New York City,Apps,Week 1,7,Just right
+375,Chicago,Apps,Week 3,7,A little too fast
+380,Chicago,Apps,Week 3,7,A little too fast
+385,Chicago,"Apps, Explorer",Week 3,7,Just right
+400,Santa Clara,Apps,Week 3,7,A little too fast
+443,Santa Clara,Apps,Week 3,7,A little too slow
+446,San Francisco,Apps,Week 3,7,Just right
+459,Santa Clara,Apps,Week 3,7,A little too fast
+465,,,Week 3,7,Just right
+486,Washington DC,Apps,Week 2,7,Way too fast
+497,New York City,"Apps, Explorer",Week 1,7,Just right
+8,Atlanta,"Apps, Explorer",Week 1,8,Just right
+9,Atlanta,Apps,Week 1,8,Just right
+10,Atlanta,"Apps, Explorer",Week 1,8,Just right
+14,Atlanta,Apps,Week 1,8,A little too slow
+16,Redwood City,Apps,Week 1,8,A little too slow
+18,San Francisco,"Apps, Explorer",Week 1,8,Way too fast
+21,Redwood City,Apps,Week 1,8,A little too slow
+25,Redwood City,Apps,Week 1,8,Just right
+29,Los Angeles,Apps,Week 1,8,A little too fast
+31,Los Angeles,Games,Week 1,8,A little too fast
+39,Chicago,Apps,Week 1,8,A little too fast
+40,Chicago,Apps,Week 1,8,Just right
+46,Chicago,"Apps, Explorer",Week 1,8,Just right
+53,San Francisco,VR,Week 1,8,Just right
+55,San Francisco,VR,Week 1,8,Just right
+58,San Francisco,Apps,Week 1,8,Just right
+61,San Francisco,Apps,Week 1,8,A little too fast
+63,San Francisco,Apps,Week 1,8,Just right
+74,San Francisco,"Apps, Explorer",Week 1,8,A little too slow
+80,Santa Clara,Apps,Week 1,8,Just right
+81,San Francisco,"Apps, Explorer",Week 1,8,Just right
+83,Oakland,Apps,Week 1,8,A little too fast
+84,Santa Clara,Games,Week 1,8,Just right
+86,Santa Clara,Apps,Week 1,8,Just right
+88,Santa Clara,Games,Week 1,8,A little too slow
+90,Santa Clara,Apps,Week 1,8,A little too slow
+91,Santa Clara,Apps,Week 1,8,A little too slow
+92,Santa Clara,Games,Week 1,8,Just right
+95,Santa Clara,"Apps, Explorer",Week 1,8,Just right
+96,Santa Clara,Apps,Week 1,8,Just right
+99,Santa Clara,"Apps, Explorer",Week 1,8,Just right
+100,Santa Clara,"Apps, Explorer",Week 1,8,Just right
+105,Oakland,Apps,Week 1,8,A little too fast
+109,San Francisco,Games,Week 1,8,Just right
+114,Santa Clara,Games,Week 1,8,Just right
+115,San Francisco,Games,Week 1,8,A little too slow
+121,San Francisco,Games,Week 1,8,A little too slow
+125,Santa Clara,Games,Week 1,8,Just right
+126,Oakland,Apps,Week 1,8,A little too fast
+130,San Francisco,Apps,Week 1,8,Just right
+132,San Francisco,Games,Week 1,8,Just right
+133,San Francisco,Apps,Week 1,8,A little too fast
+135,San Francisco,"Apps, Explorer",Week 1,8,Just right
+137,San Francisco,"Apps, Explorer",Week 1,8,A little too slow
+147,Santa Clara,Apps,Week 1,8,A little too fast
+153,Santa Clara,Games,Week 1,8,A little too slow
+159,Redwood City,Apps,Week 2,8,A little too slow
+161,Redwood City,Apps,Week 2,8,A little too fast
+163,Redwood City,Apps,Week 2,8,A little too fast
+173,Chicago,Apps,Week 2,8,Just right
+176,Chicago,"Apps, Explorer",Week 2,8,A little too fast
+180,Santa Clara,Apps,Week 2,8,A little too fast
+181,Santa Clara,Apps,Week 2,8,A little too fast
+185,Santa Clara,"Apps, Explorer",Week 2,8,Just right
+186,Santa Clara,Apps,Week 2,8,A little too fast
+189,Santa Clara,Games,Week 2,8,Just right
+194,Santa Clara,Apps,Week 2,8,Just right
+196,Santa Clara,Apps,Week 2,8,Just right
+198,Santa Clara,Apps,Week 2,8,A little too fast
+200,Santa Clara,Apps,Week 2,8,Just right
+202,Santa Clara,Games,Week 2,8,Just right
+209,San Francisco,VR,Week 2,8,A little too fast
+210,San Francisco,VR,Week 2,8,Just right
+212,Los Angeles,Apps,Week 2,8,A little too slow
+219,Los Angeles,Apps,Week 2,8,Just right
+220,Los Angeles,Apps,Week 2,8,A little too fast
+224,San Francisco,"Apps, Explorer",Week 2,8,Just right
+232,Los Angeles,Apps,Week 2,8,Just right
+233,Los Angeles,Games,Week 2,8,Just right
+234,San Francisco,Games,Week 2,8,Just right
+236,Santa Clara,"Apps, Explorer",Week 2,8,Just right
+239,San Francisco,"Apps, Explorer",Week 2,8,A little too slow
+242,San Francisco,Apps,Week 2,8,A little too fast
+244,,,Week 2,8,A little too fast
+245,San Francisco,"Apps, Explorer",Week 2,8,Just right
+246,San Francisco,Apps,Week 2,8,A little too fast
+248,San Francisco,Apps,Week 2,8,Just right
+259,San Francisco,"Apps, Explorer",Week 2,8,Just right
+260,San Francisco,Apps,Week 2,8,Just right
+261,San Francisco,Apps,Week 2,8,Just right
+267,Los Angeles,Apps,Week 2,8,A little too fast
+272,San Francisco,Apps,Week 2,8,Just right
+273,San Francisco,Apps,Week 2,8,Just right
+274,San Francisco,Apps,Week 2,8,Just right
+279,San Francisco,Apps,Week 2,8,Just right
+280,Santa Clara,Apps,Week 2,8,Just right
+285,Atlanta,Apps,Week 2,8,Just right
+290,Washington DC,Apps,Week 1,8,Just right
+293,Washington DC,Apps,Week 1,8,Just right
+297,Washington DC,"Apps, Explorer",Week 1,8,Just right
+302,Washington DC,Apps,Week 1,8,A little too slow
+306,New York City,Apps,Week 1,8,A little too slow
+308,San Francisco,Apps,Week 3,8,Just right
+311,San Francisco,Apps,Week 3,8,A little too fast
+312,San Francisco,Apps,Week 3,8,A little too fast
+320,San Francisco,Apps,Week 3,8,A little too fast
+321,Redwood City,Apps,Week 3,8,Just right
+325,Washington DC,Apps,Week 2,8,A little too fast
+326,Washington DC,"Apps, Explorer",Week 2,8,A little too fast
+330,New York City,Apps,Week 1,8,A little too slow
+331,New York City,Apps,Week 1,8,Just right
+332,New York City,Apps,Week 1,8,A little too slow
+333,New York City,"Games, Explorer",Week 1,8,Just right
+334,New York City,Games,Week 1,8,A little too slow
+335,New York City,Apps,Week 1,8,Just right
+341,New York City,Apps,Week 1,8,A little too fast
+342,New York City,Games,Week 1,8,A little too fast
+345,New York City,Games,Week 1,8,A little too fast
+352,Atlanta,Apps,Week 3,8,Just right
+354,,,Week 1,8,Just right
+355,Atlanta,"Apps, Explorer",Week 3,8,Just right
+359,New York City,Apps,Week 1,8,Just right
+360,New York City,Apps,Week 1,8,Just right
+362,Atlanta,"Apps, Explorer",Week 3,8,Just right
+365,New York City,Apps,Week 1,8,Just right
+366,New York City,"Games, Explorer",Week 1,8,Just right
+368,New York City,Games,Week 1,8,Just right
+370,New York City,Apps,Week 1,8,Just right
+372,San Francisco,Apps,Week 3,8,A little too fast
+378,Chicago,Apps,Week 3,8,A little too fast
+381,Chicago,Apps,Week 3,8,Just right
+382,Chicago,Apps,Week 3,8,Just right
+384,Chicago,"Apps, Explorer",Week 3,8,Just right
+387,San Francisco,VR,Week 3,8,A little too slow
+391,Santa Clara,Apps,Week 3,8,A little too fast
+392,Santa Clara,Apps,Week 3,8,Just right
+393,Santa Clara,Games,Week 3,8,Just right
+394,Santa Clara,Apps,Week 3,8,A little too fast
+396,Santa Clara,Games,Week 3,8,A little too slow
+399,Santa Clara,"Apps, Explorer",Week 3,8,Just right
+401,Santa Clara,Games,Week 3,8,A little too slow
+404,Los Angeles,Apps,Week 3,8,Just right
+408,Los Angeles,Apps,Week 3,8,Just right
+410,Los Angeles,Games,Week 3,8,A little too fast
+413,Los Angeles,Apps,Week 3,8,A little too fast
+418,Los Angeles,Apps,Week 3,8,A little too fast
+423,,,Week 3,8,Just right
+424,San Francisco,Apps,Week 3,8,Just right
+425,Santa Clara,Apps,Week 3,8,A little too fast
+426,San Francisco,"Apps, Explorer",Week 3,8,Just right
+427,Santa Clara,Games,Week 3,8,Just right
+430,San Francisco,"Apps, Explorer",Week 3,8,Just right
+431,San Francisco,Games,Week 3,8,Just right
+433,San Francisco,"Apps, Explorer",Week 3,8,Just right
+449,San Francisco,"Apps, Explorer",Week 3,8,Just right
+450,San Francisco,"Apps, Explorer",Week 3,8,Just right
+458,Washington DC,Apps,Week 2,8,Just right
+460,San Francisco,Apps,Week 3,8,A little too fast
+463,San Francisco,"Apps, Explorer",Week 3,8,Just right
+468,Washington DC,Apps,Week 2,8,A little too fast
+469,Washington DC,Apps,Week 2,8,Just right
+471,San Francisco,Games,Week 3,8,A little too slow
+481,Oakland,Apps,Week 3,8,Just right
+488,New York City,Apps,Week 1,8,Just right
+494,New York City,Apps,Week 1,8,Just right
+498,New York City,Apps,Week 1,8,A little too fast
+499,New York City,Apps,Week 1,8,Just right
+501,New York City,"Apps, Explorer",Week 1,8,A little too fast
+502,New York City,Apps,Week 1,8,Just right
+504,New York City,Apps,Week 1,8,Just right
+11,Atlanta,"Apps, Explorer",Week 1,9,Just right
+15,Redwood City,Apps,Week 1,9,Just right
+27,Los Angeles,Games,Week 1,9,Just right
+30,Los Angeles,Apps,Week 1,9,Just right
+32,Los Angeles,Apps,Week 1,9,A little too fast
+33,Los Angeles,Games,Week 1,9,Just right
+56,San Francisco,VR,Week 1,9,Just right
+59,San Francisco,Apps,Week 1,9,Just right
+60,San Francisco,Apps,Week 1,9,Just right
+68,San Francisco,Apps,Week 1,9,Just right
+69,San Francisco,Apps,Week 1,9,Just right
+73,San Francisco,Apps,Week 1,9,Just right
+79,Santa Clara,"Games, Explorer",Week 1,9,Just right
+82,Santa Clara,Apps,Week 1,9,A little too fast
+89,Santa Clara,Apps,Week 1,9,A little too fast
+93,Santa Clara,"Games, Explorer",Week 1,9,Just right
+98,Santa Clara,Apps,Week 1,9,A little too fast
+102,Santa Clara,Apps,Week 1,9,Just right
+103,Santa Clara,Games,Week 1,9,Just right
+110,San Francisco,Games,Week 1,9,A little too fast
+111,Santa Clara,Games,Week 1,9,Just right
+112,San Francisco,Apps,Week 1,9,A little too fast
+113,San Francisco,Games,Week 1,9,A little too fast
+128,San Francisco,"Apps, Explorer",Week 1,9,Just right
+131,San Francisco,Apps,Week 1,9,Just right
+138,San Francisco,"Apps, Explorer",Week 1,9,Just right
+148,San Francisco,Apps,Week 1,9,Just right
+156,Redwood City,Apps,Week 2,9,Just right
+167,Redwood City,Apps,Week 2,9,Just right
+168,Redwood City,Apps,Week 2,9,Just right
+169,Redwood City,Apps,Week 2,9,A little too fast
+171,Chicago,Apps,Week 2,9,A little too fast
+172,Chicago,Apps,Week 2,9,Just right
+178,Chicago,"Apps, Explorer",Week 2,9,A little too fast
+179,Santa Clara,Games,Week 2,9,Way too slow
+182,Santa Clara,Games,Week 2,9,A little too slow
+183,Santa Clara,"Apps, Explorer",Week 2,9,Just right
+184,Santa Clara,Games,Week 2,9,Just right
+188,Santa Clara,Games,Week 2,9,Just right
+190,Santa Clara,Games,Week 2,9,A little too slow
+191,Santa Clara,"Games, Explorer",Week 2,9,Just right
+195,Santa Clara,"Games, Explorer",Week 2,9,A little too fast
+197,Santa Clara,Apps,Week 2,9,A little too fast
+201,San Francisco,VR,Week 2,9,A little too slow
+204,San Francisco,VR,Week 2,9,Just right
+211,San Francisco,VR,Week 2,9,Just right
+215,Los Angeles,Apps,Week 2,9,A little too fast
+218,Los Angeles,Games,Week 2,9,Just right
+221,Los Angeles,Apps,Week 2,9,Just right
+225,Los Angeles,Games,Week 2,9,A little too slow
+228,Los Angeles,Apps,Week 2,9,A little too fast
+229,Santa Clara,Apps,Week 2,9,Just right
+230,Los Angeles,Games,Week 2,9,Just right
+231,Oakland,Apps,Week 2,9,Just right
+235,San Francisco,"Apps, Explorer",Week 2,9,A little too slow
+240,San Francisco,Apps,Week 2,9,Just right
+241,,,Week 2,9,A little too fast
+243,San Francisco,Apps,Week 2,9,Just right
+250,San Francisco,Games,Week 2,9,Just right
+252,San Francisco,Apps,Week 2,9,Just right
+262,San Francisco,"Apps, Explorer",Week 2,9,A little too slow
+264,San Francisco,Apps,Week 2,9,Just right
+265,San Francisco,Apps,Week 2,9,A little too fast
+269,San Francisco,Games,Week 2,9,Just right
+271,Atlanta,"Apps, Explorer",Week 2,9,Just right
+277,Santa Clara,Apps,Week 2,9,Just right
+278,San Francisco,Games,Week 2,9,A little too slow
+286,Atlanta,"Apps, Explorer",Week 2,9,A little too fast
+288,Washington DC,Apps,Week 1,9,Just right
+298,Washington DC,"Apps, Explorer",Week 1,9,Just right
+300,San Francisco,Games,Week 2,9,Just right
+301,San Francisco,"Apps, Explorer",Week 2,9,Just right
+304,San Francisco,Games,Week 2,9,A little too slow
+309,San Francisco,Apps,Week 3,9,Just right
+310,San Francisco,Apps,Week 3,9,Just right
+313,Redwood City,Apps,Week 3,9,Just right
+315,Redwood City,Apps,Week 3,9,A little too fast
+316,Redwood City,Apps,Week 3,9,Just right
+323,Washington DC,"Apps, Explorer",Week 2,9,Just right
+324,Washington DC,Apps,Week 2,9,A little too slow
+328,Redwood City,Apps,Week 3,9,Just right
+337,New York City,Games,Week 1,9,Just right
+361,Atlanta,"Apps, Explorer",Week 3,9,Just right
+367,San Francisco,VR,Week 3,9,Just right
+373,Chicago,Apps,Week 3,9,Just right
+379,Chicago,"Apps, Explorer",Week 3,9,Just right
+388,Santa Clara,Apps,Week 3,9,Just right
+389,Santa Clara,Apps,Week 3,9,Just right
+390,Santa Clara,Games,Week 3,9,Just right
+395,Santa Clara,"Apps, Explorer",Week 3,9,A little too fast
+398,Santa Clara,"Apps, Explorer",Week 3,9,Just right
+403,Santa Clara,Apps,Week 3,9,Just right
+405,Los Angeles,Apps,Week 3,9,A little too slow
+415,Los Angeles,Apps,Week 3,9,Just right
+419,Santa Clara,"Games, Explorer",Week 3,9,Just right
+420,Los Angeles,Games,Week 3,9,Just right
+421,Santa Clara,"Games, Explorer",Week 3,9,A little too fast
+432,Santa Clara,Apps,Week 3,9,Just right
+434,Santa Clara,Apps,Week 3,9,Just right
+435,San Francisco,Games,Week 3,9,Just right
+439,San Francisco,"Apps, Explorer",Week 3,9,Just right
+442,San Francisco,"Apps, Explorer",Week 3,9,A little too fast
+445,San Francisco,Games,Week 3,9,Just right
+454,San Francisco,VR,Week 3,9,Just right
+456,San Francisco,VR,Week 3,9,A little too fast
+457,San Francisco,Apps,Week 3,9,Just right
+461,San Francisco,Apps,Week 3,9,Just right
+464,San Francisco,Apps,Week 3,9,Just right
+466,San Francisco,Games,Week 3,9,Just right
+470,San Francisco,Apps,Week 3,9,A little too fast
+473,Oakland,Apps,Week 3,9,Just right
+477,Oakland,Apps,Week 3,9,Just right
+479,San Francisco,"Apps, Explorer",Week 3,9,A little too fast
+480,Santa Clara,"Games, Explorer",Week 3,9,Just right
+485,San Francisco,Games,Week 3,9,Just right
+487,New York City,Apps,Week 1,9,Just right
+490,New York City,Apps,Week 1,9,Just right
+492,New York City,Apps,Week 1,9,A little too slow
+495,New York City,Apps,Week 1,9,Just right
+500,New York City,"Games, Explorer",Week 1,9,Just right
+12,Atlanta,Apps,Week 1,10,Just right
+13,Atlanta,"Apps, Explorer",Week 1,10,Just right
+17,Redwood City,Apps,Week 1,10,Just right
+19,Redwood City,Apps,Week 1,10,Just right
+22,Redwood City,Apps,Week 1,10,Just right
+24,Redwood City,Apps,Week 1,10,A little too fast
+34,Los Angeles,Apps,Week 1,10,Just right
+42,Chicago,Apps,Week 1,10,Just right
+43,Chicago,"Apps, Explorer",Week 1,10,Just right
+44,Chicago,Apps,Week 1,10,A little too fast
+49,San Francisco,VR,Week 1,10,Just right
+50,San Francisco,VR,Week 1,10,A little too slow
+51,San Francisco,VR,Week 1,10,A little too fast
+52,San Francisco,VR,Week 1,10,Just right
+54,San Francisco,VR,Week 1,10,Just right
+57,San Francisco,VR,Week 1,10,Just right
+64,San Francisco,Apps,Week 1,10,Just right
+66,San Francisco,Apps,Week 1,10,Just right
+70,San Francisco,Apps,Week 1,10,Just right
+71,San Francisco,Apps,Week 1,10,Just right
+76,Oakland,"Apps, Explorer",Week 1,10,Just right
+97,Santa Clara,"Apps, Explorer",Week 1,10,A little too fast
+106,San Francisco,Games,Week 1,10,Just right
+108,Santa Clara,Apps,Week 1,10,A little too fast
+116,San Francisco,Games,Week 1,10,Just right
+119,San Francisco,Games,Week 1,10,Just right
+120,San Francisco,Games,Week 1,10,A little too fast
+123,San Francisco,Games,Week 1,10,A little too slow
+127,San Francisco,Games,Week 1,10,Just right
+129,Oakland,Apps,Week 1,10,Just right
+139,Oakland,Apps,Week 1,10,A little too slow
+149,Los Angeles,Apps,Week 1,10,Just right
+151,Los Angeles,Apps,Week 1,10,Just right
+152,Los Angeles,Apps,Week 1,10,Just right
+160,Redwood City,Apps,Week 2,10,Just right
+174,Chicago,Apps,Week 2,10,A little too fast
+187,Santa Clara,Apps,Week 2,10,A little too fast
+203,San Francisco,VR,Week 2,10,A little too slow
+205,San Francisco,VR,Week 2,10,A little too fast
+206,San Francisco,VR,Week 2,10,Just right
+207,San Francisco,VR,Week 2,10,Just right
+208,San Francisco,VR,Week 2,10,Just right
+213,Los Angeles,Apps,Week 2,10,A little too slow
+214,Los Angeles,Apps,Week 2,10,Just right
+216,Los Angeles,Apps,Week 2,10,Just right
+227,Santa Clara,"Apps, Explorer",Week 2,10,A little too fast
+237,Atlanta,Apps,Week 2,10,Just right
+238,San Francisco,Apps,Week 2,10,Just right
+256,San Francisco,"Apps, Explorer",Week 2,10,A little too fast
+263,San Francisco,Apps,Week 2,10,A little too fast
+281,Chicago,Apps,Week 2,10,Just right
+282,San Francisco,Games,Week 2,10,Just right
+283,Atlanta,Apps,Week 2,10,Just right
+284,Atlanta,"Apps, Explorer",Week 2,10,A little too fast
+291,Washington DC,Apps,Week 1,10,Just right
+292,Washington DC,"Apps, Explorer",Week 1,10,Just right
+296,Washington DC,Apps,Week 1,10,Just right
+303,Oakland,Apps,Week 2,10,A little too fast
+317,Redwood City,Apps,Week 3,10,Just right
+322,Washington DC,"Apps, Explorer",Week 2,10,Just right
+338,New York City,Apps,Week 1,10,A little too fast
+348,San Francisco,VR,Week 3,10,Just right
+351,Atlanta,Apps,Week 3,10,Just right
+356,,,Week 1,10,Just right
+357,New York City,Apps,Week 1,10,Just right
+358,New York City,Apps,Week 1,10,Just right
+363,Atlanta,Apps,Week 3,10,Just right
+364,Atlanta,"Apps, Explorer",Week 3,10,Just right
+369,San Francisco,VR,Week 3,10,A little too fast
+371,Atlanta,Apps,Week 3,10,Just right
+374,Chicago,Apps,Week 3,10,A little too fast
+376,Chicago,Apps,Week 3,10,Just right
+377,Chicago,Apps,Week 3,10,Just right
+383,San Francisco,VR,Week 3,10,Just right
+386,San Francisco,VR,Week 3,10,Just right
+402,Santa Clara,Apps,Week 3,10,Just right
+406,Los Angeles,Games,Week 3,10,Just right
+407,Los Angeles,Apps,Week 3,10,Just right
+409,Los Angeles,Apps,Week 3,10,Just right
+411,Los Angeles,Apps,Week 3,10,Just right
+412,Los Angeles,Games,Week 3,10,Just right
+414,Los Angeles,Apps,Week 3,10,Just right
+417,Los Angeles,Apps,Week 3,10,Just right
+422,San Francisco,"Apps, Explorer",Week 3,10,A little too fast
+428,Los Angeles,Apps,Week 3,10,Just right
+436,San Francisco,Games,Week 3,10,Just right
+437,San Francisco,Apps,Week 3,10,Just right
+440,San Francisco,Games,Week 3,10,Just right
+444,San Francisco,Apps,Week 3,10,Just right
+447,San Francisco,Apps,Week 3,10,Just right
+448,San Francisco,Games,Week 3,10,A little too fast
+451,San Francisco,"Apps, Explorer",Week 3,10,Just right
+453,San Francisco,Apps,Week 3,10,Just right
+462,San Francisco,Apps,Week 3,10,Just right
+474,Washington DC,Apps,Week 2,10,Just right
+475,Oakland,Apps,Week 3,10,Just right
+478,Santa Clara,Apps,Week 3,10,Just right
+483,Santa Clara,Apps,Week 3,10,A little too fast
+491,New York City,Apps,Week 1,10,Just right
+493,New York City,"Apps, Explorer",Week 1,10,Just right
+496,New York City,"Apps, Explorer",Week 1,10,Just right
+503,New York City,"Apps, Explorer",Week 1,10,Just right
+505,Los Angeles,Apps,Week 3,9,A little too fast
+506,New York City,Apps,Week 1,7,Just right
+507,New York City,Apps,Week 1,7,Just right
+508,Santa Clara,"Apps, Explorer",Week 3,8,Just right
+509,Oakland,"Apps, Explorer",Week 3,7,Just right
+510,Oakland,Apps,Week 3,10,A little too fast
+511,Santa Clara,Games,Week 3,7,Just right
+512,San Francisco,Apps,Week 3,9,Just right
+513,Oakland,Apps,Week 3,8,A little too fast
+514,San Francisco,Games,Week 3,8,Just right
+515,San Francisco,Apps,Week 3,7,A little too fast
+516,San Francisco,"Apps, Explorer",Week 3,7,Just right
+517,San Francisco,Games,Week 3,8,Just right
+518,San Francisco,Games,Week 3,10,Just right
+519,San Francisco,Games,Week 3,10,A little too slow
+520,San Francisco,Games,Week 3,10,A little too slow
+521,Oakland,"Apps, Explorer",Week 3,10,Just right
+522,San Francisco,Apps,Week 3,10,Just right
+523,New York City,Games,Week 1,9,Just right
+524,San Francisco,Apps,Week 3,8,A little too fast
+525,San Francisco,Apps,Week 3,9,Just right
+526,San Francisco,Apps,Week 3,8,Just right
+527,San Francisco,Games,Week 3,9,A little too fast
+528,San Francisco,Apps,Week 3,10,Just right
+529,Oakland,Apps,Week 3,9,A little too fast
+530,San Francisco,Games,Week 3,10,Just right
+531,San Francisco,"Apps, Explorer",Week 3,7,Just right
+533,Santa Clara,Games,Week 3,10,Just right
+534,New York City,"Apps, Explorer",Week 1,8,Just right
+535,New York City,"Games, Explorer",Week 1,10,Just right
+536,,,Week 2,7,A little too fast
+537,Washington DC,Apps,Week 2,10,A little too fast
+538,,,Week 1,7,Just right
+539,Washington DC,"Apps, Explorer",Week 2,6,Just right
+541,San Francisco,VR,Week 3,8,Just right
+542,New York City,Apps,Week 1,7,Just right
+543,New York City,Apps,Week 1,8,Just right
+544,San Francisco,VR,Week 3,10,Just right
+546,Santa Clara,Apps,Week 3,8,Just right
+547,San Francisco,Games,Week 2,9,Just right
+548,New York City,Apps,Week 1,8,Just right
+549,San Francisco,Apps,Week 3,9,Just right
+550,Hong Kong,"Apps, Explorer",Week 1,7,A little too fast
+551,Hong Kong,"Apps, Explorer",Week 1,8,Just right
+552,Hong Kong,"Apps, Explorer",Week 1,7,A little too fast
+553,Hong Kong,"Apps, Explorer",Week 1,5,Just right
+554,Hong Kong,Apps,Week 1,9,A little too slow
+555,Hong Kong,"Apps, Explorer",Week 1,7,Just right
+556,Santa Clara,Apps,Week 4,8,Just right
+557,Santa Clara,"Apps, Explorer",Week 4,8,Just right
+558,Santa Clara,"Apps, Explorer",Week 4,8,Just right
+559,Santa Clara,Apps,Week 4,9,Just right
+560,Santa Clara,Apps,Week 4,7,Just right
+561,Santa Clara,Apps,Week 4,5,Just right
+562,Santa Clara,Apps,Week 4,9,Just right
+563,Santa Clara,Apps,Week 4,7,A little too fast
+564,Santa Clara,Apps,Week 4,7,Just right
+565,Santa Clara,Apps,Week 4,10,Just right
+566,Santa Clara,"Games, Explorer",Week 4,10,Just right
+567,Redwood City,Apps,Week 4,9,Just right
+568,Redwood City,Apps,Week 4,10,Just right
+569,Redwood City,Apps,Week 4,7,Just right
+570,Redwood City,Apps,Week 4,9,Just right
+571,Redwood City,Apps,Week 4,10,Just right
+572,Redwood City,Apps,Week 4,8,Just right
+573,Redwood City,Apps,Week 4,9,Just right
+575,Washington DC,Apps,Week 3,8,Just right
+576,Washington DC,"Apps, Explorer",Week 3,9,A little too fast
+577,Washington DC,Apps,Week 3,7,A little too fast
+578,Washington DC,Apps,Week 3,9,Just right
+579,,,Week 2,10,A little too fast
+580,New York City,Apps,Week 2,10,Just right
+581,,,Week 2,4,A little too fast
+582,New York City,Apps,Week 2,7,A little too fast
+583,New York City,Apps,Week 2,8,Just right
+584,New York City,Apps,Week 2,8,Just right
+585,New York City,Apps,Week 2,5,Just right
+586,New York City,Apps,Week 2,8,A little too fast
+587,,,Week 2,8,Just right
+588,New York City,Apps,Week 2,9,A little too slow
+589,New York City,Apps,Week 2,10,Just right
+590,New York City,Apps,Week 2,8,A little too slow
+591,New York City,Apps,Week 2,9,A little too slow
+592,New York City,Apps,Week 2,6,Just right
+593,New York City,Apps,Week 2,8,Just right
+594,New York City,Apps,Week 2,9,A little too slow
+595,New York City,"Games, Explorer",Week 2,9,Just right
+596,New York City,Apps,Week 2,8,Just right
+597,New York City,Games,Week 2,9,Just right
+598,New York City,Games,Week 2,9,Just right
+599,New York City,Games,Week 2,10,Just right
+600,,,Week 2,6,A little too fast
+601,New York City,Apps,Week 2,6,Just right
+602,New York City,Apps,Week 2,9,Just right
+603,New York City,Apps,Week 2,9,Just right
+604,New York City,Games,Week 2,9,Just right
+605,New York City,"Games, Explorer",Week 2,10,Just right
+606,New York City,"Apps, Explorer",Week 2,7,Just right
+607,New York City,"Apps, Explorer",Week 2,10,Just right
+608,,,Week 2,0,Way too fast
+609,New York City,Games,Week 2,8,Just right
+610,New York City,Games,Week 2,10,Just right
+611,New York City,Apps,Week 2,9,Just right
+612,New York City,"Apps, Explorer",Week 2,10,Just right
+613,New York City,"Apps, Explorer",Week 2,10,Just right
+614,New York City,Apps,Week 2,10,A little too fast
+615,New York City,Apps,Week 2,9,Just right
+616,New York City,"Games, Explorer",Week 2,10,Just right
+617,New York City,"Apps, Explorer",Week 2,9,Just right
+618,New York City,Games,Week 2,7,Just right
+619,New York City,Games,Week 2,9,Just right
+620,New York City,"Games, Explorer",Week 2,7,Just right
+621,New York City,"Apps, Explorer",Week 2,3,Way too fast
+622,New York City,Apps,Week 2,5,Just right
+623,New York City,"Apps, Explorer",Week 2,8,Just right
+624,Atlanta,Apps,Week 4,9,Just right
+625,Atlanta,Apps,Week 4,9,Just right
+626,,,Week 4,10,Just right
+627,Redwood City,Apps,Week 4,9,Just right
+628,Atlanta,"Apps, Explorer",Week 4,10,A little too fast
+629,Atlanta,"Apps, Explorer",Week 4,9,Just right
+630,New York City,Apps,Week 2,8,Just right
+631,Atlanta,"Apps, Explorer",Week 4,10,Just right
+632,Redwood City,Apps,Week 4,8,Just right
+633,Chicago,Apps,Week 4,10,A little too fast
+634,Chicago,Apps,Week 4,8,Just right
+635,Chicago,Apps,Week 4,9,Just right
+636,Chicago,Apps,Week 4,9,A little too fast
+637,Chicago,Apps,Week 4,9,A little too fast
+638,Chicago,Apps,Week 4,8,Just right
+639,Chicago,"Apps, Explorer",Week 4,7,Just right
+640,Oakland,Apps,Week 4,7,A little too fast
+641,Los Angeles,Games,Week 4,10,Just right
+642,Los Angeles,Apps,Week 4,8,A little too fast
+643,Los Angeles,Games,Week 4,10,Just right
+644,Oakland,Apps,Week 4,9,Just right
+645,Los Angeles,Games,Week 4,9,Just right
+646,Los Angeles,Games,Week 4,10,Just right
+647,Los Angeles,Apps,Week 4,8,A little too slow
+650,Santa Clara,"Apps, Explorer",Week 4,8,Just right
+652,Santa Clara,Apps,Week 4,9,Just right
+653,Santa Clara,Apps,Week 4,9,Just right
+654,Santa Clara,Apps,Week 4,9,Just right
+655,Los Angeles,Apps,Week 4,10,Just right
+656,Los Angeles,Apps,Week 4,10,Just right
+657,Los Angeles,Apps,Week 4,9,Just right
+658,San Francisco,Apps,Week 4,10,Just right
+659,San Francisco,Apps,Week 4,8,Just right
+660,San Francisco,"Apps, Explorer",Week 4,8,A little too fast
+661,San Francisco,Games,Week 4,8,Just right
+662,San Francisco,Games,Week 4,9,Just right
+663,San Francisco,Games,Week 4,10,Just right
+664,San Francisco,Apps,Week 4,6,Just right
+665,San Francisco,Games,Week 4,8,Just right
+666,San Francisco,Apps,Week 4,9,Just right
+667,San Francisco,Games,Week 4,9,A little too slow
+668,San Francisco,Apps,Week 4,8,A little too fast
+669,San Francisco,Apps,Week 4,9,Just right
+670,San Francisco,Apps,Week 4,7,A little too fast
+671,San Francisco,Apps,Week 4,9,Just right
+672,Santa Clara,Games,Week 4,8,Just right
+673,San Francisco,Games,Week 4,9,Just right
+674,San Francisco,"Apps, Explorer",Week 4,7,Just right
+675,San Francisco,VR,Week 4,10,Just right
+676,San Francisco,"Apps, Explorer",Week 4,8,Way too fast
+677,San Francisco,VR,Week 4,8,Just right
+678,Santa Clara,Apps,Week 4,8,Just right
+679,San Francisco,VR,Week 4,6,A little too fast
+680,San Francisco,Apps,Week 4,9,Just right
+681,San Francisco,"Apps, Explorer",Week 4,7,Just right
+682,San Francisco,Apps,Week 4,3,Just right
+683,San Francisco,VR,Week 4,10,A little too fast
+684,San Francisco,VR,Week 4,4,Just right
+685,Santa Clara,"Games, Explorer",Week 4,9,A little too fast
+686,San Francisco,"Apps, Explorer",Week 4,8,Just right
+687,San Francisco,VR,Week 4,9,Just right
+688,San Francisco,VR,Week 4,8,Just right
+689,San Francisco,Apps,Week 4,7,Just right
+690,Santa Clara,Games,Week 4,8,Just right
+691,Santa Clara,Apps,Week 4,10,Just right
+692,Santa Clara,Games,Week 4,7,Just right
+693,San Francisco,"Apps, Explorer",Week 4,9,A little too slow
+694,San Francisco,Games,Week 4,8,A little too fast
+695,San Francisco,"Apps, Explorer",Week 4,10,Just right
+696,San Francisco,Apps,Week 4,6,A little too fast
+697,Los Angeles,Apps,Week 4,10,Just right
+698,San Francisco,"Apps, Explorer",Week 4,8,Way too fast
+699,Santa Clara,Games,Week 4,8,Just right
+700,San Francisco,Games,Week 4,10,Just right
+701,San Francisco,"Apps, Explorer",Week 4,7,Just right
+702,Santa Clara,Games,Week 4,6,A little too slow
+703,San Francisco,Games,Week 4,9,Just right
+704,San Francisco,VR,Week 4,9,Just right
+705,San Francisco,Apps,Week 4,8,A little too fast
+706,Santa Clara,Games,Week 4,9,Just right
+707,San Francisco,Apps,Week 4,5,Just right
+708,San Francisco,VR,Week 4,10,Just right
+709,San Francisco,VR,Week 4,7,A little too fast
+710,San Francisco,Apps,Week 4,8,Just right
+711,Los Angeles,Apps,Week 4,9,Just right
+712,San Francisco,"Apps, Explorer",Week 4,3,Just right
+713,San Francisco,Apps,Week 4,9,Just right
+714,Chicago,"Apps, Explorer",Week 4,9,A little too fast
+715,Oakland,"Apps, Explorer",Week 4,7,A little too fast
+716,San Francisco,"Apps, Explorer",Week 4,4,Just right
+717,Los Angeles,Apps,Week 4,9,A little too fast
+718,Los Angeles,Apps,Week 4,8,Just right
+719,Washington DC,Apps,Week 3,10,Just right
+720,San Francisco,Apps,Week 4,10,Just right
+721,Santa Clara,Apps,Week 4,8,Just right
+722,New York City,Apps,Week 2,8,A little too fast
+723,San Francisco,Games,Week 4,10,Just right
+724,San Francisco,"Apps, Explorer",Week 4,8,Just right
+725,Oakland,Apps,Week 4,9,A little too slow
+726,San Francisco,Apps,Week 4,10,Just right
+727,San Francisco,"Apps, Explorer",Week 4,10,Just right
+728,Oakland,Apps,Week 4,7,A little too slow
+729,Chicago,Apps,Week 4,10,Just right
+730,Oakland,Apps,Week 4,8,Just right
+732,New York City,Apps,Week 2,9,Just right
+733,New York City,Apps,Week 2,8,A little too fast
+734,New York City,Apps,Week 2,7,Just right
+735,New York City,Apps,Week 2,10,Just right
+736,New York City,Apps,Week 2,8,Just right
+737,New York City,"Apps, Explorer",Week 2,10,Just right
+738,New York City,Apps,Week 2,7,Just right
+739,,,Week 2,7,A little too fast
+742,Santa Clara,Apps,Week 4,8,Just right
+743,Santa Clara,Apps,Week 4,8,Just right
+744,Santa Clara,Apps,Week 4,7,Just right
+745,Santa Clara,Games,Week 4,9,Just right
+746,Santa Clara,Games,Week 4,10,Just right
+747,Redwood City,Apps,Week 4,7,Just right
+748,Oakland,Apps,Week 4,9,A little too fast
+749,Santa Clara,"Games, Explorer",Week 4,7,Just right
+750,San Francisco,Games,Week 4,10,Just right
+751,San Francisco,Games,Week 4,9,Just right
+753,San Francisco,Apps,Week 4,6,A little too fast
+754,New York City,Apps,Week 2,9,Just right
+755,New York City,Apps,Week 3,10,A little too fast
+756,New York City,Apps,Week 2,8,Just right
+757,New York City,Apps,Week 2,8,Just right
+758,New York City,Games,Week 2,8,A little too slow
+759,San Francisco,Apps,Week 4,5,A little too fast
+760,Oakland,"Apps, Explorer",Week 4,10,Just right
+761,San Francisco,Apps,Week 4,8,Just right
+762,New York City,Apps,Week 2,10,Just right
+763,San Francisco,Apps,Week 4,8,Just right
+764,San Francisco,Apps,Week 4,9,Just right
+765,Hong Kong,"Apps, Explorer",Week 2,6,A little too slow
+766,,,Week 1,9,A little too fast
+767,Hong Kong,"Apps, Explorer",Week 2,8,A little too fast
+768,Beijing,Apps,Week 1,10,Just right
+769,Beijing,Apps,Week 1,9,A little too slow
+770,Beijing,Apps,Week 1,9,Just right
+771,Beijing,"Apps, Explorer",Week 1,10,Just right
+772,Beijing,Apps,Week 1,9,A little too fast
+773,Hong Kong,"Apps, Explorer",Week 2,8,A little too fast
+774,Beijing,Apps,Week 1,8,Just right
+775,Beijing,Apps,Week 1,9,Just right
+776,Beijing,Apps,Week 1,8,A little too slow
+777,Beijing,Apps,Week 1,9,A little too fast
+778,Beijing,Apps,Week 1,9,Way too fast
+779,Beijing,Apps,Week 1,10,A little too fast
+780,Beijing,Apps,Week 1,7,Just right
+781,Beijing,Apps,Week 1,10,Just right
+782,Beijing,Apps,Week 1,10,Just right
+783,Beijing,Apps,Week 1,7,Just right
+784,Beijing,Apps,Week 1,10,A little too fast
+785,Beijing,Apps,Week 1,8,A little too fast
+786,Beijing,Apps,Week 1,8,Just right
+787,Beijing,Apps,Week 1,9,Just right
+788,Beijing,Apps,Week 1,10,Way too fast
+789,Beijing,Apps,Week 1,9,Just right
+790,Hong Kong,"Apps, Explorer",Week 2,6,A little too fast
+791,Beijing,Apps,Week 1,9,Just right
+792,Beijing,Apps,Week 1,9,Just right
+793,Beijing,Apps,Week 1,9,Just right
+794,Beijing,Apps,Week 1,10,A little too slow
+795,Beijing,Apps,Week 1,10,A little too fast
+796,Beijing,Apps,Week 1,10,Just right
+797,Beijing,Apps,Week 1,9,A little too fast
+798,Beijing,Apps,Week 1,7,Just right
+799,Beijing,Apps,Week 1,10,Just right
+800,Beijing,Apps,Week 1,9,A little too fast
+801,Beijing,Apps,Week 1,8,A little too fast
+802,Beijing,Apps,Week 1,9,Just right
+803,Beijing,Apps,Week 1,10,Just right
+804,Beijing,Apps,Week 1,7,A little too fast
+805,Beijing,Apps,Week 1,9,A little too slow
+806,Beijing,Apps,Week 1,7,A little too slow
+807,Hong Kong,"Apps, Explorer",Week 2,8,A little too fast
+808,Beijing,Apps,Week 2,10,A little too fast
+809,Redwood City,Apps,Week 5,7,Just right
+810,San Francisco,VR,Week 5,10,Just right
+811,San Francisco,VR,Week 5,10,Just right
+812,Redwood City,Apps,Week 5,10,Just right
+813,Redwood City,Apps,Week 5,10,Just right
+814,Redwood City,Apps,Week 5,7,Just right
+815,Redwood City,Apps,Week 5,8,Just right
+816,Redwood City,Apps,Week 5,8,Just right
+817,Redwood City,Apps,Week 5,10,Just right
+818,Oakland,Apps,Week 5,10,Just right
+819,Washington DC,"Apps, Explorer",Week 4,9,A little too fast
+820,Washington DC,"Apps, Explorer",Week 4,9,Just right
+821,Atlanta,Apps,Week 5,9,Just right
+822,Redwood City,Apps,Week 5,9,Just right
+823,New York City,Apps,Week 3,10,Just right
+824,New York City,Games,Week 3,9,Just right
+825,New York City,"Apps, Explorer",Week 3,10,Just right
+826,New York City,Games,Week 3,8,Just right
+827,New York City,Apps,Week 3,8,Just right
+828,New York City,"Games, Explorer",Week 3,9,Just right
+829,New York City,Apps,Week 3,10,Just right
+830,New York City,Apps,Week 3,8,Just right
+831,Atlanta,"Apps, Explorer",Week 5,9,Just right
+832,New York City,Apps,Week 3,9,Just right
+833,New York City,"Apps, Explorer",Week 3,1,Way too fast
+834,New York City,Apps,Week 3,9,Just right
+835,New York City,Games,Week 3,9,Just right
+836,New York City,"Apps, Explorer",Week 3,8,Just right
+837,New York City,"Apps, Explorer",Week 3,8,Just right
+838,New York City,Apps,Week 3,9,A little too slow
+839,New York City,Apps,Week 3,8,Just right
+840,New York City,Games,Week 3,9,Just right
+841,New York City,Apps,Week 3,8,Just right
+842,New York City,Apps,Week 3,8,Just right
+843,New York City,Apps,Week 3,8,Just right
+844,New York City,Apps,Week 3,9,A little too fast
+845,New York City,Apps,Week 3,3,A little too fast
+846,,,Week 3,7,A little too fast
+847,New York City,Apps,Week 3,9,A little too fast
+848,,,Week 3,10,Just right
+849,Redwood City,Apps,Week 5,9,Just right
+850,New York City,"Apps, Explorer",Week 3,10,Just right
+851,New York City,Games,Week 3,9,Just right
+852,New York City,"Apps, Explorer",Week 3,10,Just right
+853,New York City,Apps,Week 3,6,A little too slow
+854,New York City,Games,Week 3,6,Just right
+855,New York City,"Games, Explorer",Week 3,9,Just right
+856,New York City,Apps,Week 3,9,Just right
+857,New York City,Apps,Week 3,9,Just right
+858,New York City,Apps,Week 3,8,A little too fast
+859,Atlanta,Apps,Week 5,10,Just right
+860,New York City,Apps,Week 3,7,Just right
+861,New York City,Apps,Week 3,10,Just right
+862,New York City,Apps,Week 3,10,Just right
+863,New York City,Apps,Week 3,6,Just right
+864,New York City,Games,Week 3,9,Just right
+865,New York City,"Games, Explorer",Week 3,10,Just right
+866,New York City,"Games, Explorer",Week 3,7,Just right
+867,Atlanta,Apps,Week 5,9,Just right
+868,San Francisco,VR,Week 5,10,Just right
+869,San Francisco,"Apps, Explorer",Week 5,8,Just right
+870,Washington DC,Apps,Week 4,8,Just right
+871,Chicago,Apps,Week 5,9,A little too fast
+872,Chicago,Apps,Week 5,10,Just right
+873,Chicago,Apps,Week 5,9,A little too fast
+874,Chicago,Apps,Week 5,10,A little too fast
+875,Chicago,Apps,Week 5,7,Just right
+876,Chicago,"Apps, Explorer",Week 5,7,A little too fast
+877,Chicago,Apps,Week 5,8,Just right
+878,Chicago,Apps,Week 5,8,Just right
+879,Chicago,Apps,Week 5,9,A little too fast
+880,Chicago,"Apps, Explorer",Week 5,8,Just right
+881,Oakland,Apps,Week 5,8,Just right
+882,Oakland,"Apps, Explorer",Week 5,10,Just right
+883,San Francisco,VR,Week 5,10,Just right
+884,San Francisco,VR,Week 5,9,Just right
+885,San Francisco,VR,Week 5,10,Just right
+886,Los Angeles,Apps,Week 5,10,Just right
+887,Los Angeles,Games,Week 5,7,A little too slow
+888,Santa Clara,"Apps, Explorer",Week 5,10,A little too fast
+889,Santa Clara,Apps,Week 5,10,Just right
+890,Los Angeles,Games,Week 5,10,Just right
+891,Los Angeles,Apps,Week 5,10,Just right
+892,Los Angeles,Apps,Week 5,6,A little too slow
+893,Los Angeles,Games,Week 5,8,Just right
+894,Los Angeles,Apps,Week 5,9,A little too slow
+895,Los Angeles,Apps,Week 5,9,Just right
+896,Santa Clara,Apps,Week 5,9,Just right
+897,San Francisco,Games,Week 5,9,Just right
+898,San Francisco,Games,Week 4,9,Just right
+899,San Francisco,"Apps, Explorer",Week 5,8,Just right
+900,San Francisco,Apps,Week 5,9,A little too fast
+901,San Francisco,Apps,Week 5,10,Just right
+902,San Francisco,Games,Week 5,8,Just right
+903,San Francisco,Games,Week 5,10,A little too fast
+904,San Francisco,Apps,Week 5,8,Just right
+905,San Francisco,"Apps, Explorer",Week 5,7,Just right
+906,San Francisco,"Apps, Explorer",Week 5,8,Just right
+907,San Francisco,Apps,Week 5,10,Just right
+908,San Francisco,Games,Week 5,9,A little too fast
+909,San Francisco,Games,Week 5,10,A little too fast
+910,San Francisco,"Apps, Explorer",Week 5,8,Just right
+911,San Francisco,Apps,Week 5,8,Just right
+912,San Francisco,Apps,Week 5,9,Just right
+913,San Francisco,Games,Week 5,8,Just right
+914,San Francisco,Apps,Week 5,9,Just right
+915,San Francisco,Games,Week 5,8,Just right
+916,San Francisco,Apps,Week 5,6,Just right
+917,San Francisco,"Apps, Explorer",Week 5,8,A little too fast
+918,San Francisco,Apps,Week 5,8,Just right
+919,,,Week 5,9,A little too fast
+920,San Francisco,Apps,Week 5,9,Just right
+921,Oakland,Apps,Week 5,7,Just right
+922,Santa Clara,Games,Week 5,8,Just right
+923,San Francisco,Apps,Week 5,10,Just right
+924,San Francisco,Games,Week 5,10,Just right
+925,San Francisco,"Apps, Explorer",Week 5,10,Just right
+926,Santa Clara,Apps,Week 5,7,Just right
+927,San Francisco,Apps,Week 5,6,Just right
+928,San Francisco,Apps,Week 5,6,Just right
+929,Santa Clara,Games,Week 5,4,Just right
+930,Los Angeles,Games,Week 5,8,Just right
+931,Los Angeles,Apps,Week 5,8,Just right
+932,San Francisco,VR,Week 5,10,Just right
+933,Oakland,Apps,Week 5,9,Just right
+934,San Francisco,Games,Week 5,9,A little too slow
+935,San Francisco,"Apps, Explorer",Week 5,10,Just right
+936,Santa Clara,"Games, Explorer",Week 5,8,Just right
+937,Oakland,Apps,Week 5,7,A little too fast
+938,Santa Clara,Apps,Week 5,7,Just right
+939,Santa Clara,"Games, Explorer",Week 5,9,A little too fast
+940,Santa Clara,"Apps, Explorer",Week 5,5,Just right
+941,Santa Clara,Apps,Week 5,8,Just right
+942,Santa Clara,"Apps, Explorer",Week 5,8,Just right
+943,San Francisco,Apps,Week 5,7,Just right
+944,Santa Clara,Apps,Week 5,9,A little too fast
+945,Santa Clara,Games,Week 5,8,A little too fast
+946,Santa Clara,Games,Week 5,9,A little too fast
+947,Santa Clara,Games,Week 5,10,Just right
+948,San Francisco,"Apps, Explorer",Week 5,8,Just right
+949,Santa Clara,Games,Week 5,7,A little too fast
+950,Los Angeles,Apps,Week 5,10,Just right
+951,Oakland,Apps,Week 5,10,Just right
+952,Santa Clara,Apps,Week 5,9,A little too fast
+953,Santa Clara,Games,Week 5,9,Just right
+954,San Francisco,Apps,Week 5,7,A little too fast
+955,Santa Clara,Apps,Week 5,8,Just right
+956,Oakland,Apps,Week 5,9,Just right
+957,San Francisco,Apps,Week 5,9,Just right
+958,San Francisco,"Apps, Explorer",Week 5,10,Just right
+959,San Francisco,Games,Week 5,10,Just right
+960,New York City,Apps,Week 3,10,Just right
+961,Santa Clara,Games,Week 5,9,Just right
+962,San Francisco,Apps,Week 5,10,Just right
+963,Washington DC,Apps,Week 4,10,Just right
+964,Oakland,"Apps, Explorer",Week 5,7,Just right
+965,San Francisco,"Apps, Explorer",Week 5,9,Just right
+966,San Francisco,Apps,Week 5,8,A little too fast
+967,Atlanta,"Apps, Explorer",Week 4,10,A little too fast
+968,Redwood City,Apps,Week 5,9,A little too fast
+969,Santa Clara,Apps,Week 5,10,A little too fast
+970,Santa Clara,Apps,Week 5,7,A little too fast
+971,Los Angeles,Apps,Week 5,10,Just right
+973,New York City,"Apps, Explorer",Week 3,7,Just right
+974,,,Week 3,10,Just right
+975,New York City,Apps,Week 3,7,Just right
+976,New York City,Apps,Week 3,9,Just right
+977,New York City,Games,Week 3,9,Just right
+978,New York City,Apps,Week 3,8,Just right
+979,,,Week 3,7,Just right
+980,New York City,Apps,Week 3,8,Just right
+981,Atlanta,"Apps, Explorer",Week 5,10,Just right
+982,Washington DC,Apps,Week 3,6,A little too fast
+983,Santa Clara,Apps,Week 5,9,Just right
+984,Santa Clara,Apps,Week 5,9,Just right
+985,Santa Clara,Apps,Week 5,8,Just right
+990,Santa Clara,Apps,Week 5,8,Just right
+991,Santa Clara,Apps,Week 5,8,A little too fast
+992,San Francisco,Apps,Week 5,7,Just right
+993,New York City,"Apps, Explorer",Week 3,9,Just right
+994,Chicago,"Apps, Explorer",Week 5,10,Just right
+995,New York City,Apps,Week 3,5,A little too slow
+996,San Francisco,"Apps, Explorer",Week 5,10,Just right
+997,Washington DC,"Apps, Explorer",Week 4,10,Just right
+998,Tokyo,Apps,Week 1,4,Way too fast
+999,Beijing,Apps,Week 2,8,Just right
+1000,Beijing,Apps,Week 2,10,Just right
+1001,Beijing,Apps,Week 2,8,A little too fast
+1002,,,Week 2,9,Just right
+1003,Beijing,Apps,Week 2,9,A little too fast
+1004,Beijing,Apps,Week 2,9,A little too fast
+1005,Beijing,Apps,Week 2,8,Just right
+1006,Beijing,Apps,Week 2,7,Just right
+1007,Beijing,Apps,Week 2,9,Just right
+1008,Beijing,Apps,Week 2,9,A little too slow
+1009,Beijing,Apps,Week 2,10,A little too fast
+1010,Beijing,Apps,Week 2,9,A little too fast
+1011,Beijing,Apps,Week 2,8,Just right
+1012,Beijing,Apps,Week 2,10,Just right
+1013,Beijing,Apps,Week 2,8,Just right
+1014,Beijing,"Apps, Explorer",Week 2,10,Just right
+1015,Beijing,Apps,Week 2,9,Just right
+1016,Beijing,Apps,Week 2,8,A little too fast
+1017,Beijing,Apps,Week 2,8,Just right
+1018,Beijing,Apps,Week 2,8,A little too fast
+1019,Beijing,Apps,Week 2,9,Just right
+1020,Beijing,Apps,Week 2,8,Just right
+1021,Beijing,Apps,Week 2,8,A little too fast
+1022,Beijing,Apps,Week 2,10,Just right
+1023,Beijing,Apps,Week 2,8,Just right
+1024,Beijing,Apps,Week 2,10,Just right
+1025,Beijing,Apps,Week 2,9,Just right
+1026,Beijing,Apps,Week 2,9,A little too fast
+1027,Beijing,Apps,Week 2,10,A little too slow
+1028,Beijing,Apps,Week 2,10,A little too fast
+1029,Beijing,Apps,Week 2,8,A little too fast
+1030,Beijing,Apps,Week 2,8,Just right
+1031,Beijing,Apps,Week 2,10,Just right
+1032,Beijing,Apps,Week 2,9,Just right
+1033,Tokyo,Apps,Week 1,9,Just right
+1034,Tokyo,Apps,Week 1,4,A little too fast
+1035,Tokyo,Apps,Week 1,8,A little too fast
+1036,Tokyo,Apps,Week 1,9,Just right
+1037,Tokyo,Apps,Week 1,5,A little too fast
+1038,Redwood City,Apps,Week 6,7,Just right
+1039,San Francisco,VR,Week 6,9,Just right
+1040,San Francisco,VR,Week 6,10,Just right
+1041,Washington DC,Apps,Week 5,7,Just right
+1042,Washington DC,Apps,Week 5,10,Just right
+1043,Washington DC,"Apps, Explorer",Week 5,9,A little too fast
+1044,San Francisco,VR,Week 6,10,Just right
+1045,Redwood City,Apps,Week 6,7,Just right
+1046,Redwood City,Apps,Week 6,10,Just right
+1047,Redwood City,Apps,Week 6,6,Just right
+1048,Redwood City,Apps,Week 6,8,Just right
+1049,Redwood City,Apps,Week 6,9,A little too fast
+1050,Redwood City,Apps,Week 6,9,Just right
+1051,Washington DC,Apps,Week 5,8,A little too slow
+1052,New York City,Games,Week 4,10,Just right
+1053,New York City,Apps,Week 4,10,A little too slow
+1054,New York City,Games,Week 4,10,Just right
+1055,New York City,Games,Week 4,9,A little too slow
+1056,New York City,Apps,Week 4,4,A little too fast
+1057,New York City,Apps,Week 4,8,Just right
+1058,New York City,Apps,Week 4,7,Just right
+1059,New York City,Apps,Week 4,8,Just right
+1060,New York City,Apps,Week 4,8,Just right
+1061,New York City,Apps,Week 4,8,Just right
+1062,New York City,Games,Week 4,6,Just right
+1063,New York City,Apps,Week 4,8,Just right
+1064,New York City,Apps,Week 4,7,Just right
+1065,New York City,Games,Week 4,9,Just right
+1066,New York City,Apps,Week 4,9,Just right
+1067,New York City,"Apps, Explorer",Week 4,8,Just right
+1068,New York City,Apps,Week 4,9,Just right
+1069,New York City,Apps,Week 4,10,Just right
+1070,New York City,"Apps, Explorer",Week 4,7,Way too fast
+1071,New York City,Apps,Week 4,9,A little too fast
+1072,New York City,Apps,Week 4,8,Just right
+1073,New York City,Games,Week 4,10,Just right
+1074,New York City,Apps,Week 4,9,Just right
+1075,New York City,Apps,Week 4,9,Just right
+1076,New York City,"Games, Explorer",Week 4,8,Just right
+1077,New York City,Apps,Week 4,8,Just right
+1078,New York City,"Games, Explorer",Week 4,10,Just right
+1079,New York City,"Games, Explorer",Week 4,10,Just right
+1080,New York City,Apps,Week 4,7,Just right
+1081,Santa Clara,Apps,Week 6,10,A little too fast
+1082,Santa Clara,Apps,Week 6,8,Just right
+1083,Chicago,Apps,Week 6,8,Just right
+1084,Chicago,Apps,Week 6,9,A little too fast
+1085,Chicago,Apps,Week 6,6,Way too fast
+1086,Chicago,Apps,Week 6,10,Just right
+1087,Chicago,"Apps, Explorer",Week 6,7,A little too fast
+1088,Chicago,"Apps, Explorer",Week 6,7,Just right
+1089,New York City,"Games, Explorer",Week 4,9,Just right
+1090,Los Angeles,Apps,Week 6,9,Just right
+1091,Los Angeles,Apps,Week 6,8,Just right
+1092,San Francisco,Games,Week 6,8,Just right
+1093,San Francisco,Games,Week 6,8,Just right
+1094,Los Angeles,Apps,Week 6,10,Just right
+1095,San Francisco,Games,Week 6,10,Just right
+1096,San Francisco,Apps,Week 6,10,A little too fast
+1097,Los Angeles,Apps,Week 6,7,Just right
+1098,Los Angeles,Apps,Week 6,10,Just right
+1099,San Francisco,Apps,Week 6,7,Just right
+1100,San Francisco,"Apps, Explorer",Week 6,9,Just right
+1101,San Francisco,Apps,Week 6,10,Just right
+1102,Los Angeles,Apps,Week 6,10,Just right
+1103,Los Angeles,Games,Week 6,9,Just right
+1104,Los Angeles,Apps,Week 6,9,Just right
+1105,San Francisco,Apps,Week 6,9,Just right
+1106,San Francisco,"Apps, Explorer",Week 6,8,Just right
+1107,San Francisco,Apps,Week 6,10,Just right
+1108,San Francisco,Apps,Week 6,10,Just right
+1109,San Francisco,"Apps, Explorer",Week 6,8,Just right
+1110,San Francisco,Apps,Week 6,9,Just right
+1111,San Francisco,VR,Week 6,10,Just right
+1112,San Francisco,Apps,Week 6,8,Just right
+1113,San Francisco,Apps,Week 6,8,A little too slow
+1114,Santa Clara,Apps,Week 6,8,Just right
+1115,Santa Clara,Games,Week 6,8,Just right
+1116,Santa Clara,Games,Week 6,7,A little too fast
+1117,Santa Clara,Apps,Week 6,9,Just right
+1118,Santa Clara,Apps,Week 6,9,Just right
+1119,Santa Clara,"Apps, Explorer",Week 6,9,Just right
+1120,Santa Clara,Games,Week 6,8,Just right
+1121,Santa Clara,"Apps, Explorer",Week 6,5,Just right
+1122,Los Angeles,Games,Week 6,9,Just right
+1123,San Francisco,Apps,Week 6,10,Just right
+1124,Los Angeles,Games,Week 6,8,Just right
+1125,Santa Clara,Apps,Week 6,9,A little too fast
+1126,Santa Clara,Apps,Week 6,10,Just right
+1127,Santa Clara,Games,Week 6,10,Just right
+1128,Santa Clara,Games,Week 6,10,Just right
+1129,Santa Clara,Apps,Week 6,9,A little too fast
+1130,San Francisco,"Apps, Explorer",Week 6,9,Just right
+1131,Santa Clara,Games,Week 6,9,Just right
+1132,San Francisco,VR,Week 6,10,Just right
+1133,Los Angeles,Apps,Week 6,7,Just right
+1134,San Francisco,Apps,Week 6,9,Just right
+1135,Chicago,Apps,Week 6,9,Just right
+1136,New York City,Apps,Week 4,10,Just right
+1137,San Francisco,"Apps, Explorer",Week 6,8,Just right
+1138,San Francisco,Apps,Week 6,7,Just right
+1139,San Francisco,Apps,Week 6,8,Just right
+1140,Oakland,Apps,Week 6,9,Just right
+1141,San Francisco,Games,Week 6,9,Just right
+1142,Tokyo,Apps,Week 1,10,Just right
+1143,Santa Clara,Apps,Week 6,8,Just right
+1144,Santa Clara,Apps,Week 6,7,A little too fast
+1145,,,Week 1,9,Just right
+1146,Tokyo,Apps,Week 1,9,Just right
+1147,,,Week 1,9,Just right
+1148,Tokyo,Apps,Week 1,8,A little too slow
+1149,,,Week 1,8,Just right
+1150,Tokyo,Apps,Week 1,10,A little too fast
+1151,,,Week 1,9,A little too fast
+1152,San Francisco,Apps,Week 6,8,Just right
+1153,New York City,Apps,Week 4,5,Just right
+1154,Tokyo,Apps,Week 1,9,Just right
+1155,,,Week 1,10,Just right
+1156,Tokyo,Apps,Week 1,8,Just right
+1157,Tokyo,Apps,Week 1,4,A little too slow
+1158,Tokyo,Apps,Week 1,7,Just right
+1159,Tokyo,Apps,Week 1,7,A little too fast
+1160,San Francisco,Apps,Week 6,2,A little too fast
+1162,Tokyo,Apps,Week 1,10,Just right
+1163,Tokyo,Apps,Week 1,10,Just right
+1164,,,Week 1,9,Just right
+1165,,,Week 2,10,Just right
+1166,Tokyo,Apps,Week 1,8,A little too fast
+1167,Los Angeles,Apps,Week 6,8,Just right
+1168,Tokyo,Apps,Week 1,8,Just right
+1170,Tokyo,Apps,Week 1,8,A little too fast
+1171,Tokyo,Apps,Week 1,10,Just right
+1172,Tokyo,Apps,Week 1,10,Just right
+1173,Tokyo,Apps,Week 1,7,A little too fast
+1174,Tokyo,Apps,Week 1,10,Just right
+1175,Tokyo,Apps,Week 1,10,Just right
+1176,Tokyo,Apps,Week 1,8,Just right
+1177,New York City,"Apps, Explorer",Week 4,5,A little too fast
+1178,New York City,Apps,Week 4,10,Just right
+1179,New York City,Apps,Week 4,8,Just right
+1180,New York City,"Apps, Explorer",Week 4,8,Just right
+1181,New York City,Apps,Week 4,5,Just right
+1182,New York City,"Apps, Explorer",Week 4,8,Just right
+1183,New York City,Games,Week 4,9,Just right
+1184,New York City,"Apps, Explorer",Week 4,8,A little too fast
+1185,,,Week 4,7,Just right
+1186,,,Week 4,10,Just right
+1187,New York City,"Apps, Explorer",Week 4,10,Just right
+1188,New York City,Apps,Week 4,9,Just right
+1189,New York City,Apps,Week 4,6,A little too fast
+1190,Chicago,"Apps, Explorer",Week 6,9,A little too fast
+1191,New York City,Apps,Week 4,9,Just right
+1192,New York City,Apps,Week 4,10,Just right
+1193,Chicago,Apps,Week 6,10,A little too fast
+1194,Chicago,Apps,Week 6,9,Just right
+1195,Santa Clara,Apps,Week 6,10,Just right
+1196,Santa Clara,"Games, Explorer",Week 6,8,Just right
+1197,Santa Clara,"Apps, Explorer",Week 6,10,Just right
+1198,Oakland,"Apps, Explorer",Week 6,10,Just right
+1199,Oakland,Apps,Week 6,9,Just right
+1200,Santa Clara,"Games, Explorer",Week 6,10,A little too fast
+1201,Oakland,Apps,Week 6,9,Just right
+1202,,,Week 4,7,Way too slow
+1203,San Francisco,Apps,Week 6,3,Just right
+1204,Santa Clara,Apps,Week 6,9,Just right
+1206,Santa Clara,Apps,Week 6,8,Just right
+1207,Santa Clara,Apps,Week 6,10,Just right
+1208,Tokyo,Apps,Week 1,10,A little too fast
+1209,New York City,Apps,Week 4,6,Just right
+1210,New York City,Games,Week 4,9,Just right
+1211,Santa Clara,Apps,Week 6,8,Just right
+1212,Santa Clara,"Apps, Explorer",Week 6,8,Just right
+1213,San Francisco,"Apps, Explorer",Week 6,9,Just right
+1214,Tokyo,Apps,Week 2,10,Just right
+1215,Tokyo,Apps,Week 2,7,A little too fast
+1216,Tokyo,Apps,Week 2,8,A little too fast
+1217,Tokyo,Apps,Week 2,6,Just right
+1218,Tokyo,Apps,Week 2,9,Just right
+1219,Tokyo,Apps,Week 2,10,Just right
+1220,Tokyo,Apps,Week 2,7,Just right
+1221,Tokyo,Apps,Week 2,10,Just right
+1222,Tokyo,Apps,Week 2,9,A little too fast
+1223,Tokyo,Apps,Week 2,3,A little too fast
+1224,,,Week 2,7,A little too fast
+1225,Tokyo,Apps,Week 2,6,A little too fast
+1226,Tokyo,Apps,Week 2,9,Just right
+1227,Tokyo,Apps,Week 2,10,Just right
+1228,Tokyo,Apps,Week 2,10,Just right
+1229,Tokyo,Apps,Week 2,10,A little too slow
+1230,Tokyo,Apps,Week 2,8,A little too fast
+1231,Tokyo,Apps,Week 2,7,A little too fast
+1232,Tokyo,Apps,Week 2,10,Just right
+1233,,,Week 2,10,Way too fast
+1234,Tokyo,Apps,Week 2,7,Just right
+1235,,,Week 3,10,Just right
+1236,Tokyo,Apps,Week 2,8,A little too fast
+1237,Tokyo,Apps,Week 2,7,Just right
+1238,Tokyo,Apps,Week 2,8,A little too fast
+1239,Tokyo,Apps,Week 2,10,A little too fast
+1240,Tokyo,Apps,Week 2,7,Way too fast
+1241,Tokyo,Apps,Week 2,5,Just right
+1242,Tokyo,Apps,Week 2,10,Just right
+1243,San Francisco,VR,Week 7,7,A little too fast
+1244,San Francisco,VR,Week 7,10,Just right
+1245,San Francisco,VR,Week 7,10,A little too fast
+1246,San Francisco,VR,Week 7,8,Just right
+1247,San Francisco,VR,Week 7,10,Just right
+1248,San Francisco,VR,Week 7,10,Just right
+1249,San Francisco,VR,Week 7,9,Just right
+1250,Washington DC,"Apps, Explorer",Week 6,8,A little too fast
+1251,Washington DC,Apps,Week 6,8,Just right
+1252,Washington DC,Apps,Week 6,9,A little too slow
+1253,Washington DC,"Apps, Explorer",Week 6,7,Just right
+1254,Washington DC,"Apps, Explorer",Week 6,7,A little too fast
+1255,New York City,Games,Week 5,10,Just right
+1256,New York City,Apps,Week 5,10,Just right
+1257,New York City,Apps,Week 5,7,Just right
+1258,New York City,Games,Week 5,10,Just right
+1259,New York City,Games,Week 5,9,Just right
+1260,New York City,Apps,Week 5,9,Just right
+1261,New York City,Apps,Week 5,0,A little too fast
+1262,New York City,Apps,Week 5,8,Just right
+1263,New York City,"Games, Explorer",Week 5,10,Just right
+1264,New York City,"Apps, Explorer",Week 5,8,A little too fast
+1265,New York City,"Games, Explorer",Week 5,10,Just right
+1266,New York City,Apps,Week 5,9,Just right
+1267,New York City,Apps,Week 5,8,Just right
+1268,New York City,Apps,Week 5,8,Just right
+1269,New York City,Apps,Week 4,7,Just right
+1270,New York City,Games,Week 5,9,Just right
+1271,New York City,Games,Week 5,10,Just right
+1272,New York City,Apps,Week 5,10,Just right
+1273,New York City,Apps,Week 5,7,Just right
+1274,New York City,Apps,Week 5,10,Just right
+1275,New York City,"Apps, Explorer",Week 5,4,Just right
+1276,New York City,"Apps, Explorer",Week 5,6,A little too fast
+1277,New York City,"Apps, Explorer",Week 5,8,Just right
+1278,New York City,Games,Week 5,9,Just right
+1279,New York City,"Apps, Explorer",Week 5,10,Just right
+1280,New York City,Apps,Week 5,5,Just right
+1281,,,Week 5,10,Just right
+1282,New York City,Apps,Week 5,7,Just right
+1283,New York City,Apps,Week 5,8,Just right
+1284,New York City,"Games, Explorer",Week 5,8,Just right
+1285,New York City,Games,Week 5,10,Just right
+1286,New York City,Apps,Week 5,5,Just right
+1287,New York City,"Games, Explorer",Week 5,10,Just right
+1288,New York City,Apps,Week 5,10,Just right
+1289,New York City,"Apps, Explorer",Week 5,8,Just right
+1290,Chicago,Apps,Week 7,9,A little too fast
+1291,Chicago,Apps,Week 6,7,Just right
+1292,Chicago,"Apps, Explorer",Week 5,8,Just right
+1293,Chicago,Apps,Week 7,8,A little too fast
+1294,Chicago,Apps,Week 7,10,Just right
+1295,Chicago,Apps,Week 7,9,Just right
+1296,Chicago,Apps,Week 7,10,Just right
+1297,Chicago,Apps,Week 7,9,Just right
+1298,Oakland,Apps,Week 7,9,Just right
+1299,Chicago,Apps,Week 7,9,Just right
+1300,Chicago,"Apps, Explorer",Week 7,7,Just right
+1301,Oakland,Apps,Week 7,9,Just right
+1302,Redwood City,Apps,Week 7,8,Just right
+1303,Oakland,Apps,Week 7,7,A little too fast
+1304,Los Angeles,Apps,Week 7,10,Just right
+1305,Los Angeles,Apps,Week 7,8,Just right
+1306,Los Angeles,Games,Week 7,7,A little too fast
+1307,Los Angeles,Apps,Week 7,9,Just right
+1308,Los Angeles,Games,Week 7,10,Just right
+1309,Santa Clara,Games,Week 7,10,Just right
+1310,San Francisco,Apps,Week 7,9,Just right
+1311,San Francisco,Apps,Week 7,10,Just right
+1312,San Francisco,Apps,Week 7,10,Just right
+1313,San Francisco,"Apps, Explorer",Week 7,9,Just right
+1314,San Francisco,Apps,Week 7,9,Just right
+1315,Santa Clara,Apps,Week 7,10,Just right
+1316,Santa Clara,Apps,Week 7,9,Just right
+1317,Santa Clara,Apps,Week 7,7,A little too fast
+1318,Santa Clara,Apps,Week 7,9,Just right
+1319,Santa Clara,Apps,Week 7,8,Way too fast
+1320,Santa Clara,"Apps, Explorer",Week 7,9,Just right
+1321,San Francisco,Apps,Week 7,7,Just right
+1322,Santa Clara,Apps,Week 7,10,Just right
+1323,Santa Clara,"Apps, Explorer",Week 7,7,Just right
+1324,Santa Clara,Games,Week 7,8,Just right
+1325,Los Angeles,Apps,Week 7,10,Just right
+1326,San Francisco,Apps,Week 7,9,Just right
+1327,Santa Clara,Apps,Week 7,9,Just right
+1328,Santa Clara,Apps,Week 7,9,Just right
+1329,Santa Clara,Apps,Week 7,7,Just right
+1330,Santa Clara,Apps,Week 7,9,A little too fast
+1331,Santa Clara,Apps,Week 7,8,Just right
+1332,Santa Clara,Games,Week 7,10,Just right
+1333,Santa Clara,Games,Week 7,5,Just right
+1334,San Francisco,Apps,Week 7,7,Just right
+1335,San Francisco,Apps,Week 7,5,Just right
+1336,Los Angeles,Apps,Week 7,9,Just right
+1337,San Francisco,Apps,Week 7,9,Just right
+1338,Los Angeles,Apps,Week 7,6,Just right
+1339,San Francisco,"Apps, Explorer",Week 7,10,Just right
+1340,Santa Clara,Apps,Week 7,9,Just right
+1341,San Francisco,Apps,Week 7,6,Just right
+1342,San Francisco,Apps,Week 7,10,Just right
+1343,Los Angeles,Apps,Week 7,9,Just right
+1344,San Francisco,Apps,Week 7,9,Just right
+1345,Los Angeles,Games,Week 7,9,Just right
+1346,San Francisco,"Apps, Explorer",Week 7,9,Just right
+1347,Los Angeles,Games,Week 7,8,Just right
+1348,San Francisco,Apps,Week 7,8,Just right
+1349,San Francisco,Apps,Week 7,8,Just right
+1350,Santa Clara,Games,Week 7,10,Just right
+1351,Santa Clara,Apps,Week 7,8,A little too fast
+1352,San Francisco,Games,Week 7,9,A little too slow
+1353,San Francisco,Apps,Week 7,10,Just right
+1354,San Francisco,Apps,Week 7,10,Just right
+1355,San Francisco,"Apps, Explorer",Week 7,10,Just right
+1356,,,Week 2,#ERROR!,
+1357,New York City,Apps,Week 5,2,Just right
+1358,San Francisco,Apps,Week 7,10,Just right
+1359,Beijing,Apps,Week 3,10,Just right
+1360,Oakland,Apps,Week 6,8,A little too fast
+1361,New York City,Apps,Week 5,8,Just right
+1362,San Francisco,Apps,Week 7,10,Just right
+1363,Oakland,Apps,Week 7,8,Just right
+1364,Beijing,Apps,Week 3,8,A little too fast
+1365,Beijing,Apps,Week 3,10,Just right
+1366,Beijing,Apps,Week 3,10,Just right
+1367,Beijing,Apps,Week 3,10,Just right
+1368,,,Week 3,#ERROR!,
+1369,New York City,Games,Week 5,8,Just right
+1370,Tokyo,Apps,Week 2,10,A little too slow
+1371,Santa Clara,Apps,Week 7,9,Just right
+1372,Santa Clara,Apps,Week 7,9,Just right
+1373,Beijing,Apps,Week 3,10,Just right
+1374,New York City,Games,Week 5,9,Just right
+1375,New York City,Apps,Week 5,9,Just right
+1376,Tokyo,Apps,Week 2,7,A little too slow
+1377,New York City,Apps,Week 5,7,Just right
+1378,New York City,Apps,Week 5,8,Just right
+1380,New York City,Apps,Week 5,7,Just right
+1381,New York City,Apps,Week 5,9,Just right
+1382,,,Week 5,5,Just right
+1383,New York City,Apps,Week 5,9,Way too fast
+1384,Beijing,Apps,Week 3,9,Just right
+1385,New York City,"Apps, Explorer",Week 5,9,Just right
+1386,New York City,Apps,Week 5,6,A little too slow
+1387,,,Week 2,10,Just right
+1388,Santa Clara,"Games, Explorer",Week 7,8,Just right
+1389,Santa Clara,"Apps, Explorer",Week 7,9,A little too fast
+1390,San Francisco,Apps,Week 7,10,Just right
+1391,Los Angeles,Apps,Week 7,9,Just right
+1392,San Francisco,Apps,Week 7,8,Just right
+1393,Los Angeles,Apps,Week 7,9,A little too fast
+1394,New York City,Apps,Week 5,6,Just right
+1395,New York City,Apps,Week 5,9,Just right
+1396,San Francisco,Games,Week 7,9,Just right
+1397,Oakland,Apps,Week 7,9,Just right
+1398,San Francisco,"Apps, Explorer",Week 7,7,Just right
+1399,Tokyo,Apps,Week 3,6,Just right
+1400,Tokyo,Apps,Week 3,9,A little too fast
+1401,San Francisco,VR,Week 8,10,Just right
+1402,New York City,Apps,Week 6,9,Just right
+1403,New York City,Apps,Week 6,6,Just right
+1404,New York City,Apps,Week 6,8,Just right
+1405,New York City,Apps,Week 6,10,Just right
+1406,New York City,"Apps, Explorer",Week 6,8,Just right
+1407,New York City,Apps,Week 6,7,Just right
+1408,New York City,Games,Week 6,10,Just right
+1409,New York City,Apps,Week 6,10,Just right
+1410,New York City,Apps,Week 6,7,A little too fast
+1411,New York City,Games,Week 6,10,Just right
+1412,New York City,Apps,Week 6,9,Just right
+1413,New York City,"Games, Explorer",Week 6,10,Just right
+1414,New York City,Games,Week 6,8,Just right
+1415,New York City,Apps,Week 6,8,Just right
+1416,New York City,Games,Week 6,10,Just right
+1417,New York City,Apps,Week 6,8,Just right
+1418,New York City,Apps,Week 6,8,Just right
+1419,New York City,Apps,Week 6,10,Just right
+1420,New York City,Games,Week 6,10,Just right
+1421,New York City,Games,Week 6,10,Just right
+1422,New York City,Apps,Week 6,8,Just right
+1423,New York City,Apps,Week 6,6,Way too fast
+1424,New York City,Games,Week 6,9,Just right
+1425,New York City,Apps,Week 6,8,Just right
+1426,New York City,Apps,Week 6,10,Just right
+1427,New York City,Apps,Week 6,8,Just right
+1428,New York City,Apps,Week 6,8,A little too fast
+1429,New York City,Apps,Week 6,9,Just right
+1430,New York City,"Games, Explorer",Week 6,10,Just right
+1431,New York City,Games,Week 6,10,Just right
+1432,New York City,Apps,Week 6,8,A little too fast
+1433,New York City,"Apps, Explorer",Week 6,7,A little too fast
+1434,New York City,Apps,Week 6,6,Just right
+1435,New York City,"Games, Explorer",Week 6,7,Just right
+1436,New York City,"Apps, Explorer",Week 6,10,Just right
+1437,New York City,"Apps, Explorer",Week 6,8,Just right
+1438,New York City,Apps,Week 6,7,A little too fast
+1439,New York City,"Games, Explorer",Week 6,10,Just right
+1440,New York City,Apps,Week 6,8,Just right
+1441,New York City,Apps,Week 6,9,Just right
+1442,Los Angeles,Games,Week 8,7,Way too fast
+1443,Los Angeles,Apps,Week 8,9,Just right
+1444,Los Angeles,Games,Week 8,9,Just right
+1445,Los Angeles,Apps,Week 8,10,Just right
+1446,Los Angeles,Games,Week 8,9,A little too slow
+1447,Los Angeles,Apps,Week 8,10,Just right
+1448,Tokyo,Apps,Week 3,9,A little too fast
+1449,Tokyo,Apps,Week 3,10,Just right
+1450,Tokyo,Apps,Week 3,10,Just right
+1451,New York City,"Apps, Explorer",Week 6,8,Just right
+1452,,,Week 7,7,Just right
+1453,New York City,"Apps, Explorer",Week 6,10,Just right
+1454,Washington DC,"Apps, Explorer",Week 7,5,Just right
+1455,New York City,Apps,Week 6,8,Just right
+1456,New York City,Apps,Week 6,10,Just right
+1457,,,Week 6,10,Just right
+1458,,,Week 3,#ERROR!,
+1459,Tokyo,Apps,Week 3,9,Just right
+1460,Tokyo,Apps,Week 3,9,A little too fast
+1461,New York City,Apps,Week 6,10,Just right
+1462,Los Angeles,Apps,Week 8,10,A little too fast
+1463,Tokyo,Apps,Week 3,10,Just right
+1464,Tokyo,Apps,Week 3,8,Just right
+1465,Los Angeles,Games,Week 8,8,A little too slow
+1466,Tokyo,Apps,Week 3,8,Just right
+1467,New York City,Games,Week 7,10,Just right
+1468,New York City,"Games, Explorer",Week 7,10,Just right
+1469,New York City,Games,Week 7,10,A little too fast
+1470,New York City,Games,Week 7,10,Just right
+1471,New York City,Apps,Week 7,8,Just right
+1472,New York City,Games,Week 7,9,Just right
+1473,New York City,"Games, Explorer",Week 7,10,Just right
+1474,New York City,Games,Week 7,9,Just right
+1475,New York City,Apps,Week 7,9,Just right
+1476,New York City,Apps,Week 7,8,A little too fast
+1477,New York City,Games,Week 7,10,Just right
+1478,New York City,Apps,Week 7,10,Just right
+1479,New York City,Games,Week 7,9,Just right
+1480,New York City,Apps,Week 7,9,Just right
+1481,New York City,Apps,Week 7,10,Just right
+1482,New York City,Apps,Week 7,8,Just right
+1483,New York City,Apps,Week 7,7,A little too fast
+1484,New York City,"Apps, Explorer",Week 7,7,Way too fast
+1485,New York City,Apps,Week 7,7,Just right
+1486,New York City,Apps,Week 7,9,Just right
+1487,New York City,Apps,Week 7,8,Just right
+1488,New York City,"Games, Explorer",Week 7,7,Just right
+1489,New York City,"Apps, Explorer",Week 7,10,Just right
+1490,New York City,"Apps, Explorer",Week 7,10,Just right
+1491,New York City,Games,Week 7,9,A little too fast
+1492,New York City,Apps,Week 7,9,Just right
+1493,New York City,Apps,Week 7,3,Just right
+1494,New York City,"Games, Explorer",Week 7,10,Just right
+1495,New York City,"Apps, Explorer",Week 7,10,Just right
+1496,New York City,"Apps, Explorer",Week 7,8,Just right
+1497,New York City,Apps,Week 7,10,Just right
+1498,New York City,"Apps, Explorer",Week 7,1,A little too slow
+1499,New York City,Apps,Week 5,8,Just right

@@ -1,0 +1,22 @@
+body {
+    color: #333;
+    font-family: "Helvetica", "Arial";
+}
+
+section#main {
+    width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+    padding: 50px;
+    border: 1px solid #333;
+    border-radius: 25px;
+}
+
+strong {
+    color: #429ef5;
+}
+
+em {
+    color: #42daf5;
+}

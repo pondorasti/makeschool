@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Pizza Orders</h1>
+
+<a href="/order">+ New Order</a>
+
+{% for pizza in pizza_orders %}
+<div class="pizza_order">
+    <p>
+        <strong>Size</strong>: {{ pizza.size.value }} 
+    </p>
+    <p>
+        <strong>Crust Type</strong>: {{ pizza.crust_type.value }} crust
+    </p>
+
+    <p>
+        <strong>Ordered By</strong>: {{ pizza.order_name }}
+    </p>
+
+    <p>
+        <strong>Toppings</strong>:
+        <ul>
+            {% for topping in pizza.toppings %}
+            <li>{{ topping.topping_type.value }}</li>
+            {% endfor %}
+        </ul>
+    </p>
+
+    <form action="/fulfill" method="POST">
+        <input type="hidden" name="pizza_id" value="{{ pizza.id }}">
+        <input type="submit" value="Fulfill Order">
+    </form>
+</div>
+{% else %}
+<p>No pizza orders to show!</p>
+{% endfor %}
+{% endblock %}

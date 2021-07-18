@@ -1,0 +1,246 @@
+
+<canvas width="600" height="600"></canvas>
+
+<script>
+	const canvas = document.querySelector('canvas')
+	const ctx = canvas.getContext('2d')
+	
+	canvas.style.border = '1px solid'
+	
+	const data = new Set()
+	for (let i = 0; i < 30; i += 1) {
+		data.add(Math.random())
+	}
+	
+	
+//	// -----------------------------------------------
+//	// Pie chart 
+//	const pieData = []
+//	for (let i = 0; i < 5; i += 1) {
+//		pieData.push(Math.random())
+//	}
+//	
+//	const total = pieData.reduce((a, v) => a + v)
+//	pieData.push(Math.PI * 2 - total)
+//	
+//	
+//	let lastAngle = 0
+//	pieData.forEach((val, i) => {
+//		ctx.beginPath()
+//		ctx.arc(300, 300, 150, lastAngle, lastAngle + val)
+//		ctx.lineWidth = 300
+//		const hue = 360 / pieData.length * i
+//		ctx.strokeStyle = `hsl(${hue}, 100%, 50%)`
+//		ctx.stroke()
+//		lastAngle += val
+//	})
+	
+	
+	// -----------------------------------------------
+	// Pie chart 2
+//	const pieData = []
+//	for (let i = 0; i < 5; i += 1) {
+//		pieData.push(Math.random())
+//	}
+//	
+//	const total = pieData.reduce((a, v) => a + v)
+//	pieData.push(Math.PI * 2 - total)
+//	
+//	
+//	let lastAngle = 0
+//	pieData.forEach((val, i) => {
+//		ctx.beginPath()
+//		
+//		const w = val * 100 + 10
+//		
+//		ctx.arc(300, 300, w / 2, lastAngle, lastAngle + val)
+//		ctx.lineWidth = w
+//		const hue = 360 / pieData.length * i
+//		ctx.strokeStyle = `hsl(${hue}, 100%, 50%)`
+//		ctx.stroke()
+//		lastAngle += val
+//	})
+	
+	
+	// ----------------------------------------------------
+	// Draw some circles in a circle 
+	
+	{
+//		let i = 0 // Count the steps 
+//		const step = Math.PI * 2 / data.size // Calculate the size of a step
+//		const radius = 230 // Define the radius 
+//		const centerX = 300 // define the center of the circle
+//		const centerY = 300
+//		
+//		data.forEach((val) => {
+//			// Calculate where to place a circle
+//			const x = Math.cos(step * i) * radius + centerX
+//			const y = Math.sin(step * i) * radius + centerY
+//			// Draw the circle
+//			ctx.beginPath()
+//			ctx.arc(x, y, 20, 0, Math.PI * 2)
+//			ctx.fillStyle = 'red'
+//			ctx.fill()
+//			// Increment the count
+//			i += 1
+//		})
+	}
+	
+	
+	
+	// Draw some lines out from the center
+	{
+//		let i = 0 
+//		const step = Math.PI * 2 / data.size 
+//		const centerX = 300 
+//		const centerY = 300
+//		
+//		const radius1 = 50  // inner radius 
+//		const radius2 = 230 // outer radius
+//		
+//		data.forEach((val) => {
+//			// Calculate where to place a circle
+//			const x1 = Math.cos(step * i) * radius1 + centerX
+//			const y1 = Math.sin(step * i) * radius1 + centerY
+//			const x2 = Math.cos(step * i) * radius2 + centerX
+//			const y2 = Math.sin(step * i) * radius2 + centerY
+//			// Draw the circle
+//			ctx.beginPath()
+//			ctx.moveTo(x1, y1)
+//			ctx.lineTo(x2, y2)
+//			ctx.lineWidth = 1
+//			ctx.strokeStyle = '#000'
+//			ctx.stroke()
+//			// Increment the count
+//			i += 1
+//		})
+	}
+	
+	
+	// Draw some lines from data out from the center
+	{
+//		let i = 0 
+//		const step = Math.PI * 2 / data.size 
+//		const centerX = 300 
+//		const centerY = 300
+//		
+//		const radius1 = 50  // inner radius 
+//		const radius2 = 230 // outer radius
+//		
+//		data.forEach((val) => {
+//			// Calculate where to place a circle
+//			const x1 = Math.cos(step * i) * radius1 + centerX
+//			const y1 = Math.sin(step * i) * radius1 + centerY
+//			const x2 = Math.cos(step * i) * radius2 * val + centerX
+//			const y2 = Math.sin(step * i) * radius2 * val + centerY
+//			// Draw the circle
+//			ctx.beginPath()
+//			ctx.moveTo(x1, y1)
+//			ctx.lineTo(x2, y2)
+//			ctx.lineWidth = 10
+//			ctx.strokeStyle = '#000'
+//			ctx.stroke()
+//			// Increment the count
+//			i += 1
+//		})
+	}
+	
+	
+	// -------------------------------------------------------
+	// Radar Chart
+	{
+//		let i = 0 
+//		const step = Math.PI * 2 / data.size 
+//		const centerX = 300 
+//		const centerY = 300
+//		const radius2 = 230 // outer radius
+//		
+//		ctx.beginPath()
+//		const it = data.values();
+//		const first = it.next();
+//		const x = Math.cos(0) * radius2 * first + centerX
+//		const y = Math.sin(0) * radius2 * first + centerY
+//		ctx.moveTo(x, y)
+//		ctx.lineWidth = 10
+//		ctx.strokeStyle = '#000'
+//		
+//		data.forEach((val) => {
+//			const x2 = Math.cos(step * i) * radius2 * val + centerX
+//			const y2 = Math.sin(step * i) * radius2 * val + centerY
+//			ctx.lineTo(x2, y2)
+//			i += 1
+//		})
+//		ctx.closePath()
+//		ctx.stroke()
+	}
+	
+	
+	
+	// ------------------------------------------------------
+	// Draw circles based on data
+	{
+//		let i = 0 
+//		const step = Math.PI * 2 / data.size 
+//		const radius = 230  
+//		const centerX = 300 
+//		const centerY = 300
+//		
+//		data.forEach((val) => {
+//			const x = Math.cos(step * i) * radius + centerX
+//			const y = Math.sin(step * i) * radius + centerY
+//			
+//			ctx.beginPath()
+//			// calculate the radius of the small circle from data value
+//			const r = val * 30
+//			ctx.arc(x, y, r, 0, Math.PI * 2)
+//			const hue = 360 / data.size * i
+//			ctx.fillStyle = `hsla(${hue}, 50%, 50%, 0.5)`
+//			ctx.fill()
+//			// Increment the count
+//			i += 1
+//		})
+	}
+	
+	
+	// -------------------------------------------------
+	// Draw a spiral - radius changes with the step
+	// use a larger data set to make this interesting
+	{
+//		const data = new Set()
+//		for (let i = 0; i < 100; i += 1) {
+//			data.add(Math.random())
+//		}
+//		
+//		let i = 0 
+//		const step = Math.PI * 2 / data.size 
+//		const radius = 280  
+//		const centerX = 300 
+//		const centerY = 300
+//		
+//		const turns = 2.5
+//		
+//		data.forEach((val) => {
+//			
+//			const spiral = radius / data.size * i
+//			
+//			const x = Math.cos(step * i * turns) * spiral + centerX
+//			const y = Math.sin(step * i * turns) * spiral + centerY
+//			
+//			ctx.beginPath()
+//			
+//			const r = val * 40
+//			ctx.arc(x, y, r, 0, Math.PI * 2)
+//			const hue = 360 / data.size * i
+//			ctx.fillStyle = `hsla(${hue}, 50%, 50%, 0.5)`
+//			ctx.fill()
+//			
+//			i += 1
+//		})
+	}
+	
+	
+	const body = document.querySelector('body')
+	body.style.display = 'flex'
+	body.style.justifyContent = 'center'
+	body.style.alignItems = 'center'
+</script>

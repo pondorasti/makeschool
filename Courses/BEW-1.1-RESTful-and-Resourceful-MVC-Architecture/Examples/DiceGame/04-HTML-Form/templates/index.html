@@ -1,0 +1,15 @@
+<form target="/">
+    <label for="user_name">Please enter your name:</label>
+    <input type="text" name="user_name"></input>
+    <button type="submit">Submit</button>
+</form>
+
+{% if user_name %}
+    Hello {{ user_name }}!
+{% endif %}
+
+{% if die1 == die2 %}
+    You won! You rolled {{die1}} and {{die2}}.
+{% else %}
+    You lost :( You rolled {{die1}} and {{die2}}.
+{% endif %}

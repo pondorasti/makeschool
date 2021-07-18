@@ -1,0 +1,120 @@
+<script>
+    /*
+    ES6 is functionally the same as regular old fashioned JavaScript. The biggest differences are in 
+    syntax. 
+    
+    NOTE! These examples worked in Chrome and Safari. Not all of the new ES6 features will work in 
+    current browsers. 
+    */
+    
+    // Const
+    // the keyword const allows you to define a constant, which is a variable whose value doesn't change.
+    const PI = 3.14; // JS provides Math.PI 
+    
+    // Besides using + to concatenate strings. ES6 has ${} which is similar to Swift's \(). 
+    // You must use the `...` instead of '...' or "..." (To the left of 1 on the keyboard)
+    console.log(`The value ${PI} is the ratio of circumference to diameter.`);
+    
+    // Array gets some new helpers
+    var array = [1,2,3,4,5,6,7];
+    var [a,b,c] = array;    // Assign the first three values to a, b, c
+    console.log(a,b,c);     // Print a, b, c
+    console.log([...array]);// Destructure array
+    
+    var obj = {fun:"Balloons", fruit:"avocados", speed: 36};
+    var {fun, fruit, speed} = obj;
+    console.log(fun, fruit, speed); // Destructures obj to vars
+    
+    var restructeredObj = {fun, fruit, speed}; // This produces an obj with keys matching the names of the variables.
+    console.log(">>>>> Restructered Obj");
+    console.log(restructeredObj);
+    
+    // Functions have some new syntax. Functions can now be defined as: () => {}
+    const newFunction = () => {
+        var message = "Hello World";
+        return message;
+    }
+    
+    console.log(newFunction());
+    
+    // Params go in the ().  (params, ...) => {}
+    const areaOfCircle = (diameter) => {
+        return PI * diameter;
+    }
+    
+    console.log(`The area of a circle 12 units in diameter is ${areaOfCircle(12)}`);
+    
+    // Where you see this syntax most often is with functions passed as parameters. 
+    // Make an array with 100 indexes, fill them all with 1.
+    var numbers = Array(100).fill(1);
+    console.log(numbers);
+    // Make the numbers count 1 to 100
+    var count = 0
+    numbers = numbers.map((n)=>{
+        return n + count++;
+    });
+    console.log(numbers);
+    // Notice the new syntax here used with map. 
+    
+    // Try that with filter 
+    var oddNumbers = numbers.filter((n)=>{return n % 2 === 1});
+    var evenNumbers = numbers.filter((n)=>{return n % 2 === 0});
+    console.log(oddNumbers);
+    console.log(evenNumbers);
+    
+    // try it with reduce
+    var totalOdds = oddNumbers.reduce((a,b)=>{return a + b});
+    console.log(totalOdds);
+    var totalEvens = evenNumbers.reduce((a,b)=>{return a + b});
+    console.log(totalEvens);
+    
+    // Make a class object. This type of class is no different than creating a class in early JS. 
+    // Only the syntax is different. A few notes!
+    // - Initialize your object with the constructor
+    // - You must define all class properties in the constructor with this.
+    // - Access all class properties and methods with this. 
+    class Person {
+        constructor(name, title) {
+            this.name = name;
+            this.title = title;
+        }
+        
+        getTitle() {
+            return `${this.name} ${this.title}`;
+        }
+    }
+    
+    // make an instance of a class object.
+    const joe = new Person("Joe", "Grand Wizir");
+    console.log(joe.getTitle());
+    
+    
+    var aaa = [{a:1, a:2, a:3}]
+    
+    console.log("----------------------");
+    var answer = aaa.reduce((a, b, c)=>{
+        console.log(a)
+        console.log(b)
+        console.log(c)
+        return a + b;
+    });
+    
+    console.log(answer);
+    
+    // Challenges! 
+    // For each of these challenges use the ideas from this file. Use the "fat arrow functions" 
+    // ()=>{} and the ES6 style class defintion.
+    
+    // Define a class that describes weather data it should take three parameters:
+    // temp, date (use new Date() to make a date object), and description (eg cloudy, rainy etc.)
+    
+    // Make an array of three weather Objects each with some different values. 
+    
+    // Use reduce to calculate the average temp for all objects. 
+    
+    // Use Map to return an array of strings that contain a full description of the weather. 
+    // For example: "03-23-2016 Cloudy 56 degrees" where the info comes from each of the weather objects. 
+    
+    
+    
+</script>

@@ -1,0 +1,18 @@
+<html>
+  <head>
+    <title></title>
+    <script src="./to-do-app.js"></script>
+    <script src="./to-do-item.js"></script>
+  </head>
+  <body>
+    <h1>To Do App</h1>
+    <to-do-app></to-do-app>
+
+    <script>
+      document.querySelector('to-do-app').todos = [
+        { text: 'Feed the cat', checked: false },
+        { text: 'Walk the dog', checked: true }
+      ]
+    </script>
+  </body>
+</html>

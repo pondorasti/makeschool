@@ -1,0 +1,9 @@
+{
+  "separator": "^\n---\n",
+  "verticalSeparator": "^\n--\n",
+  "theme": "white",
+  "highlightTheme": "atom-one-light",
+  "scripts": [
+
+  ]
+}

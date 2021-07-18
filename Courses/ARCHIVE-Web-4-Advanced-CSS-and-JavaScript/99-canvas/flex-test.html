@@ -1,0 +1,49 @@
+<div class="container">
+  <h1>Heading</h1>
+  <div class="box">
+    <div class="bar"></div>
+    <div class="bar"></div>
+    <div class="bar"></div>
+    <div class="bar"></div>
+  </div>
+  <button>Button</button>
+</div>
+
+<style>
+  * {
+    box-sizing: border-box;
+  }
+   
+  body, html {
+    height: 100%;
+    margin: 0;
+  }
+  
+  .container {
+    height: 100%;
+    border: 4px solid #000;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+  }
+  
+  .box {
+    width: 100px;
+    height: 200px;
+    background-color: red;
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
+  }
+  
+  .bar {
+    width: 20px;
+    background-color: powderblue;
+  }
+  
+  .bar:nth-child(1) {height: 140px;}
+  .bar:nth-child(2) {height: 80px;}
+  .bar:nth-child(3) {height: 150px;}
+  .bar:nth-child(4) {height: 110px;}
+</style>

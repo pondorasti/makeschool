@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Track name:</strong>
+  <%= @top_track.track_name %>
+</p>
+
+<p>
+  <strong>Album name:</strong>
+  <%= @top_track.album_name %>
+</p>
+
+<p>
+  <strong>Personal ranking:</strong>
+  <%= @top_track.personal_ranking %>
+</p>
+
+<%= link_to 'Edit', edit_top_track_path(@top_track) %> |
+<%= link_to 'Back', top_tracks_path %>

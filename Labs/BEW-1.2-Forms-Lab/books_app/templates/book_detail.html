@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>{{ book.title }}</h1>
+
+<p>
+    <strong>Author</strong>: {{ book.author.name }}
+</p>
+
+<p>
+    <strong>Author Bio</strong>: {{ book.author.biography }}
+</p>
+
+<p>
+    <strong>Publish date</strong>: {{ book.publish_date }}
+</p>
+
+<p>
+    <strong>Audience</strong>: {{ book.audience }}
+</p>
+
+<p>
+    <strong>Genres</strong>: 
+    
+    {% for genre in book.genres %}
+    {{ genre.name }},
+    {% endfor %}
+</p>
+
+<form method="POST" action="{{ url_for('main.book_detail', book_id=book.id) }}">
+    {{ form.csrf_token }}
+    <fieldset>
+        <legend>Edit this book</legend>
+
+        {{ form.title.label }}
+        {{ form.title }}
+        
+        {{ form.publish_date.label }}
+        {{ form.publish_date(placeholder="YYYY-mm-dd") }}
+        
+        {{ form.author.label }}
+        {{ form.author }}
+        
+        {{ form.audience.label }}
+        {{ form.audience }}
+        
+        {{ form.genres.label }}
+        {{ form.genres }}
+            
+        {{ form.submit }}
+    </fieldset>
+</form>
+
+{% endblock %}

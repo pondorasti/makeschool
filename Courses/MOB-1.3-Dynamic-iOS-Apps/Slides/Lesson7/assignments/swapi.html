@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <title>Syllabus Template Slides</title>
+    <link rel="shortcut icon" href="./../../favicon.ico"/>
+    <link rel="stylesheet" href="./../../dist/reveal.css" />
+    <link rel="stylesheet" href="./../../dist/theme/white.css" id="theme" />
+    <link rel="stylesheet" href="./../../css/highlight/zenburn.css" />
+    <link rel="stylesheet" href="./../../assets/Reveal/makeschool.css" />
+
+    <script>
+      document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>');
+    </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides"><section  data-markdown><script type="text/template"># Pokemon API
+
+Resources needed:
+* [The Pokemon API](https://pokeapi.co)
+
+
+## PART 1
+
+- Create and call a function that fetches data from the Pokemon API to fetch a list of Pokemon. This is the endpoint: `/pokemon`
+- In your data tasks' completion handler, **convert** the returned `data` object to JSON, and **print** your converted `jsonObject` to the debug console.
+- Use a Pokemon struct that conforms to the Codable protocol (it will only have two properties at this point: name and url)
+- Handle the HTTP `error` object returned and any other validation you want to include (status, data, etc.)
+
+## PART 2
+
+Create a **table view** that supports **pagination**:
+- Uses a cell to present the name of the Pokemon from the JSON response returned
+- When scrolled to the end of the currently available data, the app must fetch new data to enable pagination.
+- Check the section "Resource lists and pagination" straight from the docs: https://pokeapi.co/docs/v2.html/
+In the end you will have a table view that keeps on getting new data for Pokemon as you reach the end of the scroll.
+
+## PART 3
+
+- Besides just showing the name of the Pokemon, include their picture in the cell.
+- Use this library to load pictures: [Kingfisher](https://github.com/onevcat/Kingfisher)
+
+## Example implementations
+
+- [Example 1](https://github.com/caocmai/mob1.3-fetching-from-api)
+
+- Example with images in table view
+
+![demo](pokemondemo.gif)
+
+## Inspiration: Sample projects using the Pokemon API
+
+- [Sample 1](https://github.com/tron1991/Pokemon-API-Swift)
+- [Sample 2](https://github.com/Frog-Frog/Pokedex)
+
+
+#### Alternative API: https://swapi.dev
+
+If you don't feel like fetching Pokemon, use the Star Wars API.
+
+- Using the /people/ endpoint
+- Use a cell to present the "name" and 1 other property/items (i.e.. "height") from the JSON response returned
+</script></section></div>
+    </div>
+
+    <script src="./../../dist/reveal.js"></script>
+
+    <script src="./../../plugin/markdown/markdown.js"></script>
+    <script src="./../../plugin/highlight/highlight.js"></script>
+    <script src="./../../plugin/zoom/zoom.js"></script>
+    <script src="./../../plugin/notes/notes.js"></script>
+    <script src="./../../plugin/math/math.js"></script>
+    <script>
+      function extend() {
+        var target = {};
+        for (var i = 0; i < arguments.length; i++) {
+          var source = arguments[i];
+          for (var key in source) {
+            if (source.hasOwnProperty(key)) {
+              target[key] = source[key];
+            }
+          }
+        }
+        return target;
+      }
+
+      // default options to init reveal.js
+      var defaultOptions = {
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+        transition: 'default', // none/fade/slide/convex/concave/zoom
+        plugins: [
+          RevealMarkdown,
+          RevealHighlight,
+          RevealZoom,
+          RevealNotes,
+          RevealMath
+        ]
+      };
+
+      // options from URL query string
+      var queryOptions = Reveal().getQueryHash() || {};
+
+      var options = extend(defaultOptions, {"controls":true,"progress":true,"autoPlayMedia":false,"slideNumber":"c/t","showSlideNumber":"all","controlsTutorial":true,"controlsLayout":"edges","transition":"slide","transitionSpeed":"medium","minScale":0.5,"maxScale":3}, queryOptions);
+    </script>
+
+
+    <script>
+      Reveal.initialize(options);
+    </script>
+  </body>
+</html>

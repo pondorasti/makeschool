@@ -1,0 +1,15 @@
+extends layout
+
+block content
+  .row
+    each pet, index in pets
+      .col-sm-4.justify-content-center
+        .card
+          img.card-img-top(src=pet.picUrl, alt='Card image cap')
+          .card-body
+            h4.card-title= pet.name
+            small.text-muted= pet.species
+            p.card-text= pet.description
+            .text-right
+                a.card-link(href=`/pets/${pet._id}`) View #{pet.name}
+

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <title>Syllabus Template Slides</title>
+    <link rel="stylesheet" href="./css/reveal.css" />
+    <link rel="stylesheet" href="./css/theme/black.css" id="theme" />
+    <link rel="stylesheet" href="./css/highlight/zenburn.css" />
+    <link rel="stylesheet" href="./css/print/paper.css" type="text/css" media="print" />
+    <link rel="stylesheet" href="./assets/Reveal/makeschool.css" />
+
+    <script>
+      document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>');
+    </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides"><section  data-markdown><script type="text/template"><!-- .slide: data-background="./../Images/header.svg" data-background-repeat="none" data-background-size="40% 40%" data-background-position="center 10%" class="header" -->
+
+## Arrays
+
+[Slides]()
+</script></section><section  data-markdown><script type="text/template">
+## Agenda
+
+- Check In
+- Interview Question Warm Up
+- Python Lists
+- Arrays in Memory
+- Static Arrays
+- Dynamic Arrays
+</script></section><section  data-markdown><script type="text/template">
+## Check In
+</script></section><section  data-markdown><script type="text/template">
+## Interview Question Warm Up
+
+print all the words in the words.txt file in all uppercase letters
+
+<iframe src="https://trinket.io/embed/python/71132ce14c" width="100%" height="356" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+</script></section><section  data-markdown><script type="text/template">
+## Lists in Python
+
+<code>my_list = [1,"candy",4.5]</code>
+- mutable
+- heterogeneous
+</script></section><section  data-markdown><script type="text/template">
+## Accessing items
+
+- Index or position
+- Negative indexing
+- Slicing
+
+<iframe src="https://trinket.io/embed/python/60cdbe33f0" width="100%" height="356" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+</script></section><section  data-markdown><script type="text/template">
+## Memory Behavior
+
+- Contiguous block of memory
+- Think of an array as a row of mailboxes with each having a unique integer address
+- Same item storage size at each index
+
+</script></section><section  data-markdown><script type="text/template">
+## Let's Draw It!
+</script></section><section  data-markdown><script type="text/template">
+## The Idea of a List
+
+- Lists are used to represent an ordered collection of objects. 
+- There are many ways to build a list
+- In Python lists are actually built using dynamic arrays 
+</script></section><section  data-markdown><script type="text/template">
+## Static Arrays
+
+- Static arrays are a direct representation of how memory is organized in physical RAM
+- Can’t change size because their memory is allocated once as a single contiguous block
+- However, we often do not know or cannot predict how many items we need to store...
+
+</script></section><section  data-markdown><script type="text/template">
+## Let's Draw It!
+</script></section><section  data-markdown><script type="text/template">
+## Dynamic Arrays
+
+- Dynamic arrays can change size but still have to store their items in a static array of fixed size – indexes are marked as occupied or available
+- When the static array is out of space we need to allocate a larger one and copy all existing items into it before we can append a new item
+
+</script></section><section  data-markdown><script type="text/template">
+## Let's Draw It!
+</script></section><section  data-markdown><script type="text/template">
+## Shout Outs
+</script></section><section  data-markdown><script type="text/template">
+## Lab Time
+</script></section><section  data-markdown><script type="text/template">
+</script></section></div>
+    </div>
+
+    <script src="./js/reveal.js"></script>
+
+    <script>
+      function extend() {
+        var target = {};
+        for (var i = 0; i < arguments.length; i++) {
+          var source = arguments[i];
+          for (var key in source) {
+            if (source.hasOwnProperty(key)) {
+              target[key] = source[key];
+            }
+          }
+        }
+        return target;
+      }
+
+      // Optional libraries used to extend on reveal.js
+      var deps = [
+        { src: './plugin/markdown/marked.js', condition: function() { return !!document.querySelector('[data-markdown]'); } },
+        { src: './plugin/markdown/markdown.js', condition: function() { return !!document.querySelector('[data-markdown]'); } },
+        { src: './plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+        { src: './plugin/zoom-js/zoom.js', async: true },
+        { src: './plugin/notes/notes.js', async: true },
+        { src: './plugin/math/math.js', async: true }
+      ];
+
+      // default options to init reveal.js
+      var defaultOptions = {
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+        transition: 'default', // none/fade/slide/convex/concave/zoom
+        dependencies: deps
+      };
+
+      // options from URL query string
+      var queryOptions = Reveal.getQueryHash() || {};
+
+      var options = extend(defaultOptions, {"controls":true,"progress":true,"autoPlayMedia":false,"slideNumber":"c/t","showSlideNumber":"all","controlsTutorial":true,"controlsLayout":"edges","transition":"slide","transitionSpeed":"medium","minScale":0.5,"maxScale":3}, queryOptions);
+    </script>
+
+
+    <script>
+      Reveal.initialize(options);
+    </script>
+  </body>
+</html>

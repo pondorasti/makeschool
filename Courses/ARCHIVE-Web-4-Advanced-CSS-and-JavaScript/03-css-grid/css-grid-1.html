@@ -1,0 +1,66 @@
+
+ 
+<!-- Define a container -->
+<div class="container">
+  <!-- 
+    Children of the container will layout on a grid. 
+    Child elements are arrange in the order. 
+  -->
+  <div class="box a">One</div>
+  <div class="box b">Two</div>
+  <div class="box c">Three</div>
+  <div class="box d">Four</div>
+  <div class="box a">Five</div>
+  <div class="box b">Six</div>
+  <div class="box c">Seven</div>
+  <div class="box d">Eight</div>
+</div>
+
+<style>
+  body, html {
+    height: 100%;
+  }
+  .container {
+    height: 100%;
+    /* Declare the container as display grid */
+    display: grid;
+    /* declare three columns woth px sizes */
+    grid-template-columns: 1fr 1fr 1fr ;
+    /* Declare the size of three rows */
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    /* The gap between rows and columns */
+    grid-gap: 50px 50px;
+  }
+  
+  .a {
+    background-color: aquamarine;
+  }
+  
+  .b {
+    background-color: bisque;
+  }
+  
+  .c {
+    background-color: cadetblue;
+  }
+  
+  .d {
+    background-color: cyan
+  }
+  
+</style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

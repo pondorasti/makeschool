@@ -1,0 +1,32 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #eee;
+}
+
+#content {
+    width: 70%;
+    background-color: white;
+    padding: 20px;
+}
+
+fieldset {
+    display: flex;
+    flex-direction: column;
+    margin: 20px 0;
+    padding: 20px;
+}
+
+fieldset * {
+    margin: 5px;
+}
+
+fieldset input {
+    padding: 5px;
+}
+
+input#submit {
+    width: 100px;
+    align-self: flex-end;
+}

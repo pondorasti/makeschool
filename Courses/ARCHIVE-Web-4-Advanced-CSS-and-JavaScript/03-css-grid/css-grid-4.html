@@ -1,0 +1,93 @@
+<!-- 
+   Grid area can also be used to place an element in the 
+   grid by defining the top, right, bottom, and left sides. 
+ -->
+<div class="wrapper">
+  <div class="header">
+    <div>head</div>
+  </div>
+  <div class="header-right">
+    <div>hr</div>
+  </div>
+  <div class="main-content">
+    <div>main</div>
+  </div>
+  <div class="side-bar">
+    <div>side</div>
+  </div>
+  <div class="footer">
+    <div>foot</div>
+  </div>
+  <div class="footer-right">
+    <div>fr</div>
+  </div>
+</div>
+
+
+<style>
+  .wrapper {
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 100px 300px;
+  }
+  
+  .wrapper>div {
+    color: white;
+    font-family: Helvetica;
+    padding: 1em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .header {
+    /* Set the - top / right / bottom / left */
+    grid-area: 1 / 4 / 2 / 1;
+  }
+  
+  .header-right {
+    grid-area: 1 / 5 / 2 / 4;
+  }
+  
+  .side-bar {
+    grid-area: 2 / 2 / 3 / 1;
+  }
+  
+  .main-content {
+    grid-area: 2 / 5 / 3 / 2;
+  }
+  
+  .footer {
+    grid-area: 3 / 3 / 4 / 1;
+  }
+  
+  .footer-right {
+    grid-area: 3 / 5 / 4 / 3;
+  }
+  
+  .wrapper>div:nth-child(1) {
+    background-color: #97edab
+  }
+  
+  .wrapper>div:nth-child(2) {
+    background-color: #e5db8e
+  }
+  
+  .wrapper>div:nth-child(3) {
+    background-color: #97dced
+  }
+  
+  .wrapper>div:nth-child(4) {
+    background-color: #97a1ed
+  }
+  
+  .wrapper>div:nth-child(5) {
+    background-color: #b597ed
+  }
+  
+  .wrapper>div:nth-child(6) {
+    background-color: #ed979e
+  }
+
+</style>

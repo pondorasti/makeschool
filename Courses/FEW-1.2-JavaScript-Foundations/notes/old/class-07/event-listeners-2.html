@@ -1,0 +1,26 @@
+<!doctype html>
+<html>
+	<head>
+		<title></title>
+	</head>
+	<body>
+		
+		<p>Key Code:<span id="display-key"></span></p>
+		
+		<script>
+			const display_key = document.getElementById('display-key')
+			
+			// What kind of events are there?  
+			function onKeyDown(e) {
+				console.log(e)
+				display_key.innerHTML = `${e.keyCode} ${e.key}`
+			}
+			
+			// Add an event with addEventListener
+			// The first parameter is the type of the event
+			// The secon param is the handler for the event
+			document.addEventListener('keydown', onKeyDown)
+			
+		</script>
+	</body>
+</html>

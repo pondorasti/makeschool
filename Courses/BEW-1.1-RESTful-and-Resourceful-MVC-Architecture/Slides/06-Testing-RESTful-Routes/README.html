@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <title>BEW 1.1 Slides</title>
+    <link rel="stylesheet" href="./../css/reveal.css" />
+    <link rel="stylesheet" href="./../css/theme/black.css" id="theme" />
+    <link rel="stylesheet" href="./../css/highlight/atom-one-light.css" />
+    <link rel="stylesheet" href="./../css/print/paper.css" type="text/css" media="print" />
+    <link rel="stylesheet" href="./../assets/Reveal/makeschool.css" />
+
+    <script>
+      document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>');
+    </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides"><section  data-markdown><script type="text/template"><!-- Run this slideshow via the following command: -->
+<!-- reveal-md README.md -w -->
+
+
+<!-- .slide: data-background="./../Images/header.svg" data-background-repeat="none" data-background-size="40% 40%" data-background-position="center 10%" class="header" -->
+# Testing RESTful Routes
+
+### [Slides](https://make-school-courses.github.io/BEW-1.1-RESTful-and-Resourceful-MVC-Architecture/Slides/06-Testing-RESTful-Routes/README)
+### [Starter Code](https://github.com/Make-School-Labs/Flask-Testing-Starter)
+</script></section><section  data-markdown><script type="text/template">
+## Agenda
+
+1. [Learning Objectives](#learning-objectives)
+1. [Why Test Our Routes?](#why-test-our-routes?) 
+1. [Forms of Testing](#forms-of-testing)
+1. [Unit Tests](#unit-tests) 
+1. [Break](#break)
+1. [Route Tests](#route-tests)
+</script></section><section  data-markdown><script type="text/template">
+## Learning Objectives
+
+1. List various types of automated tests
+1. Define unit tests and how to implement them in Python
+1. Implement route tests for one resource
+</script></section><section ><section data-markdown><script type="text/template">
+# Why Test Our Routes?
+</script></section><section data-markdown><script type="text/template">
+## What is Automated Testing?
+
+**Manual testing** means manually running your program many times, with various test cases.
+<!-- .element: class="fragment" data-fragment-index="1" -->
+- Example: Running your app to see if it's working
+<!-- .element: class="fragment" data-fragment-index="2" -->
+
+**Automated testing** is writing code that tests your code *for you*.
+<!-- .element: class="fragment" data-fragment-index="3" -->
+- Example: Writing code that tests the correctness of your app for various user inputs
+<!-- .element: class="fragment" data-fragment-index="4" -->
+</script></section><section data-markdown><script type="text/template">
+## Why Learn Automated Testing?
+
+1. Ensures that your next change won't break anything that was previously working<!-- .element: class="fragment" data-fragment-index="1" -->
+  - These are called **regression** tests 
+1. Other developers can contribute to your project without fear of breaking it<!-- .element: class="fragment" data-fragment-index="2" -->
+1. Improves accuracy of your code - easier to test many edge cases<!-- .element: class="fragment" data-fragment-index="3" -->
+  - What is an **edge case**?
+</script></section></section><section ><section data-markdown><script type="text/template">
+# Forms of Testing
+</script></section><section data-markdown><script type="text/template">
+## How can I test my code?
+
+We'll go over a couple of the most foundational tests you can run on your projects:
+
+1. **Unit Testing** - tests a single function
+1. **Route Testing** - tests what is served by a single route
+</script></section></section><section ><section data-markdown><script type="text/template">
+# Unit Tests
+</script></section><section data-markdown><script type="text/template">
+## What are Unit Tests?
+
+**Unit tests** test the output or return value of a single function.
+
+They are very **resilient** and will rarely break as you make changes to your code, but they provide very _narrow test coverage_ to your application as a whole so you have to write a lot of them.
+
+Python has a built in unit test library called [unittest](https://docs.python.org/3.7/library/unittest.html) that we'll use for running our unit tests going forward.
+</script></section><section data-markdown><script type="text/template">
+## Example
+
+Here's an example of a unit test that checks the output of a `greet_by_name` function. Check out the comments for details. Let's call this file `test_greeting.py`:
+
+```python
+import unittest
+
+def greet_by_name(name):
+    """Greet user by name."""
+    greeting = "Hello, " + name + "!"
+    return greeting
+
+class StringFunctionTests(unittest.TestCase):
+    def test_greeting(self):
+        """Test the greeting function."""
+        self.assertEqual(greet_by_name('Dani'), 'Hello, Dani!')
+
+if __name__ == '__main__':
+    unittest.main()
+```
+</script></section><section data-markdown><script type="text/template">
+## Assertions
+
+What does `assertEqual` mean? This is an example of an assertion! 
+
+An **Assertion** is a true/false statement that defines a test. In the above example, we're testing to make sure the `greet_by_name('Dani')` function returns `Hello, Dani!` as an answer.
+
+Read more about assertions [here](https://docs.python.org/3/library/unittest.html#unittest.TestCase).
+</script></section><section data-markdown><script type="text/template">
+## Run the Test
+
+If you were to run this function, you'd see the following output:
+
+```bash
+➜  ~ python3 string_tests.py
+.
+----------------------------------------------------------------------
+Ran 1 test in 0.000s
+
+OK
+```
+
+Great! Our test passed!
+</script></section><section data-markdown><script type="text/template">
+## Question
+
+What would happen if we change:
+
+```python
+self.assertEqual(greet_by_name('Dani'), 'Hello, Dani!')
+```
+
+To the following:
+
+```python
+self.assertEqual(greet_by_name('Dani'), 'Hello, Meredith!')
+```
+</script></section><section data-markdown><script type="text/template">
+## Fail!
+
+Our two parameters to `assertEqual` no longer match, so the test would fail!
+
+```bash
+➜  ~ python3 test_greeting.py
+F
+======================================================================
+FAIL: test_default_greeting_set (__main__.GreetByNameTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "test_greeting.py", line 10, in test_default_greeting_set
+    self.assertEqual(greet_by_name('Dani'), 'Hello, Meredith!')
+AssertionError: 'Hello, Dani!' != 'Hello, Meredith!'
+- Hello, Dani!
++ Hello, Meredith!
+
+
+----------------------------------------------------------------------
+Ran 1 test in 0.001s
+
+FAILED (failures=1)
+```
+</script></section><section data-markdown><script type="text/template">
+## Activity: Write some Tests
+
+Clone the repository [here](https://github.com/Make-School-Labs/Flask-Testing-Starter) and write tests for the other functions.
+</script></section></section><section  data-markdown><script type="text/template">
+## Break [10 minutes]
+<!-- .slide: data-background="#087CB8" -->
+</script></section><section ><section data-markdown><script type="text/template">
+# Route Tests
+</script></section><section data-markdown><script type="text/template">
+## What is Route Testing?
+
+**Route Tests** test a single route. They are typically more broad than unit tests, but will not break when we change something minor like the styling.
+</script></section><section data-markdown><script type="text/template">
+## Route Testing Example
+
+Here's an example of testing a route:
+
+```python
+from app import app
+import unittest 
+
+class AppTests(unittest.TestCase): 
+    
+    def setUp(self):
+        self.app = app.test_client()
+        self.app.testing = True 
+
+    def test_homepage(self):
+        """Verify that homepage renders correctly."""
+        result = self.app.get('/')
+        self.assertEqual(result.status_code, 200)
+        page_content = result.get_data(as_text=True)
+        self.assertIn('Hello world', page_content)
+```
+</script></section><section data-markdown><script type="text/template">
+## What if I want to test with specific form input?
+
+We can *simulate* a user entering "Cat" into the "Favorite animal?" input box by changing the query string.
+
+```py
+def test_fortune_cat(self):
+    """Verify that homepage renders correctly."""
+    result = self.app.get('/fortune_results?animal=cat')
+    self.assertEqual(result.status_code, 200)
+
+    page_content = result.get_data(as_text=True)
+    self.assertIn('Your day will be paw-some', page_content)
+```
+</script></section><section data-markdown><script type="text/template">
+## Activity: Test Fortune Teller
+
+Write at least four route tests for your Fortune Teller project (one for each possible fortune).
+</script></section></section><section  data-markdown><script type="text/template">
+## Vibe Check
+
+Go to [https://make.sc/bew1.1-vibe-check](https://make.sc/bew1.1-vibe-check) and fill out the form.
+</script></section><section  data-markdown><script type="text/template">
+<!-- .slide: data-background="#0D4062" -->
+## Homework
+
+Homework 3 (Weather App) is due on Thursday, at midnight.
+</script></section><section  data-markdown><script type="text/template">
+## Resources
+- [Python unittest docs](https://docs.python.org/3/library/unittest.html)
+</script></section></div>
+    </div>
+
+    <script src="./../js/reveal.js"></script>
+
+    <script>
+      function extend() {
+        var target = {};
+        for (var i = 0; i < arguments.length; i++) {
+          var source = arguments[i];
+          for (var key in source) {
+            if (source.hasOwnProperty(key)) {
+              target[key] = source[key];
+            }
+          }
+        }
+        return target;
+      }
+
+      // Optional libraries used to extend on reveal.js
+      var deps = [
+        { src: './../plugin/markdown/marked.js', condition: function() { return !!document.querySelector('[data-markdown]'); } },
+        { src: './../plugin/markdown/markdown.js', condition: function() { return !!document.querySelector('[data-markdown]'); } },
+        { src: './../plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+        { src: './../plugin/zoom-js/zoom.js', async: true },
+        { src: './../plugin/notes/notes.js', async: true },
+        { src: './../plugin/math/math.js', async: true }
+      ];
+
+      // default options to init reveal.js
+      var defaultOptions = {
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+        transition: 'default', // none/fade/slide/convex/concave/zoom
+        dependencies: deps
+      };
+
+      // options from URL query string
+      var queryOptions = Reveal.getQueryHash() || {};
+
+      var options = extend(defaultOptions, {"controls":true,"progress":true,"autoPlayMedia":false,"slideNumber":"c/t","showSlideNumber":"all","controlsTutorial":true,"controlsLayout":"edges","transition":"slide","transitionSpeed":"medium","minScale":0.5,"maxScale":3}, queryOptions);
+    </script>
+
+
+    <script>
+      Reveal.initialize(options);
+    </script>
+  </body>
+</html>

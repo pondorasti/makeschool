@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <title>Syllabus Template Slides</title>
+    <link rel="stylesheet" href="./../css/reveal.css" />
+    <link rel="stylesheet" href="./../css/theme/black.css" id="theme" />
+    <link rel="stylesheet" href="./../css/highlight/zenburn.css" />
+    <link rel="stylesheet" href="./../css/print/paper.css" type="text/css" media="print" />
+    <link rel="stylesheet" href="./../assets/Reveal/makeschool.css" />
+
+    <script>
+      document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>');
+    </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides"><section  data-markdown><script type="text/template"># Behavioral Patterns Pt.1
+
+<!-- INSTRUCTOR <aside class="notes"><p>1) For the quiz in the Initial Exercise:</p>
+<ul>
+<li>the URL is <a href="https://docs.google.com/document/d/1cwT3b-DUSuB1AwO2bqU-BWuDepK8pANbj5I4R1UOrqA/edit">https://docs.google.com/document/d/1cwT3b-DUSuB1AwO2bqU-BWuDepK8pANbj5I4R1UOrqA/edit</a>
+2) For Activity 1:</li>
+<li>one possible solution is hidden in this activity&#39;s markdown
+3) for Activity 2:</li>
+<li>the Completed solution for the RemoteControl class is hidden in its markdown</li>
+<li>-&gt;</li>
+</ul>
+<h2 id="minute-by-minute">Minute-by-Minute</h2>
+<table>
+<thead>
+<tr>
+<th><strong>Elapsed</strong></th>
+<th><strong>Time</strong></th>
+<th><strong>Activity</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>0:00</td>
+<td>0:05</td>
+<td>Objectives</td>
+</tr>
+<tr>
+<td>0:05</td>
+<td>0:15</td>
+<td>Initial Exercise</td>
+</tr>
+<tr>
+<td>0:20</td>
+<td>0:15</td>
+<td>Overview  I</td>
+</tr>
+<tr>
+<td>0:35</td>
+<td>0:20</td>
+<td>In Class Activity I</td>
+</tr>
+<tr>
+<td>0:55</td>
+<td>0:10</td>
+<td>BREAK</td>
+</tr>
+<tr>
+<td>1:05</td>
+<td>0:15</td>
+<td>Overview  II</td>
+</tr>
+<tr>
+<td>1:20</td>
+<td>0:25</td>
+<td>In Class Activity II</td>
+</tr>
+<tr>
+<td>1:45</td>
+<td>0:05</td>
+<td>Wrap Up</td>
+</tr>
+<tr>
+<td>TOTAL</td>
+<td>1:50</td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id="learning-objectives-5-min">Learning Objectives (5 min)</h2>
+<p>By the end of this lesson, you should be able to...</p>
+<ol>
+<li>Describe:<ul>
+<li>the <strong>Chain-of-Responsibility</strong> and <strong>Command</strong> patterns</li>
+<li>the software construction problem each is intended to solve</li>
+<li>potential use cases for each (when to use them)</li>
+</ul>
+</li>
+<li>Assess:<ul>
+<li>the suitability of a given design pattern to solve a given problem</li>
+<li>the trade offs (pros/cons) inherent in each</li>
+</ul>
+</li>
+<li>Implement basic examples of both patterns explored in this class</li>
+</ol>
+<h2 id="initial-exercise-15-min">Initial Exercise (15 min)</h2>
+<h3 id="part-1---individually">Part 1 - Individually</h3>
+<ul>
+<li>A Quiz on homework from previous class</li>
+</ul>
+<h3 id="part-2---in-pairs">Part 2 - In Pairs</h3>
+<p>Grade each other&#39;s quizzes, sharing answers, insights, etc.</p>
+<!-- Quiz location:
+https://docs.google.com/document/d/1cwT3b-DUSuB1AwO2bqU-BWuDepK8pANbj5I4R1UOrqA/edit
+-->
+
+<!-- Quiz location:
+
+TODO: Add quiz answersz
+
+-->
+
+<h2 id="overviewtt-i-15-min">Overview/TT I (15 min)</h2>
+<h3 id="behavioral-patterns">Behavioral Patterns</h3>
+<p>In software engineering, <strong>Behavioral</strong> design patterns are design patterns that identify common communication patterns between objects.</p>
+<p>By doing so, these patterns increase flexibility in carrying out such communications.</p>
+<p><strong><em>Source:</em></strong> <em>wikipedia.org</em></p>
+<p>Though there are many more to explore, we will focus on these two key Behavioral patterns in this lesson and the next:</p>
+<ul>
+<li><strong>Chain-of-Responsibility (CoR)</strong></li>
+<li><strong>Command</strong></li>
+</ul>
+<h3 id="chain-of-responsibility">Chain-of-Responsibility</h3>
+<p><img src="assets/cor.jpg" alt="CoR"></p>
+<p>*<a href="https://agostini.tech/2018/05/27/design-patterns-in-swift-chain-of-responsibility/">agostini.com</a>*</p>
+<p>The <strong><em>Chain-of-Responsibility</em></strong> pattern is a behavioral design pattern that allows an event to be processed by one of many handlers.</p>
+<p>It consists of a source of command objects and a series of processing objects.</p>
+<p>Each processing object contains logic that defines the types of command objects that it can handle; the rest are passed to the next processing object in the chain.</p>
+<p><strong><em>Source:</em></strong> <em>wikipedia.org</em></p>
+<p><img src="assets/CoR_diagram.png" alt="example"></p>
+<h4 id="problems-addressed">Problems Addressed</h4>
+<ol>
+<li><p>Implementing a request directly within the class that sends the request is inflexible because it couples the class to a particular receiver and makes it impossible to support multiple receivers.</p>
+</li>
+<li><p>In addition, it is preferred that more than one receiver should be able to handle a request.</p>
+</li>
+</ol>
+<p>Hence, Chain-of-Responsibility decouples the sender of a request from its receiver.</p>
+<h4 id="how-to-implement">How to Implement</h4>
+<p>You define a chain of <em>receiver</em> objects having the responsibility, depending on run-time conditions, to either <em>handle a request</em> or <em>forward it to the next receiver</em> on the chain (if any).</p>
+<p>This enables sending a request to a <strong><em>chain</em></strong> of receivers <em>without</em> having to know which one handles the request. The request gets passed along the chain until a receiver handles the request. The <strong><em>sender</em></strong> of a request is <strong><em>no longer coupled</em></strong> to a particular receiver.</p>
+<h3 id="example-or-cor">Example or CoR</h3>
+<p><a href="https://medium.com/design-patterns-in-swift/design-patterns-in-swift-chain-of-responsibility-pattern-f575c85a43c">Example</a></p>
+<h3 id="key-example-use-case">Key Example Use Case</h3>
+<p>The Cocoa and Cocoa Touch frameworks actively use the chain-of-responsibility pattern for handling events.</p>
+<p>Objects that participate in the chain are called <strong><em>responder objects,</em></strong> inheriting from the <code>UIResponder</code> (iOS) class.</p>
+<p><strong><em>All view objects</em></strong> (UIView), view controller objects (UIViewController), window objects (UIWindow), and the application object (UIApplication) <strong><em>are responder objects</em></strong></p>
+<p>Typically, when a view receives an event it can’t handle, it dispatches it to its superview until it reaches the view controller or window object. If the window can’t handle the event, the event is <strong><em>dispatched</em></strong> to the <strong><em>application object,</em></strong> which is <strong><em>the last object in the chain.</em></strong></p>
+<p><strong>On iOS,</strong> it’s <strong><em>typical to handle view events in the view controller</em></strong> which manages the view hierarchy, instead of subclassing the view itself. Since a view controller lies in the responder chain after all of its managed subviews, it can intercept any view events and handle them.</p>
+<p><strong><em>Source:</em></strong> <em>wikipedia.org</em></p>
+<p><img src="assets/Responder_Chain_iOS.png" alt="Apple_responder_chain_graphic"></p>
+<p><strong><em>Source:</em></strong> <em>Apple, Inc.</em></p>
+<h3 id="question-when-should-you-use-it">Question: When should you use it?</h3>
+<!--
+- Use this pattern whenever you have a group of related objects that handle similar events but vary based on event type, attributes, user choices/input, or anything else related to the event.
+-->
+
+<h2 id="in-class-activity-i-20-min">In Class Activity I (20 min)</h2>
+<p>Every UIResponder object has a method called <code>next()</code> which returns the next responder in the responder chain (or <code>nil</code> if there is no next responder). The next responder of a view is typically its view controller or its superview (if it has no view controller).</p>
+<p>A responder object can choose <em>not</em> to handle an event simply by forwarding the event message to its <em>next responder.</em></p>
+<p><strong>TODO:</strong> Using the pre-made <a href="https://github.com/Make-School-Labs/StarterApp-MOB-2.4-L03">TouchResponder starter app</a>, add code to pass a double-tap touch event to the view&#39;s next responder object (the view controller).</p>
+<h4 id="part-1-tracing-framework-ancestry">Part 1: Tracing Framework Ancestry</h4>
+<ol>
+<li><p>Download the <a href="https://github.com/Make-School-Labs/StarterApp-MOB-2.4-L03">TouchResponder starter app</a></p>
+</li>
+<li><p>Open the <code>TouchableView.swift</code> file and <strong><em>Jump to Definition</em></strong> <code>[Ctrl+Cmd+Click]</code> the <code>UIView</code> in the class declaration on line 16</p>
+</li>
+</ol>
+<pre><code class="language-swift">class TouchableView: UIView {</code></pre>
+<p>...this will open the <code>UIView</code> definition/header file in the <code>UIKit</code> framework and display the <code>UIView class&#39;s</code> structural declaration...</p>
+<pre><code class="language-swift">@available(iOS 2.0, *)
+open class UIView : UIResponder, NSCoding, UIAppearance, UIAppearanceContainer, UIDynamicItem, UITraitEnvironment, UICoordinateSpace, UIFocusItem, UIFocusItemContainer, CALayerDelegate {</code></pre>
+<p>...notice how <code>UIView</code> extends the <code>UIResponder</code> class (and conforms to a long list of protocols).</p>
+<ul>
+<li><code>[Ctrl+Cmd+Click]</code> on <code>UIResponder</code> to see how it is constructed:</li>
+</ul>
+<pre><code class="language-swift">  @available(iOS 2.0, *)
+  open class UIResponder : NSObject, UIResponderStandardEditActions {
+
+      open var next: UIResponder? { get }</code></pre>
+<p>...take a peek at <code>UIResponder&#39;s</code> properties, especially <code>next: UIResponder?</code> variable...    </p>
+<ol start="3">
+<li>Repeat the same investigative process for the <code>ViewController</code> class.</li>
+</ol>
+<p><strong>Q:</strong> What does this tell you about the relationship between these two objects with respect to the Responder Chain?</p>
+<h4 id="part-2-handing-off-responsibility-to-the-next-responder">Part 2: Handing Off Responsibility to the Next Responder</h4>
+<ol>
+<li>Reopen the <code>TouchableView.swift</code> file in the <a href="https://github.com/Make-School-Labs/StarterApp-MOB-2.4-L03">TouchResponder starter app</a></li>
+</ol>
+<p>The <code>touchesBegan(_:_:)</code> function of the <code>TouchableView</code> class is currently set up to respond to all touches to its view.</p>
+<p>You will need to add a conditional statement which will, in the event a double-tap occurs, forward that event to the view&#39;s next responder.</p>
+<p>Each Touch object captures the number of taps in its <code>tapCount</code> property.</p>
+<p><strong>a)</strong> For Double-Tap Events:</p>
+<p>If the Touch object&#39;s <code>tapCount == 2</code>, then:</p>
+<ul>
+<li>log that conditional state:</li>
+</ul>
+<pre><code class="language-swift"> print(&quot;Double Tap Began&quot;)</code></pre>
+<ul>
+<li><p>and hand off the responsibility of handling the double-tap event <strong>to next responder&#39;s <code>touchesBegan(_:_:)</code> function</strong> and <em>log the identity of the next Responder</em>.</p>
+</li>
+<li><p>also in the event of a double-tap, log the identify of the view&#39;s next.next responder.</p>
+</li>
+</ul>
+<p><strong>b)</strong> For Single Taps:</p>
+<ul>
+<li>just log that state in the conditional&#39;s <code>else</code> block:</li>
+</ul>
+<pre><code class="language-swift">print(&quot;Single Tap Began&quot;)</code></pre>
+<!-- Completed touchesBegan(_:_:) function:
+
+ override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+
+        // To see the order of events, log this function name
+        print(#function)
+
+        let touch = touches.first!
+
+        // handle double-taps
+        if touch.tapCount == 2 {
+
+            print("Double Tap Began")
+
+            // 1) handoff to next responder and print identity of next responder
+            next?.touchesBegan(touches, with: event)
+            print(next as Any)
+
+            // 2) print identity of next.next responder
+//            next?.next?.touchesBegan(touches, with: event)
+            print(next?.next as Any)
+
+        } else { // handle touches that are not double-taps
+              print("Single Tap Began")
+        }
+
+        /** location() function -- returns the current location of a UITouch object in the coordinate system of the specified view **/
+        print(touch.location(in:self))
+        print(touch.location(in:self.window!))
+//        print(touch.location(in:nil))
+    }
+    -->
+
+<p><strong>c)</strong> Use the Debug View Hierarchy Tool</p>
+<ul>
+<li><p>Set a couple of breakpoints to capture the double-tap condition, run the app, and tap on the view.</p>
+</li>
+<li><p>When Xcode stops at your breakpoint, click on the View Debug Hierarchy icon:</p>
+</li>
+</ul>
+<p><img src="assets/View_Debug_Hierarcy_icon.png" alt="ViewDebugHierarchyicon"></p>
+<ul>
+<li>Experiment with sliders to examine their effect.</li>
+</ul>
+<p>... <strong>pay very close attention</strong> to the hierarchy of views presented in your Navigation pane. This shows the relationships between the UIResponder objects that can currently participate in the view&#39;s Responder Chain (with the exception of the Application and AppDelegat options, which are not shown):</p>
+<p><img src="assets/Responder_chain_objects_in_view_debug_hierarchy.png" alt="Responder_chain_objects_in_view_debug_hierarchy"></p>
+<h4 id="part-3-class-discussion">Part 3: Class Discussion</h4>
+<p><strong>Q</strong> How does this Next Responder approach serve to decouple the sender from the receiver?</p>
+<p><strong>Q:</strong> In what ways could this CoR approach be useful in your own work?</p>
+<h2 id="overviewtt-ii-15-min">Overview/TT II (15 min)</h2>
+<h3 id="command">Command</h3>
+<p><strong>Command</strong> is a design pattern in which an object is used to encapsulate all information needed to perform an action or trigger an event at a later time. This information includes the method name, the object that owns the method and values for the method parameters</p>
+<p> The pattern allows you to <em>model</em> the concept of executing an action. It seeks to encapsulate information to perform an action into a command object.</p>
+<p> It involves <strong>three component types</strong>:</p>
+<ul>
+<li><p>The <strong>invoker</strong> stores and executes commands.</p>
+</li>
+<li><p>The <strong>command</strong> encapsulates the action as an object.</p>
+</li>
+<li><p>The <strong>receiver</strong> is the object acted upon by the command.</p>
+</li>
+</ul>
+<h4 id="problems-addressed-1">Problems Addressed</h4>
+<p>It should be possible to configure an object (that invokes a request) with a request.
+Implementing (hard-wiring) a request directly into a class is inflexible because it couples the class to a particular request at compile-time, which makes it impossible to specify a request at run-time.</p>
+<h4 id="benefits">Benefits</h4>
+<p>Commands are an object-oriented replacement for callbacks.</p>
+<p> Using command objects makes it easier to construct general components that need to delegate, sequence or execute method calls at a time of their choosing without the need to know the class of the method or the method parameters.</p>
+<p> Using an invoker object allows bookkeeping about command executions to be conveniently performed, as well as implementing different modes for commands, which are managed by the invoker object, without the need for the client to be aware of the existence of bookkeeping or modes.</p>
+<p><strong><em>Source:</em></strong> <em>wikipedia.org</em></p>
+<h4 id="when-to-use-it">When to use it?</h4>
+<p>Use the Command pattern whenever you want to create actions that can be executed on receivers at a later point in time.</p>
+<p>For example, you can create and store commands to be performed by a computer AI, then execute these over time.</p>
+<p>The most well-known use of this pattern: In some strategy games, the ability to rollback moves the user did not like is an essential user experience feature. The command pattern simplifies the implementation of <code>Undo</code> and <code>Redo</code> user actions.  </p>
+<h2 id="in-class-activity-ii-25-min">In Class Activity II (25 min)</h2>
+<p><strong>TODO:</strong> Below is a simple example of the Command pattern which models a real-world television remote control device. Complete the implementation so that sending commands to turn the TV on or off work successfully.</p>
+<pre><code class="language-swift">import UIKit
+
+// Receiver
+class TelevisionControl {
+   func turnOn() {
+       print(“Turning On TV”)
+   }
+   func turnOff() {
+     print(“Turning Off TV”)
+   }
+}
+
+// Command
+protocol TelevisionCommand {
+   func execute()
+}
+
+class TurnOnTelevision: TelevisionCommand {
+
+  // TODO: Complete implementation...
+
+}
+
+class TurnOffTelevision: TelevisionCommand {
+   public let televisionControl: TelevisionControl
+
+   public init(_ televisionControl: TelevisionControl) {
+       self.televisionControl = televisionControl
+   }
+   public func execute() {
+       self.televisionControl.turnOff()
+   }
+}
+
+// Invoker
+class RemoteControl {
+
+   // TODO: add missing properties
+
+   public let televisionControl: TelevisionControl
+
+   // TODO: create Init()
+
+   func execute(_ command: TelevisionCommand) {
+
+      // TODO: complete execute() function
+   }
+
+}
+
+let televisionControl = TelevisionControl()
+let remoteControl = RemoteControl(televisionControl: televisionControl)
+let turnOffTelevision = TurnOffTelevision(televisionControl)
+remoteControl.execute(turnOffTelevision)</code></pre>
+<!-- Completed classes for Activity II:
+// Invoker
+class RemoteControl {
+
+   // Complete Invoker implementation...
+
+   public let televisionControl: TelevisionControl
+
+   public init (televisionControl: TelevisionControl) {
+    self.televisionControl = televisionControl
+   }
+
+   func execute(_ command: TelevisionCommand) {
+       command.execute()
+   }
+
+}
+
+class TurnOnTelevision: TelevisionCommand {
+   public let televisionControl: TelevisionControl
+
+   public init(_ televisionControl: TelevisionControl) {
+       self.televisionControl = televisionControl
+   }
+   func execute() {
+       self.televisionControl.turnOn()
+   }
+}
+ -->
+
+<h2 id="after-class">After Class</h2>
+<ol>
+<li>Review the other Behavioral Patterns in the links below</li>
+<li>Research the following concepts:</li>
+</ol>
+<ul>
+<li>The Composite Pattern</li>
+<li><code>UndoManager</code> (in Foundation framework)</li>
+<li><code>UIEvent</code> Objects</li>
+<li><code>Touch</code> Objects</li>
+<li>All Touch Events (e.g., <code>touchesEnded(_:_:)</code>)</li>
+<li>the <code>hitTest(_:With:)</code> function</li>
+</ul>
+<ol start="2">
+<li>Using Apple&#39;s <strong>Media Player</strong> framework, implement a simple, crude (i.e., basic UI only) iPhone app that will play, pause, and restart (skip to beginning) the following sample file (or any video/audio file of your choice):</li>
+</ol>
+<p><a href="https://devimages-cdn.apple.com/samplecode/avfoundationMedia/AVFoundationQueuePlayer_HLS2/master.m3u8">https://devimages-cdn.apple.com/samplecode/avfoundationMedia/AVFoundationQueuePlayer_HLS2/master.m3u8</a></p>
+<h2 id="wrap-up-5-min">Wrap Up (5 min)</h2>
+<p>1) Brief summary of today&#39;s design Patterns
+2) Any questions re: the After Class assignments above</p>
+<h2 id="additional-resources">Additional Resources</h2>
+<ol>
+<li><a href="https://sourcemaking.com/design_patterns/behavioral_patterns">Behavioral Patterns - an article</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Behavioral_pattern">Behavioral pattern - wikipedia</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Chain-of-responsibility_pattern">Chain-of-Responsibility - wikipedia</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Command_pattern">Command pattern - wikipedia</a></li>
+<li><a href="https://www.raywenderlich.com/2102-intermediate-design-patterns-in-swift">Intermediate Design Patterns in Swift - Ray Wenderlich</a></li>
+<li><a href="https://developer.apple.com/documentation/uikit/touches_presses_and_gestures/using_responders_and_the_responder_chain_to_handle_events">Using Responders and the Responder Chain to Handle Events - from Apple</a></li>
+<li><a href="https://medium.com/design-patterns-in-swift/design-patterns-in-swift-chain-of-responsibility-pattern-f575c85a43c">Design Patterns in Swift: Chain of Responsibility Pattern - an article</a></li>
+<li><a href="">Slides</a></li>
+</ol>
+<p><strong><em>For The More Curious</em></strong></p>
+<ol>
+<li>Using the Debug View Hierarchy tool on this simple example reveals little of the powerful utility this tool can have in analyzing your code.</li>
+</ol>
+<ul>
+<li>TODO: To understand more of how this tool can be used, experiment with it on some of your actual projects that have more complex UI architectures.</li>
+</ul>
+<ol start="2">
+<li>Apple has long provided ways to analyze view hierarchies. In addition to the Debug View Hierarchy tool, there have been several command-line debugging phrases which can be used to analyze the view hierarchy of your app during runtime.</li>
+</ol>
+<p>One example: You can return information about the state of your current view hierarchy by setting a breakpoint and executing the following command in your debug pane:</p>
+<pre><code class="language-Swift">expr -l objc++ -O -- [UIViewController _printHierarchy]</code></pre>
+<p>The output from this command can provide information useful in debugging your views:</p>
+<p><img src="assets/special_po_command_for_views.png" alt="special_po_command_for_views"></p>
+</aside></script></section></div>
+    </div>
+
+    <script src="./../js/reveal.js"></script>
+
+    <script>
+      function extend() {
+        var target = {};
+        for (var i = 0; i < arguments.length; i++) {
+          var source = arguments[i];
+          for (var key in source) {
+            if (source.hasOwnProperty(key)) {
+              target[key] = source[key];
+            }
+          }
+        }
+        return target;
+      }
+
+      // Optional libraries used to extend on reveal.js
+      var deps = [
+        { src: './../plugin/markdown/marked.js', condition: function() { return !!document.querySelector('[data-markdown]'); } },
+        { src: './../plugin/markdown/markdown.js', condition: function() { return !!document.querySelector('[data-markdown]'); } },
+        { src: './../plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+        { src: './../plugin/zoom-js/zoom.js', async: true },
+        { src: './../plugin/notes/notes.js', async: true },
+        { src: './../plugin/math/math.js', async: true }
+      ];
+
+      // default options to init reveal.js
+      var defaultOptions = {
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+        transition: 'default', // none/fade/slide/convex/concave/zoom
+        dependencies: deps
+      };
+
+      // options from URL query string
+      var queryOptions = Reveal.getQueryHash() || {};
+
+      var options = extend(defaultOptions, {"controls":true,"progress":true,"autoPlayMedia":false,"slideNumber":"c/t","showSlideNumber":"all","controlsTutorial":true,"controlsLayout":"edges","transition":"slide","transitionSpeed":"medium","minScale":0.5,"maxScale":3}, queryOptions);
+    </script>
+
+
+    <script>
+      Reveal.initialize(options);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <title>Syllabus Template Slides</title>
+    <link rel="stylesheet" href="./css/reveal.css" />
+    <link rel="stylesheet" href="./css/theme/black.css" id="theme" />
+    <link rel="stylesheet" href="./css/highlight/zenburn.css" />
+    <link rel="stylesheet" href="./css/print/paper.css" type="text/css" media="print" />
+    <link rel="stylesheet" href="./assets/Reveal/makeschool.css" />
+
+    <script>
+      document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>');
+    </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides"><section  data-markdown><script type="text/template"><!-- .slide: data-background="./Images/header.svg" data-background-repeat="none" data-background-size="40% 40%" data-background-position="center 10%" class="header" -->
+# FEW 1.2 - Lesson 5 - JS OOP Inheritence
+
+<!-- Put a link to the slides so that students can find them -->
+
+➡️ [**Slides**](/Syllabus-Template/Slides/Lesson1.html ':ignore')
+</script></section><section  data-markdown><script type="text/template">
+## Minute-by-Minute
+
+| **Elapsed** | **Time** | **Activity** |
+| ----------- | --------- | ------------ |
+| 0:05 | 0:05 | admin |
+| 0:05 | 0:10 | [Overview](#overview) |
+| 0:05 | 0:15 | [Why learn Classes and inheritance](#why-learn-classes-and-inheritance) |
+| 0:20 | 0:05 | [Learning Objectives](#learning-objectives) |
+| 0:50 | 0:30 | [Inheritence](#inheritence) |
+| 1:00 | 0:10 | [BREAK](#break) |
+| 2:25 | 1:30 | Lab |
+| 2:45 | 0:20 | [Wrap up](#wrap-up) |
+</script></section><section  data-markdown><script type="text/template">
+# Overview
+
+This class will be an OOP workshop to review the concepts from the previous class and expand your understanding of OOP to include inheritence.
+</script></section><section  data-markdown><script type="text/template">
+## Why learn Classes and Inheritance?
+
+This is a big topic which reaches deeply into important areas of computer science. Expect to see OOP and inheritance in the libraries you might work with, in interview questions, and on the job as a software engineer. 
+</script></section><section  data-markdown><script type="text/template">
+## Learning Objectives
+
+1. Create base/superclasses 
+1. Use inheritance with `super` and `extends`
+1. Create classes that inherit from a superclass
+</script></section><section  data-markdown><script type="text/template">
+# Inheritance 
+
+Inheritance is when you get something from your ancestors. By definition it's the act of passing property from an ancestor to a descendant. Properties can be: 
+
+- genes - 💇‍♀️ 💇🏻‍♀️
+- money - 💰 💎
+- property - 🏡 🚗
+</script></section><section  data-markdown><script type="text/template">
+In software this could be: 
+
+- variables/properties - `'Foo' 999.999`
+- methods/functions - `function() {}`
+</script></section><section  data-markdown><script type="text/template">
+Who do _you_ inherit from? 
+
+- Your parents - 👨‍👩‍👦‍👦
+- Your grandparents - 👵🏽
+</script></section><section  data-markdown><script type="text/template">
+In software who do you inherit from?
+
+- Your parent/superclass - ???
+</script></section><section  data-markdown><script type="text/template">
+## Inheritence with JS
+
+Any class can inherit from another class. You can also think of classes that inherit from another class as **extensions** of the other class. So you could say one class extends another class.
+</script></section><section  data-markdown><script type="text/template">
+```js
+class Sprite {
+  constructor() {
+    this.x = 0
+    this.y = 0
+  }
+}
+
+class Ball extends Sprite {
+  constructor() {
+    super()
+    this.radius = 10
+  }
+}
+
+const ball = new Ball() // { x: 0, y: 0, radius: 10 }
+```
+</script></section><section  data-markdown><script type="text/template">
+Calling `super()` in a subclass is like calling the constructor function in your **superclass**. 
+
+**You must call `super()`!** 
+
+It's how the properties in the super class get initialized!
+</script></section><section  data-markdown><script type="text/template">
+If a class takes parameters in its constructor it **must pass these to super**. 
+
+```js
+class Sprite {
+  constructor(x, y) {
+    this.x = 0
+    this.y = 0
+  }
+}
+class Ball extends Sprite {
+  constructor(x, y, color, radius) {
+    super(x, y) // Must pass parameters to super!
+    this.color = color
+    this.radius = radius
+  }
+}
+const ball = new Ball(10, 20, 'red', 30) 
+// { x: 10, y: 20, color:'red', radius: 30 }
+```
+</script></section><section  data-markdown><script type="text/template">
+You must pass parameters to super. Notice the constructor takes these parameters, calling super is like calling the constructor of the superclass. 
+</script></section><section  data-markdown><script type="text/template">
+# Inheritance Challenges
+
+**Challenge 1**: many of the classes you created for Break Out share some of the same properties. Moving these to a super class would keep them in one locaiton that could be shared, edited, and make it easier to reason about. This would make your code DRY. 
+</script></section><section  data-markdown><script type="text/template">
+All of these classes: 
+
+- `Ball`
+- `Paddle`
+- `Brick`
+- `Lives`
+- `Score` 
+</script></section><section  data-markdown><script type="text/template">
+Share these properties: 
+
+- `x`
+- `y`
+</script></section><section  data-markdown><script type="text/template">
+Sprites represent an object on the screen. They can all use these methods:  
+
+- `move(x, y)`
+- `render(ctx)`
+</script></section><section  data-markdown><script type="text/template">
+Your goal with this challenge is to define a base class, let's call it Sprite. 
+
+Here is some starter code: 
+
+```js
+class Sprite {
+  constructor(x, y) {
+    this.x = 0
+    this.y = 0
+  }
+}
+
+class Ball extends Sprite {
+  constructor(x, y, color, radius) {
+    super(x, y) // Must pass parameters to super!
+    this.color = color
+    this.radius = radius
+  }
+}
+```
+</script></section><section  data-markdown><script type="text/template">
+You may have to modify this to include other properties your classes might support. 
+
+In this code sample the **`Sprite`** class supports the **`x`** and **`y`** properties and the **`Ball`** class adds **`color`**, and **`radius`**.
+
+The Ball class is repsonsible for passing **`x`** and **`y`** to the super class. 
+</script></section><section  data-markdown><script type="text/template">
+```js
+class Sprite {
+  constructor(x, y) {
+    this.x = 0
+    this.y = 0
+  }
+}
+
+class Ball extends Sprite {
+  constructor(x, y, color, radius) {
+    super(x, y) // Must pass parameters to super!
+    this.color = color
+    this.radius = radius
+  }
+}
+```
+</script></section><section  data-markdown><script type="text/template">
+All of these classes should extend the new `Sprite` class. 
+
+- `Ball`
+- `Paddle`
+- `Brick`
+- `Lives`
+- `Score`
+</script></section><section  data-markdown><script type="text/template">
+**Challenge 2**: Some of the classes draw themselves with the same code. 
+
+- `Paddle`
+- `Brick`
+</script></section><section  data-markdown><script type="text/template">
+Both of these classes draw as Rectangles willed with a color. You can give the `Sprite` class a `render(ctx)` method. 
+
+Doing this will allow any class that extends `Sprite` to use `render()` this method. 
+</script></section><section  data-markdown><script type="text/template">
+Classes that draw themselves differently:
+
+- `Ball`
+- `Lives`
+- `Score`
+
+Will define their own `render()` which will override the render method defined in Sprite.
+</script></section><section  data-markdown><script type="text/template">
+To render itself as a rectangle a Sprite should have a width and a height. 
+
+```JS
+class Sprite {
+  constructor(x, y, width, height) {
+    this.x = 0
+    this.y = 0
+  }
+
+  render(ctx) {
+    ctx.beginPath();
+    ctx.rect(this.x, this.y, this.width, this.height);
+    ctx.fillStyle = this.color;
+    ctx.fill();
+  }
+}
+```
+</script></section><section  data-markdown><script type="text/template">
+A ball could render itself as a circle by **overriding** the `render()` method.
+
+```JS
+class Ball extends Sprite {
+  constructor(x, y, radius = 10, color = 'red') {
+    super(x, y, radius * 2, radius * 2)
+    this.radius = radius
+    ...
+  }
+
+  render(ctx) {
+    ctx.beginPath();
+    ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+    ctx.fillStyle = this.color;
+    ctx.fill();
+    ctx.closePath();
+  }
+}
+```
+</script></section><section  data-markdown><script type="text/template">
+<!-- .slide: data-background="#087CB8" -->
+## BREAK
+
+Take a 10-minute break and think about things in the world that share properties. 
+</script></section><section  data-markdown><script type="text/template">
+## Wrap Up
+
+- Review Inheritence
+</script></section><section  data-markdown><script type="text/template">
+## After Class 
+
+- [Assignment 4 Inheritence](../Assignments/Assignment-4-Inheritance.md)
+</script></section><section  data-markdown><script type="text/template">
+## Additional Resources
+
+1. https://javascript.info/classes
+
+</script></section></div>
+    </div>
+
+    <script src="./js/reveal.js"></script>
+
+    <script>
+      function extend() {
+        var target = {};
+        for (var i = 0; i < arguments.length; i++) {
+          var source = arguments[i];
+          for (var key in source) {
+            if (source.hasOwnProperty(key)) {
+              target[key] = source[key];
+            }
+          }
+        }
+        return target;
+      }
+
+      // Optional libraries used to extend on reveal.js
+      var deps = [
+        { src: './plugin/markdown/marked.js', condition: function() { return !!document.querySelector('[data-markdown]'); } },
+        { src: './plugin/markdown/markdown.js', condition: function() { return !!document.querySelector('[data-markdown]'); } },
+        { src: './plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+        { src: './plugin/zoom-js/zoom.js', async: true },
+        { src: './plugin/notes/notes.js', async: true },
+        { src: './plugin/math/math.js', async: true }
+      ];
+
+      // default options to init reveal.js
+      var defaultOptions = {
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+        transition: 'default', // none/fade/slide/convex/concave/zoom
+        dependencies: deps
+      };
+
+      // options from URL query string
+      var queryOptions = Reveal.getQueryHash() || {};
+
+      var options = extend(defaultOptions, {"controls":true,"progress":true,"autoPlayMedia":false,"slideNumber":"c/t","showSlideNumber":"all","controlsTutorial":true,"controlsLayout":"edges","transition":"slide","transitionSpeed":"medium","minScale":0.5,"maxScale":3}, queryOptions);
+    </script>
+
+
+    <script>
+      Reveal.initialize(options);
+    </script>
+  </body>
+</html>

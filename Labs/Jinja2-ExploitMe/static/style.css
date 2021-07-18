@@ -1,0 +1,21 @@
+.jumbotron {
+  background-image: url("{{url_for('static', filename='hacker.jpg')}}");
+  background-size: cover;
+  margin-top: 30px;
+  height: 360px;
+  position: relative;
+}
+
+.jumbotron h1 {
+  color: white;
+  background: black;
+  font-family: monospace;
+  position: absolute;
+  bottom: 20px;
+}
+
+textarea {
+  height: 500px;
+  width: 100%;
+  font-family: monospace;
+}

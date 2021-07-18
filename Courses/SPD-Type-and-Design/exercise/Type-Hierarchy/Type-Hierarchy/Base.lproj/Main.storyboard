@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="gQV-Jq-xFA">
+            <objects>
+                <viewController id="iCt-Zb-GiP" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="nFT-eU-V3q"/>
+                        <viewControllerLayoutGuide type="bottom" id="cEM-r1-iSE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Sh9-hQ-X6n">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="qoi-kd-zT8">
+                                <rect key="frame" x="44" y="79" width="286" height="267"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <string key="text">Nyan Cat
+From Wikipedia, the free encyclopedia
+Nyan Cat
+Nyan Cat is the name of a YouTube video, uploaded in April 2011, which became an Internet meme. The video merged a Japanese pop song with an animated cartoon cat with a Pop-Tart for a body, flying through space, and leaving a rainbow trail behind it. The video ranked at number 5 on the list of most viewed YouTube videos in 2011.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="nyan.png" translatesAutoresizingMaskIntoConstraints="NO" id="95N-a2-FL9">
+                                <rect key="frame" x="67" y="367" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" systemItem="favorites" id="bGn-Ra-nLp"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="66d-bU-cC8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="536.79999999999995" y="274.81259370314842"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="GQp-14-IcG">
+            <objects>
+                <viewController id="CeZ-KX-hNo" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="D9P-4o-wkE"/>
+                        <viewControllerLayoutGuide type="bottom" id="RWq-g6-v5c"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="reU-6z-1xn">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="BAB-fo-RaC">
+                                <rect key="frame" x="16" y="94" width="343" height="257"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <string key="text">Starbucks
+Cappuccino
+Dark, rich espresso lies in wait under a smoothed and stretched layer of thick foam. It's truly the height of our baristas' craft.
+
+Ingredients
+Milk, Brewed Espresso.
+
+We cannot guarantee that any of our products are free from allergens (including dairy, eggs, soy, tree nuts, wheat and others) as we use shared equipment to store, prepare and serve them.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Cappuccino.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="QNC-Jv-JSF">
+                                <rect key="frame" x="67" y="359" width="241" height="216"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" systemItem="contacts" id="1Sk-sb-VoB"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7f8-YE-0wt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="536.79999999999995" y="-380.05997001499253"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="rLJ-lm-t5m">
+            <objects>
+                <tabBarController id="88x-je-LoC" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="5oy-Sw-vfd">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="CeZ-KX-hNo" kind="relationship" relationship="viewControllers" id="A5f-af-G8D"/>
+                        <segue destination="iCt-Zb-GiP" kind="relationship" relationship="viewControllers" id="gOb-tk-SJz"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mlb-Pn-Ecx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-414" y="-53"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Cappuccino.jpg" width="305" height="363"/>
+        <image name="nyan.png" width="227" height="108"/>
+    </resources>
+</document>

@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<form method="POST" action="{{ url_for('main.create_book') }}">
+    {{ form.csrf_token }}
+    <fieldset>
+        <legend>Enter a book</legend>
+
+        {{ form.title.label }}
+        {{ form.title }}
+        <ul>
+        {% for error in form.title.errors %}
+            <li class="error">{{ error }}</li>
+        {% endfor %}
+        </ul>
+        
+        {{ form.publish_date.label }}
+        {{ form.publish_date(placeholder="YYYY-mm-dd") }}
+        <ul>
+        {% for error in form.title.errors %}
+            <li class="error">{{ error }}</li>
+        {% endfor %}
+        </ul>
+        
+        {{ form.author.label }}
+        {{ form.author }}
+        <ul>
+        {% for error in form.author.errors %}
+            <li class="error">{{ error }}</li>
+        {% endfor %}
+        </ul>
+        
+        {{ form.audience.label }}
+        {{ form.audience }}
+        <ul>
+        {% for error in form.audience.errors %}
+            <li class="error">{{ error }}</li>
+        {% endfor %}
+        </ul>
+        
+        {{ form.genres.label }}
+        {{ form.genres }}
+        <ul>
+        {% for error in form.genres.errors %}
+            <li class="error">{{ error }}</li>
+        {% endfor %}
+        </ul>
+            
+        {{ form.submit }}
+    </fieldset>
+</form>
+
+{% endblock %}

@@ -1,0 +1,12 @@
+
+.App {
+  width: 960px;
+  margin: auto;
+}
+
+input[type=text] {
+  border: 2px solid; 
+  padding: 0.5em 0.5em;
+  font-size: 1em;
+  border-radius: 0.5em;
+}

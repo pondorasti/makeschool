@@ -1,0 +1,52 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #eee;
+    font-family: 'Open Sans', sans-serif;
+}
+
+#content {
+    width: 70%;
+    background-color: white;
+    padding: 20px;
+}
+
+nav {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+nav a {
+    color: navy;
+    text-decoration: none;
+    border: 1px solid black;
+    padding: 1px 5px;
+    font-size: 1.2em;
+}
+
+fieldset {
+    display: flex;
+    flex-direction: column;
+    margin: 20px 0;
+    padding: 20px;
+}
+
+fieldset * {
+    margin: 5px;
+}
+
+fieldset input {
+    padding: 5px;
+}
+
+input[type=submit] {
+    padding: 10px 20px;
+    align-self: flex-end;
+}
+
+li.error {
+    color: red;
+}

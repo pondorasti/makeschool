@@ -1,0 +1,96 @@
+
+
+<div class="canvas-container">
+  <canvas width="500" height="500"></canvas>
+  <h1 class="title">End of Term 3</h1>
+</div>
+
+
+
+<style>
+  body, html {
+    margin: 0;
+    height: 100%;
+  }
+  .canvas-container {
+    border: 4px solid #000;
+    margin: auto;
+    width: 500px;
+    height: 500px;
+    position: relative;
+  }
+  
+  canvas {
+    position: absolute;
+  }
+  
+  .title {
+    text-align: center;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    text-shadow: 0 0 12px #fff;
+  }
+</style>
+
+<script src="sprite.js"></script>
+<script>
+  const canvas = document.querySelector('canvas')
+  const ctx = canvas.getContext('2d');
+  
+  const sprites = []
+  
+  for (let i = 0; i < 1000; i++) {
+    const x = Math.random() * 500
+    const y = Math.random() * -500
+    const h = Math.random() * 360
+    const s = Math.random() * 10 + 5
+    const dy = Math.random() * 3 + 3
+    const dr = Math.random() * 6 - 3
+    const sprite = Sprite(x, y, 0, s, s, `hsla(${h}, 100%, 50%, 1)`)
+    sprite.dy = dy
+    sprite.dr = dr
+    sprites.push(sprite)
+  }
+  
+  var h = 0
+  function drawBackground() {
+    h += 1
+    
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    
+    ctx.fillStyle = `hsla(${h}, 100%, 50%, 0.5)`;
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    // ctx.save();
+  }
+  
+  drawBackground()
+  
+  // sprite.update(ctx)
+  // sprite2.update(ctx)
+  // console.log(sprite)
+  
+  function onFrame(time) {
+    drawBackground()
+    
+    sprites.forEach(function(sprite) {
+      sprite.y += sprite.dy
+      sprite.rotation += sprite.dr
+      if (sprite.y > 550) {
+        sprite.y = 0 
+        sprite.x = Math.random() * 500
+        sprite.y = Math.random() * -500
+        sprite.h = Math.random() * 360
+        sprite.s = Math.random() * 30 + 10
+        sprite.dy = Math.random() * 3 + 3
+        sprite.dr = Math.random() * 6 - 3
+      }
+      sprite.update(ctx)
+    })
+    
+    requestAnimationFrame(onFrame)
+  }
+  
+  requestAnimationFrame(onFrame)
+</script>

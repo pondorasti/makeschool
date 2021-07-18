@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <title>Syllabus Template Slides</title>
+    <link rel="shortcut icon" href="./../../favicon.ico"/>
+    <link rel="stylesheet" href="./../../dist/reveal.css" />
+    <link rel="stylesheet" href="./../../dist/theme/white.css" id="theme" />
+    <link rel="stylesheet" href="./../../css/highlight/zenburn.css" />
+    <link rel="stylesheet" href="./../../assets/Reveal/makeschool.css" />
+
+    <script>
+      document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>');
+    </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides"><section  data-markdown><script type="text/template"># Using the Debug Memory Graph Tool
+
+## Learning Objectives/Competencies
+At the end of this tutorial, you should be able to...
+
+1. Identify and resolve a memory leak caused by a *strong reference* cycle (aka, retain cycle)
+3. Demonstrate proficiency in using the Debug Memory Graph Tool to find and fix a memory leak caused by a retain cycle
+
+## Steps to Find and Resolve Memory Leaks
+
+### Identify A Memory Leaky
+
+**Requirement:** [LeakyStarship App](https://github.com/VanderDev1/LeakyStarship)
+
+
+1. Run the LeakyStarship starter app and click the button two or three times…
+
+2. In the Debug area, click the Debug Memory Graph button on the Debug Toolbar:
+
+![syntax](assets/MemoryGraphDebug-Button.png)
+
+Let’s observe what occurs in Xcode:
+- on click of the Debug Memory Graph button, Xcode sets a temporary (system) breakpoint in your app at the point where you clicked the button
+- the Navigator panel switches to the Debug Navigator and displays a graph of the current objects in memory
+
+![syntax](assets/1st_mem_graph_pic.png)
+
+
+***<aside class="notes"><p><em>** *all the purple squares with exclamation points indicate memory leaks.</em></p>
+<p><img src="assets/purple_square.png" alt="syntax"></p>
+<ol start="3">
+<li>Now, let’s focus the Debug Navigator on only those objects in memory causing memory leaks:
+at the bottom right of the Navigator pane, click the little rectangular “Show only leaked blocks” icon</li>
+</ol>
+<p><img src="assets/2nd_mem_graph_pic.png" alt="syntax"></p>
+<ul>
+<li>Examine the leaks found under the Captain, CrewMember and Starship objects.</li>
+<li>Also, briefly notice the memory leaks under the two <code>ContiguousArrayStorage</code> objects.</li>
+</ul>
+<h3 id="finding-the-source-of-the-leak">Finding the Source of the Leak</h3>
+<p>Let’s examine the source of one of the memory leaks caused by strong reference cycles.</p>
+<p>For now, let’s focus only on the leaks in CrewMember objects.</p>
+<ol start="4">
+<li>In the Debug Navigator panel, select the CrewMember object you want to examine. If open, close the Assistant Editor and minimize the Debug area to maximize your view of your CrewMember object’s memory graph in Xcode’s middle panel.</li>
+</ol>
+<p><img src="assets/3rd_mem_graph_pic.png" alt="syntax"></p>
+<ul>
+<li><p>Notice that each of the CrewMember objects holds a strong reference to the Captain object — while the Captain object holds a strong reference to each of the CrewMember objects.</p>
+</li>
+<li><p>Notice, too, that the Captain object (cube) holds a strong reference to its CrewMember objects through the array object, <code>_ContiguousArrayStorage&lt;CrewMember&gt;</code> (by default, arrays in Swift hold strong references to their elements).</p>
+</li>
+</ul>
+<h3 id="fixing-the-leak">Fixing The Leak</h3>
+<ol start="5">
+<li><p>Ctrl+Click (or Right+Click) one of the CrewMember object cubes in the memory graph.</p>
+</li>
+<li><p>The context menu displayed offers several useful choices. Choose the <code>Jump to Definition</code> option in the dropdown list.</p>
+</li>
+</ol>
+<p>Xcode should open your CrewMember class file:</p>
+<pre><code class="language-Swift">class CrewMember
+{
+    let name:String
+    var captain:Captain
+
+    init(name: String, captain: Captain)
+    {
+        self.name = name
+        self.captain = captain
+
+        print(&quot;CrewMember \(name) instance allocated.\n&quot;)
+    }
+
+    deinit
+    {
+        print(&quot;CrewMember \(name) instance deallocated.\n&quot;)
+    }
+}</code></pre>
+<p><strong>Q:</strong> Based on what you’ve learned so far about strong reference cycles, how would you go about fixing the memory leak currently existing for the CrewMember objects?</p>
+<p><strong>TODO:</strong></p>
+<ul>
+<li>Apply your solution.</li>
+<li>Run the app again and bring up the Memory Graph Debug tool.</li>
+<li>You should be able to explain the effect of your solution on all reference type instances which were causing memory leaks in the original state of the app.</li>
+</ul>
+<h2 id="when-you-are-done">When you are done:</h2>
+<ul>
+<li>Take a screenshot of the Memory Graph Debug tool without the memory leaks. Send it to the instructor over Slack.</li>
+</ul>
+<h2 id="feedback-and-review">FEEDBACK AND REVIEW</h2>
+<p>Please take a moment to rate your understanding of learning outcomes from this tutorial, and how we can improve it via our <a href="https://goo.gl/forms/XC9KpW6fvzEPvWS92">tutorial feedback form</a></p>
+</aside></script></section></div>
+    </div>
+
+    <script src="./../../dist/reveal.js"></script>
+
+    <script src="./../../plugin/markdown/markdown.js"></script>
+    <script src="./../../plugin/highlight/highlight.js"></script>
+    <script src="./../../plugin/zoom/zoom.js"></script>
+    <script src="./../../plugin/notes/notes.js"></script>
+    <script src="./../../plugin/math/math.js"></script>
+    <script>
+      function extend() {
+        var target = {};
+        for (var i = 0; i < arguments.length; i++) {
+          var source = arguments[i];
+          for (var key in source) {
+            if (source.hasOwnProperty(key)) {
+              target[key] = source[key];
+            }
+          }
+        }
+        return target;
+      }
+
+      // default options to init reveal.js
+      var defaultOptions = {
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+        transition: 'default', // none/fade/slide/convex/concave/zoom
+        plugins: [
+          RevealMarkdown,
+          RevealHighlight,
+          RevealZoom,
+          RevealNotes,
+          RevealMath
+        ]
+      };
+
+      // options from URL query string
+      var queryOptions = Reveal().getQueryHash() || {};
+
+      var options = extend(defaultOptions, {"controls":true,"progress":true,"autoPlayMedia":false,"slideNumber":"c/t","showSlideNumber":"all","controlsTutorial":true,"controlsLayout":"edges","transition":"slide","transitionSpeed":"medium","minScale":0.5,"maxScale":3}, queryOptions);
+    </script>
+
+
+    <script>
+      Reveal.initialize(options);
+    </script>
+  </body>
+</html>

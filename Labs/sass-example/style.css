@@ -1,0 +1,328 @@
+h1, h2, h3, h4, h5, h6 {
+  margin: 0 0 1rem 0;
+}
+
+h1 {
+  font-size: 32px;
+  line-height: 1em;
+}
+
+h2 {
+  font-size: 28px;
+  line-height: 1em;
+}
+
+h3 {
+  font-size: 24px;
+  line-height: 1em;
+}
+
+h4 {
+  font-size: 20px;
+  line-height: 1em;
+}
+
+h5 {
+  font-size: 16px;
+  line-height: 1em;
+}
+
+h6 {
+  font-size: 16px;
+  font-weight: normal;
+  line-height: 1em;
+}
+
+header h1, header h2, header h3, header h4, header h5, header h6 {
+  border-bottom: 1px solid;
+  padding-bottom: 15px;
+}
+
+.card {
+  border: 2px solid;
+  border-radius: 0;
+  margin: auto;
+  max-width: 400px;
+}
+
+.card header {
+  background-color: #fff;
+  padding: 1rem;
+}
+
+.card h1 {
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+.card p {
+  margin: 1rem;
+}
+
+nav ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+nav ul li {
+  display: inline-block;
+  margin-left: -2px;
+  margin-right: 2em;
+}
+
+.avatar {
+  width: 100px;
+  height: 100px;
+  border-radius: 0.5em;
+}
+
+.circle {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}
+
+.founder-portrait {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+}
+
+.box-red {
+  box-sizing: border-box;
+  border: 1px solid;
+  border-radius: 1rem;
+  padding: 1rem;
+  width: 300px;
+  height: 100px;
+  color: red;
+}
+
+.box-blue {
+  box-sizing: border-box;
+  border: 1px solid;
+  border-radius: 1rem;
+  padding: 1rem;
+  width: 200px;
+  height: 130px;
+  color: blue;
+}
+
+@keyframes rotate-1 {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(-90deg);
+  }
+}
+@keyframes rotate-2 {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(-45deg);
+  }
+}
+@keyframes rotate-3 {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+@keyframes rotate-4 {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(45deg);
+  }
+}
+@keyframes rotate-5 {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(90deg);
+  }
+}
+body {
+  background-color: #eee;
+  color: #333;
+  font-size: 16px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  line-height: 24px;
+}
+
+.container {
+  width: 600px;
+  margin: auto;
+}
+
+.swatches {
+  display: flex;
+  flex-wrap: wrap;
+}
+.swatches div {
+  width: 100px;
+  height: 100px;
+  margin: 16px;
+  border-width: 1px;
+  border-style: solid;
+}
+
+.color-dark-1 {
+  background-color: #4d4d4d;
+}
+
+.color-dark-2 {
+  background-color: #666666;
+}
+
+.color-dark-3 {
+  background-color: gray;
+}
+
+.color-dark-4 {
+  background-color: #999999;
+}
+
+.color-primary-1 {
+  background-color: #608ce2;
+}
+
+.color-primary-2 {
+  background-color: #759ce6;
+}
+
+.color-primary-3 {
+  background-color: #8babea;
+}
+
+.color-primary-4 {
+  background-color: #a0bbee;
+}
+
+.color-secondary-1 {
+  background-color: #50b923;
+}
+
+.color-secondary-2 {
+  background-color: #5acf27;
+}
+
+.color-secondary-3 {
+  background-color: #67d936;
+}
+
+.color-secondary-4 {
+  background-color: #78dd4c;
+}
+
+.color-tertiary-1 {
+  background-color: #dc68dc;
+}
+
+.color-tertiary-2 {
+  background-color: #e17ce1;
+}
+
+.color-tertiary-3 {
+  background-color: #e591e5;
+}
+
+.color-tertiary-4 {
+  background-color: #eaa6ea;
+}
+
+.color-warning-1 {
+  background-color: #cd4a5e;
+}
+
+.color-warning-2 {
+  background-color: #d35e70;
+}
+
+.color-warning-3 {
+  background-color: #d87282;
+}
+
+.color-warning-4 {
+  background-color: #de8694;
+}
+
+.color-alert-1 {
+  background-color: #f0c432;
+}
+
+.color-alert-2 {
+  background-color: #f2cb49;
+}
+
+.color-alert-3 {
+  background-color: #f3d261;
+}
+
+.color-alert-4 {
+  background-color: #f5d879;
+}
+
+.column {
+  width: 182px;
+}
+
+h1 {
+  font-size: 46px;
+}
+
+h2 {
+  font-size: 40px;
+}
+
+h3 {
+  font-size: 34px;
+}
+
+h4 {
+  font-size: 28px;
+}
+
+h5 {
+  font-size: 22px;
+}
+
+.photo-github {
+  background: image-url("images/github.png") no-repeat;
+}
+
+.photo-twitter {
+  background: image-url("images/twitter.png") no-repeat;
+}
+
+.photo-facebook {
+  background: image-url("images/facebook.png") no-repeat;
+}
+
+li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.sidebar {
+  float: left;
+}
+[dir=rtl] .sidebar {
+  float: right;
+}
+
+.avatar {
+  width: 100px;
+  height: 100px;
+  border-radius: 4px;
+}
+
+/*# sourceMappingURL=style.css.map */

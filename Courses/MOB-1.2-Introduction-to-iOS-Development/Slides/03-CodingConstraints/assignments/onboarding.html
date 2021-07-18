@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <title>Syllabus Template Slides</title>
+    <link rel="shortcut icon" href="./../../favicon.ico"/>
+    <link rel="stylesheet" href="./../../dist/reveal.css" />
+    <link rel="stylesheet" href="./../../dist/theme/white.css" id="theme" />
+    <link rel="stylesheet" href="./../../css/highlight/zenburn.css" />
+    <link rel="stylesheet" href="./../../assets/Reveal/makeschool.css" />
+
+    <script>
+      document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>');
+    </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides"><section  data-markdown><script type="text/template">## The Subscription Box - Onboarding Flow
+
+You are going to create an onboarding flow for a subscription box app. The box contents are up to you. Get creative! 😯
+
+### What is an onboarding flow?
+
+Is how we introduce users to an app, a service, product or feature.
+
+It's purpose is to get usersready to fulfill a specific action: make a purchase, create an account, use a feature, etc.
+
+All onboarding flows rely heavily in a great design and key information being displayed, engaging the user in the process.
+
+### Requirements
+
+- Create 3 screens for the onboarding flow.
+- Each screen must have an image and some text about the app.
+- Make all of the UI programmatically. Don't use the interface builder this time.
+
+##### Resources & Suggestions
+
+Use free Illustrations
+- [unDraw](https://undraw.co/illustrations)
+- [drawKit](https://www.drawkit.io)
+
+Use a `ScrollView` to scroll horizontally between the views.
+
+Use a `UIPageControl` to make the indicator at the bottom.
+
+Watch [this video](https://youtu.be/CXxQLstg-Q8) to see the suggested layout.
+
+##### An Example
+
+![design](assets/design.png)
+
+[How to add a gradient to a UIView - quick guide](http://ios-tutorial.com/create-uiview-gradient-background/)
+</script></section></div>
+    </div>
+
+    <script src="./../../dist/reveal.js"></script>
+
+    <script src="./../../plugin/markdown/markdown.js"></script>
+    <script src="./../../plugin/highlight/highlight.js"></script>
+    <script src="./../../plugin/zoom/zoom.js"></script>
+    <script src="./../../plugin/notes/notes.js"></script>
+    <script src="./../../plugin/math/math.js"></script>
+    <script>
+      function extend() {
+        var target = {};
+        for (var i = 0; i < arguments.length; i++) {
+          var source = arguments[i];
+          for (var key in source) {
+            if (source.hasOwnProperty(key)) {
+              target[key] = source[key];
+            }
+          }
+        }
+        return target;
+      }
+
+      // default options to init reveal.js
+      var defaultOptions = {
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+        transition: 'default', // none/fade/slide/convex/concave/zoom
+        plugins: [
+          RevealMarkdown,
+          RevealHighlight,
+          RevealZoom,
+          RevealNotes,
+          RevealMath
+        ]
+      };
+
+      // options from URL query string
+      var queryOptions = Reveal().getQueryHash() || {};
+
+      var options = extend(defaultOptions, {"controls":true,"progress":true,"autoPlayMedia":false,"slideNumber":"c/t","showSlideNumber":"all","controlsTutorial":true,"controlsLayout":"edges","transition":"slide","transitionSpeed":"medium","minScale":0.5,"maxScale":3}, queryOptions);
+    </script>
+
+
+    <script>
+      Reveal.initialize(options);
+    </script>
+  </body>
+</html>

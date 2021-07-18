@@ -1,0 +1,41 @@
+{
+  "name": "bew1.3-authentication-with-passport-starter",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "mocha",
+    "start": "nodemon"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Make-School-Labs/BEW1.3-Authentication-With-Passport-Starter.git"
+  },
+  "keywords": [
+    "Passport",
+    "Local",
+    "authentication",
+    "Social",
+    "Authentication"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "connect-ensure-login": "^0.1.1",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-handlebars": "^5.2.0",
+    "express-session": "^1.17.1",
+    "mongoose": "^5.11.5",
+    "passport": "^0.4.1",
+    "passport-github": "^1.1.0",
+    "passport-local": "^1.0.0"
+  },
+  "bugs": {
+    "url": "https://github.com/Make-School-Labs/BEW1.3-Authentication-With-Passport-Starter/issues"
+  },
+  "homepage": "https://github.com/Make-School-Labs/BEW1.3-Authentication-With-Passport-Starter#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.6"
+  }
+}

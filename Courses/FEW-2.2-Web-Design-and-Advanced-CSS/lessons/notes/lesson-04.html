@@ -1,0 +1,139 @@
+<html>
+  <head>
+    <title>Font Styles Sample Text</title>
+  </head>
+<body>
+ <div style="width: 600px; margin: auto;"> 
+  <h1>Typography Sample</h1>
+
+  <h2>What is this?</h2>
+
+  <p>This page contains several common tags that you will see 
+    on almost any web page. The goal is to style all of the 
+    type here so reads well.</p>
+
+  <p>Get started by looking at the page without any styles. 
+    Next apply some styles. Use your judgement and get feedback
+    from anyone available. Listen to what people think and 
+  and apply their suggestions.</p>
+
+  <p>Look closely at these things:</p>
+
+  <ul>
+    <li>Font family - Choose Serif or San Serif</li>
+    <li>Font size - Set the size of the font to make it legible</li>
+    <li>Color & background color - Strive for good contrast</li>
+    <li>line height - Again strive for legibility</li>
+  </ul>
+
+  <p>What to style? Style all these tag names. Remember, CSS 
+  styles are inherited. For styles that you want to be commonly 
+  across many elements set the style on the HTML tag: 
+  <code>html {...}</code>.</p>
+
+  <ul>
+    <li>html - Set all of the base font styles:
+      <ul>
+        <li>font-family</li>
+        <li>font-size</li>
+        <li>line-height</li>
+        <li>color</li>
+      </ul>
+    </li>
+    <li>h1-6 - Headings, set the font size using a relative unit like em</li>
+    <li>p - set the margin-top and margin-bottom</li>
+    <li>strong - Use color and font-weight to </li>
+    <li>em</li>
+    <li>cite</li>
+    <li>blockquote</li>
+    <li>figcaption</li>
+    <li>code</li>
+  </ul>
+
+  <figure>
+    <img src="bonsai.png" alt="bonsai">
+    <figcaption>Bonsai</figcaption>
+  </figure>
+
+  <h3>Details</h3>
+
+  <p>Look closely at the details. Some of tags are usually used 
+    together and others are used to enhance communication </p>
+
+  <h4>Images</h4>
+
+  <p>The figure tag and figcaption are used with images. You can 
+    style these to make the images display better and the caption 
+    fell like it's labeling the image.
+  </p>
+
+  <h4>Blockquotes</h4>
+  <p>The blockquote is used to show you've taken text from 
+    another source and are reproucing it here. The cite tag 
+    is used to say where it came from. 
+  </p>
+
+  <h4>Strong and em</h4>
+  <p>The strong and em tags are used to add a voice to your 
+    message. Use strong when you want to say something with 
+    a strong voice. This can be something important or when 
+    you feel like it needs to be said forcefully. 
+  </p>
+  <p>The em tag stands for emphasis. Use this when you want 
+    to say something with emphasis. Use this when you want 
+    to call attention to particular words or phrases. 
+  </p>
+  <p><strong>You</strong> should write CSS styles for <em>both
+  of these tags</em>. Use color font, weight, and font style.</p>
+
+  <blockquote cite="https://www.huxley.net/bnw/four.html">
+    <p>Words can be like X-rays, if you use them properly-they'll 
+      go through anything. You read and you're pierced.</p>
+    <footer>-Aldous Huxley, <cite>Brave New World</cite></footer>
+  </blockquote>
+
+  <h3>em vs rem</h3>
+  <p>The box below has a font-size of 20px.</p>
+  <div id="ems-and-rems" style="font-size: 20px; border: 1px solid; padding: 0 1em">
+    <p><strong>Inherit</strong> this text is inherits it's font-size 20px.</p>
+    <p style="font-size: 1em"><strong>font-size: 1em</strong> this text is 1em. It's font-size is 20px. This is 1 times the inherited font-size of 20px.</p>
+    <p style="font-size: 1.5em"><strong>font-size: 1.5em</strong> this text is 1.5em. Here the font-size is 30px. That's 1.5 times the inherited font-size of 20px.</p>
+    <p style="font-size: 18px"><strong>font-size: 18px</strong> this text is 18px.</p>
+    <p style="font-size: 1rem"><strong>font-size: 1rem</strong> this text is 1rem. Here the size is 16px because the root font-size is 16. That's 1 times the root font-size.</p>
+    <p style="font-size: 1.25rem"><strong>font-size: 1.25rem</strong> this text is 1.25rem. Here the size is 20px because the root font-size is 16. That's 1.25 times the root font-size of 16px.</p>
+  </div>
+
+  <pre>
+    <code>
+      public class StringExample
+      {	public static void main(String[] args)
+        {	String s1 = "Computer Science";
+          int x = 307;
+          String s2 = s1 + " " + x;
+          String s3 = s2.substring(10,17);
+          String s4 = "is fun";
+          String s5 = s2 + s4;
+          
+          System.out.println("s1: " + s1);
+          System.out.println("s2: " + s2);
+          System.out.println("s3: " + s3);
+          System.out.println("s4: " + s4);
+          System.out.println("s5: " + s5);
+          
+          //showing effect of precedence
+          
+          x = 3;
+          int y = 5;
+          String s6 = x + y + "total";
+          String s7 = "total " + x + y;
+          String s8 = " " + x + y + "total";
+          System.out.println("s6: " + s6);
+          System.out.println("s7: " + s7);
+          System.out.println("s8: " + s8);
+        }
+      }
+    </code>
+  </pre>
+</div>
+</body>
+</html>

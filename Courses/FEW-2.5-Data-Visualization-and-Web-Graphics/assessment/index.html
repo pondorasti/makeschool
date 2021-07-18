@@ -1,0 +1,132 @@
+<style>
+  body, html {
+    height: 100%;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  }
+  #metal {
+    width: calc(100px * 8);
+    margin: auto;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  #metal > div {
+    --space: 5px;
+
+    height: calc(1rem + var(--space));
+    margin: var(--space);
+    padding: var(--sapce);
+    position: relative;
+    border-radius: calc(1rem + var(--space) * 2);
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  #metal > div > span {
+    margin: 15px;
+  }
+</style>
+
+<div id="metal">
+  <!-- Stuff -->
+</div>
+
+<script src="dtaa/happiness-2019.js"></script>
+<script src="data/games.js"></script>
+<script src="data/metal.js"></script>
+
+<script>
+
+  // What's an array? Sometimes called a list. 
+  // It's a list of things organized by index. 
+  // What's an index? 
+  // It's a number that is the position of a thing in the list
+  // It's like your number in line at the DMV or your 
+
+  // What's an object? 
+  // A collection of values idenitified with key
+  // What's a key? 
+  // A key is the name of 
+
+
+
+
+
+
+  console.log(metal.length)
+  console.log(metal[0])
+  console.log(metal[0].fans)
+  
+  // Total fans
+  console.log(metal.reduce((fans, band) => {
+    return fans += band.fans
+  }, 0))
+
+  // Split
+  console.log(metal.filter((band) => {
+    return band.split === '-'
+  }).length)
+
+  // Not Split
+  console.log(metal.filter((band) => {
+    return band.split !== '-'
+  }).length)
+
+  // By Country
+  const metalCountries = metal.reduce((countries, band) => {
+    console.log('>', band.origin)
+    if (countries[band.origin] !== undefined) {
+      countries[band.origin] += 1
+    } else {
+      countries[band.origin] = 1
+    }
+    return countries
+  }, {})
+
+  const maxFans = metal.reduce((max, band) => {
+    if (band.fans > max) {
+      return band.fans
+    }
+    return max
+  }, 0)
+
+  metal.sort((a, b) => {
+    if (a.split === '-') {
+      return -1
+    }
+    return 1
+  })
+
+  const els = metal.forEach((band, i) => {
+    const el = document.createElement('div')
+    el.innerHTML = `<span>${band.fans} ${band.name} </span>`
+    const size = band.fans / maxFans
+    el.style.width = `${size * 100}%`
+    // el.style.height = `${size * 100}%`
+    const hue = 360 / metal.length * i
+    const b = band.split === '-' ? '50%' : '75%'
+    el.style.backgroundColor = `hsl(${hue}, 50%, ${b})`
+    document.getElementById('metal').appendChild(el)
+  })
+
+  console.log(metalCountries)
+
+
+
+
+  console.log('Length', data.length)
+  console.log(data[0])
+  console.log(data[0].corruption)
+  console.log(data[0].country)
+  console.log(data[0].freedom)
+  console.log(data[0].gdp)
+  console.log(data[0].generosity)
+  console.log(data[0].health)
+  console.log(data[0].rank)
+  console.log(data[0].score)
+  console.log(data[0].support)
+</script>

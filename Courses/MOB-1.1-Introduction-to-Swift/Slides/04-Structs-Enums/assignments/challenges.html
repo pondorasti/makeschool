@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <title>Syllabus Template Slides</title>
+    <link rel="stylesheet" href="./../../css/reveal.css" />
+    <link rel="stylesheet" href="./../../css/theme/black.css" id="theme" />
+    <link rel="stylesheet" href="./../../css/highlight/zenburn.css" />
+    <link rel="stylesheet" href="./../../css/print/paper.css" type="text/css" media="print" />
+    <link rel="stylesheet" href="./../../assets/Reveal/makeschool.css" />
+
+    <script>
+      document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>');
+    </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides"><section  data-markdown><script type="text/template">
+# Challenge 1
+
+1. Write the enum BobaTea
+2. Write a structure called Order that will represent a client’s order. It will need two properties:
+
+- name of type String
+- boba of type BobaTea
+
+```swift
+struct BobaTea {
+  var tea: String
+  let sweetness: Int
+  let hasBoba: Bool
+}
+
+struct Order {
+  var boba: BobaTea
+  let name: String
+}
+
+```
+
+# Challenge 2
+1. Write a function that given input parameters returns an order of type Order (the enum you created before is new type!).
+2. Then create an order using the function.
+3. Then print it’s details.
+
+This is how I should be able to call your function:
+`let newOrder = createOrder(withTea: "black", sweetness: 25, forCustomer: "Adriana", includeBoba: true)`
+
+and this is what you’ll print in the end:
+`Adriana ordered black boba tea, 25% sweetness, with boba`
+
+```swift
+struct BobaTea {
+  var tea: String
+  let sweetness: Int
+  let hasBoba: Bool
+}
+
+struct Order {
+  var boba: BobaTea
+  let name: String
+}
+
+func createOrder(withTea tea: String, sweetness level:Int, forCustomer name: String, includeBoba hasBoba: Bool) -> Order{
+    let boba = BobaTea(tea: tea, sweetness: level, hasBoba: hasBoba)
+    let order = Order(boba: boba, name: name)
+    return order
+}
+
+let newOrder = createOrder(withTea: "black", sweetness: 25, forCustomer: "Adriana", includeBoba: true)
+
+print("\(newOrder.name) ordered \(newOrder.boba.tea) boba tea, \(newOrder.boba.sweetness)% sweetness, \(newOrder.boba.hasBoba ? "with boba" : "no boba")")
+```
+
+
+# Challenge 3
+
+Improvement with method inside the struct
+
+```swift
+struct BobaTea {
+  var tea: String
+  let sweetness: Int
+  let hasBoba: Bool
+}
+
+struct Order {
+  var boba: BobaTea
+  let name: String
+
+  func printDescription(){
+    print("\(name) ordered \(boba.tea) boba tea, \(boba.sweetness)% sweetness, \(boba.hasBoba ? "with boba" : "no boba")")
+  }
+}
+
+func createOrder(withTea tea: String, sweetness level:Int, forCustomer name: String, includeBoba hasBoba: Bool) -> Order{
+    let boba = BobaTea(tea: tea, sweetness: level, hasBoba: hasBoba)
+    let order = Order(boba: boba, name: name)
+    return order
+}
+
+let newOrder = createOrder(withTea: "black", sweetness: 25, forCustomer: "Adriana", includeBoba: true)
+newOrder.printDescription()
+```
+
+
+# Challenge 4
+
+1. Add the class Customer and refactor your code to use it
+2. Using a class to represent the customer, instead of just using a String for the name.
+
+```swift
+struct BobaTea {
+  var tea: String
+  let sweetness: Int
+  let hasBoba: Bool
+}
+
+struct Order {
+  var boba: BobaTea
+  let customer: Customer
+
+  func printDescription(){
+    print("\(customer.firstName) ordered \(boba.tea) boba tea, \(boba.sweetness)% sweetness, \(boba.hasBoba ? "with boba" : "no boba")")
+  }
+}
+
+class Customer {
+  var firstName: String
+  var lastName: String
+
+  init(firstName: String, lastName: String) {
+    self.firstName = firstName
+    self.lastName = lastName
+  }
+}
+
+func createOrder(withTea tea: String, sweetness level:Int, forCustomer customer: Customer, includeBoba hasBoba: Bool) -> Order{
+    let boba = BobaTea(tea: tea, sweetness: level, hasBoba: hasBoba)
+    let order = Order(boba: boba, customer: customer)
+    return order
+}
+
+let newcustomer = Customer(firstName: "Monica", lastName: "Geller")
+let newOrder = createOrder(withTea: "black", sweetness: 25, forCustomer: newcustomer, includeBoba: true)
+newOrder.printDescription()
+```
+
+# Challenge 5
+
+Finish the implementation of the Boba Tea shop.
+
+1. Use enums to represent the tea types
+2. Add an option to customize milk too: whole, almond, oat
+3. Include the `makeOrder` to practice using associated values
+4. Experiment, break things 🤓
+
+```swift
+struct BobaTea {
+  var tea: TeaType
+  let sweetness: Int
+  let hasBoba: Bool
+  let milkOption: MilkOption
+}
+
+struct Order {
+  var boba: BobaTea
+  let customer: Customer
+
+  func printDescription(){
+    print("\(customer.firstName) ordered \(boba.tea) boba tea, \(boba.sweetness)% sweetness, \(boba.hasBoba ? "with boba" : "no boba") and \(boba.milkOption) milk")
+  }
+}
+
+class Customer {
+  var firstName: String
+  var lastName: String
+
+  init(firstName: String, lastName: String) {
+    self.firstName = firstName
+    self.lastName = lastName
+  }
+}
+
+enum TeaType : String{
+    case black = "black"
+    case oolong = "oolong"
+    case lavender = "lavender"
+    case chai = "chai"
+}
+
+enum MilkOption : Int{
+    case oat
+    case whole
+    case almond
+}
+
+enum OrderFullfilment {
+  case success(message: String)
+  case error(message: String)
+}
+
+func createOrder(withTea tea: TeaType, sweetness level:Int, forCustomer customer: Customer, includeBoba hasBoba: Bool, withMilk milk: MilkOption) -> Order{
+    let boba = BobaTea(tea: tea, sweetness: level, hasBoba: hasBoba, milkOption: milk)
+    let order = Order(boba: boba, customer: customer)
+    return order
+}
+
+func makeOrder(order: Order) -> OrderFullfilment {
+    let date = Date()
+    let calendar = Calendar.current
+    let hour = calendar.component(.hour, from: date)
+    if hour < 17 && hour > 9{
+        return .success(message: "You can pick up your order in 30 min")
+    }else{
+        return .error(message: "We are closed, try tomorrow")
+    }
+}
+
+let newcustomer = Customer(firstName: "Monica", lastName: "Geller")
+
+if let tea = TeaType.init(rawValue: "black"), let milk = MilkOption.init(rawValue: 0){
+    let newOrder = createOrder(withTea: tea, sweetness: 25, forCustomer: newcustomer, includeBoba: true, withMilk: milk)
+    newOrder.printDescription()
+
+    let orderResult = makeOrder(order: newOrder)
+
+    switch orderResult {
+    case .success(let message):
+      print("Order result: \(message)")
+    case .error(let message):
+      print("Order result: \(message)")
+    }
+}
+```
+</script></section></div>
+    </div>
+
+    <script src="./../../js/reveal.js"></script>
+
+    <script>
+      function extend() {
+        var target = {};
+        for (var i = 0; i < arguments.length; i++) {
+          var source = arguments[i];
+          for (var key in source) {
+            if (source.hasOwnProperty(key)) {
+              target[key] = source[key];
+            }
+          }
+        }
+        return target;
+      }
+
+      // Optional libraries used to extend on reveal.js
+      var deps = [
+        { src: './../../plugin/markdown/marked.js', condition: function() { return !!document.querySelector('[data-markdown]'); } },
+        { src: './../../plugin/markdown/markdown.js', condition: function() { return !!document.querySelector('[data-markdown]'); } },
+        { src: './../../plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+        { src: './../../plugin/zoom-js/zoom.js', async: true },
+        { src: './../../plugin/notes/notes.js', async: true },
+        { src: './../../plugin/math/math.js', async: true }
+      ];
+
+      // default options to init reveal.js
+      var defaultOptions = {
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+        transition: 'default', // none/fade/slide/convex/concave/zoom
+        dependencies: deps
+      };
+
+      // options from URL query string
+      var queryOptions = Reveal.getQueryHash() || {};
+
+      var options = extend(defaultOptions, {"controls":true,"progress":true,"autoPlayMedia":false,"slideNumber":"c/t","showSlideNumber":"all","controlsTutorial":true,"controlsLayout":"edges","transition":"slide","transitionSpeed":"medium","minScale":0.5,"maxScale":3}, queryOptions);
+    </script>
+
+
+    <script>
+      Reveal.initialize(options);
+    </script>
+  </body>
+</html>

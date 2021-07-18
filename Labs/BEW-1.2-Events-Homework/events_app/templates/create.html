@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>New Event</h1>
+
+<form method="POST">
+    <p>
+        <label>
+            Event Title:
+            <input type="text" name="title">
+        </label>
+    </p>
+    <p>
+        <label>
+            Event Description: <br>
+            <textarea name="description"></textarea>
+        </label>
+    </p>
+    {% if error %}
+        <p class="error">Error: {{ error }}</p>
+    {% endif %}
+    <p>
+        
+        <label>
+            Date and Time: <br>
+            <input type="date" name="date" placeholder="Date format YYYY-mm-dd">
+            <input type="time" name="time" placeholder="Time format HH:MM">
+        </label>
+    </p>
+    <p>
+        <input type="submit" name="submit" value="Add">
+    </p>
+</form>
+
+{% endblock %}

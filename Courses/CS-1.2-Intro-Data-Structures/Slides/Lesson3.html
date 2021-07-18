@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <title>Syllabus Template Slides</title>
+    <link rel="stylesheet" href="./css/reveal.css" />
+    <link rel="stylesheet" href="./css/theme/black.css" id="theme" />
+    <link rel="stylesheet" href="./css/highlight/zenburn.css" />
+    <link rel="stylesheet" href="./css/print/paper.css" type="text/css" media="print" />
+    <link rel="stylesheet" href="./assets/Reveal/makeschool.css" />
+
+    <script>
+      document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>');
+    </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides"><section  data-markdown><script type="text/template"><!-- .slide: data-background="./../Images/header.svg" data-background-repeat="none" data-background-size="40% 40%" data-background-position="center 10%" class="header" -->
+
+## Strings and File I/O Review
+
+[Slides](https://make-school-courses.github.io/CS-1.2-Intro-Data-Structures/Slides/Lesson2.html)
+</script></section><section  data-markdown><script type="text/template">
+## Agenda
+- Check In
+- Interview Question Warmup
+- String Manipulation
+- File Input
+- File Output
+</script></section><section  data-markdown><script type="text/template">
+## Check In
+
+What is one of your favorite shows you are watching right now?
+</script></section><section  data-markdown><script type="text/template">
+## Interview Question Warm Up
+
+Create a class called Monster that takes two parameters to its __init__() method, name and color. Set up name and color as properties and then create a method called say_name() and a method called say_color() that will print out the name and color properties. Instantiate two Monster objects and call their methods.
+</script></section><section  data-markdown><script type="text/template">
+## Learning Goals
+
+- Be able to manipulate strings
+- Be able to read files and handle file data
+- Be able to write output to files
+</script></section><section  data-markdown><script type="text/template">
+## Strings
+
+Strings and Python lists have some things in common, and can both be thought of as a sequence of items
+</script></section><section  data-markdown><script type="text/template">
+## Strings
+
+- You can access each character in a string using an index
+- Each character is itself a string
+- You can use the len() function to get the number of characters in a string
+- You can stick two strings together using  the + operator
+
+</script></section><section  data-markdown><script type="text/template">
+![String in Array format](Images/str_array.png)
+</script></section><section  data-markdown><script type="text/template">
+## String Exercise
+
+Write code to print out each character in the given string, one character per line
+
+<iframe src="https://trinket.io/embed/python/8d0efd4e68" width="100%" height="356" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+</script></section><section  data-markdown><script type="text/template">
+## Common String Methods
+
+- .split()
+- .rstrip()
+- .find()
+- .join()
+
+Research what these methods do and then be prepared to explain in your own words
+</script></section><section  data-markdown><script type="text/template">
+## Common String Methods
+
+<iframe src="https://trinket.io/embed/python/5efe801f0a" width="100%" height="356" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+</script></section><section  data-markdown><script type="text/template">
+## File Input/Output (File I/O)
+</script></section><section  data-markdown><script type="text/template">
+## Opening a file
+
+<iframe src="https://trinket.io/embed/python/955ea99838" width="100%" height="356" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+</script></section><section  data-markdown><script type="text/template">
+## Reading from a file
+
+<iframe src="https://trinket.io/embed/python/9548d42bed" width="100%" height="356" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+</script></section><section  data-markdown><script type="text/template">
+## Using file data
+
+<iframe src="https://trinket.io/embed/python/14fd05802d" width="100%" height="356" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+</script></section><section  data-markdown><script type="text/template">
+## Writing to a file
+
+<iframe src="https://trinket.io/embed/python/ee44360053" width="100%" height="356" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+</script></section><section  data-markdown><script type="text/template">
+## File I/O and Strings Exercise
+
+<iframe src="https://trinket.io/embed/python/f5749094fa" width="100%" height="356" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+</script></section><section  data-markdown><script type="text/template">
+## Shout Outs
+</script></section><section  data-markdown><script type="text/template">
+## Lab Time
+
+<!-- > --></script></section></div>
+    </div>
+
+    <script src="./js/reveal.js"></script>
+
+    <script>
+      function extend() {
+        var target = {};
+        for (var i = 0; i < arguments.length; i++) {
+          var source = arguments[i];
+          for (var key in source) {
+            if (source.hasOwnProperty(key)) {
+              target[key] = source[key];
+            }
+          }
+        }
+        return target;
+      }
+
+      // Optional libraries used to extend on reveal.js
+      var deps = [
+        { src: './plugin/markdown/marked.js', condition: function() { return !!document.querySelector('[data-markdown]'); } },
+        { src: './plugin/markdown/markdown.js', condition: function() { return !!document.querySelector('[data-markdown]'); } },
+        { src: './plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+        { src: './plugin/zoom-js/zoom.js', async: true },
+        { src: './plugin/notes/notes.js', async: true },
+        { src: './plugin/math/math.js', async: true }
+      ];
+
+      // default options to init reveal.js
+      var defaultOptions = {
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+        transition: 'default', // none/fade/slide/convex/concave/zoom
+        dependencies: deps
+      };
+
+      // options from URL query string
+      var queryOptions = Reveal.getQueryHash() || {};
+
+      var options = extend(defaultOptions, {"controls":true,"progress":true,"autoPlayMedia":false,"slideNumber":"c/t","showSlideNumber":"all","controlsTutorial":true,"controlsLayout":"edges","transition":"slide","transitionSpeed":"medium","minScale":0.5,"maxScale":3}, queryOptions);
+    </script>
+
+
+    <script>
+      Reveal.initialize(options);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <title>Syllabus Template Slides</title>
+    <link rel="stylesheet" href="./../../css/reveal.css" />
+    <link rel="stylesheet" href="./../../css/theme/black.css" id="theme" />
+    <link rel="stylesheet" href="./../../css/highlight/zenburn.css" />
+    <link rel="stylesheet" href="./../../css/print/paper.css" type="text/css" media="print" />
+    <link rel="stylesheet" href="./../../assets/Reveal/makeschool.css" />
+
+    <script>
+      document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>');
+    </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides"><section  data-markdown><script type="text/template">### As A Class - Discuss the questions posed below each example
+
+__*Example 1:*__ A Combination Operator &mdash; `combineLatest`
+
+Combines up to 8 source Observable sequences into a single new Observable sequence and will begin emitting from the combined Observable sequence the latest elements of each source Observable sequence &mdash; once all source sequences have emitted at least one element &mdash; and also when any of the source Observable sequences emits a new element.
+
+There is also a variant of combineLatest that takes an Array (or any other collection of Observable sequences):
+
+```Swift
+  example("Array.combineLatest") {
+      let disposeBag = DisposeBag()
+
+      let stringObservable = Observable.just("❤️")
+      let fruitObservable = Observable.from(["🍎", "🍐", "🍊"])
+      let animalObservable = Observable.of("🐶", "🐱", "🐭", "🐹")
+
+      Observable.combineLatest([stringObservable, fruitObservable, animalObservable]) {
+              "\($0[0]) \($0[1]) \($0[2])"
+          }
+          .subscribe(onNext: { print($0) })
+          .disposed(by: disposeBag)
+  }
+```
+
+> <aside class="notes"><p>Because the combineLatest variant that takes a collection passes an array of values to the selector function, it requires that all source Observable sequences are of the same type.</p>
+<p><strong>Q:</strong> What will be the output of the <code>print()</code> function? Why?</p>
+<!-- SOLUTION:
+This produces:
+--- Array.combineLatest example ---
+❤️ 🍎 🐶
+❤️ 🍐 🐶
+❤️ 🍐 🐱
+❤️ 🍊 🐱
+❤️ 🍊 🐭
+❤️ 🍊 🐹 -->
+
+
+<p><strong><em>Example 2:</em></strong> A Transforming Operator &mdash; <code>scan</code></p>
+<p>Begins with an initial <code>seed value</code>, and then applies an <code>accumulator closure</code> to each element emitted by an Observable sequence, and returns each intermediate result as a single-element Observable sequence.</p>
+<pre><code class="language-swift">  example(&quot;scan&quot;) {
+      let disposeBag = DisposeBag()
+
+      Observable.of(10, 100, 1000)
+          .scan(1) { aggregateValue, newValue in
+              aggregateValue + newValue
+          }
+          .subscribe(onNext: { print($0) })
+          .disposed(by: disposeBag)
+  }
+
+  /* OUTPUT:
+  11
+  111
+  1111
+  */</code></pre>
+<p><strong>Q:</strong> In this example, the <code>observable</code> calls <code>scan()</code> on itself. What is the <code>seed value</code>? What will the output be?</p>
+<pre><code class="language-Swift">  let observable = Observable&lt;String&gt;.create { (observer) -&gt; Disposable in
+      observer.onNext(&quot;D&quot;)
+      observer.onNext(&quot;U&quot;)
+      observer.onNext(&quot;M&quot;)
+      observer.onNext(&quot;M&quot;)
+      observer.onNext(&quot;Y&quot;)
+      return NopDisposable.instance
+  }
+
+  observable.scan(&quot;&quot;) { (lastValue, currentValue) -&gt; String in
+      // The new value emitted is the LAST value emitted + current value:
+      return lastValue + currentValue
+      }.subscribeNext { (element) in
+          print(element)
+      }.disposed(disposeBag)
+      }
+  }</code></pre>
+<!-- SOLUTION: This will print:
+D
+DU
+DUM
+DUMM
+DUMMY -->
+
+
+<p><strong>Q:</strong> What is this code doing? What advantage might provide?</p>
+<pre><code class="language-Swift">  myButton.rx_tap.scan(false) { lastState, newValue in
+      return !lastState
+  }</code></pre>
+<p><em>Sources:</em> </br></p>
+<ul>
+<li>Rx.playground in RxSwift library</li>
+<li><a href="http://swiftpearls.com/RxSwift-for-dummies-2-Operators.html">http://swiftpearls.com/RxSwift-for-dummies-2-Operators.html</a></li>
+</ul>
+<!-- TODO: Add these operators to exercise?
+
+takeUntil
+
+scan
+  - has example in RxSwift
+    - needs better example?
+
+debounce?
+
+ -->
+
+
+
+<!-- TODO: get exercises for Operators  --></aside></script></section></div>
+    </div>
+
+    <script src="./../../js/reveal.js"></script>
+
+    <script>
+      function extend() {
+        var target = {};
+        for (var i = 0; i < arguments.length; i++) {
+          var source = arguments[i];
+          for (var key in source) {
+            if (source.hasOwnProperty(key)) {
+              target[key] = source[key];
+            }
+          }
+        }
+        return target;
+      }
+
+      // Optional libraries used to extend on reveal.js
+      var deps = [
+        { src: './../../plugin/markdown/marked.js', condition: function() { return !!document.querySelector('[data-markdown]'); } },
+        { src: './../../plugin/markdown/markdown.js', condition: function() { return !!document.querySelector('[data-markdown]'); } },
+        { src: './../../plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+        { src: './../../plugin/zoom-js/zoom.js', async: true },
+        { src: './../../plugin/notes/notes.js', async: true },
+        { src: './../../plugin/math/math.js', async: true }
+      ];
+
+      // default options to init reveal.js
+      var defaultOptions = {
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+        transition: 'default', // none/fade/slide/convex/concave/zoom
+        dependencies: deps
+      };
+
+      // options from URL query string
+      var queryOptions = Reveal.getQueryHash() || {};
+
+      var options = extend(defaultOptions, {"controls":true,"progress":true,"autoPlayMedia":false,"slideNumber":"c/t","showSlideNumber":"all","controlsTutorial":true,"controlsLayout":"edges","transition":"slide","transitionSpeed":"medium","minScale":0.5,"maxScale":3}, queryOptions);
+    </script>
+
+
+    <script>
+      Reveal.initialize(options);
+    </script>
+  </body>
+</html>

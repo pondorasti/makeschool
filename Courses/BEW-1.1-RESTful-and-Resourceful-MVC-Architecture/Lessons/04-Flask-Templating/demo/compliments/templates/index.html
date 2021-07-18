@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<form action='/compliment'>
+    <p>
+        What is your name?
+        <input type="text" name="name"/>
+    </p>
+    <p>
+        <input type="checkbox" name="show_compliments"/>
+        Show Compliments
+    </p>
+    <p>
+        How many compliments?
+        <select name="num_compliments">
+            <option value="1">One</option>
+            <option value="2">Two</option>
+            <option value="3">Three</option>
+        </select>
+    </p>
+    <input type="submit">
+</form>
+{% endblock %}

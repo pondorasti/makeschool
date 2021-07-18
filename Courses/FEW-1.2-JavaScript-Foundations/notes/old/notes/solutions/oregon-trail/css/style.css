@@ -1,0 +1,142 @@
+html {
+  height: 100%;
+}
+ 
+body {
+  padding: 0;
+  margin: 0;
+  border: 0;
+  height: 100%;
+  overflow: hidden;
+  font-family: 'Roboto', sans-serif;
+  font-size: 18px;
+  line-height: 1.5;
+  /* background-color: rgb(167, 202, 255); */
+  background-image: url(../images/stars-2.png);
+  background-size: cover;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Bai Jamjuree', sans-serif;
+}
+
+h1 {
+  margin: 0 0 0 0;
+}
+
+p {
+  margin: 0;
+}
+
+button {
+  border: 1px solid white;
+  border-radius: 0.5em 0 0.5em 0;
+  background-color: black;
+  padding: 0.5em;
+  color: white;
+}
+ 
+.hidden {
+  display: none;
+}
+
+.title {
+  grid-area: t;
+  color: #fff;
+}
+ 
+#journey {
+  height: 100%;
+  width: 800px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: 4.5em 14em 200px;
+  grid-template-areas: 
+  "t t t t t t t t t t t t"
+  "a a a a b b b b b c c c"
+  "d d d d d d d d d d d d";
+  grid-gap: 1em;
+}
+ 
+#event {
+  background-color: magenta;
+}
+ 
+#progress-area {
+  position: relative;
+  grid-area: d;
+}
+ 
+#trees {
+  width: 100%;
+  image-rendering: pixelated;
+}
+ 
+#caravan {
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  left: 0;
+}
+
+.info-box {
+  border-radius: 1em 0 1em 0;
+  background-color: rgba(255, 255, 255, 0.152);
+  padding: 1em;
+  color: #fff;
+}
+ 
+#stats-area {
+  grid-area: a;
+}
+
+.stat {
+  color: #888;
+}
+ 
+.stat-value {
+  color: rgb(216, 216, 216);
+  float: right;
+  font-weight: bold;
+}
+ 
+#updates-area {
+  overflow-y: scroll;
+  grid-area: b
+}
+ 
+.update-positive {
+  color: #669966;
+}
+ 
+.update-negative {
+  color: red;
+}
+ 
+.update-neutral {
+  color: #90908F;
+}
+ 
+#shop {
+  grid-area: c;
+}
+ 
+.product {
+  float: left;
+  margin: 5px;
+  padding: 0.5em;
+  border: 1px solid white;
+  border-radius: 0.5em 0 0.5em 0;
+  font-size: 12px;
+}
+ 
+#shop button {
+  clear: both;
+  float: left;
+  margin: 5px;
+}
+ 
+#attack {
+  grid-area: c;
+}

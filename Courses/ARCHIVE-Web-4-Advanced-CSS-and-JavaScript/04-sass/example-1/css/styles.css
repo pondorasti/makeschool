@@ -1,0 +1,15 @@
+body {
+  color: #ddd;
+  background-color: #000; }
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 10px; }
+  .container .box {
+    height: 100px;
+    background-color: #666;
+    border: solid 4px;
+    border-radius: 20px; }
+
+/*# sourceMappingURL=styles.css.map */

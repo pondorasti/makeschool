@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <title>BEW 1.1 Slides</title>
+    <link rel="stylesheet" href="./../css/reveal.css" />
+    <link rel="stylesheet" href="./../css/theme/black.css" id="theme" />
+    <link rel="stylesheet" href="./../css/highlight/atom-one-light.css" />
+    <link rel="stylesheet" href="./../css/print/paper.css" type="text/css" media="print" />
+    <link rel="stylesheet" href="./../assets/Reveal/makeschool.css" />
+
+    <script>
+      document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>');
+    </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides"><section  data-markdown><script type="text/template">
+<!-- .slide: data-background="./../Images/header.svg" data-background-repeat="none" data-background-size="40% 40%" data-background-position="center 10%" class="header" -->
+# Static Websites
+
+### [Slides](https://make-school-courses.github.io/BEW-1.1-RESTful-and-Resourceful-MVC-Architecture/Slides/01-Static-Website/slides.html)
+
+### [Demo](https://github.com/Make-School-Courses/BEW-1.1-RESTful-and-Resourceful-MVC-Architecture/tree/master/Lessons/01-Static-Website/demo)
+
+</script></section><section  data-markdown><script type="text/template">
+## Agenda
+
+1. Learning Outcomes
+1. Overview of HTML tags
+1. Activity: Explore HTML5 form elements
+1. How to debug with Developer Tools
+</script></section><section  data-markdown><script type="text/template">
+## Learning Outcomes
+
+By the end of today, you should be able to…
+
+1. Recognize the most common HTML tags and their standard formatting
+1. Recognize the most common CSS properties
+1. Make a static web page using HTML & CSS
+1. Use a browser’s developer tools to examine and change the HTML & CSS of a website.
+</script></section><section  data-markdown><script type="text/template">
+## Warm Up (5 minutes)
+
+Write a list of every HTML element you know, and its purpose. Write as many as you can!
+
+- E.g. `head`, `body`, `img`, etc
+</script></section><section ><section data-markdown><script type="text/template">
+# HTML Essentials
+</script></section><section data-markdown><script type="text/template">
+## What is HTML?
+
+- **H**yper**T**ext **M**arkup **L**anguage
+  - Not a programming language! No loops, conditionals, etc
+- Tells your browser how to structure content (text, images, links, etc)
+</script></section><section data-markdown><script type="text/template">
+## Elements
+
+The fundamental building block of HTML is an **element**.
+  - Can have an opening and closing tag
+  - Or only a single tag
+
+Tags are enclosed in angle brackets ( `<` and `>` )
+</script></section><section data-markdown><script type="text/template">
+## The Document Type Declaration
+
+At the top of every HTML page, we need to tell the browser what type of markup to expect.
+
+```html
+<!DOCTYPE html>
+```
+
+- The **doctype** tag is technically not an element.
+</script></section><section data-markdown><script type="text/template">
+## The `html` element
+
+All page content must go inside of the `html` start/close tags.
+
+```html
+<!DOCTYPE html>
+<html>
+</html>
+```
+</script></section><section data-markdown><script type="text/template">
+## The `head` element
+
+Content that doesn't directly relate to the way the page is laid out - including the styles and title - go inside of the `head` element.
+
+```html
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>My Awesome Page Title</title>
+    </head>
+</html>
+```
+</script></section><section data-markdown><script type="text/template">
+## The `body` element
+
+The body contains all of the elements that will be displayed on the page itself.
+
+```html
+<!DOCTYPE html>
+<html>
+    <head>
+        ...
+    </head>
+    <body>
+        This will appear on the page.
+    </body>
+</html>
+```
+</script></section><section data-markdown><script type="text/template">
+## Demo
+
+Let's put it all together! Save the code snippet below and open it in your browser.
+
+```html
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>My First Web Page</title>
+    </head>
+    <body>
+        Hello, World!
+    </body>
+</html>
+```
+</script></section></section><section ><section data-markdown><script type="text/template">
+# HTML Page Elements
+</script></section><section data-markdown><script type="text/template">
+## Anatomy of an HTML Element
+
+![](assets/basic-anatomy-of-xhtml-elements.png)
+</script></section><section data-markdown><script type="text/template">
+## Header Tags
+
+Headers are used to set apart page, section, etc. headers.
+
+`h1` is a top level heading. We can use `h1` to `h6` for different sized headers.
+
+```html
+<body>
+    <h1>Why Dogs are Cool</h1>
+    <p>Dogs are cool because...</p>
+</body>
+```
+</script></section><section data-markdown><script type="text/template">
+## Paragraph Tags
+
+The paragraph tag `<p>` is used to indicate a paragraph of text.
+
+```html
+<body>
+    <h1>Why Dogs are Cool</h1>
+    <p>Dogs are cool because...</p>
+</body>
+```
+</script></section><section data-markdown><script type="text/template">
+## The Address Tag
+
+The address, or `<a>` tag, links to another web page.
+
+- `href` is an **attribute** that indicates the destination.
+
+```html
+<a href="http://www.aspca.org">Adopt a Dog!</a>
+```
+</script></section><section data-markdown><script type="text/template">
+## The Image Tag
+
+The `img` element is a **self-closing tag**. We often end it with `/` to indicate such.
+
+- Images must also have an **alt** attribute which describes the image in text.
+
+```html
+<img src="http://makeschool.com/images/dog" alt="cute dog" />
+```
+</script></section><section data-markdown><script type="text/template">
+## Line Breaks
+
+We can add a **line break** like so:
+
+```html
+<br />
+```
+</script></section><section data-markdown><script type="text/template">
+## Bold and Italics
+
+We can specify that text should be **bold** with the `strong` tag, or *italic* with the `em` (emphasize) tag.
+
+```html
+<p>
+    Dogs are <strong>fluffy</strong> and <em>playful</em>.
+</p>
+```
+</script></section><section data-markdown><script type="text/template">
+## List Items - Unordered
+
+We can make a bulleted **unordered list** with the `ul` tag, and add list items with the `li` tag.
+
+```html
+<p>
+    I like dogs because they are...
+    <ul>
+        <li>fluffy</li>
+        <li>playful</li>
+    </ul>
+</p>
+```
+</script></section><section data-markdown><script type="text/template">
+## List Items - Ordered
+
+We can also make an **ordered list**, starting from 1, with the `ol` tag.
+
+```html
+<p>
+    My favorite dogs (in order) are:
+    <ol>
+        <li>Husky</li>
+        <li>Chocolate Lab</li>
+        <li>Shiba Inu</li>
+        <li>Golden Doodle</li>
+    </ol>
+</p>
+```
+</script></section></section><section  data-markdown><script type="text/template">
+## Break [10 minutes]
+<!-- .slide: data-background="#087CB8" -->
+
+</script></section><section ><section data-markdown><script type="text/template">
+# HTML Forms
+</script></section><section data-markdown><script type="text/template">
+## Why use forms?
+
+1. Collect data about the user<!-- .element: class="fragment" -->
+1. Ask the user a question<!-- .element: class="fragment" -->
+1. Login or registration forms<!-- .element: class="fragment" -->
+</script></section><section data-markdown><script type="text/template">
+## A Simple Form
+
+```html
+<form action='/results' method='GET'>
+  What is your name?
+  <input type='text' name='firstname'>
+  <br>
+  <input type='submit' value='Submit!'>
+</form>
+```
+</script></section><section data-markdown><script type="text/template">
+## Anatomy of a Form
+
+Form attributes:
+
+- `action`: What URL am I sent to when I submit the form?
+- `method`: Is it a GET or a POST request?
+
+```html
+<form action='/results' method='GET'>
+```
+</script></section><section data-markdown><script type="text/template">
+## Anatomy of a Form
+
+Form element attributes:
+
+- `type`: What type of data am I collecting (e.g. number vs. text), and in what format?
+- `name`: What *label* am I putting on the data? *Hint*: This is kind of like a variable name!
+- `value`: What is the *default value* of the form element?
+
+```html
+<input type='text' name='favorite_color' value='blue'>
+```
+</script></section><section data-markdown><script type="text/template">
+## Jigsaw Activity [30 min]
+
+Get into groups of 4 or 5 and research a *specific* form element. Within your group, do the following:
+
+- Test out the form element in your browser. How does it work?
+- What *attributes* (such as `name`, `value`, etc) are required to use this form element? What do they do?
+- What *query string* results when you submit the form?
+
+*Every* person in the group *must* be able to present the findings!
+
+<aside class="notes">
+
+Form elements:
+- [select/option](https://www.w3schools.com/tags/att_select_form.asp)
+- [datalist](https://www.w3schools.com/tags/tag_datalist.asp)
+- [radio buttons](https://www.w3schools.com/tags/att_input_type_radio.asp)
+- [checkbox](https://www.w3schools.com/tags/att_input_type_checkbox.asp)
+- [date](https://www.w3schools.com/tags/att_input_type_date.asp)
+- [color](https://www.w3schools.com/tags/att_input_type_color.asp)
+
+</aside>
+</script></section><section data-markdown><script type="text/template">
+## Jigsaw Activity Pt. 2
+
+Form expert groups around your table. Fill in the rest of your worksheet for *at least four* input elements.
+</script></section></section><section ><section data-markdown><script type="text/template">
+# Developer Tools
+</script></section><section data-markdown><script type="text/template">
+## Demo
+</script></section></section><section  data-markdown><script type="text/template"><!-- .slide: data-background="#087CB8" -->
+
+## Homework
+
+- [Homework 1](https://make-school-courses.github.io/BEW-1.1-RESTful-and-Resourceful-MVC-Architecture/#/Assignments/Weekly-Homework?id=homework-1)
+
+</script></section><section  data-markdown><script type="text/template">
+## Resources
+
+- [HTML Basics](https://www.w3schools.com/html/html_basic.asp)
+- [HTML Form Elements](https://www.w3schools.com/html/html_form_elements.asp)
+- [Chrome Developer Tools](https://developers.google.com/web/tools/chrome-devtools)</script></section></div>
+    </div>
+
+    <script src="./../js/reveal.js"></script>
+
+    <script>
+      function extend() {
+        var target = {};
+        for (var i = 0; i < arguments.length; i++) {
+          var source = arguments[i];
+          for (var key in source) {
+            if (source.hasOwnProperty(key)) {
+              target[key] = source[key];
+            }
+          }
+        }
+        return target;
+      }
+
+      // Optional libraries used to extend on reveal.js
+      var deps = [
+        { src: './../plugin/markdown/marked.js', condition: function() { return !!document.querySelector('[data-markdown]'); } },
+        { src: './../plugin/markdown/markdown.js', condition: function() { return !!document.querySelector('[data-markdown]'); } },
+        { src: './../plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+        { src: './../plugin/zoom-js/zoom.js', async: true },
+        { src: './../plugin/notes/notes.js', async: true },
+        { src: './../plugin/math/math.js', async: true }
+      ];
+
+      // default options to init reveal.js
+      var defaultOptions = {
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+        transition: 'default', // none/fade/slide/convex/concave/zoom
+        dependencies: deps
+      };
+
+      // options from URL query string
+      var queryOptions = Reveal.getQueryHash() || {};
+
+      var options = extend(defaultOptions, {"controls":true,"progress":true,"autoPlayMedia":false,"slideNumber":"c/t","showSlideNumber":"all","controlsTutorial":true,"controlsLayout":"edges","transition":"slide","transitionSpeed":"medium","minScale":0.5,"maxScale":3}, queryOptions);
+    </script>
+
+
+    <script>
+      Reveal.initialize(options);
+    </script>
+  </body>
+</html>

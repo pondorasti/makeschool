@@ -1,0 +1,46 @@
+<html>
+  <head>
+    <title></title>
+    
+    <style>
+        body {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+        .container {
+          width: 400px;
+        }
+      </style>
+  </head>
+  <body>
+    <div class="container">
+    
+      <h1>Web Components - Copy Right challenge</h1>
+      <p>The component below displays "Copy right" follwed by the full year. 
+        Your goal is to create this component on your own. It should create 
+        a shadow root and display the message "Copyright" followed by the 
+        the current year (use the Date Object to get the year).
+      </p>
+
+      <!-- This component contains a solution. Try making your own first then compare 
+      your work to the solution code. 
+      
+      The challenge is to make a Web Component that 
+      the copy right. Imagine you could add the tag to the bottom of any page and it 
+      would display a copyright message. -->
+
+      <!-- Displays "Copyright 2019" -->
+      <frmwrk-copy>Hello 123</frmwrk-copy>
+      <!-- Displays "Copyright 1965" -->
+      <frmwrk-copy year="1965"></frmwrk-copy> 
+      <!-- Displays "Copyright 2019" -->
+      <frmwrk-copy year="1965" title="soggybag"></frmwrk-copy> 
+
+      <!-- The copyright component is defined in this file. The code there 
+      defines a new tag: frmwrk-copy -->
+      <script src="./frmwrk-copy.js"></script>
+      <!-- Had to load this at the end of the for textContent of node to work -->
+    </div>
+  </body>
+</html>

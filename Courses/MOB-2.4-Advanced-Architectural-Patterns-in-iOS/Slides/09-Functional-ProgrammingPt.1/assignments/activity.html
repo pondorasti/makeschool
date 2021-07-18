@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <title>Syllabus Template Slides</title>
+    <link rel="stylesheet" href="./../../css/reveal.css" />
+    <link rel="stylesheet" href="./../../css/theme/black.css" id="theme" />
+    <link rel="stylesheet" href="./../../css/highlight/zenburn.css" />
+    <link rel="stylesheet" href="./../../css/print/paper.css" type="text/css" media="print" />
+    <link rel="stylesheet" href="./../../assets/Reveal/makeschool.css" />
+
+    <script>
+      document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>');
+    </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides"><section  data-markdown><script type="text/template">
+## In Class Activity
+
+### Individually or In a team create a playground or Repl.it to work on the following:
+
+#### Resources:
+- [map documentation](https://developer.apple.com/documentation/swift/array/3017522-map)
+- [filter documentation](https://developer.apple.com/documentation/swift/sequence/3018365-filter)
+- [reduce documentation](https://developer.apple.com/documentation/swift/array/2298686-reduce)
+
+1. Here is an imperative version of a function called `doubleIt` that takes an array of numbers and returns a new array after doubling every item in the initial array:
+
+```swift
+func doubleIt(inputArray: Array<Int>) {
+
+    var results = [Int]()
+
+    for num in inputArray {
+        results.append(num * 2)
+    }
+    print(results)
+}
+
+doubleIt(inputArray: [1,2,3]) // [2,4,6]
+```
+
+Code the declarative (FP) version of `doubleIt`so that it achieves the same result as the code above by using the `map` function instead of the `for loop`
+
+<!--
+```swift
+func doubleIt(inputArray: Array<Int>) {
+
+    // TODO: Use map here...
+    let results = ??
+    print(results)
+}
+
+doubleIt(inputArray: [1,2,3]) // [2,4,6]
+```
+-->
+
+2. Suppose we have an array containing strings representing the contents of a directory:
+
+`let exampleFiles = ["README.md", "HelloWorld.swift", "FlappyBird.swift"]`
+
+Now suppose we want an array of all the .swift files. This is easy to compute with a simple loop. Use the HOF `filter`.
+
+3. Define a function that sums all the integers in an array. Use `reduce`
+
+4. Suppose we have the following struct, consisting of a city’s name and population (measured in thousands of inhabitants):
+
+```swift
+struct City {
+  let name: String
+  let population: Int
+}
+
+extension City {
+  func scalingPopulation() -> City {
+    return City(name: name, population: population * 1000)
+  }
+}
+```
+We can define several example cities:
+
+```swift
+
+let paris = City(name: "Paris", population: 2241)
+let madrid = City(name: "Madrid", population: 3165)
+let amsterdam = City(name: "Amsterdam", population: 827)
+let berlin = City(name: "Berlin", population: 3562)
+
+let cities = [paris, madrid, amsterdam, berlin]
+```
+
+Print a list of cities with at least one million inhabitants, together with their total populations.
+
+
+*From: Chris Eidhof. “Functional Swift.” Apple Books*
+</script></section></div>
+    </div>
+
+    <script src="./../../js/reveal.js"></script>
+
+    <script>
+      function extend() {
+        var target = {};
+        for (var i = 0; i < arguments.length; i++) {
+          var source = arguments[i];
+          for (var key in source) {
+            if (source.hasOwnProperty(key)) {
+              target[key] = source[key];
+            }
+          }
+        }
+        return target;
+      }
+
+      // Optional libraries used to extend on reveal.js
+      var deps = [
+        { src: './../../plugin/markdown/marked.js', condition: function() { return !!document.querySelector('[data-markdown]'); } },
+        { src: './../../plugin/markdown/markdown.js', condition: function() { return !!document.querySelector('[data-markdown]'); } },
+        { src: './../../plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+        { src: './../../plugin/zoom-js/zoom.js', async: true },
+        { src: './../../plugin/notes/notes.js', async: true },
+        { src: './../../plugin/math/math.js', async: true }
+      ];
+
+      // default options to init reveal.js
+      var defaultOptions = {
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+        transition: 'default', // none/fade/slide/convex/concave/zoom
+        dependencies: deps
+      };
+
+      // options from URL query string
+      var queryOptions = Reveal.getQueryHash() || {};
+
+      var options = extend(defaultOptions, {"controls":true,"progress":true,"autoPlayMedia":false,"slideNumber":"c/t","showSlideNumber":"all","controlsTutorial":true,"controlsLayout":"edges","transition":"slide","transitionSpeed":"medium","minScale":0.5,"maxScale":3}, queryOptions);
+    </script>
+
+
+    <script>
+      Reveal.initialize(options);
+    </script>
+  </body>
+</html>

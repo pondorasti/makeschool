@@ -1,0 +1,186 @@
+
+Each class begins or ends with quiz 
+Class ends with code review random student
+Commit during class 
+
+- Week 1 Intro, React, JSX, Components, Props, and State
+	- **Class 1** 
+		- Intro 
+			- What is React?
+				- Library for making user interfaces
+				- It's built on Functional Reactive programming concepts
+					- **Functional programming** is programming with functions. It avoids changhing state and mutable data. There are many concepts: Pure functions, monads, and functors. We will cover some examples of functional programming in class. You don't have to be an expert to use React. 
+					- **Reactive Programming** is programming with data streams. A reactive program reacts to changes in a system rather than following instructions. 
+				- It uses a Virtual DOM
+		- In class: Components 
+			- Create React App
+			- Components
+			- props and state
+			- JSX 
+			- Component Examples 
+				- Title/Heading
+				- List 
+				- Clock/Time 
+		- After Class (3hrs complete before class 2)
+			- Intro tutorial: https://reactjs.org/tutorial/tutorial.html
+		- Resources
+			- [Functional Programming Intro](https://medium.freecodecamp.org/an-introduction-to-the-basic-principles-of-functional-programming-a2c2a15c84)
+			- [Reactive in a Nutshell](https://www.codekitchen.ca/what-is-reactive-programming/)
+	- **Class 2** - Functional programming **map**, filter, reduce
+		- Map, filter, reduce 
+			- Map, use it to transform an array of one type into an array of another type. A common process with react is transforming an array of data into an array of components. 
+		- Rendering Arrays with React using keys 
+		- ES6 Modules 
+			- import 
+			- Export 
+		- In Class 
+			- Getting Started on the Product Lister
+			- Making a Category Button component 
+			- Transforming a list of strings into list of components
+			- Displaying an array in JSX
+			- Handling a clicks with onClick
+			- Setting state
+		- After Class 
+			- Product List Challenges 
+- Week 2 Working with React and external APIs, code quality Linting
+	- API project (from a list)
+	- Class 3: External API project 
+		- Fetch, async, promise, async, await
+		- Input pattern Controlled Component Pattern
+		- Conditional rendering 
+		- Presentational vs Container Components 
+			- Time Component 
+			- Temperature component 
+		- In class
+			- Install and run the demo project
+			- Make API Key with Open Weather Map
+			- Making Components for 
+		- After Class
+			- Complete the React API Challenges 
+	- Class 4: ESLint and troubleshooting
+		- What is Good Code? 
+			- Does it work well? 
+			- Is it maintable? 
+			- Can other people read it? 
+			- What standard does it meet?
+			- How do you go about writing good code? 
+				- What do you do to make sure the code you write is high quality?
+		- Linting and ESLint
+			- What is linting? 
+			- Why lint? 
+			- Who lints?
+		- In Class 
+			- https://eslint.org/docs/user-guide/getting-started
+			- npm install eslint --save-dev
+			- eslint --init
+				- choose popular style guide
+				- Airbnb
+				- Do you use React? (depends, right?)
+				- Format for config: JavaScript 
+				- Install Y
+				- Close your files and reopen them to start linting!
+		- After Class 
+			- Install the Linter and lint all of the code you have written so far in class
+				- Stretch goal: Lint code from projects outside of class!
+			- Complete any uncompleted work from class
+- Week 3 - React as a front end for your back end
+	- Using React and Express together
+	- Class 5: 
+		- Express Server
+			- Setup Express server
+			- Setup JSON API routes should respond with JSON
+			- Definging an API
+				- What are your favorite APIs?
+				- What does a good API look like? 
+				- How do you like your data? (what form is it in)
+				- What about errors?
+					- What happens when your system can't return what is expected? 
+		- Unit Tests 
+			- What are unit tests?
+			- Writing unit tests
+		- In Class 
+			- Testing the server
+				- Install and setup server
+				- Test the routes
+				- Check Parameters 
+				- Check query
+			- Using Unit tests
+				- Running Tests
+				- viewing the output
+				- Writing Tests
+		- After Class 
+			- Work on Challenges in react-express-server
+				- Add new functions and features 
+				- Run tests 
+				- Write new tests
+				- Lint your code
+					- List of quotes
+					- Rappers 
+					- Pop artists
+					- Movie Characters
+					- Actors 
+					- Politicians
+	- Class 6: React Connect to Express Server with Proxy
+		- React connect to express 
+			- Connecting to an alternate server with Proxy
+			- Making requests to the server (tl;dr review class 3)
+		- In class 
+			- Pair up and start solving problems
+				- 
+		- After Class 
+			- Work on Challenges in react-express-project
+- Week 4
+	- Class 7: React Express Workshop
+	- Class 8: Brainstorm custom project 
+		- What is the goal?
+		- Does it have a backend? 
+			- What does the API look like?
+		- 
+- Week 5 - Navigation 
+	- Class 9: React Router 
+	- Class 10: More React Rounter 
+- Week 6 - 
+	- Class 11: Workshop 
+	- Class 12: Testing 
+- Week 7 - 
+	- Class 13: Final project presentations 
+	- Class 14: Final Assessment 
+		
+		
+Conditional Rendering Components 
+Styling Component 
+Presentational Components vs containers 
+Bind onClick 
+React Router 
+
+Final Project 
+	- Project with Public API 
+		- 
+	- Project repurpose BEW project with React Front end 
+		- 
+	- Project CRUD 1 or more resources with React front end 
+		- Pick a React Library like material or **Semantic UI**
+
+- Week 5
+	- Redux Why Redux? What Redux? 
+		- ref vs value
+	- Start Tutorial 
+	- Class 9: 
+		- Redux why and why?
+			- Actions, Dispatcher, Store, reducers
+	- Class 10: 
+		- react-redux connect, create store
+- Week 6
+	- Redux Tutorial 
+	-	Class 11:
+		- Styling components 
+	- Class 12:
+		-
+- Week 7
+	- Review Final projects 
+		- Study for final 
+	- Final Assessment 
+	- Class 13: 
+		- Final Assessment 
+	- Class 14:
+		- Show youre work

@@ -1,0 +1,35 @@
+<html>
+  <head>
+    <title>Form Playground</title>
+  </head>
+  <body>
+    <style>
+      .add-box {
+        display: inline-block;
+        color: tomato;
+        cursor: pointer;
+      }
+      .add-box::after {
+        content: "";
+        display: block;
+        width: 0;
+        height: 3px;
+        background-color: tomato;
+        transition: 400ms;
+      }
+      .add-box:hover::after {
+        width: 100%;
+      }
+    </style>
+
+    <blockquote>
+      If you set your goals 
+      <span class="add-box">ridiculously</span> 
+      high and it's a failure, you will
+       fail above everyone else's 
+       <span class="add-box">success</span>. 
+      -James Cameron
+    </blockquote>
+
+  </body>
+</html>

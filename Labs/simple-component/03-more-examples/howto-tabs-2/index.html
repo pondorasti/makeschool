@@ -1,0 +1,32 @@
+<html>
+  <head>
+    <title></title>
+    <style>
+      howto-tab {
+        border: 1px solid black;
+        padding: 20px;
+      }
+      howto-panel {
+        padding: 20px;
+        background-color: lightgray;
+      }
+      howto-tab[selected] {
+        background-color: bisque;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Howto Tabs markup -->
+    <howto-tabs>
+      <howto-tab role="heading" slot="tab">Tab 1</howto-tab>
+      <howto-panel role="region" slot="panel">Content 1 - My Content</howto-panel>
+      <howto-tab role="heading" slot="tab">Tab 2</howto-tab>
+      <howto-panel role="region" slot="panel">Content 2</howto-panel>
+      <howto-tab role="heading" slot="tab">Tab 3</howto-tab>
+      <howto-panel role="region" slot="panel">Content 3</howto-panel>
+    </howto-tabs>
+
+    <!-- Load howto tabs js -->
+    <script src="./howto-tabs.js"></script>
+  </body>
+</html>

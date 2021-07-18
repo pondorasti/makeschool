@@ -1,0 +1,26 @@
+[
+  {
+    "name": "Xero",
+    "personality": "Cunning",
+    "image": "https://robohash.org/xero",
+    "phrase": "Please don't reload, I'll DIE!"
+  },
+  {
+    "name": "Scrappie",
+    "personality": "Loopy",
+    "image": "https://robohash.org/scrappie",
+    "phrase": "Blackmail is such an ugly word. I prefer extortion. The ‘x’ makes it sound cool."
+  },
+  {
+    "first_name": "Tink Tank",
+    "personality": "Smarty Pants",
+    "image": "https://robohash.org/tinktank",
+    "phrase": "We're no strangers to hashing.. You know the 3 rules, and so do I.."
+  },
+  {
+    "name": "Boom Boom",
+    "personality": "Impatient",
+    "image": "https://robohash.org/boomboom",
+    "phrase": "I say the world must learn of our peaceful ways...by force!"
+  }
+]

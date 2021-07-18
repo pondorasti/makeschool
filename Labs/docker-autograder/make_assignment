@@ -1,0 +1,30 @@
+#!/usr/bin/env bash
+
+GITHUB_REPO='git@github.com:make-school-labs/docker-autograder.git'
+REPO_NAME="docker-autograder"
+
+# Input the assignment number:
+name=$1
+
+# File that represents the deliverable:
+solution=${2:-"URL"}
+
+# Delete previous autograders:
+rm $name.zip
+
+# Copy all files necessary for assignment.
+# Make sure your deploy key is copied to `base/`.
+mkdir -p zip_$name
+cp -a base/* zip_$name/
+cp -a tests/* zip_$name/
+
+# Add assignment name and solution filename to run_autograder:
+sed "s/REPLACE_NAME/NAME=$name/" zip_$name/run_autograder > /tmp/run_autograder && mv /tmp/run_autograder zip_$name/run_autograder
+sed "s/REPLACE_SOLUTION/SOLUTION=$solution/" zip_$name/run_autograder > /tmp/run_autograder && mv /tmp/run_autograder zip_$name/run_autograder
+sed "s/REPLACE_REPO_NAME/REPO_NAME=$REPO_NAME/" zip_$name/run_autograder > /tmp/run_autograder && mv /tmp/run_autograder zip_$name/run_autograder
+sed "s/REPLACE_REPO_NAME/REPO_NAME=$REPO_NAME/" zip_$name/setup.sh > /tmp/setup.sh && mv /tmp/setup.sh zip_$name/setup.sh
+sed "s,REPLACE_GITHUB_REPO,GITHUB_REPO=$GITHUB_REPO," zip_$name/setup.sh > /tmp/setup.sh && mv /tmp/setup.sh zip_$name/setup.sh
+
+# Zip the assignement and delete folder:
+zip -r -m -j $name.zip zip_$name/*
+rm -rf zip_$name

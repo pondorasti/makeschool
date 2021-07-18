@@ -1,0 +1,95 @@
+<!doctype html>
+<html>
+  <head>
+  <title></title>
+  <link href="css/styles.css" rel="stylesheet">
+</head>
+
+<body>
+  <div id="container" class="container">
+    <div id="sprite"></div>
+
+    <div class="controls">
+      <div id="coords" class="coords">x:00 y:00</div>
+      <div class="buttons">
+        <div id="left-btn" class="button">Left</div>
+        <div>
+          <div id="up-btn" class="button">Up</div>
+          <div id="down-btn" class="button">Down</div>
+        </div>
+        <div id="right-btn" class="button">Right</div>
+      </div>
+    </div>
+  </div>
+  
+  <!--  -->
+  
+  <script>
+    const left_btn = document.getElementById('left-btn')
+    const up_btn = document.getElementById('up-btn')
+    const down_btn = document.getElementById('down-btn')
+    const right_btn = document.getElementById('right-btn')
+    const sprite = document.getElementById('sprite')
+    const coords = document.getElementById('coords')
+    const container = document.getElementById('container')
+    
+    let x = 100
+    let y = 100
+    let direction = 1
+    
+    function update() {
+      updateCoords()
+      updateBackground()
+      moveSprite()
+    }
+    
+    function moveSprite() {
+      sprite.style.setProperty('--direction', direction)
+      sprite.style.setProperty('--x', x)
+      sprite.style.setProperty('--y', y)
+    }
+    
+    function updateCoords() {
+      coords.innerHTML = `X:${x} Y:${y}`
+    }
+    
+    function updateBackground() {
+      console.log(x, y)
+      container.style.setProperty('--x', x / -1)
+      container.style.setProperty('--y', y / -1)
+    }
+    
+    update()
+    
+    left_btn.onclick = function(e) {
+      x -= 100
+      direction = -1
+      update()
+    }
+    
+    right_btn.onclick = function(e) {
+      x += 100
+      direction = 1
+      update()
+    }
+    
+    up_btn.onclick = function(e) {
+      y -= 100
+      update()
+    }
+    
+    down_btn.onclick = function(e) {
+      y += 100
+      update()
+    }
+    
+    function makeBomb() {
+      
+    }
+    
+    
+  </script>
+
+</body>
+</html>
+ 

@@ -1,0 +1,11 @@
+name: example-environment
+channels:
+  - conda-forge
+dependencies:
+  - numpy
+  - scipy
+  - statsmodels
+  - matplotlib
+  - pandas
+  - seaborn
+  - scikit-learn==0.21.3

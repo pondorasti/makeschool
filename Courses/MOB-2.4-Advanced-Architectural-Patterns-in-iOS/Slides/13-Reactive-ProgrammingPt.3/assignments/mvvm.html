@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <title>Syllabus Template Slides</title>
+    <link rel="stylesheet" href="./../../css/reveal.css" />
+    <link rel="stylesheet" href="./../../css/theme/black.css" id="theme" />
+    <link rel="stylesheet" href="./../../css/highlight/zenburn.css" />
+    <link rel="stylesheet" href="./../../css/print/paper.css" type="text/css" media="print" />
+    <link rel="stylesheet" href="./../../assets/Reveal/makeschool.css" />
+
+    <script>
+      document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>');
+    </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides"><section  data-markdown><script type="text/template">## RX & MVVM
+
+__*Required resources:*__
+- Xcode with RxSwift enabled
+- the starter app, `MVVMRx_SampleProject-master`
+
+### Part 1 - Individually
+
+__*Exercise 1:*__ Find and examine:
+
+- The `ObserverType protocol` (in RxSwift library)
+- Descriptions of `bindTo(_:)` functions (in RxCocoa)
+
+__*Exercise 2:*__ In the starter app, the code for the `albums` scene is complete. But the code for the `tracks` scene needs to be completed in 3 places.
+
+- Search for the 3 `TODO:`s specific to this lesson (there are more than 3 `TODO:`s in the app).
+- Using clues from how the `albums` scene was implemented, implement which is missing for each of the 3 `TODO:`s for the `albums` scene
+
+**Q:** For Part 3 of this exercise, what exactly is the nature of the "observable" bound to the code called for each cell/row?
+
+**Q:** In HomeViewModel, note the construction of the 4 PublishSubjects. What benefit(s) does the `error` PublishSubject provide?
+
+### Part 2 - As A Class
+
+**Q:** How does this app implement MVVM?
+
+
+</br>
+
+*Source for starter app:* </br>
+https://medium.com/flawless-app-stories/practical-mvvm-rxswift-a330db6aa693
+</br>
+</script></section></div>
+    </div>
+
+    <script src="./../../js/reveal.js"></script>
+
+    <script>
+      function extend() {
+        var target = {};
+        for (var i = 0; i < arguments.length; i++) {
+          var source = arguments[i];
+          for (var key in source) {
+            if (source.hasOwnProperty(key)) {
+              target[key] = source[key];
+            }
+          }
+        }
+        return target;
+      }
+
+      // Optional libraries used to extend on reveal.js
+      var deps = [
+        { src: './../../plugin/markdown/marked.js', condition: function() { return !!document.querySelector('[data-markdown]'); } },
+        { src: './../../plugin/markdown/markdown.js', condition: function() { return !!document.querySelector('[data-markdown]'); } },
+        { src: './../../plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+        { src: './../../plugin/zoom-js/zoom.js', async: true },
+        { src: './../../plugin/notes/notes.js', async: true },
+        { src: './../../plugin/math/math.js', async: true }
+      ];
+
+      // default options to init reveal.js
+      var defaultOptions = {
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+        transition: 'default', // none/fade/slide/convex/concave/zoom
+        dependencies: deps
+      };
+
+      // options from URL query string
+      var queryOptions = Reveal.getQueryHash() || {};
+
+      var options = extend(defaultOptions, {"controls":true,"progress":true,"autoPlayMedia":false,"slideNumber":"c/t","showSlideNumber":"all","controlsTutorial":true,"controlsLayout":"edges","transition":"slide","transitionSpeed":"medium","minScale":0.5,"maxScale":3}, queryOptions);
+    </script>
+
+
+    <script>
+      Reveal.initialize(options);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,71 @@
+Column Heading,Description
+species,Species names
+state,State
+HUCName,Hydrologic unit name
+Common_Name,Common_Name
+Dataset,Data sources
+Station_Date,StationID + Sampling Date
+SITE_ID,Station Identifier
+YEAR,Year
+month,Month (from date)
+ECOREGL3,Level 3 ecoregion
+LAT_DD,Decimal degree latitude
+LON_DD,Decimal degree longitude
+HUC,Hydrologic unit
+BigHUC,HUC4 unit
+FE,Iron (mg/L)
+MN,Manganese (mg/L)
+PHSTVL,standard pH
+COND,Conductivity (µS/cm)
+TP,Total Phosphorus
+CA,Calcium (mg/L)
+SO4,SO4 (mg/L)
+NO3,Nitrite (mg/L)
+CL,Chloride (Cl mg/L)
+alk,Alkalinity
+do,Dissolved Oxygen
+Temp,Water Temperature (°C)
+rbpscore,RBP habitat score
+GENUS,Genus
+ABUND,abundance
+SUMCOUNT,Total Count
+NUMSPEC,Number of species
+NSBENT_INV,Number of native benthic invertivore species
+NSBENT_INV_NONTOL,"Number of native, non-tolerant benthic invertivore species"
+NSINTOL,Number of intolerant species
+PINTOL,Percent Intolerant
+PBENT_INV,Percent of individuals that are native benthic invertivores
+PBENT_INV_NONTOL,"Percent of individuals that are native, non-tolerant benthic invertivores"
+WS_AREA,Watershed area (km2)
+LWSKM2,Log10 transfomred watershed size (km2)
+abent_inv,Abundance of native benthic invertivores
+abent_inv_nontol,"Abundance of native, non-tolerant benthic invertivores"
+aintol,Abundance of intolerant species
+ns_DarScuMad,"Number of darter, sculpins or madtom species"
+ab_DarScuMad,"Abundance of darters, sculpins and madtoms"
+p_DarScuMad,"Percent of individuals that are darters, sculpins or madtoms"
+Station_Year,StationID + Sampling Year
+lcond,log10 transformed conducitivity
+SO4HCO3,SO4 + HCO3 (mg/L)
+ratio,SO4 + HCO3/ Cl (mg/L)
+TotCount,Total Count
+RA,Relative abundance
+FOR_TOT,% Forested
+hardness,hardness (mg/L)
+Fecal_Coliform,fecal coliform bacteria count (per 100 mL water)
+xembed,% embeddedness
+pct_safn,% sand + fine
+VISIT_NO,Visit Number
+num,"Was a temporary variable used to create the variable, visit_no, in the Ohio data set."
+mg,Magnesium (mg/L)
+na,Sodium (Na mg/L)
+k,Potassium (mg/L)
+hco3,HCO3 (mg/L)
+tn,Total nitrogen (mg/L)
+al,Aluminum (mg/L)
+Se,Selenium (mg/L)
+Cadmium,Cadmium (mg/L)
+Calcium,Calcium (mg/L)
+Species,Taxa Species
+Common name,Sample Collection Method Name
+Genus,Genus Taxonomic Rank

@@ -1,0 +1,30 @@
+body {
+    display: flex;
+    justify-content: center;
+}
+
+#content {
+    width: 75%;
+}
+
+.event-container {
+    border: 1px solid #000;
+    margin: 10px 0;
+    padding: 10px;
+}
+
+.event-header-container {
+    display: flex;
+    flex-direction: row;
+}
+
+.small-text {
+    font-size: 0.8em;
+    color: #333;
+    font-style: italic;
+}
+
+.error {
+    color: red;
+    font-weight: bold;
+}

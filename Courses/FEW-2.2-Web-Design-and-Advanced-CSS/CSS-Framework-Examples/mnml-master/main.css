@@ -1,0 +1,308 @@
+:root {
+    --cyan-050: #E0FCFF;
+    --cyan-100: #BEF8FD;
+    --cyan-200: #87EAF2;
+    --cyan-300: #54D1DB;
+    --cyan-400: #38BEC9;
+    --cyan-500: #2CB1BC;
+    --cyan-600: #14919B;
+    --cyan-700: #0E7C86;
+    --cyan-800: #0A6C74;
+    --cyan-900: #044E54;
+  
+    /* Neutrals */
+    --grey-050: #F0F4F8;
+    --grey-100: #D9E2EC;
+    --grey-200: #BCCCDC;
+    --grey-300: #9FB3C8;
+    --grey-400: #829AB1;
+    --grey-500: #627D98;
+    --grey-600: #486581;
+    --grey-700: #334E68;
+    --grey-800: #243B53;
+    --grey-900: #102A43;
+  
+    /* Supporting */
+    --indigo-050: #E0E8F9;
+    --indigo-100: #BED0F7;
+    --indigo-200: #98AEEB;
+    --indigo-300: #7B93DB;
+    --indigo-400: #647ACB;
+    --indigo-500: #4C63B6;
+    --indigo-600: #4055A8;
+    --indigo-700: #35469C;
+    --indigo-800: #2D3A8C;
+    --indigo-900: #19216C;
+  
+    --pink-050: #FFE0F0;
+    --pink-100: #FAB8D9;
+    --pink-200: #F191C1;
+    --pink-300: #E668A7;
+    --pink-400: #DA4A91;
+    --pink-500: #C42D78;
+    --pink-600: #AD2167;
+    --pink-700: #9B1B5A;
+    --pink-800: #781244;
+    --pink-900: #5C0B33;
+  
+    --red-050: #FFEEEE;
+    --red-100: #FACDCD;
+    --red-200: #F29B9B;
+    --red-300: #E66A6A;
+    --red-400: #D64545;
+    --red-500: #BA2525;
+    --red-600: #A61B1B;
+    --red-700: #911111;
+    --red-800: #780A0A;
+    --red-900: #610404;
+  
+    --yellow-050: #FFFAEB;
+    --yellow-100: #FCEFC7;
+    --yellow-200: #F8E3A3;
+    --yellow-300: #F9DA8B;
+    --yellow-400: #F7D070;
+    --yellow-500: #E9B949;
+    --yellow-600: #C99A2E;
+    --yellow-700: #A27C1A;
+    --yellow-800: #7C5E10;
+    --yellow-900: #513C06;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans",
+    "Helvetica Neue", Arial, sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-size: 18px;
+    box-sizing: border-box;
+}
+
+ul {
+    list-style-type: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    padding: 5px;
+    margin: 0px;
+    margin-left: 5px;
+    line-height: 1.5em;
+}
+
+p {
+    line-height: 25px;
+    padding: 5px;
+    margin: 5px;
+}
+
+button {
+    margin: 10px;
+    padding: 15px 20px 15px 20px;
+    border-radius: 7px;
+    font-size: .8em
+}
+
+button:focus {
+    outline: none;
+}
+
+.primary {
+    background-color: var(--grey-800);
+    color: white;
+    border: none;
+}
+
+.secondary {
+    border: 2px solid var(--grey-800);
+    color: var(--grey-800);
+}
+
+.tertiary {
+    color: var(--grey-800);
+    border: none;
+    font-weight: bold;
+    background-color: transparent;
+}
+
+.primary.danger {
+    background-color: var(--red-500) !important
+}
+
+.secondary.danger {
+    color: var(--red-500);
+    border-color: var(--red-500) !important;
+}
+
+.tertiary.danger {
+    color: var(--red-500);
+}
+
+.primary.success {
+    background-color: var(--cyan-500) !important
+}
+
+.secondary.success {
+    color: var(--cyan-500);
+    border-color: var(--cyan-500) !important;
+}
+
+.tertiary.success {
+    color: var(--cyan-500);
+}
+
+.navbar {
+    background-color: var(--grey-800);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-left: 10px;
+    padding-right: 10px;
+    align-items: baseline;
+}
+
+.navbar > .title {
+    font-size: 1.3em;
+}
+
+.navbar > ul {
+    padding: 0;
+    color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+.navbar > ul > li {
+    padding: 10px;
+}
+.navbar > ul > li > a{
+    color: white;
+    text-decoration: none;
+}
+
+.navbar > ul > li > a:hover{
+    color: yellow;
+}
+
+ .footer > .container-column > .container-row > a {
+    margin: 0px 10px 10px 0px;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.footer > .container-column > .container-row > a:hover {
+    margin: 0px 10px 10px 0px;
+    color: yellow;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.title {
+    font-weight: bold;
+}
+
+.footer {
+    padding: 20px;
+    background-color: var(--grey-800);
+    min-height: 50px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    color: white;
+}
+
+.hero-medium {
+    background-color: var(--grey-800);
+    height: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+.hero-title {
+    font-weight: bold;
+    font-size: 56px;
+    padding: 10px;
+}
+
+.hero-subtitle {
+    font-size: 22px;
+}
+
+.container-row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.card {
+    background-color: var(--grey-050);
+    border-radius: 10px;
+    border: 1px solid var(--grey-200)
+}
+
+.container-column {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    flex-wrap: wrap;
+    padding: 20px;
+    min-width: 420px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    padding: 30px;
+    border-radius: 7px;
+}
+
+label {
+    margin: 5px;
+    margin-top: 20px;
+}
+
+input {
+    margin: 5px;
+    background-color: var(--grey-050);
+    border: none;
+    height: 40px;
+    border-radius: 5px;
+    padding-left: 8px;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    justify-content: space-evenly
+}
+
+.color {
+    border-radius: 10px;
+    background-color: black;
+    flex: 1;
+    height: 80px;
+    width: 80px;
+    margin: 20px 5px;
+}
+
+.wrapper {
+    background-color: white;
+    padding: 20px;
+    border-radius: 7px;
+}
+
+/* @media only screen and (max-width: 1390px){
+    body {
+        max-width: 900px;
+        margin: auto;
+    }
+    .container-row{
+        flex-direction: column;
+    }
+} */

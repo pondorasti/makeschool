@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <title>Syllabus Template Slides</title>
+    <link rel="stylesheet" href="./css/reveal.css" />
+    <link rel="stylesheet" href="./css/theme/black.css" id="theme" />
+    <link rel="stylesheet" href="./css/highlight/zenburn.css" />
+    <link rel="stylesheet" href="./css/print/paper.css" type="text/css" media="print" />
+    <link rel="stylesheet" href="./assets/Reveal/makeschool.css" />
+
+    <script>
+      document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>');
+    </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides"><section  data-markdown><script type="text/template"><!-- .slide: data-background="./../Images/header.svg" data-background-repeat="none" data-background-size="40% 40%" data-background-position="center 10%" class="header" -->
+# Fundamentals and OOP Review Part II
+
+[Slides]()
+</script></section><section  data-markdown><script type="text/template">
+## Agenda
+
+- Check In
+- Intro to turtle graphics
+- Creating Functions
+- Converting Functions to a Class
+- Inheritance and Polymorphism
+</script></section><section  data-markdown><script type="text/template">
+## Check In
+
+What are the biggest challenges you anticipate this term? How can Jess help you overcome them?
+</script></section><section  data-markdown><script type="text/template">
+## Learning Goals
+
+- Be able to use turtle graphics to draw in Python
+- Be able to make decisions about defining functions
+- Be able to convert functions to classes
+- Understand and apply inheritance and polymorphism
+</script></section><section  data-markdown><script type="text/template">
+## Interview Question Warmup
+
+Write a function called find_max that takes in a list of numbers and returns the max (largest) number in the list.
+
+<iframe src="https://trinket.io/embed/python/69987bdd5e" width="100%" height="356" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+</script></section><section  data-markdown><script type="text/template">
+## Intro to Turtle Graphics
+
+Let's Draw Stuff!
+</script></section><section  data-markdown><script type="text/template">
+## Turtle Commands
+
+- forward()
+- backward()
+- left()
+- right()
+- pencolor()
+- pensize()
+- speed()
+</script></section><section  data-markdown><script type="text/template">
+## Turtle Graphics Code Along
+
+<iframe src="https://trinket.io/embed/python/ab48086abe" width="100%" height="356" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+</script></section><section  data-markdown><script type="text/template">
+## Use what we have learned so far to draw a square!
+
+<iframe src="https://trinket.io/embed/python/ab48086abe" width="100%" height="356" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+</script></section><section  data-markdown><script type="text/template">
+## What if we wanted to draw many squares?
+
+How can we make our code more efficient and reusable? 
+
+<iframe src="https://trinket.io/embed/python/ab48086abe" width="100%" height="356" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+</script></section><section  data-markdown><script type="text/template">
+## How can we convert this code to a class? 
+
+How can we make our code more efficient and reusable? 
+
+<iframe src="https://trinket.io/embed/python/ab48086abe" width="100%" height="356" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+</script></section><section  data-markdown><script type="text/template">
+## OOP Inheritance
+
+Let's think about if we wanted to draw more than just squares but many shapes. What are things all shapes would have in common?
+</script></section><section  data-markdown><script type="text/template">
+## Refactoring, creating a shapes super class
+
+<iframe src="https://trinket.io/embed/python/ab48086abe" width="100%" height="356" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+</script></section><section  data-markdown><script type="text/template">
+## Shout Outs
+</script></section><section  data-markdown><script type="text/template">
+## Learning Goals
+
+- Be able to use turtle graphics to draw in Python
+- Be able to make decisions about defining functions
+- Be able to convert functions to classes
+- Understand and apply inheritance and polymorphism
+</script></section><section  data-markdown><script type="text/template">
+## Lab Time
+
+Use what you have learned to create a superclass and subclass of your own</script></section></div>
+    </div>
+
+    <script src="./js/reveal.js"></script>
+
+    <script>
+      function extend() {
+        var target = {};
+        for (var i = 0; i < arguments.length; i++) {
+          var source = arguments[i];
+          for (var key in source) {
+            if (source.hasOwnProperty(key)) {
+              target[key] = source[key];
+            }
+          }
+        }
+        return target;
+      }
+
+      // Optional libraries used to extend on reveal.js
+      var deps = [
+        { src: './plugin/markdown/marked.js', condition: function() { return !!document.querySelector('[data-markdown]'); } },
+        { src: './plugin/markdown/markdown.js', condition: function() { return !!document.querySelector('[data-markdown]'); } },
+        { src: './plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+        { src: './plugin/zoom-js/zoom.js', async: true },
+        { src: './plugin/notes/notes.js', async: true },
+        { src: './plugin/math/math.js', async: true }
+      ];
+
+      // default options to init reveal.js
+      var defaultOptions = {
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+        transition: 'default', // none/fade/slide/convex/concave/zoom
+        dependencies: deps
+      };
+
+      // options from URL query string
+      var queryOptions = Reveal.getQueryHash() || {};
+
+      var options = extend(defaultOptions, {"controls":true,"progress":true,"autoPlayMedia":false,"slideNumber":"c/t","showSlideNumber":"all","controlsTutorial":true,"controlsLayout":"edges","transition":"slide","transitionSpeed":"medium","minScale":0.5,"maxScale":3}, queryOptions);
+    </script>
+
+
+    <script>
+      Reveal.initialize(options);
+    </script>
+  </body>
+</html>

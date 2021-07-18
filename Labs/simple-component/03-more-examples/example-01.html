@@ -1,0 +1,67 @@
+<html>
+  <head>
+    <title></title>
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .container {
+        width: 600px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>The Shadow DOM - Intro</h1>
+      <p>The input range below looks like a single element 
+        in the DOM. In the browser the it looks like a 
+        bar/track with a circle/thumb that moves along the 
+        bar. If you were going to make this yourself you'd 
+        have to make these elements along with a container. 
+      </p>
+      <!-- Range Example - Shadow DOM -->
+      <p>
+        <input type="range">
+      </p>
+
+      <p>
+        <label>
+          <input type="radio" name="onoff">
+          on
+        </label>
+      </p>
+      <p>
+        <label>
+          <input type="radio" name="onoff">
+          off
+        </label>
+      </p>
+
+      <p>
+        <label>
+          <input type="checkbox">
+          Yes
+        </label>
+      </p>
+      <p>
+        <label>
+          <input type="color">
+          Click a Color
+        </label>
+      </p>
+
+      <p>
+        <video controls>
+          <source src="js.mp4">
+          <source src="js.gif">
+        </video>
+      </p>
+
+      <p>Inspect the input in the browser. Then turn on 
+        the show Shadow Elements option. 
+      </p>
+    </div>
+  </body>
+</html>

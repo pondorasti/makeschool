@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <title>Syllabus Template Slides</title>
+    <link rel="stylesheet" href="./../../css/reveal.css" />
+    <link rel="stylesheet" href="./../../css/theme/black.css" id="theme" />
+    <link rel="stylesheet" href="./../../css/highlight/zenburn.css" />
+    <link rel="stylesheet" href="./../../css/print/paper.css" type="text/css" media="print" />
+    <link rel="stylesheet" href="./../../assets/Reveal/makeschool.css" />
+
+    <script>
+      document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>');
+    </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides"><section  data-markdown><script type="text/template">
+# Adapter - Example
+
+**The Problem**
+
+In the following example: A Hobbit object can only `walk()`, but a Guardian object (__*code not listed*__) must `march()`. What if a Hobbit is promoted to guard the citadel?
+
+Then the Hobbit must somehow be able to `march()` just as a Guardian object does.
+</script></section><section  data-markdown><script type="text/template">
+**The Solution**
+
+Use the Adapter pattern to adapt the Hobbit class to conform to the behaviors required of a Guardian.
+</script></section><section  data-markdown><script type="text/template">
+```swift
+import UIKit
+
+// Adaptee
+class Hobbit {
+    func walk() {
+        print("Hobbit is walking a few steps")
+    }
+}
+
+// Target
+protocol GuardianOfTheCitadel {
+    func march()
+}
+
+// Adapter
+extension Hobbit: GuardianOfTheCitadel {
+    func march() {
+        walk()
+        print("Hobbit realizes he is a few steps behind the formation")
+        walk()
+    }
+}
+
+let hobbit = Hobbit()
+hobbit.march()
+
+/* This will print:
+ Hobbit is walking a few steps
+ Hobbit realizes he is a few steps behind the formation
+ Hobbit is walking a few steps
+ */
+```
+
+*[adapted example]( https://medium.com/jeremy-codes/adapter-pattern-in-swift-7332e178f112)*
+</script></section><section  data-markdown><script type="text/template">
+## Add On To This Example
+
+**TODO:** Assume we have another `protocol` for a `Warrior` who has an `attack` function.
+
+How would we adapt a `Hobbit` to be a `Warrior`, where their `attack` function has them walk, swing a sword, then march?
+</script></section></div>
+    </div>
+
+    <script src="./../../js/reveal.js"></script>
+
+    <script>
+      function extend() {
+        var target = {};
+        for (var i = 0; i < arguments.length; i++) {
+          var source = arguments[i];
+          for (var key in source) {
+            if (source.hasOwnProperty(key)) {
+              target[key] = source[key];
+            }
+          }
+        }
+        return target;
+      }
+
+      // Optional libraries used to extend on reveal.js
+      var deps = [
+        { src: './../../plugin/markdown/marked.js', condition: function() { return !!document.querySelector('[data-markdown]'); } },
+        { src: './../../plugin/markdown/markdown.js', condition: function() { return !!document.querySelector('[data-markdown]'); } },
+        { src: './../../plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+        { src: './../../plugin/zoom-js/zoom.js', async: true },
+        { src: './../../plugin/notes/notes.js', async: true },
+        { src: './../../plugin/math/math.js', async: true }
+      ];
+
+      // default options to init reveal.js
+      var defaultOptions = {
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+        transition: 'default', // none/fade/slide/convex/concave/zoom
+        dependencies: deps
+      };
+
+      // options from URL query string
+      var queryOptions = Reveal.getQueryHash() || {};
+
+      var options = extend(defaultOptions, {"controls":true,"progress":true,"autoPlayMedia":false,"slideNumber":"c/t","showSlideNumber":"all","controlsTutorial":true,"controlsLayout":"edges","transition":"slide","transitionSpeed":"medium","minScale":0.5,"maxScale":3}, queryOptions);
+    </script>
+
+
+    <script>
+      Reveal.initialize(options);
+    </script>
+  </body>
+</html>

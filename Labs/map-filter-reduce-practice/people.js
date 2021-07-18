@@ -1,0 +1,211 @@
+module.exports = [
+    {
+      "index": 0,
+      "isActive": false,
+      "balance": 2489.10,
+      "age": 26,
+      "eyeColor": "green",
+      "name": "Meyer Watkins",
+      "gender": "man",
+      "address": "420 Plymouth Street, Trail, Tennessee, 6227",
+      "registered": true
+    },
+    {
+      "index": 1,
+      "isActive": false,
+      "balance": 2887.66,
+      "age": 31,
+      "eyeColor": "blue",
+      "name": "Ebony Lee",
+      "gender": "woman",
+      "address": "218 Cooper Street, Mathews, Oklahoma, 4532",
+      "registered": false
+    },
+    {
+      "index": 2,
+      "isActive": true,
+      "balance": 2276.38,
+      "age": 22,
+      "eyeColor": "blue",
+      "name": "Viola Mccormick",
+      "gender": "agender",
+      "address": "915 Emerald Street, Sugartown, District Of Columbia, 8255",
+      "registered": false
+    },
+    {
+      "index": 3,
+      "isActive": true,
+      "balance": 1454.64,
+      "age": 38,
+      "eyeColor": "blue",
+      "name": "Maddox Barr",
+      "gender": "man",
+      "address": "458 Murdock Court, Waikele, Washington, 742",
+      "registered": false
+    },
+    {
+      "index": 4,
+      "isActive": false,
+      "balance": 1729.47,
+      "age": 33,
+      "eyeColor": "brown",
+      "name": "Torres Coleman",
+      "gender": "man",
+      "address": "840 Florence Avenue, Chamberino, Texas, 9875",
+      "registered": true
+    },
+    {
+      "index": 5,
+      "isActive": false,
+      "balance": 3763.72,
+      "age": 35,
+      "eyeColor": "blue",
+      "name": "Dixie Harrell",
+      "gender": "woman",
+      "address": "287 Exeter Street, Orick, New Hampshire, 8269",
+      "registered": false
+    },
+    {
+      "index": 6,
+      "isActive": false,
+      "balance": 3160.38,
+      "age": 25,
+      "eyeColor": "green",
+      "name": "Rosie Stark",
+      "gender": "woman",
+      "address": "307 Oliver Street, Herbster, Wyoming, 8802",
+      "registered": false
+    },
+    {
+      "index": 7,
+      "isActive": true,
+      "balance": 1346.68,
+      "age": 31,
+      "eyeColor": "blue",
+      "name": "Alyssa Sparks",
+      "gender": "woman",
+      "address": "838 Love Lane, Murillo, North Carolina, 5433",
+      "registered": false
+    },
+    {
+      "index": 8,
+      "isActive": true,
+      "balance": 1842.33,
+      "age": 21,
+      "eyeColor": "green",
+      "name": "Key Cunningham",
+      "gender": "man",
+      "address": "210 Greenpoint Avenue, Cochranville, Louisiana, 6765",
+      "registered": true
+    },
+    {
+      "index": 9,
+      "isActive": false,
+      "balance": 2480.21,
+      "age": 23,
+      "eyeColor": "green",
+      "name": "Sanford York",
+      "gender": "non-binary",
+      "address": "174 Bridge Street, Neahkahnie, Alaska, 6568",
+      "registered": false
+    },
+    {
+      "index": 10,
+      "isActive": true,
+      "balance": 1294.86,
+      "age": 30,
+      "eyeColor": "green",
+      "name": "Katy Silva",
+      "gender": "woman",
+      "address": "681 Morgan Avenue, Bourg, Kentucky, 7399",
+      "registered": false
+    },
+    {
+      "index": 11,
+      "isActive": true,
+      "balance": 1859.68,
+      "age": 29,
+      "eyeColor": "brown",
+      "name": "Darla Leach",
+      "gender": "woman",
+      "address": "881 Dodworth Street, Bagtown, Arkansas, 8424",
+      "registered": true
+    },
+    {
+      "index": 12,
+      "isActive": false,
+      "balance": 3298.33,
+      "age": 21,
+      "eyeColor": "brown",
+      "name": "Andrea Barrera",
+      "gender": "woman",
+      "address": "532 Seacoast Terrace, Wyoming, Delaware, 8790",
+      "registered": true
+    },
+    {
+      "index": 13,
+      "isActive": false,
+      "balance": 1743.79,
+      "age": 35,
+      "eyeColor": "brown",
+      "name": "Nunez Cain",
+      "gender": "non-binary",
+      "address": "478 Hutchinson Court, Aguila, Ohio, 3730",
+      "registered": true
+    },
+    {
+      "index": 14,
+      "isActive": true,
+      "balance": 2757.82,
+      "age": 40,
+      "eyeColor": "blue",
+      "name": "Susana Goodwin",
+      "gender": "woman",
+      "address": "759 Otsego Street, Jeff, New Mexico, 6299",
+      "registered": true
+    },
+    {
+      "index": 15,
+      "isActive": true,
+      "balance": 2112.62,
+      "age": 20,
+      "eyeColor": "green",
+      "name": "Henrietta Santiago",
+      "gender": "woman",
+      "address": "814 Clarkson Avenue, Glasgow, Indiana, 6062",
+      "registered": false
+    },
+    {
+      "index": 16,
+      "isActive": true,
+      "balance": 2978.76,
+      "age": 37,
+      "eyeColor": "blue",
+      "name": "Lauri Pittman",
+      "gender": "non-binary",
+      "address": "526 Porter Avenue, Mammoth, Colorado, 249",
+      "registered": true
+    },
+    {
+      "index": 17,
+      "isActive": true,
+      "balance": 3290.59,
+      "age": 38,
+      "eyeColor": "blue",
+      "name": "Delia Shaw",
+      "gender": "woman",
+      "address": "196 Colonial Court, Oasis, American Samoa, 5509",
+      "registered": true
+    },
+    {
+      "index": 18,
+      "isActive": false,
+      "balance": 2792.30,
+      "age": 36,
+      "eyeColor": "green",
+      "name": "Kerry Houston",
+      "gender": "woman",
+      "address": "650 Varick Street, Marienthal, Montana, 5356",
+      "registered": true
+    }
+  ]

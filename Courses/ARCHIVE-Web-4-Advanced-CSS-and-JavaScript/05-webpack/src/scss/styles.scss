@@ -1,0 +1,20 @@
+
+$color: #333;
+$bg-color: #ddd;
+$cols: 3;
+$size: 100px;
+
+body {
+  color: $color;
+  background-color: $bg-color;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: repeat($cols, 1fr);
+
+  .box {
+    height: $size;
+    border: solid 4px #666;
+  }
+}

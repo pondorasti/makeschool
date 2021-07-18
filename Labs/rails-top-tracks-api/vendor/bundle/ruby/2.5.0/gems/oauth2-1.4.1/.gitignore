@@ -1,0 +1,12 @@
+*.gem
+*~
+.bundle
+.rvmrc
+Gemfile.lock
+coverage/*
+log/*
+measurement/*
+pkg/*
+rdoc/*
+
+.rspec_status

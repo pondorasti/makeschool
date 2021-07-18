@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <title>Gamedev Canvas Workshop</title>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+    }
+
+    canvas {
+      background: #eee;
+      display: block;
+      margin: 0 auto;
+    }
+
+  </style>
+</head>
+
+<body>
+  
+  <canvas id="canvas" width="480" height="320"></canvas>
+
+  <script>
+    
+    /*
+    The classes below define objects that make the game of breakout. 
+    
+    Most of the objects are displayed on the canvas at an x and y position. 
+    The Sprite class owns these properties and the other classes gain these
+    properties by extending Sprite. 
+
+    All classes that draw something to the screen implement a render method. 
+    This method takes a canvas context as a parameter and draws the object
+    on to this context. 
+
+    The Bricks class owns an array of Bricks which it renders by looping 
+    through the array and calling render on each brick. 
+
+    The label class holds a text string which is redners to the screen. 
+    The GameLabel class extends Label to render a text string with a 
+    value. This simplifies rendering the score and lives. 
+
+    The Game class creates all of the objects and manages the game. 
+
+    */
+    
+
+    // ----------------------
+    // Defines properties shared by all sprites
+    class Sprite {
+      constructor() {
+        this.x = 0
+        this.y = 0
+      }
+			
+			moveTo(x, y) {
+				this.x = x
+				this.y = y
+				return this
+			}
+			
+			moveBy(dx, dy) {
+				this.x += dx
+				this.y += dy
+				return this
+			}
+    }
+    // ----------------------
+    // Defines the ball
+    class Ball extends Sprite {
+      constructor(radius = 10, color = 'blue') {
+        super()
+        this.radius = radius 
+        this.color = color
+        this.dx = 2
+        this.dy = -2
+      }
+
+      move() {
+        this.x += this.dx
+        this.y += this.dy
+      }
+
+      render(ctx) {
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+        ctx.fillStyle = this.color;
+        ctx.fill();
+        ctx.closePath();
+      }
+    }
+    // ----------------------
+    // Defines the paddle
+    class Paddle extends Sprite {
+      constructor(minX, maxX, width = 75, height = 20, color = 'orange') {
+        super()
+        this.minX = minX
+        this.maxX = maxX
+        this.width = width
+        this.height = height
+        this.color = color
+      }
+
+      move(x) {
+        this.x += x
+        this.checkLimits()
+      }
+
+      moveTo(x) {
+        this.x = x
+        this.checkLimits()
+      }
+
+      checkLimits() {
+        this.x = this.x < this.minX ? this.minX : this.x
+        this.x = this.x > this.maxX ? this.maxX : this.x
+      }
+
+      render(ctx) {
+        ctx.beginPath();
+        ctx.rect(this.x, this.y, this.width, this.height);
+        ctx.fillStyle = this.color;
+        ctx.fill();
+      }
+    }
+    // ----------------------
+    // Defines a brick
+    class Brick extends Sprite {
+      constructor(width = 75, height = 20, color = '#95DD00') {
+        super()
+        this.status = 1;
+        this.color = color;
+        this.width = width
+        this.height = height
+      }
+
+      render(ctx) {
+        ctx.beginPath();
+        ctx.rect(this.x, this.y, this.width, this.height);
+        ctx.fillStyle = this.color;
+        ctx.fill();
+      }
+    }
+    // ----------------------
+    // Defines a group of bricks
+    class Bricks {
+      constructor(rows = 3, cols = 5) {
+        this.rows = rows
+        this.cols = cols
+        this.bricks = []
+        this.setup()
+      }
+
+      setup() {
+        this.bricks = []
+        for (let c = 0; c < this.cols; c++) {
+          this.bricks[c] = [];
+          for (let r = 0; r < this.rows; r++) {
+            const brick = new Brick()
+            brick.x = (c * (brick.width + 10)) + 30;
+            brick.y = (r * (brick.height + 10)) + 30;
+            this.bricks[c][r] = brick;
+          }
+        }
+      }
+
+      render(ctx) {
+        for (let c = 0; c < this.cols; c++) {
+          for (let r = 0; r < this.rows; r++) {
+            if (this.bricks[c][r].status === 1) {
+              this.bricks[c][r].render(ctx);
+            }
+          }
+        }
+      }
+    }
+    // ----------------------
+    // Defines a label
+    class Label extends Sprite {
+      constructor(text, font = '16px Helvetica', color = 'red', align = 'left') {
+        super()
+        this.text = text
+        this.font = font
+        this.color = color
+        this.align = align
+      }
+			
+			setColor(color) {
+				this.color = color
+				return this
+			}
+			
+			setFont(font) {
+				this.font = font
+				return this
+			}
+			
+			setText(text) {
+				this.text = text
+				return this
+			}
+
+      render(ctx) {
+        ctx.font = this.font
+        ctx.fillStyle = this.color
+        ctx.textAlign = this.align
+        ctx.fillText(this.text, this.x, this.y)
+      }
+    }
+    // ---------------------
+		
+    // Defines a game label
+    class GameLabel extends Label {
+      constructor(text, font, color, align) {
+        super(text, font, color, align)
+        this.value = 0
+      }
+
+      render(ctx) {
+        ctx.font = this.font
+        ctx.fillStyle = this.color
+        ctx.textAlign = this.align
+        ctx.fillText(`${this.text} ${this.value}`, this.x, this.y)
+      }
+    }
+		
+		class MyLabel extends Label {
+			constructor() {
+				super('Hello', '24px Helvetica', 'blue')
+			}
+		}
+		
+		new MyLabel()
+    // ----------------------
+    // Defines the game
+    class Game {
+      constructor(canvasId = 'canvas') {
+        this.canvas = document.getElementById(canvasId);
+        this.ctx = canvas.getContext("2d");
+
+        this.rightPressed = false
+        this.leftPressed = false
+
+        this.lives = 9999
+        this.score = 0
+
+        this.ball = new Ball()
+        this.ball.x = canvas.width / 2
+        this.ball.y = canvas.height - 30
+
+        this.paddle = new Paddle()
+        this.paddle.x = this.canvas.width / 2
+        this.paddle.y = this.canvas.height - 10
+        this.paddle.minX = 0
+        this.paddle.maxX = this.canvas.width - this.paddle.width
+
+        this.bricks = new Bricks()
+
+        this.scoreLabel = new GameLabel('Score:')
+        this.scoreLabel.x = 20
+        this.scoreLabel.y = 20
+        this.livesLabel = new GameLabel('Lives:')
+        this.livesLabel.align = 'right'
+        this.livesLabel.x = this.canvas.width - 20
+        this.livesLabel.y = 20
+        this.livesLabel.value = 3
+
+        document.addEventListener("keydown", this.keyDownHandler.bind(this), false);
+        document.addEventListener("keyup", this.keyUpHandler.bind(this), false);
+        document.addEventListener("mousemove", this.mouseMoveHandler.bind(this), false);
+
+        this.update()
+      }
+
+      keyDownHandler(e) {
+        if (e.keyCode == 39) {
+          this.rightPressed = true;
+        } else if (e.keyCode == 37) {
+          this.leftPressed = true;
+        }
+      }
+
+      keyUpHandler(e) {
+        if (e.keyCode == 39) {
+          this.rightPressed = false;
+        } else if (e.keyCode == 37) {
+          this.leftPressed = false;
+        }
+      }
+
+      mouseMoveHandler(e) {
+        const relativeX = e.clientX - canvas.offsetLeft - this.paddle.width / 2;
+        this.paddle.moveTo(relativeX)
+      }
+      
+      update() {
+        this.ctx.clearRect(0, 0, canvas.width, canvas.height)
+        this.ball.render(this.ctx)
+        this.bricks.render(this.ctx)
+        this.paddle.render(this.ctx)
+
+        this.ball.move()
+        this.bounceBallOffEdges()
+        this.collisionDetection()
+
+        this.scoreLabel.render(this.ctx)
+        this.scoreLabel.value = this.score
+        this.livesLabel.render(this.ctx)
+        this.livesLabel.value = this.lives
+
+        requestAnimationFrame(this.update.bind(this))
+      }
+
+      bounceBallOffEdges() {
+        const { ball, canvas, paddle } = this
+
+        if(ball.x + ball.dx > canvas.width - ball.radius || ball.x + ball.dx < ball.radius) {
+          ball.dx = -ball.dx;
+        }
+
+        if(ball.y + ball.dy < ball.radius) {
+          ball.dy = -ball.dy;
+        } else if(ball.y + ball.dy > canvas.height - ball.radius) {
+          if(ball.x > paddle.x && ball.x < paddle.x + paddle.width) {
+            ball.dy = -ball.dy;
+          } else {
+            this.lives--;
+            if(!this.lives) {
+              // alert("GAME OVER");
+              // document.location.reload();
+            }
+            else {
+              ball.x = canvas.width/2;
+              ball.y = canvas.height-30;
+              ball.dx = 3;
+              ball.dy = -3;
+              paddle.x = (canvas.width - paddle.width) / 2;
+            }
+          }
+        }
+      }
+
+      collisionDetection() {
+        const { ball, bricks } = this
+
+        for (let c = 0; c < bricks.cols; c++) {
+          for (let r = 0; r < bricks.rows; r++) {
+            const brick = bricks.bricks[c][r];
+            if (brick.status === 1) {
+              if (ball.x > brick.x && ball.x < brick.x + brick.width && 
+                ball.y > brick.y && ball.y < brick.y + brick.height) {
+                ball.dy = -ball.dy;
+                brick.status = 0;
+                this.score += 1;
+                if (this.score == bricks.rows * bricks.cols) {
+                  // alert("YOU WIN, CONGRATULATIONS!");
+                  // document.location.reload();
+                }
+              }
+            }
+          }
+        }
+      }
+    
+    }
+    // ----------------------
+    new Game()
+    
+  </script>
+
+</body>
+
+</html>

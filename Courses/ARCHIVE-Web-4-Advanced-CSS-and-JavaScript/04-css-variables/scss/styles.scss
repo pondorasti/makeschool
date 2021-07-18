@@ -1,0 +1,67 @@
+/* SCSS */
+
+$color-1: #ddd;
+$color-2: #444;
+$sprite-size: 64px;
+$font: Helvetica Arial Sans;
+
+:root {
+  --button-color: #f0f;
+  --x: 200;
+  --y: 200;
+}
+
+body, html {
+  height: 100%;
+}
+
+body {  
+  background-color: $color-1;
+  color: $color-2;
+  font: $font;
+}
+
+.container {
+  position: relative;
+  height: 100%;
+}
+
+#sprite {
+  position: absolute;
+  width: $sprite-size;
+  height: $sprite-size;
+  background-color: transparent;
+  background-image: url(../images/alien-11.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  transform: translate(calc(var(--x) * 1px), 
+            calc(var(--y) * 1px));
+}
+
+.button {
+  --text-color: #ddd;
+  --size: 64;
+  
+  color: var(--button-color);
+  border-radius: 50%;
+  width: calc(var(--size) * 1px);
+  height: calc(var(--size) * 1px);
+  border: solid 4px var(--button-color);
+  text-align: center;
+  line-height: calc(var(--size) * 1px);
+}
+
+.button:hover {
+  background-color: var(--button-color);
+  color: var(--text-color);
+}
+
+
+
+
+
+
+
+
+
+

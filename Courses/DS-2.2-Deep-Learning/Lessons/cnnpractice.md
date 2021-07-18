@@ -1,0 +1,1 @@
+Complete the [CNN's with keras jupyter notebook tutorial](https://colab.research.google.com/drive/1DxnlLtLFM9RBUjvnwgZG3lTXbqdfoww7?usp=sharing) (be sure to make a copy and save it to your google drive)

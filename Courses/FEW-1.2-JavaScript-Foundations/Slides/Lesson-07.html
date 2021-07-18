@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <title>Syllabus Template Slides</title>
+    <link rel="stylesheet" href="./css/reveal.css" />
+    <link rel="stylesheet" href="./css/theme/black.css" id="theme" />
+    <link rel="stylesheet" href="./css/highlight/zenburn.css" />
+    <link rel="stylesheet" href="./css/print/paper.css" type="text/css" media="print" />
+    <link rel="stylesheet" href="./assets/Reveal/makeschool.css" />
+
+    <script>
+      document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>');
+    </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides"><section  data-markdown><script type="text/template"><!-- .slide: data-background="./Images/header.svg" data-background-repeat="none" data-background-size="40% 40%" data-background-position="center 10%" class="header" -->
+# FEW 1.2 - Lesson 7 - Single Page Applications
+
+<!-- Put a link to the slides so that students can find them -->
+
+➡️ [**Slides**](/Syllabus-Template/Slides/Lesson1.html ':ignore')
+</script></section><section  data-markdown><script type="text/template">
+## Minute-by-Minute
+
+| **Elapsed** | **Time** | **Activity** |
+| ----------- | -------- | ------------ |
+| 0:05 | 0:05 | admin |
+| 0:05 | 0:10 | [Overview](#overview) |
+| 0:05 | 0:15 | [Learning Objectives](#learning-objectives) |
+| 0:30 | 0:55 | [Single Page Applications](#single-page-applications) |
+| 0:10 | 1:05 | BREAK |
+| 1:00 | 2:05 | [Lab](#lab) |
+| 0:20 | 2:25 | [Wrap Up](#wrap-up) |
+| 0:20 | 2:45 | Admin |
+</script></section><section  data-markdown><script type="text/template">
+# Overview
+
+Today we will talk about Single Page Applications, what they are, and one of the frameworks/libraries used to make them: React.
+</script></section><section  data-markdown><script type="text/template">
+## Learning Objectives
+
+By the end of the class you should be able to: 
+
+1. Describe Single Page Applications
+1. Create your Single Page Application
+1. Use React and `Create React App` to create a single page application
+</script></section><section  data-markdown><script type="text/template">
+## Single Page Applications
+
+A single application is a Single webpage that acts like an application in your browser. 
+
+VisiCalc was the first Killer App that made the Apple II useful. I'd say that Gmail was the Killer app that gave rise to Single Page Applications. 
+
+What's a **Killer App**? Look it up. https://en.wikipedia.org/wiki/VisiCalc
+</script></section><section  data-markdown><script type="text/template">
+Discuss.
+</script></section><section  data-markdown><script type="text/template">
+Single Page Applications are web pages that act like multipage static sites but are built on top of a single HTML file. **These pages don't load or reload new HTML files. Instead, they rewrite the content of the existing HTML page to show new content.**
+
+Read this: 
+
+https://flaviocopes.com/single-page-application/
+</script></section><section  data-markdown><script type="text/template">
+Discuss.
+</script></section><section  data-markdown><script type="text/template">
+# React
+
+React is a popular library/framework for making Single Page Applications.
+</script></section><section  data-markdown><script type="text/template">
+Here is what you need to know about React: 
+
+- React is written in JS
+- React uses ES6 and must be compiled with webpack and babel
+- React applications are built with components 
+  - Components are the building blocks of React Applications
+- React uses JSX 
+  - JSX is an extension of the JavaScript language used to generate HTML
+  - JSX has it's own syntax
+</script></section><section  data-markdown><script type="text/template">
+## Getting started 
+</script></section><section  data-markdown><script type="text/template">
+Make your first React app. 
+
+Use the Terminal to navigate a directory where you will build your first React Project. 
+
+```
+npx create-react-app my-first-app
+```
+
+
+This command creates a new react starter project using the Create React tool. 
+
+`my-first-app` would be the name of your app. 
+</script></section><section  data-markdown><script type="text/template">
+Run your app by navigating to the folder with: 
+
+```
+cd first-app
+```
+
+Then launch the project with: 
+
+```
+yarn start
+```
+
+This runs the start script in package.json. You could alternately use: 
+
+```
+npm start
+```
+</script></section><section  data-markdown><script type="text/template">
+What's the difference between yarn and npm? 
+
+https://stackshare.io/stackups/npm-vs-yarn
+</script></section><section  data-markdown><script type="text/template">
+### Tour the React Project
+</script></section><section  data-markdown><script type="text/template">
+The React project is a folder with several files and folders. 
+
+- **node_modules** - Contains all of the packages downloaded from npm
+- **package.json** - npm configuration and options
+- **public** - distribution folder
+- **README.md** - A default Read for Create React App you should replace this! 
+- **scr** - Your source code! You will do all of your work here
+- **yarn.lock** - ignore this it's auto-generated by yarn
+</script></section><section  data-markdown><script type="text/template">
+You'll do all of your work in src take a look at it. 
+
+- **src** 
+  - **App.css** - CSS for App component
+  - **App.js** - App Component
+  - **App.test.js** - Tests for App component (ignore it for now)
+  - **index.css** - CSS for index component 
+  - **index.js** - Entry point for your app don't edit this it's boiler plate code
+  - **logo.svg** - It's the picture used in the default app
+  - **serviceWorker.js** - optional code for special purposes ignore this
+  - **setupTests.js** - more optional code testing, ignore this
+
+<!-- > --> 
+
+## Components and JSX
+</script></section><section  data-markdown><script type="text/template">
+Edit the existing components. 
+
+Look at **App.js**. This is a function that returns some HTML. Make a few changes: 
+
+- add an h1 tag - `<h1>Hello World</h1>`
+- add another - `<h2>Foo Bar</h2>`
+</script></section><section  data-markdown><script type="text/template">
+What's going on here? **This is JSX.** It looks like HTML.
+
+- JSX is an extension of the HTML language 
+- JSX looks like HTML (mostly) and follows most the same rules
+- JSX is converted to vanilla JavaScript during bundling
+- JSX has a few rules you need to learn
+
+Take a quick look at the reference: 
+
+https://reactjs.org/docs/jsx-in-depth.html
+</script></section><section  data-markdown><script type="text/template">
+### Defining your own components
+</script></section><section  data-markdown><script type="text/template">
+```JS
+function Heading() {
+  return <h1>Hello World</h1>
+}
+```
+
+Use this component like this: 
+
+```JSX
+<Heading />
+```
+</script></section><section  data-markdown><script type="text/template">
+Use a variable in a component:
+
+```JS
+function Heading() {
+  const str = 'Foo Bar'
+
+  return <h1>{str}</h1>
+}
+```
+
+When writing JS expressions (JS code) inside a block of JSX you must wrap is in the curly braces 
+
+```JSX
+<h1>{str}</h1>
+```
+</script></section><section  data-markdown><script type="text/template">
+### Props
+</script></section><section  data-markdown><script type="text/template">
+Props are an important part of components. **Props are values passed to a component to configure it.** 
+
+```JS
+function Heading(props) {
+  return <h1>{props.str}</h1>
+}
+```
+
+Pass props to your component through attributes: 
+
+```JSX
+<Heading str='Hello World' />
+```
+</script></section><section  data-markdown><script type="text/template">
+Now the component can be reused and configured to display any string. 
+
+```JS 
+<Heading str='Hello World' />
+<Heading str='Foo Bar' />
+<Heading str='Foo World' />
+<Heading str='Hello Bar' />
+<Heading str='Hello foo' />
+<Heading str='Foo Hello' />
+```
+</script></section><section  data-markdown><script type="text/template">
+Usually, you'll want to put each component into it's own file. Do that with the `Heading` component. 
+</script></section><section  data-markdown><script type="text/template">
+- Make a new file named: Heading.js (best practice: use the Component name as the file name)
+- Save the file to the src directory (all of your files go into src)
+- `import React from 'react'` goes at the top of the component
+- Write your component code...
+- `export default Heading` goes at the bottom of the component
+- In App.js import your Heading component: `import Heading from './Heading'`
+
+```JS
+import React from 'react'
+
+function Heading(props) {
+  return <h1>{props.str}</h1>
+}
+
+export default Heading
+```
+</script></section><section  data-markdown><script type="text/template">
+<!-- .slide: data-background="#087CB8" -->
+## [**10m**] BREAK
+
+Take a 10 minute break and visualize the workd as components.
+</script></section><section ><section data-markdown><script type="text/template">
+# Lab
+
+Work through the React Fundamentals tutorial. 
+
+https://github.com/MakeSchool-Tutorials/React-Fundamentals
+</script></section><section data-markdown><script type="text/template">
+## Wrap Up
+
+- What did you see in the tutorial? 
+- Compare building with React to other methods? 
+- What do you think of Components? 
+- What problems did you encounter? 
+- How did you solve them?
+
+### After Class
+
+- [Assignment 6 React Fundamentals](Assignments/Assignment-6-react-fundamentals.md)
+</script></section></section><section  data-markdown><script type="text/template">
+## Additional Resources
+
+1. https://en.wikipedia.org/wiki/Killer_application
+1. https://en.wikipedia.org/wiki/Single-page_application
+1. https://flaviocopes.com/single-page-application/
+1. https://medium.com/@NeotericEU/single-page-application-vs-multiple-page-application-2591588efe58
+1. https://waverleysoftware.com/blog/yarn-vs-npm/
+1. https://stackshare.io/stackups/npm-vs-yarn
+1. https://github.com/MakeSchool-Tutorials/React-Fundamentals</script></section></div>
+    </div>
+
+    <script src="./js/reveal.js"></script>
+
+    <script>
+      function extend() {
+        var target = {};
+        for (var i = 0; i < arguments.length; i++) {
+          var source = arguments[i];
+          for (var key in source) {
+            if (source.hasOwnProperty(key)) {
+              target[key] = source[key];
+            }
+          }
+        }
+        return target;
+      }
+
+      // Optional libraries used to extend on reveal.js
+      var deps = [
+        { src: './plugin/markdown/marked.js', condition: function() { return !!document.querySelector('[data-markdown]'); } },
+        { src: './plugin/markdown/markdown.js', condition: function() { return !!document.querySelector('[data-markdown]'); } },
+        { src: './plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+        { src: './plugin/zoom-js/zoom.js', async: true },
+        { src: './plugin/notes/notes.js', async: true },
+        { src: './plugin/math/math.js', async: true }
+      ];
+
+      // default options to init reveal.js
+      var defaultOptions = {
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+        transition: 'default', // none/fade/slide/convex/concave/zoom
+        dependencies: deps
+      };
+
+      // options from URL query string
+      var queryOptions = Reveal.getQueryHash() || {};
+
+      var options = extend(defaultOptions, {"controls":true,"progress":true,"autoPlayMedia":false,"slideNumber":"c/t","showSlideNumber":"all","controlsTutorial":true,"controlsLayout":"edges","transition":"slide","transitionSpeed":"medium","minScale":0.5,"maxScale":3}, queryOptions);
+    </script>
+
+
+    <script>
+      Reveal.initialize(options);
+    </script>
+  </body>
+</html>

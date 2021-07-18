@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <title>Syllabus Template Slides</title>
+    <link rel="shortcut icon" href="./../favicon.ico"/>
+    <link rel="stylesheet" href="./../dist/reveal.css" />
+    <link rel="stylesheet" href="./../dist/theme/white.css" id="theme" />
+    <link rel="stylesheet" href="./../css/highlight/zenburn.css" />
+    <link rel="stylesheet" href="./../assets/Reveal/makeschool.css" />
+
+    <script>
+      document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>');
+    </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides"><section  data-markdown><script type="text/template"><!-- .slide: data-background="./Images/header.svg" data-background-repeat="none" data-background-size="40% 40%" data-background-position="center 10%" class="header" -->
+# Standup + Cowork
+
+<!-- Put a link to the slides so that students can find them -->
+
+➡️ [**Slides**](https://make-school-courses.github.io/MOB-2.9-Technical-Seminar-MOB/Slides/Lesson4/Lesson4.html ':ignore')
+</script></section><section  data-markdown><script type="text/template">
+## Learning Objectives
+
+1. Participate in your team's stand up
+1. Work on or complete assigned tickets
+1. Follow git guidelines to submit PRs
+</script></section><section  data-markdown><script type="text/template">
+## Stand up (< 10 min)
+
+In a breakout room with your team have a stand up meeting:
+
+1. 🏆 Accomplishments: What did you complete since last session?
+2. 💪🏼 Goals: What are you working on today?
+3. 🚧 Obstacles: Is there anything blocking you to achieve today' goals?
+</script></section><section  data-markdown><script type="text/template">
+## CoWork (1hr 30min)
+
+Use this time to:
+
+- Attend requested meetings (if applicable)
+- Work in breakout rooms (solo/in teams/with a partner)
+- Work in the main room
+- Design interfaces before coding
+- Research before coding
+- Pair program
+- Ask technical questions
+- Complete assigned tasks
+- Submit PRs
+- Deliver Code Reviews
+- Accept PRs (if that's in your role)
+</script></section><section  data-markdown><script type="text/template">
+## Workflow
+
+![workflow](../Images/workflow.png)
+</script></section><section  data-markdown><script type="text/template">
+Recommended workflow:
+
+- Each feature gets a new branch.
+- To submit your new feature to main, submit a PR.
+- Add another developer to code review your PR.
+- Team lead or Eng Manager approve the PR.
+- You can move on to the next task 😎
+
+When you associate a PR with an issue, the cards should automatically update in the board.
+</script></section><section  data-markdown><script type="text/template">
+## Wrap Up (5 min)
+
+Next class:
+
+- Prepare your update for the stand up. Turn it in individually on Gradescope.
+- If there's a technical concept you or your team are struggling with, send me a DM. We can spend time next class on it.
+</script></section><section  data-markdown><script type="text/template">
+## Lab time (50 min)
+
+- More Cowork time or async work 😎
+- If your team allows it, you can also work offline
+</script></section></div>
+    </div>
+
+    <script src="./../dist/reveal.js"></script>
+
+    <script src="./../plugin/markdown/markdown.js"></script>
+    <script src="./../plugin/highlight/highlight.js"></script>
+    <script src="./../plugin/zoom/zoom.js"></script>
+    <script src="./../plugin/notes/notes.js"></script>
+    <script src="./../plugin/math/math.js"></script>
+    <script>
+      function extend() {
+        var target = {};
+        for (var i = 0; i < arguments.length; i++) {
+          var source = arguments[i];
+          for (var key in source) {
+            if (source.hasOwnProperty(key)) {
+              target[key] = source[key];
+            }
+          }
+        }
+        return target;
+      }
+
+      // default options to init reveal.js
+      var defaultOptions = {
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+        transition: 'default', // none/fade/slide/convex/concave/zoom
+        plugins: [
+          RevealMarkdown,
+          RevealHighlight,
+          RevealZoom,
+          RevealNotes,
+          RevealMath
+        ]
+      };
+
+      // options from URL query string
+      var queryOptions = Reveal().getQueryHash() || {};
+
+      var options = extend(defaultOptions, {"controls":true,"progress":true,"autoPlayMedia":false,"slideNumber":"c/t","showSlideNumber":"all","controlsTutorial":true,"controlsLayout":"edges","transition":"slide","transitionSpeed":"medium","minScale":0.5,"maxScale":3}, queryOptions);
+    </script>
+
+
+    <script>
+      Reveal.initialize(options);
+    </script>
+  </body>
+</html>

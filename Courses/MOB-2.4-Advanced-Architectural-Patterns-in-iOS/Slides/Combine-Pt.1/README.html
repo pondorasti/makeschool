@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <title>Syllabus Template Slides</title>
+    <link rel="stylesheet" href="./../css/reveal.css" />
+    <link rel="stylesheet" href="./../css/theme/black.css" id="theme" />
+    <link rel="stylesheet" href="./../css/highlight/zenburn.css" />
+    <link rel="stylesheet" href="./../css/print/paper.css" type="text/css" media="print" />
+    <link rel="stylesheet" href="./../assets/Reveal/makeschool.css" />
+
+    <script>
+      document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>');
+    </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides"><section  data-markdown><script type="text/template"><!-- Run this slideshow via the following command: -->
+<!-- reveal-md README.md -w -->
+
+
+<!-- .slide: class="header" -->
+
+# Combine
+
+## [Slides](https://make-school-courses.github.io/MOB-2.4-Advanced-Architectural-Patterns-in-iOS/Slides/Combine-Pt.1/README.html ':ignore')
+</script></section><section  data-markdown><script type="text/template">
+▶️ Watch this before the lesson:
+
+[Combine - Video introduction](https://developer.apple.com/videos/play/wwdc2019/722/)
+</script></section><section  data-markdown><script type="text/template">
+## Learning Objectives
+
+By the end of this lesson, you will be able to:
+
+Describe:
+  - Reactive programming
+  - Marble diagrams
+  - Combine as a framework and it's main components
+  - Basic operators
+  - Lifecycle of a stream
+</script></section><section  data-markdown><script type="text/template">
+## Reactive Programming
+
+Reactive Programming can be thought of as the practice of programming with **asynchronous** data streams, or __*event streams.*__
+</script></section><section  data-markdown><script type="text/template">
+### Event Streams
+
+An event stream is a **sequence of events** happening over time.
+
+An **asynchronous data stream** is a stream of data where values are *emitted*, one after another, with a delay between them, and without blocking program flow to wait for results.
+
+And because the stream is asynchronous, the data emitted can appear anywhere in time.
+</script></section><section  data-markdown><script type="text/template">
+## Combine
+
+A framework that provides a declarative Swift API for processing values over time.
+
+These values can represent many kinds of asynchronous events.
+
+[Docs](https://developer.apple.com/documentation/combine)
+</script></section><section  data-markdown><script type="text/template">
+## Core Concepts
+
+- [Publisher](https://developer.apple.com/documentation/combine/publisher) and [Subscriber](https://developer.apple.com/documentation/combine/subscriber)
+
+- Operators
+
+- [Subjects](https://developer.apple.com/documentation/combine/subject)
+</script></section><section  data-markdown><script type="text/template">
+## Publisher
+
+- Described as a protocol
+- **Provides data when available and upon request**
+- A publisher that has not had any subscription requests will not provide any data
+- Has two associated types: one for **Output** and one for **Failure**
+- Value types
+
+<aside class="notes">
+The idea of publishers is so generic that we can represent any data: making calculations, exxecuting and handling network calls, reacting to user input, displaying data, etc.
+</aside>
+</script></section><section ><section data-markdown><script type="text/template">
+## Subscriber
+
+- Responsible for **requesting data and accepting the data** (and possible failures) provided by a publisher
+- Has two associated types: one for **Input** and one for **Failure**
+- Reference types (usually act and mutate state upon receipt of values)
+</script></section><section data-markdown><script type="text/template">
+## Built-in Subscribers
+
+- [Assign](https://heckj.github.io/swiftui-notes/#reference-assign) - let's us **bind** the result to some property in our model or on a UI control via a key path.
+- [Sink](https://heckj.github.io/swiftui-notes/#reference-sink) - let's us pass closures and completion handlers (you can do anything here 😎)
+</script></section></section><section  data-markdown><script type="text/template">
+<img src="https://heckj.github.io/swiftui-notes/images/diagrams/input_output.svg">
+
+Publishers and subscribers are meant to be connected, and make up the core of Combine.
+
+<aside class="notes">
+When you connect a subscriber to a publisher, both types must match: Output to Input, and Failure to Failure.
+</aside>
+</script></section><section  data-markdown><script type="text/template">
+## Subscription
+
+We need a [Subscription](https://developer.apple.com/documentation/combine/subscription) How does it work? 
+
+A subscriber activates the publisher. Note that publishers won't emit values if there are no subscribers.
+
+When you successfully create a subscription it can almost work on it's own.
+
+A subscription will get activated when an event occurs (gestures, timers, etc.) and then a publisher reacts to the event.
+
+</aside>
+</script></section><section  data-markdown><script type="text/template">
+## Memory management
+
+There is no need to manually memory manage subscriptions. The protocol `Cancellable` is used to indicate that the return object of a subscription is `Cancellable`. 
+
+When that object is released from memory, the entire subcsription is cancelled and memory resources are released. 🗑
+</script></section><section  data-markdown><script type="text/template">
+## Coding examples
+
+Playground Demo for Publishers & Subscribers
+</script></section><section  data-markdown><script type="text/template">
+## Operator
+
+- An object that acts both like a subscriber and a publisher
+- Classes that adopt both the Subscriber protocol and Publisher protocol
+- They support subscribing to a publisher, and sending results to any subscribers
+- Can be chained to process, transform data
+
+<aside class="notes">
+Operators focus on handling data they receive from a previous operator and give an input to the next one in the pipeline. This means there is no shared state.
+</aside>
+</script></section><section  data-markdown><script type="text/template">
+<img src="https://heckj.github.io/swiftui-notes/images/diagrams/pipeline.svg">
+</script></section><section  data-markdown><script type="text/template">
+```swift
+let _ = Just(8)
+    .map { value -> String in
+        // do something with the incoming value here
+        return "\(value) as a string"
+    }
+    .sink { receivedValue in
+        // sink is the subscriber and terminates the pipeline
+        print("The end result was \(receivedValue)")
+    }
+```
+
+<aside class="notes">
+The pipeline starts with the publisher Just, which responds with the value that its defined with (in this case, the Integer 8). The output type is <Integer>, and the failure type is <Never>.
+
+The pipeline then has a map operator, which is transforming the value and its type. In this example it is ignoring the published input and returning a string.
+
+This is also transforming the output type to <String>, and leaving the failure type still set as <Never>.
+The pipeline then ends with a sink subscriber.
+</aside>
+</script></section><section  data-markdown><script type="text/template">
+When creating pipeline like the previous example we are often selecting **operators** to help transform the data, types, or both to achieve an end goal. That end goal might be:
+
+- enabling or disabling a user interface element
+- retrieving some piece of data to be displayed
+</script></section><section ><section data-markdown><script type="text/template">
+## Marble Diagrams
+
+Focus on describing how a specific pipeline changes the stream of data.
+
+<img src="https://heckj.github.io/swiftui-notes/images/diagrams/marble_diagram.svg">
+
+<aside class="notes">
+A publisher is generating and sending data, operators are reacting to that data and potentially changing it, and subscribers requesting and accepting it.
+
+On top of that, some operators may change the timing when events happen. We can illustrate these changes with a visual description called a marble diagram.
+</aside>
+</script></section><section data-markdown><script type="text/template">
+## How to Read Marble Diagrams
+
+- The name of the operator in in the center
+- Lines above and below represent data moving through time
+    - Time travels from left to right
+    - Top line = input
+    - Bottom line = output
+</script></section><section data-markdown><script type="text/template">
+- Symbols on the lines represent data
+- If symbols are different, they mean data is of different types
+</script></section><section data-markdown><script type="text/template">
+- An X means an error or exception occurred
+- A vertical bar means the stream terminated normally
+</script></section></section><section  data-markdown><script type="text/template">
+## Diagrams + code
+
+Whiteboard explanation 🤓
+</script></section><section  data-markdown><script type="text/template">
+## In Class Activity
+
+**5 min read, 10 min share**
+
+Visit [this website](https://rxmarbles.com) that has marble diagrams for some operators in Rx.
+
+- Choose one operator and understand what it does
+- Be ready to share your explanation in class
+</script></section><section ><section data-markdown><script type="text/template">
+## Why Combine?
+
+Now that you've been introduced to Combine, what's one benefit of using it over "standard code"? 🤔
+
+- Write your answer in the chat 
+</script></section><section data-markdown><script type="text/template">
+- Combine is integrated on the system level
+- Handling asynchronous operations can become reusable
+- Operators are composable
+- Can be used in any architecture
+</script></section></section><section  data-markdown><script type="text/template">
+## After Class
+
+Check out the Subscription protocol, specifically the `request` method. It takes in a value for demand. What is this? Research the meaning of it and how it relates to a concept called **Backpressure**. 
+
+We saw we can use `Just` to emit single values to a subscriber. Research what `Future` does.
+</script></section><section  data-markdown><script type="text/template">
+## Additional Resources
+
+- [Using Combine](https://heckj.github.io/swiftui-notes/#coreconcepts-publisher-subscriber)
+- Book: Practical Combine by Donny Walls
+- Book: Combine - Asynchronous programming with Swift By Shai Mishali, Marin Todorov, Florent Pillet and Scott Gardner
+</script></section></div>
+    </div>
+
+    <script src="./../js/reveal.js"></script>
+
+    <script>
+      function extend() {
+        var target = {};
+        for (var i = 0; i < arguments.length; i++) {
+          var source = arguments[i];
+          for (var key in source) {
+            if (source.hasOwnProperty(key)) {
+              target[key] = source[key];
+            }
+          }
+        }
+        return target;
+      }
+
+      // Optional libraries used to extend on reveal.js
+      var deps = [
+        { src: './../plugin/markdown/marked.js', condition: function() { return !!document.querySelector('[data-markdown]'); } },
+        { src: './../plugin/markdown/markdown.js', condition: function() { return !!document.querySelector('[data-markdown]'); } },
+        { src: './../plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+        { src: './../plugin/zoom-js/zoom.js', async: true },
+        { src: './../plugin/notes/notes.js', async: true },
+        { src: './../plugin/math/math.js', async: true }
+      ];
+
+      // default options to init reveal.js
+      var defaultOptions = {
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+        transition: 'default', // none/fade/slide/convex/concave/zoom
+        dependencies: deps
+      };
+
+      // options from URL query string
+      var queryOptions = Reveal.getQueryHash() || {};
+
+      var options = extend(defaultOptions, {"controls":true,"progress":true,"autoPlayMedia":false,"slideNumber":"c/t","showSlideNumber":"all","controlsTutorial":true,"controlsLayout":"edges","transition":"slide","transitionSpeed":"medium","minScale":0.5,"maxScale":3}, queryOptions);
+    </script>
+
+
+    <script>
+      Reveal.initialize(options);
+    </script>
+  </body>
+</html>

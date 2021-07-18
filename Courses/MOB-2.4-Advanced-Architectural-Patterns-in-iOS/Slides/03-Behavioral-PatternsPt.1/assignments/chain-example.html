@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <title>Syllabus Template Slides</title>
+    <link rel="stylesheet" href="./../../css/reveal.css" />
+    <link rel="stylesheet" href="./../../css/theme/black.css" id="theme" />
+    <link rel="stylesheet" href="./../../css/highlight/zenburn.css" />
+    <link rel="stylesheet" href="./../../css/print/paper.css" type="text/css" media="print" />
+    <link rel="stylesheet" href="./../../assets/Reveal/makeschool.css" />
+
+    <script>
+      document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>');
+    </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides"><section  data-markdown><script type="text/template"># Chain of Responsibility - Example
+
+```swift
+class Expenditure {
+    private var _amount = Int()
+    var amount : Int{
+        get{
+            return _amount
+        }
+        set {
+            _amount = newValue
+        }
+    }
+    init(amount : Int) {
+        self.amount = amount
+    }
+}
+
+protocol Chain{
+    var nextManagementLevel : Chain{ get set }
+    func shouldApproveExpenditure(expenditure : Expenditure)
+}
+
+class StudentCouncil : Chain {
+
+    private var _nextManagementLevel : Chain?
+    var nextManagementLevel : Chain{
+        set{
+            _nextManagementLevel = newValue
+        }
+        get{
+            return _nextManagementLevel!
+        }
+    }
+
+    func shouldApproveExpenditure(expenditure : Expenditure) {
+        if expenditure.amount > 0 && expenditure.amount < 100 {
+            print("A student from the Student Council can approve this expenditure")
+        } else {
+            if _nextManagementLevel != nil{
+                nextManagementLevel.shouldApproveExpenditure(expenditure: expenditure)
+            }
+        }
+    }
+}
+
+class StudentExp : Chain {
+
+    private var _nextManagementLevel : Chain?
+    var nextManagementLevel : Chain{
+        set{
+            _nextManagementLevel = newValue
+        }
+        get{
+            return _nextManagementLevel!
+        }
+    }
+
+    func shouldApproveExpenditure(expenditure : Expenditure) {
+        if expenditure.amount > 101 && expenditure.amount < 1000 {
+            print("Megan or Lisa can approve this expenditure.")
+        } else {
+            if _nextManagementLevel != nil{
+                nextManagementLevel.shouldApproveExpenditure(expenditure: expenditure)
+            }
+        }
+    }
+}
+
+class Dean : Chain {
+
+    private var _nextManagementLevel : Chain?
+    var nextManagementLevel : Chain{
+        set{
+            _nextManagementLevel = newValue
+        }
+        get{
+            return _nextManagementLevel!
+        }
+    }
+
+    func shouldApproveExpenditure(expenditure : Expenditure) {
+        if expenditure.amount > 1001 && expenditure.amount < 10000 {
+            print("Anne can approve this expenditure.")
+        } else {
+            print("This expenditure is too large and won't get approved, sorry.")
+        }
+    }
+}
+
+
+let studentCouncil = StudentCouncil()
+let studentExp = StudentExp()
+let dean = Dean()
+
+studentCouncil.nextManagementLevel = studentExp
+studentExp.nextManagementLevel = dean
+
+let expenditure = Expenditure(amount: 5)
+studentCouncil.shouldApproveExpenditure(expenditure: expenditure)
+
+expenditure.amount = 500
+studentCouncil.shouldApproveExpenditure(expenditure: expenditure)
+
+expenditure.amount = 5000
+studentCouncil.shouldApproveExpenditure(expenditure: expenditure)
+
+expenditure.amount = 50000
+studentCouncil.shouldApproveExpenditure(expenditure: expenditure)
+
+```
+
+[Adapted from this article](https://medium.com/design-patterns-in-swift/design-patterns-in-swift-chain-of-responsibility-pattern-f575c85a43c)
+</script></section></div>
+    </div>
+
+    <script src="./../../js/reveal.js"></script>
+
+    <script>
+      function extend() {
+        var target = {};
+        for (var i = 0; i < arguments.length; i++) {
+          var source = arguments[i];
+          for (var key in source) {
+            if (source.hasOwnProperty(key)) {
+              target[key] = source[key];
+            }
+          }
+        }
+        return target;
+      }
+
+      // Optional libraries used to extend on reveal.js
+      var deps = [
+        { src: './../../plugin/markdown/marked.js', condition: function() { return !!document.querySelector('[data-markdown]'); } },
+        { src: './../../plugin/markdown/markdown.js', condition: function() { return !!document.querySelector('[data-markdown]'); } },
+        { src: './../../plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+        { src: './../../plugin/zoom-js/zoom.js', async: true },
+        { src: './../../plugin/notes/notes.js', async: true },
+        { src: './../../plugin/math/math.js', async: true }
+      ];
+
+      // default options to init reveal.js
+      var defaultOptions = {
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+        transition: 'default', // none/fade/slide/convex/concave/zoom
+        dependencies: deps
+      };
+
+      // options from URL query string
+      var queryOptions = Reveal.getQueryHash() || {};
+
+      var options = extend(defaultOptions, {"controls":true,"progress":true,"autoPlayMedia":false,"slideNumber":"c/t","showSlideNumber":"all","controlsTutorial":true,"controlsLayout":"edges","transition":"slide","transitionSpeed":"medium","minScale":0.5,"maxScale":3}, queryOptions);
+    </script>
+
+
+    <script>
+      Reveal.initialize(options);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<playground version='6.0' target-platform='osx' auto-termination-delay='21' display-mode='rendered' executeOnSourceChanges='true'>
+    <pages>
+        <page name='Introduction'/>
+        <page name='Live Views'/>
+        <page name='Dance School'/>
+        <page name='APIs'/>
+        <page name='Routines'/>
+        <page name='Sign Your Work'/>
+        <page name='Share the Boogie'/>
+        <page name='Algorithms'/>
+        <page name='Wrapup'/>
+        <page name='Boogie Workshop 1'/>
+        <page name='Boogie Workshop 2'/>
+        <page name='Boogie Workshop 3'/>
+    </pages>
+</playground>

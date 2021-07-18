@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>PyMongo App</title>
+    <link rel="stylesheet" href="/static/style.css">
+  </head>
+  <body>
+    <h1>Flask PyMongo App</h1>
+
+    <form action="/show_all_fruits" method="GET">
+      <input type="submit" value="Show All Fruits!">
+    </form>
+
+    <form action="/fruits_search" method="GET">
+      <fieldset>
+        <legend>Search for a fruit:</legend>
+        <p><label>
+          Name of fruit:
+          <input type="text" name="fruit_name">
+        </label></p>
+
+        <p>
+          <input type="submit" value="Search!">
+        </p>
+      </fieldset>
+    </form>
+
+    <form action="/add_fruit" method="POST">
+      <fieldset>
+        <legend>Add a new fruit:</legend>
+        <p><label>
+          Name of fruit:
+          <input type="text" name="fruit_name">
+        </label></p>
+
+        <p><label>
+          Price of fruit:
+          <input type="number" name="price" step="0.01">
+        </label></p>
+        <p>
+          <input type="submit" value="Add Fruit!">
+        </p>
+      </fieldset>
+    </form>
+
+    <form action="/update_fruit" method="POST">
+      <fieldset>
+        <legend>Update an existing fruit:</legend>
+        <p><label>
+          Name of fruit:
+          <input type="text" name="fruit_name">
+        </label></p>
+
+        <p><label>
+          New price of fruit:
+          <input type="number" name="price" step="0.01">
+        </label></p>
+        <p>
+          <input type="submit" value="Update Fruit!">
+        </p>
+      </fieldset>
+    </form>
+
+    <form action="/delete_fruit" method="POST">
+      <fieldset>
+        <legend>Delete an existing fruit:</legend>
+        <p><label>
+          Name of fruit:
+          <input type="text" name="fruit_name">
+        </label></p>
+        <p>
+          <input type="submit" value="Delete Fruit!">
+        </p>
+      </fieldset>
+    </form>
+  </body>
+</html>

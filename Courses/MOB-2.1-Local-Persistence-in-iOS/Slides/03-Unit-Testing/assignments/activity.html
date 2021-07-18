@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <title>Syllabus Template Slides</title>
+    <link rel="shortcut icon" href="./../../favicon.ico"/>
+    <link rel="stylesheet" href="./../../dist/reveal.css" />
+    <link rel="stylesheet" href="./../../dist/theme/white.css" id="theme" />
+    <link rel="stylesheet" href="./../../css/highlight/zenburn.css" />
+    <link rel="stylesheet" href="./../../assets/Reveal/makeschool.css" />
+
+    <script>
+      document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>');
+    </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides"><section  data-markdown><script type="text/template">## In Class Activity I
+
+### Test No. 1
+
+Sometimes we need to test things that are part of processing data (business logic, persistence, networking, etc.)
+
+Test the following method:
+
+```Swift
+func vowelsInAString(string: String) -> Int {
+       let vowels: [Character] = ["a", "e", "i", "o", "u", "A", "E", "I", "O", "U"]
+       var numberOfVowels = 0
+       for character in string {
+           if vowels.contains(character) {
+               numberOfVowels +=  1
+           }
+       }
+       return numberOfVowels
+   }
+```
+
+Add the method to you view controller and then write a test for it.
+
+### Test No. 2
+
+We want to have a function that given a title, it formats it to have each word capitalized to become a title.
+
+```Swift
+func makeTitle(string: String) -> String {
+    let words = string.components(separatedBy: " ")
+
+    var headline = ""
+    for var word in words {
+        let firstCharacter = word.remove(at:word.startIndex)
+        headline += "\(String(firstCharacter).uppercased())\(word) "
+    }
+
+    headline.remove(at:headline.endIndex)
+    return headline.dropLast()
+}
+```
+
+Write a test to make sure this works.
+</script></section></div>
+    </div>
+
+    <script src="./../../dist/reveal.js"></script>
+
+    <script src="./../../plugin/markdown/markdown.js"></script>
+    <script src="./../../plugin/highlight/highlight.js"></script>
+    <script src="./../../plugin/zoom/zoom.js"></script>
+    <script src="./../../plugin/notes/notes.js"></script>
+    <script src="./../../plugin/math/math.js"></script>
+    <script>
+      function extend() {
+        var target = {};
+        for (var i = 0; i < arguments.length; i++) {
+          var source = arguments[i];
+          for (var key in source) {
+            if (source.hasOwnProperty(key)) {
+              target[key] = source[key];
+            }
+          }
+        }
+        return target;
+      }
+
+      // default options to init reveal.js
+      var defaultOptions = {
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+        transition: 'default', // none/fade/slide/convex/concave/zoom
+        plugins: [
+          RevealMarkdown,
+          RevealHighlight,
+          RevealZoom,
+          RevealNotes,
+          RevealMath
+        ]
+      };
+
+      // options from URL query string
+      var queryOptions = Reveal().getQueryHash() || {};
+
+      var options = extend(defaultOptions, {"controls":true,"progress":true,"autoPlayMedia":false,"slideNumber":"c/t","showSlideNumber":"all","controlsTutorial":true,"controlsLayout":"edges","transition":"slide","transitionSpeed":"medium","minScale":0.5,"maxScale":3}, queryOptions);
+    </script>
+
+
+    <script>
+      Reveal.initialize(options);
+    </script>
+  </body>
+</html>

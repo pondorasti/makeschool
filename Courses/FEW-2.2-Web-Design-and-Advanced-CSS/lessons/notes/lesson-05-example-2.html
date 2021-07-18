@@ -1,0 +1,298 @@
+<style>
+  
+  /* Define common values as custom properties */
+  :root { 
+    --color: #333333;
+    --body-color: #eee;
+    
+    --font-family: Helvetica;
+    --font-size: 16px;
+
+    --color-primary: #47b6e9;
+    --color-darker: #333;
+    --color-dark: #666;
+    --color-medium: #999;
+    --color-lighter: #aaa;
+    --color-lightest: #ddd;
+    --color-light: #fff;
+  }
+
+  /* Use the Custom properties */
+  body {
+    font-family: var(--font-family);
+    font-size: var(--font-size);
+    background-color: var(--body-color);
+  }
+
+
+
+
+
+  /* Style buttons */
+  button {
+    --weight: normal; 
+    /* Remove the default styles */
+    border: none;
+    font: inherit;
+    color: inherit;
+    box-shadow: none;
+    background-color: transparent;
+
+    /* Give the button a finger cursor */
+    cursor: pointer;
+    /* Style the button */
+    border-width: 2px;
+    border-style: solid;
+    border-color: transparent;
+    border-radius: 0.5em;
+    padding: 0.7em 1em; /* Use padding to give the text some space */
+    font-size: 1em;
+
+    /* Think about adding a transition */
+    transition: 200ms;
+    
+    /* Use some variables to control the appearance */
+    font-weight: var(--weight);
+    background-color: var(--background-color, var(--color-primary));
+    color: var(--color-light);
+  }
+
+  /* Style the interactive states of the button */
+  button:hover {
+    /* Use the variables here */ 
+    background-color: var(--body-color);
+    border-color: var(--background-color, var(--color-primary));
+    color: var(--background-color, var(--color-primary));
+  }
+
+  button:active {
+    background-color:var(--background-color, var(--color-primary));
+    color: var(--color-light);
+    /* Use filter to make the button darker */
+    -webkit-filter: brightness(80%);
+    -moz-filter: brightness(80%); 
+    -ms-filter: brightness(80%);
+    -o-filter: brightness(80%);
+    filter: brightness(80%);
+  }
+
+
+
+
+
+  /* Input styles */
+  input[type=text], 
+  input[type=email], 
+  input[type=password], 
+  textarea {
+    --border-color: var(--color-medium);
+    padding: 0.7em 1em;
+    border: 2px solid var(--border-color);
+    border-radius: 0.5em;
+    font-size: 1em;
+
+    /* Add a transition */
+    transition: 200ms;
+
+    /* 
+      This removes the accessibility outline 
+      which should never be removed
+      https://a11yproject.com/posts/never-remove-css-outlines/
+    */
+    outline: none !important; 
+  }
+
+  input[type=text]:focus, 
+  input[type=email]:focus, 
+  input[type=password]:focus,
+  textarea:focus {
+    --border-color: var(--color-primary);
+  }
+
+
+  /* Form labels */
+  label {
+    display: block;
+    margin: 0 0 1em 0;
+  }
+
+
+
+  label > span {
+    font-size: 0.75em;
+    display: block;
+    margin: 1em 0;
+  }
+
+
+
+
+  /*  */
+    
+  .switch-2 {
+    width: 54px;
+    height: 32px;
+    border-radius: 18px;
+    border: 2px solid var(--color-medium);
+    background-color: var(--color-light);
+    position: relative;
+    transition: 200ms;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+
+  .switch-2 > input[type=checkbox] {
+    display: none;
+  }
+  
+  .switch-2 > div {
+    width: 28px;
+    height: 28px;
+    background-color: var(--color-medium);
+    border-radius: 50%;
+    margin: 2px;
+    position: absolute;
+    left: 0;
+    transition: 200ms
+  }
+  /* When the .switch has the class .on change the 
+  color to green. */
+      
+  .switch-2 input:checked ~ div {
+    background-color: var(--color-primary);
+  }
+  /* When the .switch has the .on class change the 
+  position left to 40px. */
+  
+  .switch-2 input:checked ~ div {
+    left: 22px;
+  }
+
+
+  /* ---------------- */
+
+
+  /* The container */
+  .control-checkbox {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+
+  /* Hide the browser's default checkbox */
+  .control-checkbox input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+
+  /* Create a custom checkbox */
+  .control-checkbox > span {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: #eee;
+  }
+
+  /* On mouse-over, add a grey background color */
+  .control-checkbox:hover input ~ .control-checkbox > span {
+    background-color: #ccc;
+  }
+
+  /* When the checkbox is checked, add a blue background */
+  .control-checkbox input:checked ~ .control-checkbox > span {
+    background-color: #2196F3;
+  }
+
+  /* Create the checkmark/indicator (hidden when not checked) */
+  .control-checkbox > span:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+
+  /* Show the checkmark when checked */
+  .control-checkbox input:checked ~ .control-checkbox > span:after {
+    display: block;
+  }
+
+  /* Style the checkmark/indicator */
+  .control-checkbox > span:after {
+    left: 9px;
+    top: 5px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }
+</style>
+
+<body>
+
+  <div>
+      <p>This is your average button. You might want to click it.</p>
+      <button>Submit</button>
+    
+      <p>This button has consequences. You might want to think twice before clicking.</p>
+      <button 
+        style="--weight: bold; --background-color: #f85353;"
+      >Delete</button>
+
+      <button 
+        style="--background-color: #6bc253;"
+      >Go!</button>
+
+      <form>
+
+        <label>
+          <span>Text:</span>
+          <input type="text" placeholder="What is your name?">
+        </label>
+
+        <label>
+          <span>Email:</span>
+          <input type="email" placeholder="What is your name?">
+        </label>
+
+        <label>
+          <span>Password:</span>
+          <input type="password" placeholder="What is your name?">
+        </label>
+
+        <label>
+          <span>Your comments</span>
+          <textarea placeholder="Your comment"></textarea>
+        </label>
+
+      <!-- Switch with Click -->
+      <div>
+        <label id="switch-2" class="switch-2">
+          <input type="checkbox">
+          <div>
+            <div></div>
+          </div>
+        </label>
+      </div>
+    </form>
+
+  </div>
+
+  
+</body>

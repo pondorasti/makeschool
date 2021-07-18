@@ -1,0 +1,17 @@
+<a href="/all">Back to List</a>
+
+<h1>{{ song.title }}</h1>
+
+<p>Artist: {{ song.artist }}</p>
+
+<p>Genre: 
+    {% if song.genre %}
+        {{ song.genre }}
+    {% else %}
+        None
+    {% endif %}
+</p>
+
+<form action="/delete/{{ song._id }}" method='POST'>
+    <input type="submit" value="Delete Song">
+</form>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <title>Syllabus Template Slides</title>
+    <link rel="stylesheet" href="./../../css/reveal.css" />
+    <link rel="stylesheet" href="./../../css/theme/black.css" id="theme" />
+    <link rel="stylesheet" href="./../../css/highlight/zenburn.css" />
+    <link rel="stylesheet" href="./../../css/print/paper.css" type="text/css" media="print" />
+    <link rel="stylesheet" href="./../../assets/Reveal/makeschool.css" />
+
+    <script>
+      document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>');
+    </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides"><section  data-markdown><script type="text/template"># Game mechanics and adding scenes to our game
+
+Let's start __*adding game mechanics*__ to AstroJunk...
+
+### In your game implementation...
+
+So far, AstroJunk has no mechanism for Win/Loss (aka, Victory) conditions.
+
+Applying what you've learned so far about working with SpriteKit scenes &mdash; and using ideas from the class discussion in today's initial exercise &mdash; you are to begin adding the first piece of a Win/Loss condition to your AstroJunk game.
+
+**Output:**
+The output or final product at the end of this in-class exercise will only be a new scene called "Game Over" that you will present when the user achieves either a Win or Loss state. Once the your new scene is presented, tapping anywhere on its screen/view should restart the game.
+
+How the Win / Loss states are achieved will ultimately be up to you (and you will create these Victory Conditions as an After Class assignment later.)
+
+But, for now, you only need to create a simple Boolean condition that will be used to invoke the presentation of your "Game Over" scene, present the scene, and restart the game when the new scene's view is touched.
+
+**TODO:**
+
+1. Create a new subclass of `SKScene` called `GameOverScene`
+
+2. In your `GameScene` class, you will need a counter that will be incremented any time the spaceship captures a piece of space debris
+
+  - When this flag increments to 3, invoke your new `GameOverScene`
+
+3. In your new `GameOverScene` class, you will need to implement:
+
+  - a Boolean flag named `won` representing whether the player has won the most recent game play or not
+
+  - a `didMove(to:)` function with a conditional statement that shows a label stating "You Won!" when the `won` flag is true, or "You lose...", when the `won` flag is false
+
+  - some function which will restart the game when the user taps the screen of the `GameOverScene`
+
+If you want to change any of the mechanics, feel free to do so. The more customized, the better. This is just a starting point if you're missing inspiration at the moment.
+</script></section></div>
+    </div>
+
+    <script src="./../../js/reveal.js"></script>
+
+    <script>
+      function extend() {
+        var target = {};
+        for (var i = 0; i < arguments.length; i++) {
+          var source = arguments[i];
+          for (var key in source) {
+            if (source.hasOwnProperty(key)) {
+              target[key] = source[key];
+            }
+          }
+        }
+        return target;
+      }
+
+      // Optional libraries used to extend on reveal.js
+      var deps = [
+        { src: './../../plugin/markdown/marked.js', condition: function() { return !!document.querySelector('[data-markdown]'); } },
+        { src: './../../plugin/markdown/markdown.js', condition: function() { return !!document.querySelector('[data-markdown]'); } },
+        { src: './../../plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+        { src: './../../plugin/zoom-js/zoom.js', async: true },
+        { src: './../../plugin/notes/notes.js', async: true },
+        { src: './../../plugin/math/math.js', async: true }
+      ];
+
+      // default options to init reveal.js
+      var defaultOptions = {
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+        transition: 'default', // none/fade/slide/convex/concave/zoom
+        dependencies: deps
+      };
+
+      // options from URL query string
+      var queryOptions = Reveal.getQueryHash() || {};
+
+      var options = extend(defaultOptions, {"controls":true,"progress":true,"autoPlayMedia":false,"slideNumber":"c/t","showSlideNumber":"all","controlsTutorial":true,"controlsLayout":"edges","transition":"slide","transitionSpeed":"medium","minScale":0.5,"maxScale":3}, queryOptions);
+    </script>
+
+
+    <script>
+      Reveal.initialize(options);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,37 @@
+<html>
+  <head>
+    <title>Web Components - Shadow Root</title>
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+        <h1>Web Components - Shadow Root</h1>
+        <p>This is the hello world of web components.</p>
+
+        <!-- Component names must contain a hyphen!
+        Components can not be self closing tags <name /> -->
+
+        <hello-world>Inner Text</hello-world>
+
+    </div>
+
+    <template id="cat-template">
+      <figure>
+        <figcaption>
+          <h1>Cat!</h1>
+        </figcaption>
+        <img src="images/cat-picture.png">
+      </figure>
+    </template>
+
+    <!-- Important place this at the end of the body tag -->
+    <script src="./hello-world.js" type="module"></script>
+
+  </body>
+</html>

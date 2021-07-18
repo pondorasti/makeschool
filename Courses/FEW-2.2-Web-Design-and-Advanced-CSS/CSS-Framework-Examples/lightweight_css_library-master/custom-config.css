@@ -1,0 +1,49 @@
+.logo-color{
+    color: whitesmoke;
+    mix-blend-mode: lighten;
+    font-size: 5em;
+}
+
+.bg-url1{
+    color: white;
+    height: 600px;
+    background-image: url('https://source.unsplash.com/1800x600/?nature');
+
+}
+
+.bg-url2 {
+    color: white;
+    height: 480px;
+    background-image: url('https://source.unsplash.com/1420x480/?space');
+}
+
+.menu-color {
+    color: white;
+    background-color: #333;
+}
+
+.bg-header {
+    color: white;
+    background-image: url('https://source.unsplash.com/1420x480/?mountains');
+    background-size: cover;
+}
+
+.bg-table-example {
+    align-items: center;
+    height: 800px;
+    color: white;
+    background-image: url('https://source.unsplash.com/1420x480/?ice+bergs');
+}
+
+.bg-nav-color {
+    background-color: rgb(61, 4, 83);
+}
+
+.bg-hamburger-menu-color {
+    /* mix-blend-mode: darken; */
+    background-color: rgba(30, 30, 30, 0.924);
+}
+
+.article {
+    flex-direction: row;
+}

@@ -1,0 +1,4 @@
+- **[Syllabus](README.md)**
+- **Course Websites**
+  - [CS 1.1: Intro to Programming](https://make-school-courses.github.io/CS-1.1-Intro-to-Programming/)
+  - [BEW 1.1: RESTful & Resourceful MVC Architecture](https://make-school-courses.github.io/BEW-1.1-RESTful-and-Resourceful-MVC-Architecture/)

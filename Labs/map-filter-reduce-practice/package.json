@@ -1,0 +1,17 @@
+{
+  "name": "map-filter-reduce-practice",
+  "version": "1.0.0",
+  "description": "",
+  "main": "challenges.js",
+  "scripts": {
+    "test": "jest",
+    "challenge1": "jest challenge1.test.js",
+    "challenge2": "jest challenge2.test.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "jest": "^27.0.4"
+  }
+}

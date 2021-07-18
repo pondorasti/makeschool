@@ -1,0 +1,52 @@
+
+$colors: (
+	'gray': rgb(128, 128, 128),	
+	'primary': #007bff,
+	'info': #17a2b8,
+	'success': #28a745,
+	'danger': #dc3545,
+	'callout': #ffa107,
+	'secondary': #ffcd07,
+	'other': #ca5ae1,
+	'alternate': #a45ae1
+);
+
+/* Colors */
+
+$color: #f00;
+
+:root {
+  @for $i from 4 through 1 {
+    --color-lighter-#{$i}: #{lighten($color, 10% * $i)};
+  }
+}
+
+:root {
+	
+	@each $key, $value in $colors {
+		/* Tints */
+		@for $i from 4 through 1 {
+			--color-#{$key}-lighter-#{$i}: #{lighten($value, 10% * $i)};
+		}
+
+		--color-#{$key}: #{$value};
+
+		/* Shades */
+		@for $i from 1 through 4 {
+			--color-#{$key}-darker-#{$i}: #{darken($value, 10% * $i)};
+		}
+	}
+
+	/* base Color names */
+  --color-background: var(--color-gray-lighter-4);
+	--color-foreground: var(--color-gray-darker-4);
+	
+	--color-lightest: var(--color-gray-lighter-4);
+	--color-light: var(--color-gray-lighter-2);
+	--color-md-light:var(--color-gray);
+	--color-md-dark: var(--color-gray-darker-1);
+	--color-dark: var(--color-darker-3);
+}
+
+
+  

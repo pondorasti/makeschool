@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <title>Syllabus Template Slides</title>
+    <link rel="stylesheet" href="./../css/reveal.css" />
+    <link rel="stylesheet" href="./../css/theme/black.css" id="theme" />
+    <link rel="stylesheet" href="./../css/highlight/zenburn.css" />
+    <link rel="stylesheet" href="./../css/print/paper.css" type="text/css" media="print" />
+    <link rel="stylesheet" href="./../assets/Reveal/makeschool.css" />
+
+    <script>
+      document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>');
+    </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides"><section  data-markdown><script type="text/template"># MVVM
+
+<!-- INSTRUCTOR <aside class="notes"><p>1) For the QuizLet Game in the Initial Exercise:</p>
+<ul>
+<li>the URL is <a href="https://quizlet.com/_6hmrxi">https://quizlet.com/_6hmrxi</a></li>
+</ul>
+<p>2) For Activity 1:</p>
+<ul>
+<li>is just diagraming on boards
+3) for Activity 2:</li>
+<li>use starter app listed in exercise</li>
+<li>-&gt;</li>
+</ul>
+<h2 id="minute-by-minute">Minute-by-Minute</h2>
+<table>
+<thead>
+<tr>
+<th><strong>Elapsed</strong></th>
+<th><strong>Time</strong></th>
+<th><strong>Activity</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>0:00</td>
+<td>0:05</td>
+<td>Objectives</td>
+</tr>
+<tr>
+<td>0:05</td>
+<td>0:20</td>
+<td>Initial Exercise</td>
+</tr>
+<tr>
+<td>0:25</td>
+<td>0:20</td>
+<td>Overview</td>
+</tr>
+<tr>
+<td>0:45</td>
+<td>0:15</td>
+<td>In Class Activity I</td>
+</tr>
+<tr>
+<td>1:00</td>
+<td>0:10</td>
+<td>BREAK</td>
+</tr>
+<tr>
+<td>1:10</td>
+<td>0:20</td>
+<td>Overview</td>
+</tr>
+<tr>
+<td>1:30</td>
+<td>0:25</td>
+<td>In Class Activity II</td>
+</tr>
+<tr>
+<td>TOTAL</td>
+<td>1:55</td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id="learning-objectives-5-min">Learning Objectives (5 min)</h2>
+<p>By the end of this lesson, you should be able to...</p>
+<ol>
+<li>Describe:</li>
+</ol>
+<ul>
+<li>the <strong>MVVM</strong> design pattern</li>
+<li>the software construction problem(s) it is intended to solve</li>
+<li>potential use cases for it (when to use it; when not to use it)</li>
+</ul>
+<ol start="3">
+<li>Assess:</li>
+</ol>
+<ul>
+<li>the suitability of a given design pattern to solve a given problem</li>
+<li>the trade offs (pros/cons) inherent in choosing high-level (MVC, MVVM, etc.) design patterns</li>
+</ul>
+<ol start="4">
+<li>Implement basic examples of MVVM explored in this class</li>
+</ol>
+<!-- 1. Identify and describe
+1. Define
+1. Design
+1. Implement -->
+
+<h2 id="initial-exercise-20-min">Initial Exercise (20 min)</h2>
+<h3 id="as-a-class">As A Class</h3>
+<h4 id="a-quizlet-game">A QuizLet Game</h4>
+<p>...test your knowledge of design patterns in Swift!</p>
+<h2 id="overviewtt-i-20-min">Overview/TT I (20 min)</h2>
+<h3 id="model-view-viewmodel">Model-View-ViewModel</h3>
+<p>The <strong>MVVM</strong> is a <strong><em>Structural</em></strong> design pattern which introduces a <em>fourth</em> component to MVC — <em>the</em> <strong><em>View Model.</em></strong></p>
+<p>The idea behind the MVVM pattern is that any <strong>View</strong> <em>with business logic specific to itself</em> should be backed by a <strong>View Model</strong> that represents and handles the data for the <strong>View.</strong></p>
+<p>In MVVM, we implement <em>presentational</em> business logic - such as converting a Date into a date-formatted String - in the <strong><em>ViewModel</em></strong> <em>instead</em> of in the View or the Controller.</p>
+<!-- TODO: Insert: example code (cell?) and/or diagram here? -->
+
+
+<h3 id="a-brief-history">A Brief History</h3>
+<p>MVVM was invented by Microsoft architects Ken Cooper and Ted Peters specifically to simplify event-driven programming of user interfaces.</p>
+<p>MVVM was designed to make use of data binding functions in WPF (Windows Presentation Foundation) to better facilitate the separation of view layer development from the rest of the pattern, by removing virtually all GUI code (&quot;code-behind&quot;) from the view layer.</p>
+<p><em>Source: wikipedia</em></p>
+<!-- TODO: add more detail from notes here -->
+
+
+
+<h3 id="four-components-of-mvvm">Four Components of MVVM</h3>
+<p>MVVM is very similar to MVC and compliments it exceptionally well. It can be seen as an extension of MVC&#39;s primary intent: separating the View from the Model and utilizing the Controller as a central &quot;manager&quot; between View and Model.</p>
+<p>MVVM takes the principle of <em>Separation of Concerns</em> one step further &mdash; it adds a <strong><em>special layer</em></strong> between the View and the Model (called the <code>ViewModel</code> or <code>View Model</code>) which <strong><em>allows Controllers to delegate data presentation responsibilities to the View Model.</em></strong></p>
+<p>Here is how the four major components of MVVM relate to each other (and to MVC):</p>
+<p><strong>View</strong> &mdash; Responsible for displaying visual elements and controls on the screen. Typically, subclasses of <code>UIView</code>. </br>
+(Same as in MVC)</p>
+<p><strong>Model</strong> &mdash; Objects that hold app data; typically, <code>structs</code> or simple <code>classes</code>. (Same as in MVC)</p>
+<p><strong>View Controller</strong> &mdash; In MVVM, VCs still set up UIView objects, but <em>they do not interact with the model.</em> Instead, the VC uses the View Model as a <em>mediator</em> and asks for what it needs in a format that will be ready for presentation. In MVVM, Controllers should have absolutely no business logic.</p>
+<p><strong>View Model</strong> &mdash; Transforms Model data into values that can be displayed on a View. Sits between the View Controller and Model. Can be a <code>class</code> or a <code>struct</code>,  but it is <em>typically a class</em> so that references of the same instance can be passed around in code.</p>
+<h3 id="problems-addressed">Problem(s) Addressed</h3>
+<p>MVVM can be used to solve two related development issues:</p>
+<ol>
+<li><strong>&quot;MVC: Massive View Controller&quot;</strong> &mdash; In MVC, where do you put functionality that does not belong neatly in either the View or the Model?</li>
+</ol>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; For expediency, iOS developers are too often tempted to use View Controllers as a &quot;catch-all&quot; component </br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; for such code, which results in bloated View Controllers.</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <strong><em>Example</em></strong> </br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Data formatting is a common task. Imagine your app needs data &mdash; dates, currency, etc. &mdash; <em>formatted</em> </br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <em>differently</em> for various user locales. The data is stored in the Model layer, and the View displays the </br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; formatted data &mdash; <em>but which component should be responsible for formatting the data?</em>
+</br></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Implementing MVVM, the View Model could handle data formatting, freeing up the View Controller </br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; to do its primary job: Responding to <code>viewDidLoad()</code> and other View lifecycle events, handling </br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; View callbacks through IBActions, and so on.</p>
+<ol start="2">
+<li><strong>Tight Coupling Between MVC Components</strong> &mdash; In the following code snippet, assume that each reusable cell will be populated with data from separate user records when the <code>configureWithUser(_:)</code> function is executed:</li>
+</ol>
+<pre><code class="language-Swift">    var userCell = tableView.dequeueReusableCellWithIdentifier(&quot;identifier&quot;) as UserCell
+    userCell.configureWithUser(user)</code></pre>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- In this design, the cell (the View) is configured directly with the Model, violating MVC guidelines. </br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- You could refactor it by configuring the cell from the Controller, which might follow MVC, but will </br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; increase the size of the Controller.</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Such a problem might not be evident until you implement Unit Testing. Because the <strong><em>Controller is</em></strong> </br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <strong><em>tightly coupled with the View,</em></strong> it becomes <strong><em>difficult to test</em></strong> due to the added complexity of </br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; mocking up views and their life cycles and keeping them all in sync with the Model.</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; With MVVM, the business logic required to supply presentation data to the View can be separated from </br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; View layout code.</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; When the View Model knows nothing about View layout, testing each - separately or together - is much easier.</p>
+<h3 id="benefits">Benefits</h3>
+<ol>
+<li><strong><em>Separation of Concerns</em></strong> &mdash; MVVM can create a much clearer separation of concerns between Model, View and Controller providing several advantages:</li>
+</ol>
+<ul>
+<li>It allows developers to break an app into smaller components, which facilitates easier debugging, testing, and code readability.</li>
+<li>Due to the decoupling of UI and business logic, the MVVM design pattern results in more flexible code. </li>
+<li>MVVM can go a long way to solve the &quot;Massive View Controller&quot; problem by decreasing the code size of View Controllers by delegating some of a VC&#39;s tasks to a View Model.</li>
+</ul>
+<ol start="2">
+<li><strong><em>Testability</em></strong> &mdash; MVVM makes it easy to test the logic behind the views. By moving a ViewController’s business logic into a ViewModel it becomes much easier to create unit tests of the business logic and the View layout code.</li>
+</ol>
+<h3 id="pitfalls-of-mvvm">Pitfalls of MVVM</h3>
+<p>With great power comes great responsibility...</p>
+<p>The cost of MVVM can be a bit high as sometimes it is difficult to figure one’s way around binding and other technicalities of MVVM. If you do something wrong, you might spend a lot of time debugging your app.</p>
+<p>Noteworthy criticism of the pattern comes from MVVM creator, John Gossman, himself:</p>
+<ul>
+<li>the overhead in implementing MVVM is &quot;overkill&quot; for simple UI operations.</li>
+<li>for larger applications, generalizing the ViewModel becomes more difficult.</li>
+<li>data binding in very large applications can result in considerable memory consumption.</li>
+</ul>
+<p><em>Source: wikipedia</em></p>
+<h3 id="when-to-use-mvvm">When to Use MVVM</h3>
+<p>Use MVVM when you need to transform models into another representation for a View, especially in situations which require several model-to-view transformations.</p>
+<p>For example, you can use a View Model to configure a table cell, transform a Date into a date-formatted String, a Decimal into a currency-formatted String, or many other useful View transformations.</p>
+<h2 id="in-class-activity-i-15-min">In Class Activity I (15 min)</h2>
+<h3 id="individually">Individually</h3>
+<p><strong>TODO:</strong> Analyze the Playground code below and <strong><em>diagram</em></strong> how it implements MVVM.
+Emphasize in your diagram:</p>
+<ul>
+<li>how this implementation changes MVC into MVVM, especially which class(es) comprise the View Model</li>
+<li>the relationship between the View Model and the View Controller</li>
+</ul>
+<p><strong>Q:</strong> How does this design free up the View Controller?</p>
+<p><strong>Playground Code:</strong></p>
+<pre><code class="language-Swift">
+import UIKit
+import PlaygroundSupport
+
+struct Person { // Model
+    let firstName: String
+    let lastName: String
+}
+
+protocol GreetingViewModelProtocol: class {
+    var greeting: String? { get }
+    var greetingDidChange: ((GreetingViewModelProtocol) -&gt; ())? { get set }
+    init(person: Person)
+    func showGreeting()
+}
+
+class GreetingViewModel : GreetingViewModelProtocol {
+    let person: Person
+
+    var greeting: String? {
+        didSet {
+            self.greetingDidChange?(self)
+        }
+    }
+
+    var greetingDidChange: ((GreetingViewModelProtocol) -&gt; ())?
+
+    required init(person: Person) {
+        self.person = person
+    }
+
+    func showGreeting() {
+        self.greeting = &quot;Hello &quot; + self.person.firstName + &quot; &quot; + self.person.lastName
+    }
+}
+
+class GreetingViewController : UIViewController {
+    var viewModel: GreetingViewModelProtocol? {
+        didSet {
+            self.viewModel?.greetingDidChange = { [unowned self] viewModel in
+                self.greetingLabel.text = viewModel.greeting
+            }
+        }
+    }
+    var showGreetingButton: UIButton!
+    var greetingLabel: UILabel!
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        self.view.frame = CGRect(x: 0, y: 0, width: 320, height: 480)
+
+        self.setupUIElements()
+        self.layout()
+    }
+
+    func setGreeting(greeting: String) {
+        self.greetingLabel.text = greeting
+    }
+
+    func setupUIElements() {
+        self.title = &quot;Test&quot;
+
+        self._setupButton()
+        self._setupLabel()
+    }
+
+    private func _setupButton() {
+        self.showGreetingButton = UIButton()
+        self.showGreetingButton.setTitle(&quot;Click me&quot;, for: .normal)
+        self.showGreetingButton.setTitle(&quot;You badass&quot;, for: .highlighted)
+        self.showGreetingButton.setTitleColor(UIColor.white, for: .normal)
+        self.showGreetingButton.setTitleColor(UIColor.red, for: .highlighted)
+        self.showGreetingButton.translatesAutoresizingMaskIntoConstraints = false
+        self.showGreetingButton.addTarget(self, action: #selector(didTapButton(sender:)), for: .touchUpInside)
+        self.view.addSubview(self.showGreetingButton)
+    }
+
+    private func _setupLabel() {
+        self.greetingLabel = UILabel()
+        self.greetingLabel.textColor = UIColor.white
+        self.greetingLabel.textAlignment = .center
+        self.greetingLabel.translatesAutoresizingMaskIntoConstraints = false
+
+        self.view.addSubview(self.greetingLabel)
+    }
+
+    func layout() {
+        self._layoutButton()
+        self._layoutLabel()
+
+        self.view.layoutIfNeeded()
+    }
+
+    private func _layoutButton() {
+        // layout button at the center of the screen
+        let cs1 = NSLayoutConstraint(item: self.showGreetingButton, attribute: .centerX, relatedBy: .equal, toItem: self.view, attribute: .centerX, multiplier: 1.0, constant: 1.0)
+        let cs2 = NSLayoutConstraint(item: self.showGreetingButton, attribute: .centerY, relatedBy: .equal, toItem: self.view, attribute: .centerY, multiplier: 1.0, constant: 1.0)
+
+        self.view.addConstraints([cs1, cs2])
+    }
+
+    private func _layoutLabel() {
+        // layout label at the center, bottom of the screen
+        let cs1 = NSLayoutConstraint(item: self.greetingLabel, attribute: .centerX, relatedBy: .equal, toItem: self.view, attribute: .centerX, multiplier: 1.0, constant: 1.0)
+        let cs2 = NSLayoutConstraint(item: self.greetingLabel, attribute: .bottom, relatedBy: .equal, toItem: self.view, attribute: .bottom, multiplier: 1.0, constant: -10)
+        let cs3 = NSLayoutConstraint(item: self.greetingLabel, attribute: .width, relatedBy: .equal, toItem: self.view, attribute: .width, multiplier: 0.70, constant: 0)
+
+        self.view.addConstraints([cs1, cs2, cs3])
+    }
+
+    @objc func didTapButton(sender: UIButton) {
+        guard let vm = self.viewModel else { return }
+
+        vm.showGreeting()
+    }
+}
+
+// Assembling of MVVM
+let model = Person(firstName: &quot;Nikola&quot;, lastName: &quot;Tesla&quot;)
+let view = GreetingViewController()
+let viewModel = GreetingViewModel(person: model)
+view.viewModel = viewModel
+
+PlaygroundPage.current.liveView = view.view
+</code></pre>
+<p><em>Excerpted from:</em>
+<a href="https://gist.github.com/BohdanOrlov/bdb64ae4ca83a2fca3af">https://gist.github.com/BohdanOrlov/bdb64ae4ca83a2fca3af</a></p>
+<h2 id="overviewtt-ii-20-min">Overview/TT II (20 min)</h2>
+<h3 id="view-model---a-closer-look">View Model - A Closer Look</h3>
+<p>Note that using a <strong>View Model</strong> is actually an example of the <strong><em>Mediator pattern.</em></strong></p>
+<p>View Models can be thought of as representations of the View Controller which are designed to handle a specific subset of functionality that a VC might otherwise handle (though <em>not designed to handle</em> <code>viewDidLoad()</code> and other lifecycle functions handled by VCs).</p>
+<p>It exposes an interface to the Controller for displaying information about the Model: it <em>hides</em> the Model from the Controller.</p>
+<p><strong>View Models</strong> are:</p>
+<ul>
+<li>an abstraction of the view exposing public properties and commands.</li>
+<li>considered more Model than View, because View Models have a close relationship with the Models they consume.</li>
+<li>classes that take objects and transform them into different objects which can be passed into the view controller and displayed on the view.</li>
+<li>especially useful for converting computed properties - such as a Date or a Decimal - into a String or other data type that can be shown in a UILabel or UIView.</li>
+</ul>
+<p><strong>Recommended Practices</strong> </br>
+When dealing with the View Model, ensure it is <em>as &quot;dumb&quot; as possible:</em></p>
+<ul>
+<li>Decouple it from the View Controller as much as possible.</li>
+<li>Avoid tight coupling between the View Model layer and web service or data access layers.</li>
+</ul>
+<p>If only using a View Model with a single View, it can be good to put all configurations and set up code into the View Model. If you’re using <strong><em>more than one view,</em></strong> you might find that putting all the logic in one view model complicates and clutters it. In those cases, creating <strong><em>a separate View Model</em></strong> specific to <strong><em>each type of View</em></strong> might declutter and simplify the implementation (by further separating concerns).</p>
+<h3 id="bindings">Bindings</h3>
+<p>The View Model provides a set of interfaces, each of which represents a UI component in the View. We can use a technique called <strong><em>“binding”</em></strong><sup>1</sup> to <em>connect UI components to ViewModel interfaces.</em></p>
+<p>Binding refers to the flow of information between Views and View Models; a View directly binds to properties on the View Model to send and receive updates. If View Model properties change, those changes can be immediately and automatically reflected on the View.</p>
+<p>Instead of the controller of the MVC pattern, MVVM<sup>2</sup> often employ a <em>binder,</em> which automates communication between the View and its bound properties in the View Model.</p>
+<p>Most frameworks employ the <strong><em>Observer pattern</em></strong> as the underlying binding mechanism.</p>
+<h3 id="mvvm-in-ios">MVVM in iOS</h3>
+<p>MVVM has been gaining traction in the Cocoa and Cocoa Touch communities because of its potential to resolve the Massive-View-Controller problem and to facilitate Unit Testing of presentation logic.</p>
+<p>And, although bindings are built in to macOS frameworks, we do not have built-in bindings in iOS. Though less convenient to use than built-in bindings, we can use Key-Value-Observing and Notifications to implement bindings between View properties and View Model behaviors in iOS.</p>
+<h3 id="how-to-implement-it">How to implement it?</h3>
+<p>The implementation of a View Model is usually straightforward:</p>
+<ul>
+<li>Identify opportunities to free up View Controllers from data formatting or other presentation tasks</li>
+<li>Create a View Model to handle those tasks</li>
+</ul>
+<p>Whenever possible, it is recommended to implement a data binding mechanism (KVO, Notifications) to automatically handle data state changes between the View and the View Model.</p>
+<h2 id="in-class-activity-ii-25-min">In Class Activity II (25 min)</h2>
+<p><strong>Required Resources:</strong></p>
+<ul>
+<li>Internet access to the News API Web Service API: <a href="https://newsapi.org">https://newsapi.org</a></li>
+<li>The <a href="https://github.com/Make-School-Labs/iOS-NewsApp_Starter">iOS-NewsApp_Starter</a> app, which includes a pre-built table view ready to present the results of a data fetch.</li>
+</ul>
+<!--
+< for reference >
+https://medium.com/@azamsharp/mvvm-in-ios-from-net-perspective-580eb7f4f129 -->
+
+
+<h3 id="part-1---refactor-the-data-source-array">Part 1 - Refactor the data source (array)</h3>
+<p><strong>TODO:</strong> Refactor the <code>sources</code> array below into an appropriate construct which implements MVVM.</p>
+<pre><code class="language-Swift">class SourceViewController: UITableViewController {
+
+    //TODO: Using MVVM, refactor this datasource array
+    var sources: [SourceItem] = []
+
+    ...</code></pre>
+<h3 id="part-2---respond-to-data-changes">Part 2 - Respond to Data changes</h3>
+<p><strong>TODO:</strong> Create a new function which will <strong>add</strong> a new <code>SourceItem</code> to the datasource (array) whenever the user clicks on any cell in the table view.</p>
+<ul>
+<li>For the  <code>name</code> and <code>overview</code> properties, you can hard-code any text you would like; just be sure that it is something simple that you can recognize later.</li>
+<li>Set an observer<sup>3</sup> on the datasource such that, whenever the array changes, data for the table view is reloaded.</li>
+</ul>
+<p><sup>3</sup> <em>Use either KVO or Notification.</em></p>
+<!-- Refactor the table cell configuration
+
+You will need to refactor the table cell's configuration in 2 places:
+
+1. In the __*View Controller's*__ `cellForRowAt(_:)` function:
+
+```Swift
+override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+
+    ...
+
+    //TODO: Using MVVM, refactor cell configuration
+     cell.sourceItem = sources[indexPath.row]
+     return cell
+ }
+```
+
+2. In the __*NewsFeedCell's*__ `awakeFromNib()` function:
+
+```Swift
+override func awakeFromNib() {
+
+    ...
+
+    //TODO: Using MVVM, refactor cell configuration
+    var sourceItem: SourceItem? {
+        didSet {
+            guard let sourceItem = sourceItem else { return }
+            nameLabel.text = sourceItem.name
+            overviewLabel.text = sourceItem.overview
+        }
+    }
+```
+
+Part 3 -
+(see Part 3 in After Class assignments below) -->
+
+
+<h2 id="after-class">After Class</h2>
+<ol>
+<li>Research these related concepts:</li>
+</ol>
+<ul>
+<li>Event-Driven Programming</li>
+<li>UI Logic</li>
+<li>Business Logic</li>
+<li>Code-Behind</li>
+<li>Data Binding</li>
+<li>Data Binding and MVVM in iOS </br>
+&nbsp;&nbsp;&nbsp;&nbsp; - two-way binding </br>
+&nbsp;&nbsp;&nbsp;&nbsp; - one-way binding</li>
+</ul>
+<ol start="2">
+<li><strong>TODO:</strong> - Continue working on your Course Project</li>
+</ol>
+<h2 id="wrap-up-5-min">Wrap Up (5 min)</h2>
+<ul>
+<li>Continue working on your current tutorial</li>
+<li>Complete reading</li>
+<li>Complete challenges</li>
+</ul>
+<h2 id="additional-resources">Additional Resources</h2>
+<ol>
+<li><a href="https://docs.google.com/presentation/d/1-bBnKifWqL1UqtZMGIIR0A6x53iOTTFzR9aNd5U7D8k/edit#slide=id.g566b9f180a_0_4">Slides</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93viewmodel">Model–view–viewmodel - wikipedia</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Martin_Fowler_(software_engineer)">Presentation Model and Martin Fowler - an article</a></li>
+<li><a href="https://en.wikipedia.org/wiki/UI_data_binding">UI data binding - wikipedia</a></li>
+<li><a href="http://www.danielhall.io/the-problems-with-mvvm-on-ios">The Problems with MVVM on iOS - an article</a></li>
+</ol>
+<p><sup>1</sup> <em>UI data binding is a software design pattern to simplify development of GUI applications. It binds UI elements to an application domain model.</em></p>
+<p><sup>2</sup> <em>Model–view–viewmodel is also referred to as model–view–binder, especially in implementations not involving the .NET platform.</em></p>
+</aside></script></section></div>
+    </div>
+
+    <script src="./../js/reveal.js"></script>
+
+    <script>
+      function extend() {
+        var target = {};
+        for (var i = 0; i < arguments.length; i++) {
+          var source = arguments[i];
+          for (var key in source) {
+            if (source.hasOwnProperty(key)) {
+              target[key] = source[key];
+            }
+          }
+        }
+        return target;
+      }
+
+      // Optional libraries used to extend on reveal.js
+      var deps = [
+        { src: './../plugin/markdown/marked.js', condition: function() { return !!document.querySelector('[data-markdown]'); } },
+        { src: './../plugin/markdown/markdown.js', condition: function() { return !!document.querySelector('[data-markdown]'); } },
+        { src: './../plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+        { src: './../plugin/zoom-js/zoom.js', async: true },
+        { src: './../plugin/notes/notes.js', async: true },
+        { src: './../plugin/math/math.js', async: true }
+      ];
+
+      // default options to init reveal.js
+      var defaultOptions = {
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+        transition: 'default', // none/fade/slide/convex/concave/zoom
+        dependencies: deps
+      };
+
+      // options from URL query string
+      var queryOptions = Reveal.getQueryHash() || {};
+
+      var options = extend(defaultOptions, {"controls":true,"progress":true,"autoPlayMedia":false,"slideNumber":"c/t","showSlideNumber":"all","controlsTutorial":true,"controlsLayout":"edges","transition":"slide","transitionSpeed":"medium","minScale":0.5,"maxScale":3}, queryOptions);
+    </script>
+
+
+    <script>
+      Reveal.initialize(options);
+    </script>
+  </body>
+</html>

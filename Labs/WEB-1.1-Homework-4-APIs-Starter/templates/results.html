@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<section>
+    {#
+        TODO: Replace the hard-coded city and date below with data from the 
+        server 
+    #}
+    <h1>Weather in [CITY_NAME]</h1>
+    <p>on [TODAYS_DATE (e.g. Saturday, August 29, 2020)]</p>
+    
+    {#
+        TODO: Add the temperature, description, humidity, wind speed, sunrise,
+        & sunset below to replace the [ ].
+    #}
+    <ul>
+        <li>Temperature: [DEGREES] [UNITS] </li>
+        <li>Description: [DESCRIPTION] </li>
+        <li>Humidity: [HUMIDITY] % </li>
+        <li>Wind speed: [WIND SPEED] miles/hour </li>
+        <li>Sunrise: [SUNRISE TIME] </li>
+        <li>Sunset: [SUNSET TIME] </li>
+    </ul>
+    
+</section>
+{% endblock %}

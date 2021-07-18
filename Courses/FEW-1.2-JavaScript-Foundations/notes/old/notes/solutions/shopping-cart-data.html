@@ -1,0 +1,72 @@
+<div id="display"></div>
+
+<script src="shopping-cart-data.js"></script>
+<script>
+
+	const listCart = () => {
+		let html = ''
+		let total = 0
+		let count = 0
+		for (var i = 0; i < shoppingCartData.length; i += 1) {
+			const { name, price, qty } = shoppingCartData[i]
+			// List the name price and qty
+			console.log(name)
+			console.log(price)
+			console.log(qty)
+			// Show the subtotal
+			const subtotal = price * qty
+			console.log(subtotal.toFixed(2))
+			// Show the total 
+			total += subtotal
+			count += qty
+			html += `<p>${name} $${price} * ${qty} = ${subtotal.toFixed(2)}</p>`
+		} 
+		console.log(`Items: ${count} Total: ${total.toFixed(2)}`)
+		html += `Items: ${count} Total: ${total.toFixed(2)}`
+		document.getElementById('display').innerHTML = html
+	}
+	
+	listCart()
+	
+	const wordy = (word) => {
+		const arr = word.split('')
+		let newWord = ''
+		while(arr.length > 0) {
+			newWord += arr.splice(Math.floor(Math.random() * arr.length), 1)
+		}
+		return newWord
+	}
+	
+	console.log(wordy('Weather'))
+	
+	const wordy2 = (word) => {
+		const arr = word.split('')
+		let newWord = arr.shift()
+		const lastLetter = arr.pop()
+		while(arr.length > 0) {
+			newWord += arr.splice(Math.floor(Math.random() * arr.length), 1)
+		}
+		return newWord + lastLetter
+	}
+	
+	console.log(wordy2('Weather'))
+	
+	const sentencifier = (str, mod = wordy2) => {
+		const arr = str.split(' ')
+		let newStr = ''
+		while(arr.length > 0) {
+			newStr += mod(arr.shift()) + ' '
+		}
+		return newStr
+	} 
+	
+	console.log(sentencifier("The rains in spain fall mainly on the plains"))
+	
+	console.log(sentencifier("The rains in spain fall mainly on the plains", wordy))
+	
+	
+	if ('1' === 1) {
+		
+	} 
+	
+</script>

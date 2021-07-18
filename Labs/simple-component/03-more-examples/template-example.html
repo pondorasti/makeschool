@@ -1,0 +1,44 @@
+<html>
+  <head>
+    <title></title>
+  </head>
+  <body>
+
+    <!-- <template id="test">
+      <p>default template content</p>
+    </template> -->
+
+    <template id="test">
+        <p><slot name="content">default template content</slot></p>
+      </template>
+
+    <script>
+      // Example 1 - Define a template and use the content 
+      // Look at the template tag on the body. Load this
+      // page, notice nothing appears. Templates are not renderd
+
+
+      // Example 2 - Uncomment the lines below. 
+      // Here we get a reference to the template and then 
+      // append the CONTENT of the template to the body
+      // Now it appears
+
+      // const t = document.getElementById('test')
+      // document.querySelector('body').appendChild(t.content)
+
+      // Example 3 - Let's try that again.
+      // This time we'll create 100 copies of the template. 
+      // While this works it's isn't useful since the content
+      // is repeated. 
+
+      // const t = document.getElementById('test')
+      // for (let i = 0; i < 100; i += 1) {
+      //   // Import the node to create a copy of it 
+      //   const clone = document.importNode(t.content, true)
+      //   document.querySelector('body').appendChild(clone)
+      // }
+      
+    </script>
+
+  </body>
+</html>

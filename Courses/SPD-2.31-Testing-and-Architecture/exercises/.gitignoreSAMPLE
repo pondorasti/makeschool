@@ -1,0 +1,17 @@
+#  Comment out what needs to be ignored
+# If the item is not being .gitignored, you may have to clear the cache first
+# git rm -r --cached .
+# git add . & git commit -m 'completed lesson'
+# git push origin branch of lesson
+
+# debug-steps
+# debug-techniques
+# pep8-refactor
+# composing-methods-refactor
+# composing-methods-more
+# simplify-conditionals
+# other-refactor-techniques
+# unit-testing
+# observer-design-pattern
+# state-design-pattern
+# final-assessment

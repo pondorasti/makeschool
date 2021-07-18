@@ -1,0 +1,162 @@
+
+
+// Imports 
+
+@import "variables";
+@import "headings";
+@import "card";
+@import "mixins";
+
+@mixin makeBox($h, $w) {
+  box-sizing: border-box;
+  border: 1px solid; 
+  border-radius: 1rem;
+  padding: 1rem;
+  width: $w;
+  height: $h;
+}
+
+.box-red {
+  @include makeBox(100px, 300px);
+  color: red;
+}
+
+.box-blue {
+  @include makeBox(130px, 200px);
+  color: blue;
+}
+
+@mixin rotateKeyFrames($name, $start, $end) {
+  @keyframes #{$name} {
+    0% { transform: rotate($start) }
+    100% { transform: rotate($end) }
+  }
+}
+
+@for $i from 1 through 5 {
+  $angle: ($i - 3) * 45deg;
+  @include rotateKeyFrames(rotate-#{$i}, 0deg, $angle);
+}
+
+// Global styles 
+
+body {
+  background-color: $bg-color;
+  color: $font-color;
+  font-size: $font-size;
+  font-family: $font-stack;
+  line-height: $font-size * $leading;
+}
+
+.container {
+  width: $width;
+  margin: auto;
+}
+
+.swatches {
+  display: flex;
+  flex-wrap: wrap;
+  div {
+    width: 100px;
+    height: 100px;
+    margin: $font-size;
+    border: {
+      width: 1px;
+      style: solid;
+    }
+  }
+}
+
+// Use a for loop to generate 
+
+@for $i from 1 to 5 {
+  .color-dark-#{$i} {
+    background-color: lighten($font-color, 10% * $i);
+  }
+}
+
+@for $i from 1 to 5 {
+  .color-primary-#{$i} {
+    background-color: lighten($primary-color, 5% * $i);
+  }
+}
+
+@for $i from 1 to 5 {
+  .color-secondary-#{$i} {
+    background-color: lighten($secondary-color, 5% * $i);
+  }
+}
+
+@for $i from 1 to 5 {
+  .color-tertiary-#{$i} {
+    background-color: lighten($tertiary-color, 5% * $i);
+  }
+}
+
+@for $i from 1 to 5 {
+  .color-warning-#{$i} {
+    background-color: lighten($warning-color, 5% * $i);
+  }
+}
+
+@for $i from 1 to 5 {
+  .color-alert-#{$i} {
+    background-color: lighten($alert-color, 5% * $i);
+  }
+}
+
+
+
+
+.column {
+  width: $col-width;
+}
+
+@for $i from 1 to 6 {
+  h#{$i} {
+    font-size: $font-size + 6 * (6 - $i);
+  }
+}
+
+$list: github, twitter, facebook;
+
+@each $icon in $list {
+  .photo-#{$icon} {
+    background: image-url("images/#{$icon}.png") no-repeat;
+  }
+}
+
+@mixin reset-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+li {
+  @include reset-list;
+}
+
+@mixin rtl($property, $ltr-value, $rtl-value) {
+  #{$property}: $ltr-value;
+
+  [dir=rtl] & {
+    #{$property}: $rtl-value;
+  }
+}
+
+.sidebar {
+  @include rtl(float, left, right);
+}
+
+@mixin square($size, $radius: 0) {
+  width: $size;
+  height: $size;
+
+  @if $radius != 0 {
+    border-radius: $radius;
+  }
+}
+
+.avatar {
+  @include square(100px, $radius: 4px);
+}

@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h3>Wikis {% if articles %}<small class="text-muted">({{ articles|length }} Article{{ articles|length|pluralize:"s" }})</small>{% endif %}</h3>
+  <hr>
+  {% if articles %}
+    <div class="card-columns">
+      {% for article in articles %}
+        {% include "partials/card.html" %}
+      {% endfor %}
+    </div>
+  {% else %}
+    <div class="alert alert-primary" role="alert">No pages to display.</div>
+  {% endif %}
+{% endblock %}
+
+
+
+

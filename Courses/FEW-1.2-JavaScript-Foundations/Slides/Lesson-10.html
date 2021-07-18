@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <title>Syllabus Template Slides</title>
+    <link rel="stylesheet" href="./css/reveal.css" />
+    <link rel="stylesheet" href="./css/theme/black.css" id="theme" />
+    <link rel="stylesheet" href="./css/highlight/zenburn.css" />
+    <link rel="stylesheet" href="./css/print/paper.css" type="text/css" media="print" />
+    <link rel="stylesheet" href="./assets/Reveal/makeschool.css" />
+
+    <script>
+      document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>');
+    </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides"><section  data-markdown><script type="text/template"><!-- .slide: data-background="./Images/header.svg" data-background-repeat="none" data-background-size="40% 40%" data-background-position="center 10%" class="header" -->
+# FEW 1.2 - Lesson 10 - Dynamic Data
+
+<!-- Put a link to the slides so that students can find them -->
+
+➡️ [**Slides**](/Syllabus-Template/Slides/Lesson1.html ':ignore')
+</script></section><section  data-markdown><script type="text/template">
+## Minute-by-Minute
+
+| **Elapsed** | **Time** | **Activity** |
+| ----------- | -------- | ------------ |
+| 0:00 | 0:05 | [Learning Objectives](#learning-objectives) |
+| 0:05 | 0:15 | [Why you should know this](#why-you-should-know-this)] |
+| 0:20 | 0:30 | In Class Activity I |
+| 0:50 | 0:10 | BREAK |
+| 1:00 | 0:45 | In Class Activity II |
+| 1:45 | 0:05 | Wrap up review objectives |
+</script></section><section  data-markdown><script type="text/template">
+## Why you should know this?
+
+State is a key part of components. To fully understand React you have to undestand props and state. 
+</script></section><section  data-markdown><script type="text/template">
+## Learning Objectives
+
+1. Describe State
+1. Compare Props and State
+1. Use State in components
+</script></section><section  data-markdown><script type="text/template">
+## Class Based components 
+
+Components can also be written/Created from a class. In the previouse examples you used functions to make components. 
+
+```JSX
+import React, { Component } from 'react'
+class Clicker extends Component {
+  constructor(props) {
+    super(props)
+
+  }
+
+  render() {
+    return (
+      <div>
+        <h1>0</h1>
+        <button>Click</button>
+      </div>
+    )
+  }
+}
+```
+</script></section><section  data-markdown><script type="text/template">
+Class based components: 
+
+- Written as a class
+- Must Extend React.Component
+- Must include a render method 
+- Must pass props to super
+
+Pick these things out of the code sample above.
+</script></section><section  data-markdown><script type="text/template">
+## Why use a Class based Componet? 
+
+Class based components have access to `state`. State is an important part of components. 
+
+Props are values that are injected into a component from outside and cause a component to render when they are updated. 
+
+State is a value held internally by a component. When state changes the component renders. 
+</script></section><section  data-markdown><script type="text/template">
+### Defining state 
+
+Define state in the constructor. State is always an object. 
+
+```JSX
+import React, { Component } from 'react'
+class Clicker extends Component {
+  constructor(props) {
+    super(props)
+
+    this.state = { count: 0 }
+  }
+  ...
+}
+```
+</script></section><section  data-markdown><script type="text/template">
+- State is always an object
+- State is always an instance property on this
+- Values are stored as properties
+</script></section><section  data-markdown><script type="text/template">
+### Changing State
+
+You **must** change state by calling `this.setState()` with the new value for state. 
+
+```JSX
+import React, { Component } from 'react'
+class Clicker extends Component {
+  constructor(props) {
+    super(props)
+
+    this.state = { count: 0 }
+  }
+
+  increment() {
+    this.setState({ count: this.state.count + 1 })
+  }
+
+  render() {
+    ...
+  }
+}
+```
+</script></section><section  data-markdown><script type="text/template">
+- You should always change state by calling `this.setState()`
+- With the new value of state `this.setState({ value: newValue })`
+- Always access state with `this.state.someProperty`
+</script></section><section  data-markdown><script type="text/template">
+### Handling Click events
+
+Adding events in React is done through props. In vanilla JS you might add an event listener: 
+
+```JS
+button.addEventListener('click', (e) => { ... })
+```
+
+This same type of event would be created in React like this: 
+
+```JSX
+<button onClick={(e) => { ... }}>Click</button>
+```
+</script></section><section  data-markdown><script type="text/template">
+```JSX
+import React, { Component } from 'react'
+class Clicker extends Component {
+  constructor(props) {
+    super(props)
+
+    this.state = { count: 0 }
+  }
+
+  increment() {
+    this.setState({ count: this.state.count + 1 })
+  }
+
+  render() {
+    return (
+      <div>
+        <h1>0</h1>
+        <button onClick={(e) => {
+          this.increment()
+        }}>Click</button>
+      </div>
+    )
+  }
+}
+```
+</script></section><section  data-markdown><script type="text/template">
+- Events receive an event object
+- Arrow functions are good here
+</script></section><section  data-markdown><script type="text/template">
+## Lab
+
+ 
+</script></section><section  data-markdown><script type="text/template">
+<!-- .slide: data-background="#087CB8" -->
+## [**10m**] BREAK
+
+Take a break. 
+</script></section><section  data-markdown><script type="text/template">
+## Wrap Up (5 min)
+
+- 
+</script></section><section  data-markdown><script type="text/template">
+## Additional Resources
+
+1. 
+</script></section></div>
+    </div>
+
+    <script src="./js/reveal.js"></script>
+
+    <script>
+      function extend() {
+        var target = {};
+        for (var i = 0; i < arguments.length; i++) {
+          var source = arguments[i];
+          for (var key in source) {
+            if (source.hasOwnProperty(key)) {
+              target[key] = source[key];
+            }
+          }
+        }
+        return target;
+      }
+
+      // Optional libraries used to extend on reveal.js
+      var deps = [
+        { src: './plugin/markdown/marked.js', condition: function() { return !!document.querySelector('[data-markdown]'); } },
+        { src: './plugin/markdown/markdown.js', condition: function() { return !!document.querySelector('[data-markdown]'); } },
+        { src: './plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+        { src: './plugin/zoom-js/zoom.js', async: true },
+        { src: './plugin/notes/notes.js', async: true },
+        { src: './plugin/math/math.js', async: true }
+      ];
+
+      // default options to init reveal.js
+      var defaultOptions = {
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+        transition: 'default', // none/fade/slide/convex/concave/zoom
+        dependencies: deps
+      };
+
+      // options from URL query string
+      var queryOptions = Reveal.getQueryHash() || {};
+
+      var options = extend(defaultOptions, {"controls":true,"progress":true,"autoPlayMedia":false,"slideNumber":"c/t","showSlideNumber":"all","controlsTutorial":true,"controlsLayout":"edges","transition":"slide","transitionSpeed":"medium","minScale":0.5,"maxScale":3}, queryOptions);
+    </script>
+
+
+    <script>
+      Reveal.initialize(options);
+    </script>
+  </body>
+</html>

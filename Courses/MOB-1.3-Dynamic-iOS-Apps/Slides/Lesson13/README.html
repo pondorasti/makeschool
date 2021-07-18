@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <title>Syllabus Template Slides</title>
+    <link rel="shortcut icon" href="./../favicon.ico"/>
+    <link rel="stylesheet" href="./../dist/reveal.css" />
+    <link rel="stylesheet" href="./../dist/theme/white.css" id="theme" />
+    <link rel="stylesheet" href="./../css/highlight/zenburn.css" />
+    <link rel="stylesheet" href="./../assets/Reveal/makeschool.css" />
+
+    <script>
+      document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>');
+    </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides"><section  data-markdown><script type="text/template"><!-- Run this slideshow via the following command: -->
+<!-- reveal-md README.md -w -->
+
+
+<!-- .slide: class="header" -->
+
+# Firebase
+
+## [Slides](https://make-school-courses.github.io/MOB-1.3-Dynamic-iOS-Apps/Slides/Lesson13/README.html ':ignore')
+</script></section><section  data-markdown><script type="text/template">
+## Learning Objectives
+
+By the end of this class, you should be able to...
+1. Set up a project on the Firebase console.
+1. Handle data using Firebase Database using an example app.
+</script></section><section  data-markdown><script type="text/template">
+## Swift podcasts recommendations:
+
+- ☕️[Swift over coffee](https://itunes.apple.com/us/podcast/swift-over-coffee/id1435076502?mt=2) by Paul Hudson and Sean Allen (also on Spotify)<br>
+- 🎙[Swift community podcast](https://www.swiftcommunitypodcast.org)<br>
+- ✔️[Swift by Sundell](https://www.swiftbysundell.com/podcast)<br>
+- ❗️[Swift Unwrapped](https://spec.fm/podcasts/swift-unwrapped)<br>
+- 🔥[Fireside Swift](https://www.firesideswift.com)
+</script></section><section  data-markdown><script type="text/template">
+## Firebase
+
+Firebase is an app development platform.
+
+- provides tools to build high quality apps
+- these apps can scale easily
+</script></section><section  data-markdown><script type="text/template">
+It has products to:
+
+ - 📦store data
+ - 🚨handle notifications
+ - 🍷do A/B testing
+ - 📈handle analytics
+ - 🔑handle authentication and more.
+
+ <!-- > -->
+
+The ones we'll learn how to use today are the Firestore Database and Storage. These tools will enable us to read and write to a database.
+</script></section><section  data-markdown><script type="text/template">
+[Firebase website](https://firebase.google.com)
+
+Watch intro video
+</script></section><section  data-markdown><script type="text/template">
+## Is this free?
+
+[Pricing](https://firebase.google.com/pricing)
+</script></section><section  data-markdown><script type="text/template">
+## What to use?
+
+[Products](https://firebase.google.com/products)
+</script></section><section  data-markdown><script type="text/template">
+## Firestore vs Realtime DB
+
+[What to use: Documentation link](https://firebase.google.com/docs/database/rtdb-vs-firestore)
+</script></section><section  data-markdown><script type="text/template">
+## Documentation Guides
+
+[Docs](https://firebase.google.com/docs/guides)
+</script></section><section  data-markdown><script type="text/template">
+## Guided activity
+
+Your task is to take the implementation of an app that's a photo journal and include Firebase to use their backend services.
+
+- Starter Code: [Link to repo](https://github.com/WesleyEspinoza/FirebaseStarter)
+- Guided video to follow along: [Link to Youtube](https://www.youtube.com/watch?v=NWF3rFZCFo4&feature=youtu.be)
+</script></section><section  data-markdown><script type="text/template">
+## Additional Resources
+
+[Firebase](https://firebase.google.com/docs/ios/setup)
+</script></section></div>
+    </div>
+
+    <script src="./../dist/reveal.js"></script>
+
+    <script src="./../plugin/markdown/markdown.js"></script>
+    <script src="./../plugin/highlight/highlight.js"></script>
+    <script src="./../plugin/zoom/zoom.js"></script>
+    <script src="./../plugin/notes/notes.js"></script>
+    <script src="./../plugin/math/math.js"></script>
+    <script>
+      function extend() {
+        var target = {};
+        for (var i = 0; i < arguments.length; i++) {
+          var source = arguments[i];
+          for (var key in source) {
+            if (source.hasOwnProperty(key)) {
+              target[key] = source[key];
+            }
+          }
+        }
+        return target;
+      }
+
+      // default options to init reveal.js
+      var defaultOptions = {
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+        transition: 'default', // none/fade/slide/convex/concave/zoom
+        plugins: [
+          RevealMarkdown,
+          RevealHighlight,
+          RevealZoom,
+          RevealNotes,
+          RevealMath
+        ]
+      };
+
+      // options from URL query string
+      var queryOptions = Reveal().getQueryHash() || {};
+
+      var options = extend(defaultOptions, {"controls":true,"progress":true,"autoPlayMedia":false,"slideNumber":"c/t","showSlideNumber":"all","controlsTutorial":true,"controlsLayout":"edges","transition":"slide","transitionSpeed":"medium","minScale":0.5,"maxScale":3}, queryOptions);
+    </script>
+
+
+    <script>
+      Reveal.initialize(options);
+    </script>
+  </body>
+</html>

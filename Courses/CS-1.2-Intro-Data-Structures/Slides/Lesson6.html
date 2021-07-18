@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <title>Syllabus Template Slides</title>
+    <link rel="stylesheet" href="./css/reveal.css" />
+    <link rel="stylesheet" href="./css/theme/black.css" id="theme" />
+    <link rel="stylesheet" href="./css/highlight/zenburn.css" />
+    <link rel="stylesheet" href="./css/print/paper.css" type="text/css" media="print" />
+    <link rel="stylesheet" href="./assets/Reveal/makeschool.css" />
+
+    <script>
+      document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>');
+    </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides"><section  data-markdown><script type="text/template"><!-- .slide: data-background="./../Images/header.svg" data-background-repeat="none" data-background-size="40% 40%" data-background-position="center 10%" class="header" -->
+
+# Algorithm Analysis
+
+➡️ [**Slides**](/CS-1.0-Programming-Fundamentals/Slides/Lesson6.html ':ignore')
+</script></section><section  data-markdown><script type="text/template">
+# Interview Question Warmup
+
+Draw the steps for an algorithm to print out all the items in a linked list
+</script></section><section  data-markdown><script type="text/template">
+# Big O Notation
+
+- O(1): constant time 
+- O(n): linear time, increases with the input n
+- O(n^2): Quadratic time, increases exponentially with input n
+</script></section><section  data-markdown><script type="text/template">
+
+# Let's Look At Some Examples
+
+<iframe frameborder="0" width="100%" height="500px" src="https://repl.it/@JessDahmen/bigoexample?lite=true"></iframe>
+</script></section><section  data-markdown><script type="text/template">
+# Big O Notation
+
+We shorten Big O notation to the most significant one
+
+O(n^2) + O(n) + O(1) ---> O(n^2)
+</script></section><section  data-markdown><script type="text/template">
+# Linked List Methods
+
+- Length: get the length of the list
+- Append: add a node to the end of the list
+- Prepend: add a node to the beginning of the list
+- Find: find a piece of data in the list
+- Insert: add an item in the middle
+- Delete: an item from the end of the list
+</script></section><section  data-markdown><script type="text/template">
+# Let's Analyze These Methods in Terms of Big O!
+</script></section><section  data-markdown><script type="text/template">
+# Shout Outs
+</script></section><section  data-markdown><script type="text/template">
+# Lab Time
+</script></section><section  data-markdown><script type="text/template"></script></section></div>
+    </div>
+
+    <script src="./js/reveal.js"></script>
+
+    <script>
+      function extend() {
+        var target = {};
+        for (var i = 0; i < arguments.length; i++) {
+          var source = arguments[i];
+          for (var key in source) {
+            if (source.hasOwnProperty(key)) {
+              target[key] = source[key];
+            }
+          }
+        }
+        return target;
+      }
+
+      // Optional libraries used to extend on reveal.js
+      var deps = [
+        { src: './plugin/markdown/marked.js', condition: function() { return !!document.querySelector('[data-markdown]'); } },
+        { src: './plugin/markdown/markdown.js', condition: function() { return !!document.querySelector('[data-markdown]'); } },
+        { src: './plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+        { src: './plugin/zoom-js/zoom.js', async: true },
+        { src: './plugin/notes/notes.js', async: true },
+        { src: './plugin/math/math.js', async: true }
+      ];
+
+      // default options to init reveal.js
+      var defaultOptions = {
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+        transition: 'default', // none/fade/slide/convex/concave/zoom
+        dependencies: deps
+      };
+
+      // options from URL query string
+      var queryOptions = Reveal.getQueryHash() || {};
+
+      var options = extend(defaultOptions, {"controls":true,"progress":true,"autoPlayMedia":false,"slideNumber":"c/t","showSlideNumber":"all","controlsTutorial":true,"controlsLayout":"edges","transition":"slide","transitionSpeed":"medium","minScale":0.5,"maxScale":3}, queryOptions);
+    </script>
+
+
+    <script>
+      Reveal.initialize(options);
+    </script>
+  </body>
+</html>

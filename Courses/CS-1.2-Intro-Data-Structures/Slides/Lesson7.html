@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <title>Syllabus Template Slides</title>
+    <link rel="stylesheet" href="./css/reveal.css" />
+    <link rel="stylesheet" href="./css/theme/black.css" id="theme" />
+    <link rel="stylesheet" href="./css/highlight/zenburn.css" />
+    <link rel="stylesheet" href="./css/print/paper.css" type="text/css" media="print" />
+    <link rel="stylesheet" href="./assets/Reveal/makeschool.css" />
+
+    <script>
+      document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>');
+    </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides"><section  data-markdown><script type="text/template"><!-- .slide: data-background="./../Images/header.svg" data-background-repeat="none" data-background-size="40% 40%" data-background-position="center 10%" class="header" -->
+
+## Hash Tables
+
+➡️ [**Slides**](https://make-school-courses.github.io/CS-1.2-Intro-Data-Structures/Slides/Lesson7.html ':ignore')
+</script></section><section  data-markdown><script type="text/template">
+## Interview Question Warmup
+
+1. Draw a linked list with 3 items: "mango", "peach", "pineapple"
+2. Write pseudocode for the append method from memory 
+</script></section><section  data-markdown><script type="text/template">
+## Hash Tables
+
+- Maps keys → values (any objects) 
+- Python’s dict() / {} type is a hash table
+- Used because of strong average case performance (time complexity)
+</script></section><section  data-markdown><script type="text/template">
+## Hash Table
+
+![Picture of a Hash Table](Images/hashtable.png)
+</script></section><section  data-markdown><script type="text/template">
+## Hash Table Analogy
+
+Think of coat checks...
+</script></section><section  data-markdown><script type="text/template">
+## Hash Function
+
+- Converts a variable-size input (key) to a fixed-size integer output (hash code)
+- Same input → same output
+- Input can be many types: number (int or float), string, or immutable collection
+</script></section><section  data-markdown><script type="text/template">
+## Hash Function
+
+![Picture of a Hash Function Mapping](Images/hashfunction.png)
+</script></section><section  data-markdown><script type="text/template">
+## Which Bucket?
+
+- Hash function outputs are very large integers, but we want the index of a bucket
+- We can use the modulus operator % 
+
+<code> index = hash(key) % buckets </code>
+
+<code> index ranges from 0 to buckets-1 </code>
+</script></section><section  data-markdown><script type="text/template">
+## Hash Collisions 
+
+- It is impossible to map all possible inputs to a fixed output space without some inputs generating the same output (hash code)
+- Different inputs (keys) generating the same output (hash code) is called a hash collision
+</script></section><section  data-markdown><script type="text/template">
+## Linear Probing
+
+- Each bucket contains at most one entry
+- On collision - find next open bucket, add entry there
+- To retrieve - find bucket, if that’s not entry, try next bucket until you find entry or empty bucket
+- Python’s dict uses probing
+</script></section><section  data-markdown><script type="text/template">
+## Linear Probing
+
+![Linear probing collision handling method](Images/linearprobing.png)
+</script></section><section  data-markdown><script type="text/template">
+## Chaining 
+
+- Each bucket contains a linked list of entries
+- On collision - add to the bucket’s linked list
+- To retrieve - find bucket, find entry in linked list
+- We will use chaining to implement our hash table
+</script></section><section  data-markdown><script type="text/template">
+## Chaining
+
+![Chaining collision handling method](Images/chaining.png)
+</script></section><section  data-markdown><script type="text/template">
+## Challenge: Draw a Hash Table Using Chaining
+
+- Our hash table will have 4 buckets
+- We have 3 key value pairs to add: "red": 5, "pink": 5, "blue": 4
+- The hash function will be len(color) % num_buckets
+</script></section><section  data-markdown><script type="text/template">
+## Shout Outs
+</script></section><section  data-markdown><script type="text/template">
+## Lab Time
+
+</script></section></div>
+    </div>
+
+    <script src="./js/reveal.js"></script>
+
+    <script>
+      function extend() {
+        var target = {};
+        for (var i = 0; i < arguments.length; i++) {
+          var source = arguments[i];
+          for (var key in source) {
+            if (source.hasOwnProperty(key)) {
+              target[key] = source[key];
+            }
+          }
+        }
+        return target;
+      }
+
+      // Optional libraries used to extend on reveal.js
+      var deps = [
+        { src: './plugin/markdown/marked.js', condition: function() { return !!document.querySelector('[data-markdown]'); } },
+        { src: './plugin/markdown/markdown.js', condition: function() { return !!document.querySelector('[data-markdown]'); } },
+        { src: './plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+        { src: './plugin/zoom-js/zoom.js', async: true },
+        { src: './plugin/notes/notes.js', async: true },
+        { src: './plugin/math/math.js', async: true }
+      ];
+
+      // default options to init reveal.js
+      var defaultOptions = {
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+        transition: 'default', // none/fade/slide/convex/concave/zoom
+        dependencies: deps
+      };
+
+      // options from URL query string
+      var queryOptions = Reveal.getQueryHash() || {};
+
+      var options = extend(defaultOptions, {"controls":true,"progress":true,"autoPlayMedia":false,"slideNumber":"c/t","showSlideNumber":"all","controlsTutorial":true,"controlsLayout":"edges","transition":"slide","transitionSpeed":"medium","minScale":0.5,"maxScale":3}, queryOptions);
+    </script>
+
+
+    <script>
+      Reveal.initialize(options);
+    </script>
+  </body>
+</html>

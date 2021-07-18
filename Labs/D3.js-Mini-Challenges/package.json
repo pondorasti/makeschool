@@ -1,0 +1,30 @@
+{
+  "name": "d3.js-mini-challenges",
+  "version": "1.0.0",
+  "description": "Mini Challenges with D3.js",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Make-School-Labs/D3.js-Mini-Challenges.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Make-School-Labs/D3.js-Mini-Challenges/issues"
+  },
+  "homepage": "https://github.com/Make-School-Labs/D3.js-Mini-Challenges#readme",
+  "dependencies": {
+    "d3": "^6.3.1"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.12.10",
+    "@babel/core": "^7.12.10",
+    "@babel/preset-env": "^7.12.11",
+    "eslint": "^7.17.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.22.1"
+  }
+}

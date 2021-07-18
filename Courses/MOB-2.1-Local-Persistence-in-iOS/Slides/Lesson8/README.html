@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <title>Syllabus Template Slides</title>
+    <link rel="shortcut icon" href="./../favicon.ico"/>
+    <link rel="stylesheet" href="./../dist/reveal.css" />
+    <link rel="stylesheet" href="./../dist/theme/white.css" id="theme" />
+    <link rel="stylesheet" href="./../css/highlight/zenburn.css" />
+    <link rel="stylesheet" href="./../assets/Reveal/makeschool.css" />
+
+    <script>
+      document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>');
+    </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides"><section  data-markdown><script type="text/template"><!-- Run this slideshow via the following command: -->
+<!-- reveal-md README.md -w -->
+
+
+<!-- .slide: class="header" -->
+
+# Fetching Data
+
+## [Slides](https://make-school-courses.github.io/MOB-2.1-Local-Persistence-in-iOS/Slides/Lesson8/README.html ':ignore')
+</script></section><section  data-markdown><script type="text/template">
+## Why you should know this or industry application
+
+So far we have been experimenting with Core Data and learning how it works below the surface.
+
+When retrieving data, we've used simple examples of fetching **all entities**.
+
+There are ways to make **more refined or specific** fetches and it will save us **time and resources** if we learn how to do them.
+</script></section><section  data-markdown><script type="text/template">
+## Learning Objectives
+
+- Fetch data from Core Data with NSFetchedRequest
+- Refine a search using NSPredicate
+- Sort data with NSSortDescriptor
+- Fetch and display data with NSFetchedResultsController
+</script></section><section  data-markdown><script type="text/template">
+## Predicates
+
+Provides an interface for querying much like a mixture of sql and a regular expression.
+
+**Example** 🦁
+
+```swift
+
+// Filter results with property title == "Lion King"
+let title = "Lion King"
+fetchRequest.predicate = NSPredicate(format: "title == %@", firstName)
+```
+</script></section><section ><section data-markdown><script type="text/template">
+## Gist of Predicates
+
+1. Simple Comparison Operators ```>, <, >=, <=, ==, !=```
+</script></section><section data-markdown><script type="text/template">
+*Simple Comparison*
+```swift
+let pred = NSPredicate(format: "population >= 10")
+```
+</script></section><section data-markdown><script type="text/template">
+*Comparison with like*
+```swift
+let fruit = "mango"
+let pred = NSPredicate(format: "fruit like %@", fruit)
+```
+</script></section><section data-markdown><script type="text/template">
+*Logical Operations (OR, AND)*
+```swift
+let pred = NSPredicate(format: "name like John OR age == 5")
+```
+</script></section><section data-markdown><script type="text/template">
+*Filter with a list*
+
+```swift
+// Will yield any results containing the name Apples and Mango
+let pred = NSPredicate(format: "name in %@", ["Apples", "Mango"])
+```
+</script></section></section><section  data-markdown><script type="text/template">
+2. Formating
+
+`%i` is for substituting integers, `%@` is for substituting strings.
+
+```swift
+let pred = NSPredicate(format: "quantity > %i", 4)
+```
+
+```swift
+let pred = NSPredicate(format: "name == %@", "Eliel")
+```
+</script></section><section  data-markdown><script type="text/template">
+## Useful Cheatsheets
+
+[Predicate Cheatsheet](https://nspredicate.xyz)
+[CoreData Cheatsheet](https://nspredicate.xyz/coredata)
+</script></section><section  data-markdown><script type="text/template">
+## In Class Activity
+
+Download and follow [this playground](https://github.com/dfreniche/NSPredicate-Swift) to learn how to master NSPredicate.
+</script></section><section  data-markdown><script type="text/template">
+## NSFetchRequest
+
+We fetch entities from Core Data by creating an instance of `NSFetchRequest`. Then we configure it as we need and hand it over to `NSManagedObjectContext` to do the search and work.
+</script></section><section  data-markdown><script type="text/template">
+There are different ways to set up a fetch request, here are a few:
+
+```swift
+let fetchRequest = NSFetchRequest<Shop>()
+let entity = NSEntityDescription.entity(forEntityName: "Shop",in: managedContext)!
+fetchRequest.entity = entity
+```
+
+Initializing an instance of `NSFetchRequest` using a generic type `NSFetchRequest<Shop>`. Then initialize an instance of `NSEntityDescription` and use it to set the fetch request's entity.
+</script></section><section  data-markdown><script type="text/template">
+```swift
+let fetchRequest = NSFetchRequest<Shop>(entityName: "Shop")
+```
+Using NSFetchRequest's convenience initializer. It also sets the entity property in the same step. You only need to specify the string for the entity name, instead of a description.
+</script></section><section  data-markdown><script type="text/template">
+```swift
+let fetchRequest = managedObjectModel.fetchRequestTemplate(forName: "coffeeShop")
+```
+Retrieve the fetch request from the `NSManagedObjectModel`.
+</script></section><section  data-markdown><script type="text/template">
+## Sort Descriptors
+
+Sort Descriptors enable us to sort results from a fetch request.
+
+```swift
+let sortDescriptor = NSSortDescriptor(key: "name", ascending: true)
+fetchRequest.sortDescriptors = [sortDescriptor]
+```
+</script></section><section  data-markdown><script type="text/template">
+To initialize an instance of `NSSortDescriptor` you need three things: a **key path** to specify the attribute which you want to sort, a specification of whether the sort is **ascending or descending** and an optional selector to perform the **comparison operation**.
+</script></section><section  data-markdown><script type="text/template">
+## TableViews everywhere
+
+Most of our projects to try out CoreData use table views. They go well together:
+
+- Set up a fetch request
+- Fetch an array of managed objects
+- Use the results as the data source
+</script></section><section  data-markdown><script type="text/template">
+Performing queries to Core Data and displaying them has never been easier with `NSFetchedResultsController`.
+</script></section><section  data-markdown><script type="text/template">
+1. Initialize your fetch request
+
+```swift
+// Initialize a FetchRequest
+let fetchRequest: NSFetchRequest<Inventory> = Inventory.fetchRequest()
+```
+</script></section><section  data-markdown><script type="text/template">
+2. Add any sort descriptors (Optional)
+
+```swift
+// Add any SortDescriptors
+let sortDescriptor = NSSortDescriptor(key: "name", ascending: true)
+fetchRequest.sortDescriptors = [sortDescriptor]
+```
+</script></section><section  data-markdown><script type="text/template">
+3. Add any predicates (Optional)
+
+```swift
+let quantityFilter = 4
+let predicate = NSPredicate(format: "quantity > %i", quantityFilter)
+
+fetchRequest.predicate = predicate
+```
+</script></section><section  data-markdown><script type="text/template">
+4. Initialize a FetchedResultsController with our FetchRequest and MOC
+
+```swift
+let fetchedResultsController = NSFetchedResultsController(
+    fetchRequest: fetchRequest,
+    managedObjectContext: self.stack.viewContext,
+    sectionNameKeyPath: nil,
+    cacheName: nil
+)
+```
+</script></section><section  data-markdown><script type="text/template">
+5. Set the FetchedResultsController delegate
+
+```swift
+fetchedResultsController.delegate = self
+```
+</script></section><section  data-markdown><script type="text/template">
+6. Implement NSFetchedResultsControllerDelegate (Optional)
+</script></section><section  data-markdown><script type="text/template">
+7. UITableView/UICollectionView number of rows in section and cellForRow change to use fetched results
+
+```swift
+
+func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    guard let sections = fetchedResultsController.sections else {
+        return 0
+    }
+
+    let sectionInfo = sections[section]
+    return sectionInfo.numberOfObjects
+}
+
+
+func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    let cell = tableView.dequeueReusableCell(withIdentifier: "InventoryCell", for: indexPath)
+
+    // FetchedResultsController controls fetching of ManagedObjects
+    let item = fetchedResultsController.object(at: indexPath)
+
+    cell.textLabel?.text = item.name
+    cell.detailTextLabel?.text = "x\(item.quantity)"
+
+    return cell
+}
+```
+</script></section><section  data-markdown><script type="text/template">
+8. Fetch from FetchedResultsController and reload data as needed
+
+```swift
+override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+
+    try? fetchedResultsController.performFetch()
+    tableView.reloadData()
+}
+```
+</script></section><section  data-markdown><script type="text/template">
+## In Class Activity - NSFetchedResultsController
+
+Individually - follow the activity described [here](https://github.com/Make-School-Courses/MOB-2.1-Local-Persistence-in-iOS/blob/master/Lessons/Lesson8/assignments/Activity.md)
+</script></section><section  data-markdown><script type="text/template">
+## Resources
+
+[Realm Predicate Cheatsheet](https://academy.realm.io/posts/nspredicate-cheatsheet/)
+
+[NSPredicate](http://nshipster.com/nspredicate/)
+
+[Sort Descriptors](https://nshipster.com/nssortdescriptor/)
+
+Core Data by Tutorials by Pietro Rea.
+</script></section></div>
+    </div>
+
+    <script src="./../dist/reveal.js"></script>
+
+    <script src="./../plugin/markdown/markdown.js"></script>
+    <script src="./../plugin/highlight/highlight.js"></script>
+    <script src="./../plugin/zoom/zoom.js"></script>
+    <script src="./../plugin/notes/notes.js"></script>
+    <script src="./../plugin/math/math.js"></script>
+    <script>
+      function extend() {
+        var target = {};
+        for (var i = 0; i < arguments.length; i++) {
+          var source = arguments[i];
+          for (var key in source) {
+            if (source.hasOwnProperty(key)) {
+              target[key] = source[key];
+            }
+          }
+        }
+        return target;
+      }
+
+      // default options to init reveal.js
+      var defaultOptions = {
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+        transition: 'default', // none/fade/slide/convex/concave/zoom
+        plugins: [
+          RevealMarkdown,
+          RevealHighlight,
+          RevealZoom,
+          RevealNotes,
+          RevealMath
+        ]
+      };
+
+      // options from URL query string
+      var queryOptions = Reveal().getQueryHash() || {};
+
+      var options = extend(defaultOptions, {"controls":true,"progress":true,"autoPlayMedia":false,"slideNumber":"c/t","showSlideNumber":"all","controlsTutorial":true,"controlsLayout":"edges","transition":"slide","transitionSpeed":"medium","minScale":0.5,"maxScale":3}, queryOptions);
+    </script>
+
+
+    <script>
+      Reveal.initialize(options);
+    </script>
+  </body>
+</html>

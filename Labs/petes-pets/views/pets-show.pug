@@ -1,0 +1,15 @@
+extends layout
+
+block content
+  .row
+    .col-sm-4
+      if pet.picUrlSq
+        img(src=pet.picUrlSq).img-fluid
+    .col-sm-8
+      h1=pet.name
+      p=pet.species
+      p Born on #{pet.birthday}
+      p=pet.description
+      .text-right
+        a(href="/pets/" + pet.id + "/edit").btn-link Edit
+      

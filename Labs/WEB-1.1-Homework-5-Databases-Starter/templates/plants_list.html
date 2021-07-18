@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+<main>
+    <div id="content">
+        <h1>My Plants</h1>
+
+        <a href="/create" class="nav">+ New Plant</a>
+
+        {#
+            TODO: All of the following cards are what we'd refer to as
+            "hard-coded". That is, their values do not actually come from the 
+            database! Refactor this page to use a 'for' loop to display all
+            plants with the data passed from the route function's context.
+
+            HINT: Use the plant's _id field as the id for constructing URLs.
+        #}
+
+        <div id="items">
+            <div class="card">
+                <a href="/plant/1"><img src="https://www.almanac.com/sites/default/files/styles/primary_image_in_article/public/image_nodes/tomatoes_helios4eos_gettyimages-edit.jpeg?itok=4KrW14a4"></a>
+                <div class="card-content">
+                    <a href="/plant/1">Tomato</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <a href="/plant/2"><img src="https://opimedia.azureedge.net/-/media/Images/MEN/Editorial/Blogs/Organic-Gardening/Growing-Corn-from-Sowing-to-Harvest/corn-jpg.jpg?h=367&w=550&la=en&hash=9675303A51AB99E3007C9C1B13CB72BDE9D9C561"></a>
+                <div class="card-content">
+                    <a href="/plant/2">Corn</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <a href="/plant/3"><img src="https://cdn.shopify.com/s/files/1/1698/1675/products/Herb_Italian_Basil.jpg?v=1557458148"></a>
+                <div class="card-content">
+                    <a href="/plant/3">Basil</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <a href="/plant/4"><img src="https://img.thrfun.com/img/077/665/jalapeno_peppers_s1.jpg"></a>
+                <div class="card-content">
+                    <a href="/plant/4">Jalapeno</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</main>
+
+{% endblock content %}

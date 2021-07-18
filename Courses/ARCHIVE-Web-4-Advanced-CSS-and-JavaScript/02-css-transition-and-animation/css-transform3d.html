@@ -1,0 +1,198 @@
+<!-- 
+
+This example creates two 3d cubes using 
+ transform 3d. Key ideas. 
+ 
+ 1. The container determines the 'view' it uses `perspective: 400px`
+   Think of this as the distance of the camera to the picture plane. 
+ 2. Each cube holds 6 faces, use `transform-style: preserve-3d`
+  Rotating or translating a cube will rotate and translate all 
+  of it's child faces as a group. 
+ 3. Each face is translated and rotated. 
+  I *first* rotated each face then translated along the z axis. 
+  I had to also offset the x, y, and z axis to position the faces
+  around the center. (I used a div.marker to show the center)
+  
+-->
+
+<div class="container">
+
+  <!-- Define a cube as a container div with 6 faces (I added an extra div to show the center) -->
+  <div class="cube cube-1">
+    <div class="face"></div>
+    <div class="face"></div>
+    <div class="face"></div>
+    <div class="face"></div>
+    <div class="face"></div>
+    <div class="face"></div>
+    <div class="marker"></div>
+  </div>
+
+  <div class="cube cube-2">
+    <div class="face"></div>
+    <div class="face"></div>
+    <div class="face"></div>
+    <div class="face"></div>
+    <div class="face"></div>
+    <div class="face"></div>
+    <div class="marker"></div>
+  </div>
+
+  <div class="cube cube-3">
+    <div class="face"></div>
+    <div class="face"></div>
+    <div class="face"></div>
+    <div class="face">
+      <div style="width:100%; height:100%;background-image: url(images/image-1.jpg); background-size: cover"></div>
+    </div>
+    <div class="face">
+      <form>
+        <div><input type='text'></div>
+        <div>
+          <label>Check box</label>
+          <input type="checkbox">
+        </div>
+      </form>
+    </div>
+    <div class="face">
+      <h1>Hello World</h1>
+    </div>
+    <div class="marker"></div>
+  </div>
+
+</div>
+
+
+<style>
+  /* A container for 3d objects */
+  
+  .container {
+    width: 500px;
+    height: 500px;
+    border: 1px solid #000;
+    position: relative;
+    perspective: 400px;
+    /* Set the perspective of the "3d viewport" */
+  }
+  /* This contains 6 faces */
+  
+  .cube {
+    position: absolute;
+    transform-style: preserve-3d;
+    /* This is important to make sure the child objects draw as 3d */
+  }
+  /* Define individual properties for each cube */
+  /* 4secs infinite rotates alternating with ease in and ease out */
+  
+  .cube-1 {
+    animation-name: cube-1-animation;
+    animation-duration: 4000ms;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-timing-function: ease-in-out;
+  }
+  /* 4 secs repeats for ever with linear easing */
+  
+  .cube-2 {
+    animation-name: cube-2-animation;
+    animation-duration: 4000ms;
+    animation-iteration-count: infinite;
+    animation-direction: normal;
+    animation-timing-function: linear;
+    transform-origin: center;
+  }
+  /* 10 secs repeats */
+  
+  .cube-3 {
+    animation-name: cube-3-animation;
+    animation-duration: 15000ms;
+    animation-iteration-count: infinite;
+    animation-direction: normal;
+    animation-timing-function: linear;
+    transform-origin: center;
+  }
+  
+  .marker {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: red;
+  }
+  /* Face default properties */
+  
+  .face {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+  }
+  /* front */
+  
+  .face:nth-child(1) {
+    transform: rotate3d(0, 0, 0, 0) translate3d(-50px, -50px, 50px);
+    background-color: rgba(255, 0, 0, 0.75);
+  }
+  /* top */
+  
+  .face:nth-child(2) {
+    transform: rotate3d(1, 0, 0, 90deg) translate3d(-50px, 0, 0px);
+    background-color: rgba(0, 255, 0, 0.75);
+  }
+  /* right */
+  
+  .face:nth-child(3) {
+    transform: rotate3d(0, 1, 0, 90deg) translate3d(0, -50px, 0);
+    background-color: rgba(0, 0, 255, 0.75);
+  }
+  /* front */
+  
+  .face:nth-child(4) {
+    transform: rotate3d(0, 1, 0, 180deg) translate3d(50px, -50px, 50px);
+    background-color: rgba(255, 255, 0, 0.75);
+  }
+  /* top */
+  
+  .face:nth-child(5) {
+    transform: rotate3d(1, 0, 0, -90deg) translate3d(-50px, 0, -100px);
+    background-color: rgba(0, 255, 255, 0.75);
+  }
+  /* right */
+  
+  .face:nth-child(6) {
+    transform: rotate3d(0, 1, 0, -90deg) translate3d(0, -50px, 100px);
+    background-color: rgba(255, 0, 255, 0.75);
+  }
+  
+  /* Animate and rotate from 0 to 180deg on x and y axis */
+  @keyframes cube-1-animation {
+    from {
+      transform: translate3d(300px, 200px, 0) rotate3d(1, 1, 0, 0deg);
+    }
+    to {
+      transform: translate3d(300px, 200px, 0) rotate3d(1, 1, 0, 180deg);
+    }
+  }
+  
+  
+  /* This holds at 33deg on the X axis while rotating on the Y axis */
+  @keyframes cube-2-animation {
+    from {
+      transform: translate3d(100px, 100px, -200px) rotateX(33deg) rotateY(0deg);
+    }
+    to {
+      transform: translate3d(100px, 100px, -200px) rotateX(33deg) rotateY(360deg);
+    }
+  }
+  
+  /* This rotates and moves from z -8000 to z 400px */
+  @keyframes cube-3-animation {
+    from {
+      transform: translate3d(200px, 200px, -8000px) rotateX(33deg) rotateY(0deg);
+    }
+    to {
+      transform: translate3d(200px, 200px, 400px) rotateX(33deg) rotateY(720deg);
+    }
+  }
+
+</style>
+
+<p><a href="https://techcrunch.com/2015/11/06/nopen-source/">What's possible with CSS 3d?</a></p>

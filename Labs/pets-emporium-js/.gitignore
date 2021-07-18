@@ -1,0 +1,4 @@
+.DS_Store
+public/vendor
+node_modules
+todo.txt

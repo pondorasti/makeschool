@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Android - Example</title>
+    <style>
+      /* You'll use flex to arrange the elements on this page */
+
+      /* Start with the body. Apply some styles here to set the 
+      typography for the entire page. */
+      body {
+        /* Set the font family to a San Serif */
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        /* Set the base font size */
+        font-size: 18px;
+        /* Set the line-height */
+        line-height: 1.5;
+        /* Set the foreground color */
+        color: #000;
+        /* Set the background color */
+        background-color: rgb(80, 134, 236);
+      }
+
+
+      /* Start with the nav list. Since there are several list 
+      use the child selector to select just the ul that is a 
+      child of the nav */
+      nav > ul {
+        /* remove the bullet */
+        list-style: none;
+        /* remove the padding */
+        padding: 0;
+        /* Arrange all of the items in a row with flex */
+        display: flex;
+      }
+
+
+      /* Now style all of the links inside nav */
+      nav a {
+        /* Remove the underline */
+        text-decoration: none;
+        /* set a background color */
+        background-color: #000;
+        /* Set the color of the text */
+        color: #fff;
+        /* add some space around the boxes */
+        margin: 1px;
+        /* add some space between the content and the edge of the boxes */
+        /* The first number is the padding on the top and bottom. */
+        /* The second number is padding on the left and right. */
+        padding: 0.5rem 1rem;
+        /* Make these elements display as a block */
+        display: block;
+        /* Round the corners */
+        border-radius: 0.5rem;
+      }
+
+
+      /* In many of the sections is a list (ul) it would be good if these 
+      lists were displayed horizontally. Take a look at the lists. These are 
+      usually a list of phones or tablets with images with a name and 
+      description below. */
+      /* Select the ul that is the descendant of a section */
+      section ul {
+        /* Display flex */
+        display: flex;
+        /* Flex direction row */
+        flex-direction: row;
+        /* Arrange things in the center on the MAIN axis*/
+        justify-content: center;
+        /* Align things on the CROSS axis */
+        /* Look closely at the Popular Picks and Featured Tablets sections */
+        align-items: flex-end;
+        /* Remove the bullet points */
+        list-style: none;
+        /* Remove padding */
+        padding: 0;
+      }
+
+
+      section > ul li {
+        /* Add some margin */
+        margin: 1rem;
+      }
+
+
+      /* There is usually a Learn More button at the end of each section
+      style it! Buttons have some default styles that make them look the
+      way the do but you can chanhe this. */
+      button {
+        /* Set the font-size to the base font size set in the body. */
+        font-size: 1rem;
+        /* Color */
+        color: #fff;
+        /* Border */
+        border: none;
+        /* Background color */
+        background-color: rgb(19, 48, 64);
+        /* Padding */
+        padding: 1rem 1.5rem;
+        /* Round the corners */
+        border-radius: 100px;
+      }
+
+
+      /* Might be nice if we used color to separate each section */
+      /* There's a section surrounding a series of other sections. */
+      /* Let's style all of the child sections but only the odd numbers */
+      section > section:nth-child(odd) {
+        background-color: #fff;
+      }
+
+
+      /* Style all child sections */
+      section > section {
+        /* These sections need some padding */
+        padding: 2rem;
+      }
+
+
+      /* make all the h2 tags really big */
+      h2 {
+        font-size: 4rem;
+        font-weight: bolder;
+      }
+
+      /* headings, paragraphs and other tags have a default 
+      margin. You should adjust this. */
+      h1, h2, h3, h4, p {
+        /* Set the margin only on the bottom */
+        margin: 0 0 1rem 0;
+      }
+      
+    </style>
+  </head>
+  <body>
+    <!-- Top bar -->
+    <section>
+      <header>
+        <h1>Android</h1>
+        <nav>
+          <ul>
+            <li><a href="#phones-and-tablets">Phones &amp; Tablets</a></li>
+            <li><a href="#featured">Featured</a></li>
+            <li><a href="#latest-greatest">Latest Greatest</a></li>
+            <li><a href="#android-one">Android One</a></li>
+            <li><a href="#popular-picks">Popular Picks</a></li>
+            <li><a href="#featured-tablets">Featured Tablets</a></li>
+            <li><a href="#android-for-business">Androind for Business</a></li>
+            <li><a href="#android-go">Android Go (Edition)</a></li>
+          </ul>
+        </nav>
+      </header>
+      
+      <!-- Phones & Tablets -->
+      <section id="phones-and-tablets">
+        <header>
+          <h2>Phones &amp; Tablets</h2>
+          <h3>
+            If you want it,<br>
+            Android<br>
+            powers it.
+          </h3>
+        </header>
+      </section>
+    
+      <!-- Featured -->
+      <!-- Assign an id name here: id="featured" -->
+      <section id="featured">
+        <header>
+          <h2>FEATURED</h2>
+          <h3>Google Pixel 3a</h3>
+        </header>
+        
+        <p>A fullscreen 5.6&rdquo; or 6&rdquo; display. Up to 30 hours of battery life<sup>1</sup>. And a camera that does the work for you &mdash; with Night Sight, Portrait Mode, and built-in Depth Editor.</p>
+          
+        <footer>
+          <p>
+            <button>LEARN MORE</button>
+          </p>
+        </footer>
+      </section>
+    
+      <!-- Latest Greatest -->
+      <!-- Assign an id name to this section: latest-greatest -->
+      <section id="latest-greatest">
+        <header>
+          <h2>LATEST AND GREATEST</h2>
+          <h3>
+            The world&rsquo;s<br>
+            first 5G<br>
+            phones.
+          </h3>
+        </header>
+        
+        <p>Download a 4K movie in the blink of an eye. Jump on a group video call that never lags. Turn your living room into an AR zombie apocalypse. 5G is taking phones to the next level &mdash; and they&rsquo;re only built on Android.</p>
+        
+        <ul>
+          <li>
+            <img 
+              src="../images/samsung-galaxy-10-5g.png" 
+              width="165" height="auto" 
+              alt="Samsung Galaxy 10 5g">
+            <h4>Samsung</h4>
+            <span>Galaxy 10 5G</span>
+          </li>
+          <li>
+            <img 
+              src="../images/lg-v50-thinq-5g.png" 
+              width="165" height="auto" 
+              alt="LG V50 Thinq 5G">
+            <h4>LG</h4>
+            <span>V50 ThinQ 5G</span>
+          </li>
+          <li>
+            <img 
+              src="../images/xiaomi-mi-mix-3-5g.png" 
+              width="165" height="auto" 
+              alt="Xiaomo Mi Mix 3 5G">
+            <h4>Xiaomi</h4>
+            <span>Mi Mix 3 5G</span>
+          </li>
+          <li>
+            <img 
+              src="../images/oppo-reno-5g.png" 
+              width="165" height="auto" 
+              alt="Oppo Reno 5G">
+            <h4>Oppo</h4>
+            <span>Reno 5G</span>
+          </li>
+        </ul>
+      </section>
+    
+      <!-- Android One -->
+      <section id="android-one">
+        <header>
+          <h2>ANDROID ONE</h2>
+        </header>
+        
+        <p>Secure, up-to-date, and easy to use.</p>
+        
+        <p>Android One phones are certified to run the simplest, latest version of Android. Regular security updates every month. At least two years of OS upgrades.2 And only loaded with the most essential apps.</p>
+        
+        <footer>
+          <p>
+            <button>Learn more</button>
+          </p>
+        </footer>
+      </section>
+    
+      <!-- Popular Picks -->
+      <section id="popular-picks">
+        <header>
+          <h2>POPULAR PICKS</h2>
+          <h3>Cameras that catch any shot.</h3>
+        </header>
+    
+        <p>Android powers some of the world&rsquo;s top cameras. So when the action speeds up or the lights go down low, you always get that perfect shot.</p>
+  
+        <ul>
+          <li>
+            <img 
+              src="../images/google-pixel-3a.png" 
+              width="165" height="auto" 
+              alt="Google Pixel 3a">
+            <h4>Google</h4>
+            <span>Pixel 3a</span>
+          </li>
+          <li>
+            <img 
+              src="../images/motorola-moto-g7.png" 
+              width="165" height="auto" 
+              alt="Motorola Moto G7">
+            <h4>Motorola</h4>
+            <span>Moto G7</span>
+          </li>
+          <li>
+            <img 
+              src="../images/oneplus-6t.png" 
+              width="165" height="auto" 
+              alt="OnePlus 6T">
+            <h4>OnePlus</h4>
+            <span>6T</span>
+          </li>
+          <li>
+            <img 
+              src="../images/sony-xperia-1.png" 
+              width="165" height="auto" 
+              alt="Sony Xperia">
+            <h4>Sony</h4>
+            <span>Xperia 1</span>
+          </li>
+        </ul>
+      </section>
+    
+      <!-- Featured Tablets -->
+      <section id="featured-tablets">
+        <header>
+          <h2>FEATURED TABLETS</h2>
+          <h3>Sometimes you need a bigger screen.</h3>
+        </header>
+        
+        <p>Watch a show the way it was intended. Edit a photo all the way down to the pixels. With Android tablets, you get more screen to do your thing.</p>
+        
+        <ul>
+          <li>
+            <img 
+              src="../images/samsung-galaxy-tab-s4.png" 
+              width="318" height="auto" 
+              alt="Samsung Galaxy Tab S4">
+            <h4>Samsung</h4>
+            <span>Galaxy Tab S4</span>
+          </li>
+          <li>
+            <img 
+              src="../images/lenovo-tab-p10.png" 
+              width="318" height="auto" 
+              alt="Lenovo Tab P10">
+            <h4>Lenovo</h4>
+            <span>Tab P10</span>
+          </li>
+          <li>
+            <img 
+              src="../images/lenovo-tab-p10-plus.png" 
+              width="318" height="auto" 
+              alt="Lenovo Tab P10 Plus">
+            <h4>Lenovo</h4>
+            <span>Tab P10 Plus</span>
+          </li>
+        </ul>
+      </section>
+    
+      <!-- Android For Business -->
+      <section id="android-for-business">
+        <header>
+          <h2>ANDROID FOR BUSINESS</h2>
+        </header>
+  
+        <p>Put Android to work.</p>
+        <p>Use the work profile to keep your personal data separate. Turn off work apps when you want to disconnect. And with the Android Enterprise Recommended program, it's easy to find the right devices for your job. From construction sites to corporate offices.</p>
+    
+        <footer>
+          <p>
+            <button>Learn more</button>
+          </p>
+        </footer>
+      </section>
+  
+      <!-- Android Go -->
+      <section id="android-go">
+        <header>
+          <h2>ANDROID (GO EDITION)</h2>
+          <h3>Less RAM. <br>
+            Still loaded <br>
+            with power.</h3>
+        </header>
+        
+        <p>Get the best of Android on lower RAM devices. Reimagined apps like YouTube Go and Google Go take up less space and start up faster. Data Saver helps you manage your data. And the Play Store continually gets new apps made just for Android (Go edition).</p>
+        
+        <ul>
+          <li>
+            <img 
+              src="../images/techno-spark-2.png" 
+              width="165" height="auto" 
+              alt="Tecno Spark 2">
+            <h4>Tecno</h4>
+            <span>Spark 2</span>
+          </li>
+          <li>
+            <img 
+              src="../images/nokia-1-plus.png" 
+              width="165" height="auto" 
+              alt="Nokia 1 Plus">
+            <h4>Nokia</h4>
+            <span>1 Plus</span>
+          </li>
+          <li>
+            <img 
+              src="../images/lava-z50.png" 
+              width="165" height="auto" 
+              alt="Lava Z50">
+            <h4>Lava</h4>
+            <span>Z50</span>
+          </li>
+          <li>
+            <img 
+              src="../images/lenovo-moto-e5-play.png" 
+              width="165" height="auto" 
+              alt="Lenovo Moto E5 Play">
+            <h4>Lenovo Moto</h4>
+            <span>E5 Play</span>
+          </li>
+        </ul>
+      </section>
+    </section>    
+  </body>
+</html>

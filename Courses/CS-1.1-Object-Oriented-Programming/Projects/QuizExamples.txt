@@ -1,0 +1,184 @@
+Example 1: Harry Potter Quiz
+Welcome to the Harry Potter quiz! This quiz will assess if you are a true fan of the Harry Potter series.
+
+1. What was the name of Mr. Crouch's house elf? Please enter a letter.
+a) Winky
+b) Blinky
+c) Kreacher
+d) Dobby
+e) Slinky
+a
+Correct!
+
+2. Who taught History of Magic? Please enter a letter.
+a) Professor Sinistra
+b) Professor Lupin
+c) Professor McGonagall
+d) Professor Binns
+e) Professor Flitwick
+d
+Correct!
+
+3. In which year (1-7) did Harry go on his first date with Cho Chang? Please enter an integer.
+5
+Correct!
+
+4. True or False: Thestrals can only be seen by people who have witnessed death. Enter 1 for True or 0 for False.
+1
+Correct!
+
+5. What did Dumbledore leave to Ron in his will? Please enter a letter.
+a) The Tales of Beedle the Bard
+b) The golden snitch
+c) The Pensieve
+d) The Deluminator
+e) Fawkes the Phoenix
+b
+Sorry, that is incorrect. The correct answer is d) The Deluminator.
+
+6. How old was Voldemort when he opened the Chamber of Secrets? Please enter an integer.
+15
+Sorry, that is incorrect. The correct answer is 16.
+
+7. True or False: Sirius Black was sorted into Slytherin house. Enter 1 for True or 0 for False.
+1
+Sorry, that is incorrect. The correct answer is False.
+
+8. Who was the master of the Elder Wand prior to Harry? Please enter a letter.
+a) Albus Dumbledore
+b) Severus Snape
+c) Minerva McGonagall
+d) Lord Voldemort
+e) Draco Malfoy
+a
+Sorry, that is incorrect. The correct answer is e) Draco Malfoy.
+
+9. True or False: In their second year, Hermione drank Polyjuice Potion that gave her lasting rat-like features. Enter 1 for True or 0 for False.
+0
+Correct!
+
+10. The Dursleys lived at __ Privet Drive. Please enter an integer to fill in the blank.
+20
+Sorry, that is incorrect. The correct answer is 4.
+
+You got 5/10 questions right--
+1: Correct, 2: Correct, 3: Correct, 4: Correct, 5: Incorrect, 6: Incorrect, 7: Incorrect, 8: Incorrect, 9: Correct
+Pretty good, but your Harry Potter knowledge needs some work.
+
+Thanks for taking the Harry Potter quiz!
+
+Example 2: Pokemon Quiz
+Welcome to the Pokemon quiz!
+
+1) How many Pokemon exist in the Kanto regional Pokedex? Please enter a character a-e.
+a) 151
+b) 251
+c) 386
+d) 493
+e) 649
+a
+Congratulations! You are correct. The Kanto Pokedex starts with 001 Bulbasaur and ends with 151 Mew.
+
+2) Which of the following characters is the Pokemon professor of the Hoenn region? Please enter a character a-e.
+a) Professor Oak
+b) Professor Juniper
+c) Professor Elm
+d) Professor Birch
+e) Professor Rowan
+d
+Congratulations! You are correct. Professor Birch is the Professor of the Hoenn region. He gives new trainers the choice of Treecko, Torchic, or Mudkip for their starters.
+
+3) Name one Commander of Team Galactic. Please enter the answer as a string of lowercase letters. Be sure to check your spelling!
+jupiter
+Congratulations! Jupiter is a Team Galactic Commander. The other Commanders are Saturn, Mars, and Charon!
+
+4) What was Ash Ketchum's first Pokemon? Please enter the answer as a string of lowercase letters. Be sure to check your spelling!
+squirtle
+Oops, sorry. Ash woke up too late to get one of the usual Kanto starter Pokemon from Professor Oak. The correct answer is Pikachu!
+
+5) How many gym badges must a trainer collect to challenge the Elite Four and Champion? Please enter your response as an integer.
+8
+Congratulations! A trainer must collect 8 different gym badges before challenging the Elite Four and Champion.
+
+6) How many times can Voltorb evolve? Please enter your response as an integer.
+2
+Oops, sorry. Although some Pokemon evolve twice, Voltorb can only evolve one time to become Electrode. Electrode does not evolve further, so the correct answer is 1.
+
+7) True or False: The gym leader Olympia uses Fairy type Pokemon. Please enter 1 for True or 0 for False.
+0
+Congratulations! The gym leader of Anistar City, Olympia, uses Psychic type Pokemon!
+
+8) True or False: The Pokemon Arceus changes its type in battle based on the type of plate it is holding. Please enter 1 for True or 0 for False.
+1
+Congratulations! The ability Multitype allows Arceus to change its type in battle based on the plate it is holding. For example, a Spooky Plate will make Arceus the Ghost type!
+
+9) Which of the following Pokemon can use the move Transform? Please enter a character a-e.
+a) Pikachu
+b) Zorua
+c) Mr. Mime
+d) Ditto
+e) Bonsly
+c
+Oops, sorry. Both Mr. Mime and Bonsly can know the move Mimic, but this move copies the opponent's attack, not its form. They cannot learn Transform. d) Ditto is the correct answer.
+
+10) True or False: Jessie, James, and Meowth are members of Team Magma. Please enter 1 for True or 0 for False.
+1
+Oops, sorry. The correct answer is False. Jessie, James, and Meowth are members of Team Rocket!
+
+1: Correct, 2: Correct, 3: Correct, 4: Incorrect, 5: Correct, 6: Incorrect, 7: Correct, 8: Correct, 9: Correct
+You know a lot about Pokemon. You're well on your way to becoming the Champion!
+
+Example 3: Silicon Valley Quiz
+1.) What is the name of the company printed across Erlich Bachman's car?
+Please use all lowercase letters in your answer.
+aviato
+2.) How much money did Richard have to pay to keep their company name "Pied Piper" when it was discovered that name was already taken by a small irrigation system company?
+Please answer numerically as an integer
+500
+Sorry, 500 is not correct. The correct answer is 1,000 dollars.
+
+3.) What did Gilfoyle name his servers? Please enter a-e.
+a) Bridgette
+b) Carla
+c) Anton
+d) Agamemnon
+e) Jenna
+c
+4.) True or False? In the last episode of season 3, Pied Piper is sold by Laurie Bream of Raviga to Gavin Belson of Hooli.
+Please answer 1 for true and 0 for false.
+1
+Sorry, true is not correct. The correct answer is false because Pied Piper was actually bought by Erlich Bachman.
+
+5.) What was the Weissman score Richard Hendricks and the whole Pied Piper team achieved at Techcrunch Disrupt?
+Please answer numerically as a floating point number.
+5.2
+6.) Who said, "I firmly believe we can only achieve greatness if first we achieve goodness"? Please enter a-e.
+a) Richard Hendricks
+b) Gavin Belson
+c) Peter Gregory
+d) Laurie Bream
+e) Erlich Bachman
+b
+7.) What caused the deletion of Intersite's video library? Please enter a-e.
+a) Jian Yang's friends
+b) End Frame hacked the server
+c) Nelson 'Big Head' Bighetti spilt his soda and fried the server
+d) Russ Hanneman put a tequila bottle down on a 'Delete' key
+e) Erlich Bachman put his elbow down on the 'Delete' key unknowingly
+d
+8.) True or False? Russ Hanneman has his own tequila brand called "Tres Comas".
+Please answer 1 for true and 0 for false.
+1
+9.) What movie did Dinesh watch with the female programmer at TechCrunch Disrupt? Please enter a-e.
+a) Cloud Atlas
+b) Avatar
+c) Titanic
+d) Captain America: The Winter Soldier
+e) Steve Jobs
+a
+10.) True or False? Erlich Bachman refers to his home as his "Incubator".
+Please answer 1 for true and 0 for false.
+1
+
+1: Correct, 2: Incorrect, 3: Correct, 4: Incorrect, 5: Correct, 6: Correct, 7: Correct, 8: Correct, 9: Correct
+Wow, you definitely are a true fan of Silicon Valley with a score of 8.

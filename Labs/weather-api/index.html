@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Ms Merriweather</title>
+    <style>
+      body, html {
+        height: 100%;
+      }
+      body {
+        background-color: #eee;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        font-size: 20px;
+        font-weight: lighter;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      h1, p {
+        margin: 0 0 1rem 0;
+      }
+
+      .container {
+        width: 400px;
+        display: flex;
+        flex-direction: column;
+        border: 1px
+      }
+
+      #form {
+        display: flex;
+      }
+
+      #form > input {
+        flex: 1;
+        padding: 1em;
+        font-size: 1em;
+        margin: 0;
+        border-radius: 0.5rem 0 0 0.5rem;
+        border: 1px solid;
+        border-right: none;
+      }
+
+      #form > button {
+        padding: 0 1em;
+        background-color: rgb(106, 177, 238);
+        color: #fff;
+        font-size: 1em;
+        border: 1px solid;
+        margin: 0;
+        border-radius: 0 0.5rem 0.5rem 0;
+        border: 1px solid #000;
+        border-left: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1 id="temp">
+        <!--Temp -->
+      </h1>
+      <p id="desc">
+        <!-- description -->
+      </p>
+      <form id="form">
+        <input 
+          id="zip" 
+          type="number" 
+          placeholder="zip code"
+          title="Please Enter a valid Zip Code"
+          pattern="^\d{5}(?:[-\s]\d{4})?$"
+        >
+        <button type="submit">Search</button>
+      </form>
+    </div>
+
+    <script>
+      // ------------------------------------------------------
+      // Developer Code
+
+      // Get Element refererences
+      const tempEl = document.getElementById('temp')
+      const descEl = document.getElementById('desc')
+      const formEl = document.getElementById('form')
+      const zipInput = document.getElementById('zip')
+
+      // Define event listeners
+      formEl.addEventListener('submit', (e) => {
+        e.preventDefault()
+        const zip = zipInput.value
+        getWeather(zip)
+      })
+
+      // Functions 
+    function getWeather(zip) {
+        const apiKey = '467355df4c808dd6134a3b64e9ace282'
+        const units = 'imperial'
+        const path = `https://api.openweathermap.org/data/2.5/weather?zip=${zip}&appid=${apiKey}&units=${units}`
+        fetch(path)
+          .then(res => res.json())
+          .then(json => {
+            tempEl.innerHTML = json.main.temp
+            descEl.innerHTML = json.weather[0].description
+          })
+          .catch(err => console.log(err.message))
+      }
+           
+    </script>
+  </body>
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <title>Syllabus Template Slides</title>
+    <link rel="stylesheet" href="./../css/reveal.css" />
+    <link rel="stylesheet" href="./../css/theme/black.css" id="theme" />
+    <link rel="stylesheet" href="./../css/highlight/zenburn.css" />
+    <link rel="stylesheet" href="./../css/print/paper.css" type="text/css" media="print" />
+    <link rel="stylesheet" href="./../assets/Reveal/makeschool.css" />
+
+    <script>
+      document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>');
+    </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides"><section  data-markdown><script type="text/template">- particleTexture: The texture to use for each particle. The default value is nil, and if you don’t set a texture, the emitter uses a colored rectangle to draw the particle.
+
+- particleBirthRate: The rate at which the emitter generates the particles per second. It defaults to 0.0. If you leave the birth rate at 0.0, the emitter won’t generate any particles.
+
+- numParticlesToEmit: The number of particles the emitter will generate before stopping. The default value is 0, which means the emitter will generate an endless stream of particles.
+
+- particleLifetime: The duration of time, in seconds, that each particle is active. The default value is 0.0; if you don’t change this, the emitter won’t generate any particles.
+
+- emissionAngle: The angle from which the particles are emitted. The default value is 0.0, which is directly right.
+
+- emissionAngleRange: The range of randomness of the emission angle, which varies plus or minus half the range value.
+
+- particleSpeed: The initial speed for a new particle in points per second. The default value is 0.0.
+
+- particleSpeedRange: The range of randomness of the particle speed that varies plus or minus half the range value. The default value is 0.0.
+
+- particleAlpha: The average starting alpha value for each particle, which determines the transparency of your particles. The default value is 1.0, which is fully opaque.
+
+- particleAlphaRange: The range of randomness of the particle alpha, which varies plus or minus half the range value. The default value is 0.0; you set it to 0.25 which makes some of the particles slightly transparent.
+
+- particleScale: The scale at which the emitter renders each particle. The default value is 1.0, which is full size. Values greater than 1.0 scale up the particles while values less than 1.0 scale them down.
+
+- particleScaleRange: The range of randomness of the particle scale, which varies plus or minus half the range value.
+
+- particleScaleSpeed: The rate at which a particle’s scale factor changes per second. The default value is 0.0.
+
+- particleColor: The color the emitter blends with the particle texture.The default value is SKColor.clear.
+
+- particleColorBlendFactor: The amount of color the emitter applies to the texture when rendering each particle.
+
+- particleBlendMode: The blending mode used to blend particles with the other colors onscreen. The default value is SKBlendMode.alpha, which means that the particles and other objects are blended by multiplying the particles’ alpha values.
+
+Source: 2D Apple Games by Tutorials
+</script></section></div>
+    </div>
+
+    <script src="./../js/reveal.js"></script>
+
+    <script>
+      function extend() {
+        var target = {};
+        for (var i = 0; i < arguments.length; i++) {
+          var source = arguments[i];
+          for (var key in source) {
+            if (source.hasOwnProperty(key)) {
+              target[key] = source[key];
+            }
+          }
+        }
+        return target;
+      }
+
+      // Optional libraries used to extend on reveal.js
+      var deps = [
+        { src: './../plugin/markdown/marked.js', condition: function() { return !!document.querySelector('[data-markdown]'); } },
+        { src: './../plugin/markdown/markdown.js', condition: function() { return !!document.querySelector('[data-markdown]'); } },
+        { src: './../plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+        { src: './../plugin/zoom-js/zoom.js', async: true },
+        { src: './../plugin/notes/notes.js', async: true },
+        { src: './../plugin/math/math.js', async: true }
+      ];
+
+      // default options to init reveal.js
+      var defaultOptions = {
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+        transition: 'default', // none/fade/slide/convex/concave/zoom
+        dependencies: deps
+      };
+
+      // options from URL query string
+      var queryOptions = Reveal.getQueryHash() || {};
+
+      var options = extend(defaultOptions, {"controls":true,"progress":true,"autoPlayMedia":false,"slideNumber":"c/t","showSlideNumber":"all","controlsTutorial":true,"controlsLayout":"edges","transition":"slide","transitionSpeed":"medium","minScale":0.5,"maxScale":3}, queryOptions);
+    </script>
+
+
+    <script>
+      Reveal.initialize(options);
+    </script>
+  </body>
+</html>

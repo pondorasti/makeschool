@@ -1,0 +1,29 @@
+- **[📋 Syllabus](/README.md)**
+- **[📅 Lessons](/README.md?id=schedule)**
+  - [Discovering Django](Lessons/01-Discovering-Django)
+  - [Models](Lessons/02-Models)
+  - [More Models](Lessons/03-MoreModels)
+  - [Views & URLs](Lessons/04-ViewsURLs)
+  - [Templates](Lessons/05-Templates)
+  - [Review Day](Lessons/06-MidtermReview)
+  - [Authentication & Authorization](Lessons/07-DjangoAuth)
+  - [Working with Forms](Lessons/08-Forms)
+  - [Testing](Lessons/07-Testing)
+  - [Django REST Framework](Lessons/09-Django-REST-Framework)
+  - [Static Files](Lessons/10-StaticFiles)
+  - [Deployment](Lessons/11-Deployment)
+- **[Homework Assignments](/README.md?id=schedule)**
+  - [Homework 1: Portfolio Site](Projects/01-portfolio-site.md)
+  - [Homework 2: Books Site](Projects/02-books-site.md)
+  - [Homework 3: Music Site](Projects/03-music-site.md)
+  - [Homework 4: Polls Redux](Projects/04-polls-redux.md)
+  - [Homework 5: Makewiki](Projects/05-makewiki.md)
+- **📈 Django Contractor Project**
+  - [Project Kickoff](Lessons/06-ProjectKickoff)
+  - [Proposal Instructions](/Projects/proposal.md)
+  - [Project Requirements](/Projects/requirements.md)
+  - [Grading Rubric](/Projects/rubric.md)
+- **Assessments**
+  - [Quiz 1: Models](/Assessments/quiz-1.md)
+  - [Quiz 2: Views & URLs, Templates, Authentication](/Assessments/quiz-2.md)
+  - [Quiz 3: Forms, Testing, DRF](/Assessments/quiz-3.md)

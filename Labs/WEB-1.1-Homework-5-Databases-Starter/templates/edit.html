@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% block content %}
+
+{#
+    TODO: Modify this page to show the pre-existing data for the given plant
+    object, using the context data passed in from the route.
+#}
+
+<main>
+    <h1>Edit Plant</h1>
+
+    <form method='POST'>
+        <fieldset>
+            <legend>Please fill out your plant's info:</legend>
+
+            <label>
+                Plant's name:
+                <input type="text" name="plant_name" value="Tomato">
+            </label>
+            
+            <label>
+                Plant's variety:
+                <input type="text" name="variety" value="Early Girl">
+            </label>
+
+            <label>
+                Plant's photo URL:
+                <input type="url" name="photo" value="https://mypic.co/image.png">
+            </label>
+
+            <label>
+                Date planted:
+                <input type="date" name="date_planted" value="2020-08-01">
+            </label>
+
+            <input type="submit" class="submit" value="Submit!">
+        </fieldset>
+    </form>
+</main>
+
+{% endblock content %}

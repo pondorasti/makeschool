@@ -1,0 +1,26 @@
+<div class="row">
+  <div class="col-sm-12">
+    <a href="/">Back to Home</a>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm-4">
+    <h1>{{pet.name}}</h1>
+  </div>
+  <div class="col-sm-8">
+    <form id="comment-form">
+      <div class="form-group">
+        <textarea type="text" name="body" class="form-control"></textarea>
+      </div>
+      <div class="text-right">
+        <button type="submit" class="btn btn-primary">Add Comment</button>
+      </div>
+    </form>
+    <hr>
+    <div id="comments">
+      {{#each pet.comments}}
+        <p>{{this.body}}</p>
+      {{/each}}      
+    </div>
+  </div>
+</div>

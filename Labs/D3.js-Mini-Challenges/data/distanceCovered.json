@@ -1,0 +1,22 @@
+ [
+    { 
+      "date": "2013-12-01", 
+      "kilometeres": 145
+    }, 
+    { 
+      "date": "2014-03-02", 
+      "kilometeres": 260
+    }, 
+    { 
+      "date": "2015-07-06", 
+      "kilometeres": 500
+    }, 
+    {
+      "date": "2018-11-01", 
+      "kilometeres": 420
+    }, 
+    {
+      "date": "2020-02-20", 
+      "kilometeres": 330
+    }
+  ]

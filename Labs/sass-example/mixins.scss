@@ -1,0 +1,57 @@
+// Resets list margin, padding, and style
+@mixin reset-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+// Makes a horizontal list
+@mixin horizontal-list {
+  @include reset-list; // include the reset
+
+  li {
+    display: inline-block;
+    margin: {
+      left: -2px;
+      right: 2em;
+    }
+  }
+}
+
+// Any list in a nav should be horizontal
+nav ul {
+  @include horizontal-list; // Inlcude the horizontal styles
+}
+
+
+
+// Make square of size with a border radius
+@mixin square($size, $radius: 0) {
+  width: $size;
+  height: $size;
+
+  @if $radius != 0 {
+    border-radius: $radius;
+  }
+}
+
+.avatar {
+  @include square(100px, $radius: 0.5em);
+}
+
+
+// make a circle of size
+
+@mixin circle($size) {
+  width: $size;
+  height: $size;
+  border-radius: 50%;
+}
+
+.circle {
+  @include circle(100px);
+}
+
+.founder-portrait {
+  @include circle(200px);
+}

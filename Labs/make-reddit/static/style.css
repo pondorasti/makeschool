@@ -1,0 +1,22 @@
+.vote-box {
+  padding: 15px;
+}
+
+.vote-box .fas {
+  font-size: 2em;
+  color: #999;
+}
+
+.vote-box .numvotes {
+  text-align: center;
+  margin-top: 1rem;
+  font-size: 1.5em;
+}
+
+.vote-box.upvote .fas.fa-arrow-up {
+  color: orange !important;
+}
+
+.vote-box.downvote .fas.fa-arrow-down {
+  color: #007bff !important;
+}

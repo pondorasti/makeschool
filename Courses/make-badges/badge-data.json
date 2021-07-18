@@ -1,0 +1,141 @@
+[{
+  "id": 1,
+  "name": "React Tutorial",
+  "description": "Earn this badge by completing the React Tutorial",
+  "category": "React",
+  "image": "react/react-tutorial-tutorial.png",
+  "link": "https://badgr.com/public/badges/tAEzIZBZTYG4d1U8hHZfNQ"
+}, {
+  "id": 2,
+  "name": "React Mastery Level 1",
+  "description": "Earn this badge by completing the React Mastery Level 1 Pathway",
+  "category": "React",
+  "image": "react/react-tutorial-mastery.png",
+  "link": "https://badgr.com/public/badges/8tdJkc2pQNSc1_z-i1nT_w"
+}, {
+  "id": 3,
+  "name": "React + Redux Tetris Tutorial",
+  "description": "Earn this badge by completing the React + Redux Tetris Tutorial",
+  "category": "React",
+  "image": "react/react-tutorial-tetris.png",
+  "link": "https://badgr.com/public/badges/wJj8D6zAQ5u_bVDKtG2NtQ"
+}, {
+  "id": 4,
+  "name": "React + Redux Timers Tutorial",
+  "description": "Earn this badge by completing the React + Redux Timers Tutorial",
+  "category": "React",
+  "image": "react/react-tutorial-timers.png",
+  "link": "https://badgr.com/public/badges/qESi1CuOTvC8Xbi606V4RA"
+}, {
+  "id": 5,
+  "name": "React + Redux Passwords Tutorial",
+  "description": "Earn this badge by completing the React + Redux Passwords Tutorial",
+  "category": "React",
+  "image": "react/react-tutorial-passwords.png",
+  "link": "https://badgr.com/public/badges/yL6AaRQYS3STjyQEJET2iA"
+}, {
+  "id": 6,
+  "name": "React Weather Tutorial",
+  "description": "Earn this Badge by completing the React Weather Tutorial",
+  "category": "React",
+  "image": "react/react-tutorial-weather.png",
+  "link": "https://badgr.com/public/badges/77L59uYeR1aUajChYzma2w"
+}, {
+  "id": 7,
+  "name": "React Fundamentals Tutorial",
+  "description": "Earn this badge by completing the React Fundamentals tutorial",
+  "category": "React",
+  "image": "react/react-tutorial-fundamentals.png",
+  "link": "https://badgr.com/public/badges/6sUxCTl-SEWpsO7dZBPfDg"
+}, {
+  "id": 8,
+  "name": "GitHub Master",
+  "description": "Earn this badge by completing the GitHub Master pathway",
+  "category": "GitHub",
+  "image": "github/github-master.png",
+  "link": "https://badgr.com/public/badges/M1BhDMIwRnGLV0TwyvqrZw"
+}, {
+  "id": 9,
+  "name": "10th Pull Request",
+  "description": "Earn this badge by making your 10th pull request",
+  "category": "GitHub",
+  "image": "github/10th-pull-request.png",
+  "link": "https://badgr.com/public/badges/TT-LxRK0TOaixA1MePAeTg"
+}, {
+  "id": 10,
+  "name": "4th Pull Request",
+  "description": "Earn this badge by making your 4th pull request",
+  "category": "GitHub",
+  "image": "github/4th-pull-request.png",
+  "link": "https://badgr.com/public/badges/QOuOITl3RV2FIcSNunn89A"
+}, {
+  "id": 11,
+  "name": "1 Month GitHub Streak",
+  "description": "Earn this badge by committing to GitHub every day for one month",
+  "category": "GitHub",
+  "image": "github/1-month-streak.png",
+  "link": "https://badgr.com/public/badges/1raVvbKfQNa3kkjYg3H4Vw"
+}, {
+  "id": 12,
+  "name": "100 Commits",
+  "description": "Earn this badge by making 100 commits to GitHub",
+  "category": "GitHub",
+  "image": "github/100-commits.png",
+  "link": "https://badgr.com/public/badges/8nY3MIUVRTCER-ObLZQcAg"
+}, {
+  "id": 13,
+  "name": "1st Pull Request",
+  "description": "Earn this badge by completing your first pull request on GitHub",
+  "category": "GitHub",
+  "image": "github/1st-pull-request.png",
+  "link": "https://badgr.com/public/badges/Rn9njmZaRnK-SmeYc_eeAA"
+}, {
+  "id": 14,
+  "name": "2 Week GitHub Streak",
+  "description": "Earn this badge by making commits everyday for 14 consecutive days",
+  "category": "GitHub",
+  "image": "github/2-week-streak.png",
+  "link": "https://badgr.com/public/badges/7Bl4_tpKQ7Kt1XSjUGmXxQ"
+}, {
+  "id": 15,
+  "name": "7 Day GitHub Streak",
+  "description": "Earn this badge by making commits on each of 7 consecutive days.",
+  "category": "GitHub",
+  "image": "github/7-day-streak.png",
+  "link": "https://badgr.com/public/badges/Ku4-sQBpQ3qCFwaCBOj_AA"
+}, {
+  "id": 16,
+  "name": "5 Day Streak",
+  "description": "Earn this badge by making commits on 5 consecuative days",
+  "category": "GitHub",
+  "image": "github/5-day-streak.png",
+  "link": "https://badgr.com/public/badges/eCNZRftqRNSaLNyR2KY6Nw"
+}, {
+  "id": 17,
+  "name": "1 Month GitHub Streak",
+  "description": "Earn this badge by making commits to GitHub on 30 consecutive days",
+  "category": "GitHub",
+  "image": "github/",
+  "link": "https://badgr.com/public/badges/1raVvbKfQNa3kkjYg3H4Vw"
+}, {
+  "id": 18,
+  "name": "10 Commits in a Day",
+  "description": "Earn this badge by making 10 commits one day",
+  "category": "GitHub",
+  "image": "github/10-commits.png",
+  "link": "https://badgr.com/public/badges/eutqTD-oQhyk1dDnQIfGcw"
+}, {
+  "id": 19,
+  "name": "5 Commits in a Day",
+  "description": "Earn this badge by making 5 commits in a single day",
+  "category": "GitHub",
+  "image": "github/5-commits.png",
+  "link": "https://badgr.com/public/badges/D5KhEgQ8TFaPNGr7erx6pA"
+}, {
+  "id": 20,
+  "name": "Two Week GitHub Streak",
+  "description": "Earn this badge by commiting every day for 14 consecutive days",
+  "category": "GitHub",
+  "image": "github",
+  "link": "https://badgr.com/public/badges/6Nq-W0T3Te2wGDSql195yA"
+}]

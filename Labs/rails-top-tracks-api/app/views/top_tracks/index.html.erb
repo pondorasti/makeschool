@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<%= link_to 'Sign in with Spotify', '/auth/spotify' %>
+
+<h1>Top Tracks</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Track name</th>
+      <th>Album name</th>
+      <th>Personal ranking</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @top_tracks.each do |top_track| %>
+      <tr>
+        <td><%= top_track.track_name %></td>
+        <td><%= top_track.album_name %></td>
+        <td><%= top_track.personal_ranking %></td>
+        <td><%= link_to 'Show', top_track %></td>
+        <td><%= link_to 'Edit', edit_top_track_path(top_track) %></td>
+        <td><%= link_to 'Destroy', top_track, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Top Track', new_top_track_path %>

@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <title>Syllabus Template Slides</title>
+    <link rel="stylesheet" href="./css/reveal.css" />
+    <link rel="stylesheet" href="./css/theme/black.css" id="theme" />
+    <link rel="stylesheet" href="./css/highlight/zenburn.css" />
+    <link rel="stylesheet" href="./css/print/paper.css" type="text/css" media="print" />
+    <link rel="stylesheet" href="./assets/Reveal/makeschool.css" />
+
+    <script>
+      document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>');
+    </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides"><section  data-markdown><script type="text/template"><!-- .slide: data-background="./Images/header.svg" data-background-repeat="none" data-background-size="40% 40%" data-background-position="center 10%" class="header" -->
+# FEW 1.2 - Lesson 3 - JavaScript OOP
+
+<!-- Put a link to the slides so that students can find them -->
+
+➡️ [**Slides**](/Syllabus-Template/Slides/Lesson1.html ':ignore')
+</script></section><section  data-markdown><script type="text/template">
+## Minute-by-Minute
+
+| **Elapsed** | **Time** | **Activity** |
+| ----------- | --------- | ----------- |
+| 0:05 | 0:05 | Overview |
+| 0:05 | 0:10 | [Class Learning Objectives](#class-learning-objectives) |
+| 0:05 | 0:15 | [Discuss Breakout tutorial](#discuss-breakout-tutorial) |
+| 0:05 | 0:25 | [Arrays](#arrays) |
+| 0:05 | 0:25 | [Loops](#loops) |
+| 0:05 | 0:30 | [Functions](#functions) |
+| 0:05 | 0:35 | [Objects](#objects) |
+| 0:05 | 0:40 | [Conditional](#conditional) |
+| 0:05 | 0:45 | [Name Space and Identifiers](#name-space-and-identifiers) |
+| 0:05 | 0:50 | [Scope](#scope) |
+| 0:10 | 1:00 | BREAK |
+| 0:10 | 1:10 | [Expanding the game](#expanding-the-game) |
+| 0:10 | 1:20 | [OOP](#oop) |
+| 0:60 | 2:20 | [Challenges](#challenges) |
+</script></section><section  data-markdown><script type="text/template">
+## Class Learning Objectives
+
+1. Use for Loops 
+1. Use Arrays
+1. Use Objects
+1. Use Conditional statements
+</script></section><section  data-markdown><script type="text/template">
+# Discuss Breakout tutorial
+
+Discuss these questions with someone else in class:
+
+- How does the break out game work? (general overview)
+  - Code flow what happens in what order?
+- The application state is the data that describes the state of your application. 
+  - How does break out define its application state?
+  - The values stored by the game and how are they updated?
+</script></section><section  data-markdown><script type="text/template">
+## Breakout Code
+
+Refer to your code or the code [here](#breakout-code-with-comments) for reference. 
+
+Discuss with your pair how the code is organized.
+
+- DOM references - Reference to HTML elements
+- Variables - Values used by the program
+  - Constants - Values that don't change
+  - Variables - Values that change while the program runs
+  - Setup Bricks Array - Use a loop to initialize this value
+- Functions - Blocks of code used by the program
+  - Game Loop - The main function used by the game
+  - Event Handlers - Handle events from the browser
+- Register Events - Register listeners
+- Entry Point - Starts the game running
+
+### Breakout Flow
+
+Discuss the flow of code. 
+
+- Initialization
+- Entry point
+- Game Loop
+  - Clear canvas
+  - drawBricks()
+  - drawBall()
+  - drawPaddle()
+  - drawScore()
+  - drawLives()
+  - collisionDetection()
+  - Check ball position
+    - Left and right side of canvas?
+    - Top of canvas?
+    - bottom?
+      - Hit Paddle?
+      - Lose life
+      - Game Over?
+  - Move Ball
+  - Check for keyboard input
+  - register draw() to be called again when the screen refreshes. The program continues by repeating everything from Game Loop down.
+</script></section><section  data-markdown><script type="text/template">
+## Challenges
+
+Try these challenges to improve your understanding of the breakout code by improving the code. 
+
+### Challenge 1 - Make Constants
+
+Identify values that could be constants. These would be any value that you might want to change in future. Making it a constant and defining it at the top will make it easy to find and change in the future. 
+  - color values are a good example. Move these to the top. 
+
+### Challenge 2 - Identify duplicate code
+
+Identify Duplicate code. Any time you are doing the same operation more than once you should make a function. This will avoid errors in the future and make it easier to make changes and find problems.
+  - Code that initializes the ball and paddle positions. This appears at the top and in draw().
+
+### Challenge 3 - Use Subroutines
+
+Subroutines are blocks of code that are run each time the main part of your code is run. Having blocks of related code inside functions makes it easy for you reason about your program. Currently drawBricks, drawBall, drawPaddle are all subroutines to the main game loop in draw. The draw function also contains a big block of code that could be broken out into separate functions. 
+  - moveBall() - is not a function but it should be! The ball is moved in the draw() function this code could be moved into a new function. 
+  - initializeBricks() - is not a function but it should be! The bricks are initialized at the top of code. This would be better handled by moving this code into a function. 
+
+### Challenge 4 - Encapsulating code
+
+Encapsulating Values. Moving values into Objects groups those values together making them easier to reason about. Currently the Bricks are objects but they could be improved. 
+  - Bricks - Each brick is an object with three properties: x, y, and status. These properties get set in drawBricks(). This would be better set in when the bricks are initialized.  
+  - Ball - Is not an object but it could be. The ball is moved and positioned by the variables: x, y, dx, and dy. M aking a ball object with these properties would be better, more organized, and make it easier to expand the code in the future. 
+</script></section><section  data-markdown><script type="text/template">
+## loops 
+
+The great thing about computers is they are happy to do things over and over again. A computer will always do something the same way each time. It's one of the reasons we use computers to do things! 
+
+- Where are loops used in Break Out?
+- How are the loops used?
+
+<!-- https://repl.it/classroom/invite/k0Yhr38 -->
+</script></section><section  data-markdown><script type="text/template">
+## Arrays
+
+Arrays store collections of related data in a list with each element at an index. 
+
+- How are arrays used by Break Out?
+- What do the Arrays store? 
+
+<!-- https://repl.it/classroom/invite/Z6pW6Gv -->
+</script></section><section  data-markdown><script type="text/template">
+## Objects 
+
+Objects are collections of related data. Each value is stored at a key or label. 
+
+- Where are objects used? 
+- How are the Objects used? 
+- Why not use an array?
+
+<!-- https://repl.it/classroom/invite/STIb5DY -->
+</script></section><section  data-markdown><script type="text/template">
+## Functions
+
+Functions store blocks of code that can be called and executed at any time as often as needed.
+
+- Where are functions used?
+- What is the general flow of code?
+- Why no parameters?
+</script></section><section  data-markdown><script type="text/template">
+## Conditional Statements
+
+Conditional statements control the flow of your programs. They allow programs to make decisions. What kinds of decisions does the Break Out code make? 
+
+- Where are conditional statements used? 
+</script></section><section  data-markdown><script type="text/template">
+## Name Space and Identifiers
+
+Identifiers are the names of you create that represent: variables, and functions.
+
+Scope sets the rules for where an identifier can be created and accessed. 
+
+The code needs some improvement. Currently, the game creates many identifiers in the global namespace. 
+
+- Is this a problem? 
+- What kinds of problems could this cause? 
+</script></section><section  data-markdown><script type="text/template">
+## Scope
+
+Use an IIFE to organize your code. 
+
+- What is an IIFE?
+- What is scope? 
+ - global
+ - local
+ - function
+ - block
+</script></section><section  data-markdown><script type="text/template">
+<!-- .slide: data-background="#087CB8" -->
+## BREAK
+
+Take a 10-minute break.
+</script></section><section  data-markdown><script type="text/template">
+## Expanding the game
+
+How would you solve these problems? Discuss these with someone else in class. 
+
+1. Each brick must display its own color?
+2. Each brick is worth different point values?
+3. The ball should move faster as the game progresses?
+4. The ball needs to start at a random angle?
+5. Imagine each time the bricks are cleared a new row of bricks is added?
+6. Imagine bricks take more than one hit to remove? 
+7. One brick is special when hit it releases a second ball? 
+</script></section><section  data-markdown><script type="text/template">
+### OOP
+
+Many of the problems above require the creation of new variables. This starts to make the game impossible to work with. 
+
+While you could use an array of values this would be hard to understand. 
+
+Object-Oriented Programming gives us style and tools to treat our code like Objects in the real world. Instead of creating new variables and functions to handle new elements and systems we would create new objects that embody those systems and elements. 
+</script></section><section  data-markdown><script type="text/template">
+Objects on software are analogous to objects in the real world. 
+
+Discuss: Name some Objects that you use every day, name their properties, and methods?
+</script></section><section  data-markdown><script type="text/template">
+#### This
+
+When code refers to Objects, their properties, and namespace there are opportunities to infer the which object you are referring to. 
+
+`this`
+
+The keyword `this` is used for that purpose. 
+</script></section><section  data-markdown><script type="text/template">
+Here an object with x and dx properties also has a function move.
+
+```JS
+ball = {
+ x: 100,
+ dx: 2,
+ move: function() {
+ this.x += this.dx
+ }
+}
+```
+
+Within the move function, the object can refer to its own properties using the `this` keyword.
+</script></section><section  data-markdown><script type="text/template">
+# Challenges
+</script></section><section  data-markdown><script type="text/template">
+**Challenge 1**
+
+Make an Object for the ball. It should have 4 properties: 
+
+- `x`
+- `y`
+- `dx`
+- `dy`
+</script></section><section  data-markdown><script type="text/template">
+**Challenge 2**
+
+Give the ball object a move method. This method should calculate the new x and y position by adding the dx and dy. 
+
+- `move()`
+
+This function should add x + dx, and y + dy of the ball object. 
+</script></section><section  data-markdown><script type="text/template">
+**Challenge 3**
+
+Use the ball object in your game.
+
+Find each of the variables: x, y, dx, dy replace these with ball.x, ball.y, ball.dx, ball.dy.
+</script></section><section  data-markdown><script type="text/template">
+**Challenge 4**
+
+The game has created a lot of global variables it would be good if these were consolidated into a single namespace. Creating only a single object that groups all of these together.
+
+Create an object that owns all of the variables that were originally global. 
+</script></section><section  data-markdown><script type="text/template">
+**Challenge 5** 
+
+Consolidate all of the functions into your game object.
+
+```JS 
+
+{
+ bricks: [],
+ canvas: document.getElementById("myCanvas"),
+ ctx: canvas.getContext("2d"),
+ ...
+ drawBall: function() {
+ ctx.beginPath(),
+ ...
+ },
+ ...
+}
+
+```
+</script></section><section  data-markdown><script type="text/template">
+**Challenge 6** 
+
+Create a function that draws something interesting on the background of the game.
+
+This functions needs to be useful outside of the game. You can make this possible by passing ctx and any other values needed into this function as parameters. 
+</script></section><section  data-markdown><script type="text/template">
+## Wrap Up (5 min)
+
+- Review
+</script></section><section  data-markdown><script type="text/template">
+## Additional Resources
+
+1. 
+
+
+### Breakout Code with Comments
+
+```JS
+/* ***************************************************************
+
+Challenge 1 - Make Constants
+* Make these into constants defined at the top.
+
+Challenge 2 - Identify duplicate code
+** This block of code is repeated better to make a function for this.
+
+Challenge 3 - Use Subroutines
+*** This block of code would be better as a function.
+
+Challenge 4 - Encapsulating code
+**** Use objects to encapsulate code
+
+***************************************************************** */
+
+// **************************************************************
+// DOM references
+// **************************************************************
+
+const canvas = document.getElementById('myCanvas');
+const ctx = canvas.getContext('2d');
+
+// **************************************************************
+// Variables
+// **************************************************************
+
+// --------------------------------------------------------------
+// Constants
+// --------------------------------------------------------------
+
+const ballRadius = 10;
+const paddleHeight = 10;
+const paddleWidth = 75;
+const brickRowCount = 3;
+const brickColumnCount = 5;
+const brickWidth = 75;
+const brickHeight = 20;
+const brickPadding = 10;
+const brickOffsetTop = 30;
+const brickOffsetLeft = 30;
+
+// --------------------------------------------------------------
+// Variables
+// --------------------------------------------------------------
+
+// ** Initialize the position of the ball and paddle
+// ** and set the ball speed and direction
+// **** A Ball Object would be good.
+let x = canvas.width / 2;
+let y = canvas.height - 30;
+// * This calculation could be better as a value
+let paddleX = (canvas.width - paddleWidth) / 2;
+let dx = 2;
+let dy = -2;
+
+let score = 0;
+let lives = 3;
+
+let rightPressed = false;
+let leftPressed = false;
+
+// --------------------------------------------------------------
+// Setup Bricks Array
+// --------------------------------------------------------------
+
+const bricks = [];
+
+// *** This would be better in a function
+for (let c = 0; c < brickColumnCount; c += 1) {
+  bricks[c] = [];
+  for (let r = 0; r < brickRowCount; r += 1) {
+    bricks[c][r] = {
+      x: 0,
+      y: 0,
+      status: 1,
+    };
+  }
+}
+
+// **************************************************************
+// Functions
+// **************************************************************
+
+function drawBall() {
+  ctx.beginPath();
+  // * Math.PI * 2 could be a constant
+  ctx.arc(x, y, ballRadius, 0, Math.PI * 2);
+  ctx.fillStyle = '#0095DD'; // * Could be good as a constant
+  ctx.fill();
+  ctx.closePath();
+}
+
+function drawPaddle() {
+  ctx.beginPath();
+  ctx.rect(paddleX, canvas.height - paddleHeight, paddleWidth, paddleHeight);
+  ctx.fillStyle = '#0095DD'; // * Could be good as a constant
+  ctx.fill();
+  ctx.closePath();
+}
+
+function drawBricks() {
+  for (let c = 0; c < brickColumnCount; c += 1) {
+    for (let r = 0; r < brickRowCount; r += 1) {
+      if (bricks[c][r].status === 1) {
+        // **** This block should really be part of the brick initialization
+        const brickX = (c * (brickWidth + brickPadding)) + brickOffsetLeft;
+        const brickY = (r * (brickHeight + brickPadding)) + brickOffsetTop;
+        bricks[c][r].x = brickX;
+        bricks[c][r].y = brickY;
+
+        ctx.beginPath();
+        ctx.rect(brickX, brickY, brickWidth, brickHeight);
+        ctx.fillStyle = '#0095DD'; // * Could be good as a constant
+        ctx.fill();
+        ctx.closePath();
+      }
+    }
+  }
+}
+
+function collisionDetection() {
+  for (let c = 0; c < brickColumnCount; c += 1) {
+    for (let r = 0; r < brickRowCount; r += 1) {
+      const b = bricks[c][r];
+      if (b.status === 1) {
+        if (x > b.x && x < b.x + brickWidth && y > b.y && y < b.y + brickHeight) {
+          dy = -dy;
+          b.status = 0;
+          score += 1;
+          if (score === brickRowCount * brickColumnCount) {
+            // eslint-disable-next-line no-alert
+            alert('YOU WIN, CONGRATULATIONS!'); // * Could be good as a constant
+            document.location.reload();
+          }
+        }
+      }
+    }
+  }
+}
+
+function drawScore() {
+  ctx.font = '16px Arial'; // * Could be good as a constant
+  ctx.fillStyle = '#0095DD'; // * Could be good as a constant
+  ctx.fillText(`Score: ${score}`, 8, 20);
+}
+
+function drawLives() {
+  ctx.font = '16px Arial'; // * Could be good as a constant
+  ctx.fillStyle = '#0095DD'; // * Could be good as a constant
+  // * canvas.width might be better as a constants
+  ctx.fillText(`Lives: ${lives}`, canvas.width - 65, 20);
+}
+
+// --------------------------------------------------------------
+// Game Loop
+// --------------------------------------------------------------
+
+function draw() {
+  // Clear the canvas
+  // * canvas.width, and canvas.height might be better as constants 
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  // Call helper functions
+  drawBricks();
+  drawBall();
+  drawPaddle();
+  drawScore();
+  drawLives();
+  collisionDetection();
+
+  // Bounce the ball off the left and right of the canvas
+  if (x + dx > canvas.width - ballRadius || x + dx < ballRadius) {
+    dx = -dx;
+  }
+
+  // Bounce the ball off the top, paddle, or hit the bottom of the canvas
+  if (y + dy < ballRadius) {
+    // hit the top
+    dy = -dy;
+  } else if (y + dy > canvas.height - ballRadius) {
+    // hit the bottom
+    if (x > paddleX && x < paddleX + paddleWidth) {
+      // Hit the paddle
+      dy = -dy;
+    } else {
+      // Lose a life
+      lives -= 1;
+      if (!lives) {
+        // Game Over
+        // eslint-disable-next-line no-alert
+        alert('GAME OVER'); // * Could be good as a constant
+        x = 200;
+        y = 200;
+        document.location.reload();
+      } else {
+        // Start the over you hit the bottom
+        // ** Set the position of ball and paddle
+        // ** And set the speed and direction of the ball
+        x = canvas.width / 2;
+        y = canvas.height - 30;
+        dx = 2;
+        dy = -2;
+        paddleX = (canvas.width - paddleWidth) / 2;
+      }
+    }
+  }
+
+  // Move Ball
+  // *** Better as a separate function
+  x += dx;
+  y += dy;
+
+  // Check for arrow keys
+  // *** Better as a function
+  if (rightPressed && paddleX < canvas.width - paddleWidth) {
+    paddleX += 7;
+  } else if (leftPressed && paddleX > 0) {
+    paddleX -= 7;
+  }
+
+  // Draw the screen again
+  requestAnimationFrame(draw);
+}
+
+// --------------------------------------------------------------
+// Event Listeners
+// --------------------------------------------------------------
+
+function keyDownHandler(e) {
+  if (e.keyCode === 39) {
+    rightPressed = true;
+  } else if (e.keyCode === 37) {
+    leftPressed = true;
+  }
+}
+
+function keyUpHandler(e) {
+  if (e.keyCode === 39) {
+    rightPressed = false;
+  } else if (e.keyCode === 37) {
+    leftPressed = false;
+  }
+}
+
+function mouseMoveHandler(e) {
+  const relativeX = e.clientX - canvas.offsetLeft;
+  if (relativeX > 0 && relativeX < canvas.width) {
+    paddleX = relativeX - paddleWidth / 2;
+  }
+}
+
+// **************************************************************
+// Register Events
+// **************************************************************
+
+document.addEventListener('keydown', keyDownHandler, false);
+document.addEventListener('keyup', keyUpHandler, false);
+document.addEventListener('mousemove', mouseMoveHandler, false);
+
+
+// **************************************************************
+// Starts program entry point
+// **************************************************************
+
+draw();
+```
+</script></section></div>
+    </div>
+
+    <script src="./js/reveal.js"></script>
+
+    <script>
+      function extend() {
+        var target = {};
+        for (var i = 0; i < arguments.length; i++) {
+          var source = arguments[i];
+          for (var key in source) {
+            if (source.hasOwnProperty(key)) {
+              target[key] = source[key];
+            }
+          }
+        }
+        return target;
+      }
+
+      // Optional libraries used to extend on reveal.js
+      var deps = [
+        { src: './plugin/markdown/marked.js', condition: function() { return !!document.querySelector('[data-markdown]'); } },
+        { src: './plugin/markdown/markdown.js', condition: function() { return !!document.querySelector('[data-markdown]'); } },
+        { src: './plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+        { src: './plugin/zoom-js/zoom.js', async: true },
+        { src: './plugin/notes/notes.js', async: true },
+        { src: './plugin/math/math.js', async: true }
+      ];
+
+      // default options to init reveal.js
+      var defaultOptions = {
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+        transition: 'default', // none/fade/slide/convex/concave/zoom
+        dependencies: deps
+      };
+
+      // options from URL query string
+      var queryOptions = Reveal.getQueryHash() || {};
+
+      var options = extend(defaultOptions, {"controls":true,"progress":true,"autoPlayMedia":false,"slideNumber":"c/t","showSlideNumber":"all","controlsTutorial":true,"controlsLayout":"edges","transition":"slide","transitionSpeed":"medium","minScale":0.5,"maxScale":3}, queryOptions);
+    </script>
+
+
+    <script>
+      Reveal.initialize(options);
+    </script>
+  </body>
+</html>

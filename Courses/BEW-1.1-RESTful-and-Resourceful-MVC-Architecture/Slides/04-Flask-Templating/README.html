@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <title>BEW 1.1 Slides</title>
+    <link rel="stylesheet" href="./../css/reveal.css" />
+    <link rel="stylesheet" href="./../css/theme/black.css" id="theme" />
+    <link rel="stylesheet" href="./../css/highlight/atom-one-light.css" />
+    <link rel="stylesheet" href="./../css/print/paper.css" type="text/css" media="print" />
+    <link rel="stylesheet" href="./../assets/Reveal/makeschool.css" />
+
+    <script>
+      document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>');
+    </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides"><section  data-markdown><script type="text/template">
+<!-- Run this slideshow via the following command: -->
+<!-- reveal-md README.md -w -->
+
+
+<!-- .slide: data-background="./../Images/header.svg" data-background-repeat="none" data-background-size="40% 40%" data-background-position="center 10%" class="header" -->
+# Flask Templating with Jinja
+
+### [Slides](https://make-school-courses.github.io/BEW-1.1-RESTful-and-Resourceful-MVC-Architecture/Slides/04-Flask-Templating/README)
+
+### [Demo](https://github.com/Make-School-Courses/BEW-1.1-RESTful-and-Resourceful-MVC-Architecture/tree/master/Lessons/04-Flask-Templating/demo)
+</script></section><section  data-markdown><script type="text/template">
+## Agenda
+
+1. Learning Objectives
+1. Flask Review
+1. Jinja Templates & Template Control Flow
+1. Documentation
+
+</script></section><section  data-markdown><script type="text/template">
+## Learning Objectives
+
+By the end of today, you should be able to:
+
+1. Explain the uses of templates 
+1. Render a Flask web page using a Jinja template
+1. Use template control flow structures such as for loops & conditionals
+1. Document your code using comments, docstrings, and a README
+</script></section><section  data-markdown><script type="text/template">
+## Warm-Up [5 min]
+
+Compare and contrast the following:
+
+- **Route variables** (e.g. `/items/pumpkin_spice`)
+- **Query parameters** (e.g. `/items?query=pumpkin+spice`)
+
+In what scenarios should you use each? Share with a partner.
+</script></section><section ><section data-markdown><script type="text/template">
+# Jinja Templates
+</script></section><section data-markdown><script type="text/template">
+## What are Templates?
+
+Templates are special HTML files that:
+
+- Can use variables passed from your Flask route
+- Can use some control structures (for loops, if/else)
+- Can inherit from other templates to avoid repetition
+</script></section><section data-markdown><script type="text/template">
+
+## Render a Template
+
+At the top of `app.py`, import `render_template`:
+
+```py
+from flask import render_template
+```
+
+Then change our route to call the `render_template` function:
+
+```py
+@app.route('/hello')
+def say_hello():
+    """Says hello."""
+    return render_template('greeting.html')
+```
+</script></section><section data-markdown><script type="text/template">
+## Add the Template
+
+Add a file in the `templates` folder called `greeting.html`.
+
+Give it the contents `Hello, World!`.
+</script></section><section data-markdown><script type="text/template">
+## Check that it Works
+
+Let's try running our server again!
+
+```bash
+$ flask run
+```
+</script></section></section><section ><section data-markdown><script type="text/template">
+# Passing Data
+</script></section><section data-markdown><script type="text/template">
+## Make an `/items` route
+
+We can pass *any kind of data* to our template. Here, let's pass in a list of items.
+
+```py
+@app.route('/items')
+def show_items():
+    """Show a list of items."""
+    items_to_show = [
+        'Pumpkins',
+        'Karaoke Machine',
+        'Disco Ball'
+    ]
+
+    return render_template('items_list.html', items=items_to_show)
+```
+</script></section><section data-markdown><script type="text/template">
+## Update the Template
+
+In Jinja, we can show the value of a variable using `{{` and `}}`.
+
+```html
+The items are:
+<br>
+{{ items }}
+```
+</script></section></section><section ><section data-markdown><script type="text/template">
+# Template Control Flow
+</script></section><section data-markdown><script type="text/template">
+## Loops
+
+We can use a *loop* in Jinja using `{% for _ in _ %}`. Let's show each item on a separate line.
+
+```html
+The items are:
+<ul>
+{% for item in items %}
+  <li> {{ item }} </li>
+{% endfor %}
+</ul>
+```
+</script></section><section data-markdown><script type="text/template">
+## Conditionals
+
+Let's show a nice message to the user if there are no items.
+
+We can use an *if statement* in Jinja as follows:
+
+```html
+{% if items %}
+  <ul> ... </ul>
+{% else %}
+  No items to show!
+{% endif %}
+```
+</script></section></section><section ><section data-markdown><script type="text/template">
+# Write your Own Templates
+</script></section><section data-markdown><script type="text/template">
+## Challenges [25 min]
+
+1. Write a route that passes a list of songs to a template called `song_list.html`. Add your favorites!
+1. Write a route that passes a boolean for whether or not it is sunny to a template `weather.html`. Show a custom greeting depending on the weather!
+</script></section><section data-markdown><script type="text/template">
+## Stretch Challenge
+
+1. Use the `random` library to choose a random number. Pass the result to a template, and show the user either "You won!" or "You lost!" depending on the result.
+</script></section></section><section  data-markdown><script type="text/template">
+## Break [10 minutes]
+<!-- .slide: data-background="#087CB8" -->
+</script></section><section ><section data-markdown><script type="text/template">
+# Documentation
+</script></section><section data-markdown><script type="text/template">
+## Why write documentation?
+
+Documentation is helpful because it...
+
+<ul>
+<li>Makes your code easier for others to understand</li><!-- .element: class="fragment" -->
+<li>
+
+Makes your code easier for *you* to understand </li><!-- .element: class="fragment" -->
+<li>Forces you to make better decisions when writing code</li> <!-- .element: class="fragment" -->
+</ul>
+</script></section><section data-markdown><script type="text/template">
+## How can I write documentation?
+
+There are three ways we (typically) write documentation:
+
+1. **Code Comments**: Describe particularly confusing or complicated lines of code
+1. **Docstrings**: Describe *what* a single function does (not *how* it does it)
+1. **README**: Describe an entire project and give usage instructions
+</script></section></section><section ><section data-markdown><script type="text/template">
+# Docstrings
+</script></section><section data-markdown><script type="text/template">
+## What is a docstring?
+
+A **docstring** (or **documentation string**) describes what a single function does. It goes at the beginning of the function and starts and ends with `"""`.
+
+```py
+def say_hello(name):
+    """Say hello to the specified user."""
+    return "Hello, " + name
+```
+</script></section><section data-markdown><script type="text/template">
+## Multi-Line Docstrings
+
+If the function takes inputs or returns an output, we can specify those as well.
+
+```py
+def multiply(x, y):
+    """
+    Multiplies 2 numbers and returns the result.
+    
+    Parameters:
+        x (int): The first operand.
+        y (int): The second operand.
+    
+    Returns:
+        int: The product of the 2 numbers.
+    """
+    return x * y
+```
+</script></section><section data-markdown><script type="text/template">
+## Write some Docstrings [10 min]
+
+Write the function signature and docstring (*not the code!*) for the following functions:
+
+1. A function that takes in 2 numbers and returns their sum.
+1. A function that takes in a list of numbers and returns their sum.
+1. A Flask route function that displays an item's detail page.
+</script></section></section><section ><section data-markdown><script type="text/template">
+# READMEs
+</script></section><section data-markdown><script type="text/template">
+## What is a README?
+
+A **README** is a file, located in the root folder of your project, that describes:
+
+- A description of the project
+- Installation and usage instructions
+- Any other relevant information
+
+Typically, a README is written in **Markdown** and has a `.md` extension.
+</script></section><section data-markdown><script type="text/template">
+## Activity: Write a README [10 min]
+
+Visit [makeareadme.com](https://www.makeareadme.com/) and write a README.md file for your Fortune Teller project.
+
+*Finish early? Work on your Homework #2.*
+</script></section></section><section  data-markdown><script type="text/template">
+## Vibe Check
+
+[make.sc/bew1.1-vibe-check](https://make.sc/bew1.1-vibe-check)
+</script></section><section  data-markdown><script type="text/template">
+<!-- .slide: data-background="#087CB8" -->
+## Homework
+
+Finish [Homework 2](https://make-school-courses.github.io/BEW-1.1-RESTful-and-Resourceful-MVC-Architecture/#/Assignments/Weekly-Homework?id=homework-2) by Monday, Nov. 4
+</script></section><section  data-markdown><script type="text/template">
+## Resources
+
+- [Jinja Template Documentation](https://jinja.palletsprojects.com/en/2.10.x/templates/)
+- [GeeksForGeeks on Python Docstrings](https://www.geeksforgeeks.org/python-docstrings/)
+- [Python.org Docstring Conventions](https://www.python.org/dev/peps/pep-0257/)
+- [A Beginner's Guide to Documentation](https://www.writethedocs.org/guide/writing/beginners-guide-to-docs/)</script></section></div>
+    </div>
+
+    <script src="./../js/reveal.js"></script>
+
+    <script>
+      function extend() {
+        var target = {};
+        for (var i = 0; i < arguments.length; i++) {
+          var source = arguments[i];
+          for (var key in source) {
+            if (source.hasOwnProperty(key)) {
+              target[key] = source[key];
+            }
+          }
+        }
+        return target;
+      }
+
+      // Optional libraries used to extend on reveal.js
+      var deps = [
+        { src: './../plugin/markdown/marked.js', condition: function() { return !!document.querySelector('[data-markdown]'); } },
+        { src: './../plugin/markdown/markdown.js', condition: function() { return !!document.querySelector('[data-markdown]'); } },
+        { src: './../plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+        { src: './../plugin/zoom-js/zoom.js', async: true },
+        { src: './../plugin/notes/notes.js', async: true },
+        { src: './../plugin/math/math.js', async: true }
+      ];
+
+      // default options to init reveal.js
+      var defaultOptions = {
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+        transition: 'default', // none/fade/slide/convex/concave/zoom
+        dependencies: deps
+      };
+
+      // options from URL query string
+      var queryOptions = Reveal.getQueryHash() || {};
+
+      var options = extend(defaultOptions, {"controls":true,"progress":true,"autoPlayMedia":false,"slideNumber":"c/t","showSlideNumber":"all","controlsTutorial":true,"controlsLayout":"edges","transition":"slide","transitionSpeed":"medium","minScale":0.5,"maxScale":3}, queryOptions);
+    </script>
+
+
+    <script>
+      Reveal.initialize(options);
+    </script>
+  </body>
+</html>

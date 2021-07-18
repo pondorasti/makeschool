@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="q17-KM-cIh">
+    <device id="retina4_0" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Mood_Tracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="S6g-Is-EL5">
+                                <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="mood entry cell" rowHeight="72" id="78e-KU-ENV" customClass="MoodEntryTableViewCell" customModule="Mood_Tracker" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="320" height="72"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="78e-KU-ENV" id="1br-HD-v18">
+                                            <rect key="frame" x="0.0" y="0.0" width="287" height="71.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="ZrF-on-Ot6">
+                                                    <rect key="frame" x="20" y="11" width="259" height="50"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="88d-fM-g4R">
+                                                            <rect key="frame" x="0.0" y="0.0" width="259" height="35.5"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H8d-Wl-vVE">
+                                                            <rect key="frame" x="0.0" y="35.5" width="259" height="14.5"/>
+                                                            <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
+                                                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="K9d-He-ibW">
+                                                    <rect key="frame" x="0.0" y="0.0" width="12" height="71.5"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="12" id="ats-De-7Be"/>
+                                                    </constraints>
+                                                </imageView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottomMargin" secondItem="ZrF-on-Ot6" secondAttribute="bottom" id="4wa-td-l4Y"/>
+                                                <constraint firstItem="K9d-He-ibW" firstAttribute="leading" secondItem="1br-HD-v18" secondAttribute="leading" id="9cr-MO-zVB"/>
+                                                <constraint firstItem="K9d-He-ibW" firstAttribute="top" secondItem="1br-HD-v18" secondAttribute="top" id="Wgf-ML-oGZ"/>
+                                                <constraint firstAttribute="bottom" secondItem="K9d-He-ibW" secondAttribute="bottom" id="ipg-v6-1gW"/>
+                                                <constraint firstItem="ZrF-on-Ot6" firstAttribute="leading" secondItem="K9d-He-ibW" secondAttribute="trailing" constant="8" id="lVb-ZR-UCx"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="ZrF-on-Ot6" secondAttribute="trailing" id="w3U-78-bNM"/>
+                                                <constraint firstItem="ZrF-on-Ot6" firstAttribute="top" secondItem="1br-HD-v18" secondAttribute="topMargin" id="yIC-ih-53Y"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="imageViewMoodColor" destination="K9d-He-ibW" id="PpJ-V2-bB7"/>
+                                            <outlet property="labelMoodDate" destination="H8d-Wl-vVE" id="06O-bq-a3u"/>
+                                            <outlet property="labelMoodTitle" destination="88d-fM-g4R" id="ZX8-QU-Moi"/>
+                                            <segue destination="aja-8Z-If9" kind="show" identifier="show entry details" id="h4z-4m-Pch"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="KNR-pL-XNI"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="ZeD-FO-FRc"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="S6g-Is-EL5" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="SIQ-Fz-wdz"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="S6g-Is-EL5" secondAttribute="bottom" id="Whg-yO-9sL"/>
+                            <constraint firstItem="S6g-Is-EL5" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="dZN-dY-31z"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="S6g-Is-EL5" secondAttribute="trailing" id="qnH-iI-7gT"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Uzn-c3-WnL">
+                        <barButtonItem key="leftBarButtonItem" title="Calendar" id="KEe-wG-JAp">
+                            <connections>
+                                <action selector="pressCalendar:" destination="BYZ-38-t0r" id="eA3-cE-r54"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="fSs-xq-cMG">
+                            <connections>
+                                <segue destination="aja-8Z-If9" kind="show" identifier="show new entry" id="X7r-Rg-jMC"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="S6g-Is-EL5" id="Jcm-Py-pgE"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1056.8" y="112.89355322338831"/>
+        </scene>
+        <!--Details-->
+        <scene sceneID="u2J-y4-KJT">
+            <objects>
+                <viewController id="aja-8Z-If9" customClass="MoodDetailedViewController" customModule="Mood_Tracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="rz4-Jx-EqM">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="xrE-Fv-fVc">
+                                <rect key="frame" x="16" y="80" width="288" height="472"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mood" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w9C-kz-Nlm">
+                                        <rect key="frame" x="0.0" y="0.0" width="288" height="24"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="UyU-GU-ZSb">
+                                        <rect key="frame" x="0.0" y="32" width="288" height="200"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nN5-ME-HdV">
+                                                <rect key="frame" x="0.0" y="0.0" width="288" height="33.5"/>
+                                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <state key="normal" title="Amazing">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="pressMood:" destination="aja-8Z-If9" eventType="touchUpInside" id="u1s-B8-2jF"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zeQ-k6-FJC">
+                                                <rect key="frame" x="0.0" y="41.5" width="288" height="33.5"/>
+                                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <state key="normal" title="Good">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="pressMood:" destination="aja-8Z-If9" eventType="touchUpInside" id="vAL-Jg-eHA"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ckv-Yt-qZJ">
+                                                <rect key="frame" x="0.0" y="83" width="288" height="34"/>
+                                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <state key="normal" title="Neutral">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="pressMood:" destination="aja-8Z-If9" eventType="touchUpInside" id="rs9-0T-Ola"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="51X-Sa-9v4">
+                                                <rect key="frame" x="0.0" y="125" width="288" height="33.5"/>
+                                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <state key="normal" title="Bad">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="pressMood:" destination="aja-8Z-If9" eventType="touchUpInside" id="AUa-Fg-A4h"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7GT-4H-rXf">
+                                                <rect key="frame" x="0.0" y="166.5" width="288" height="33.5"/>
+                                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <state key="normal" title="Terrible">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="pressMood:" destination="aja-8Z-If9" eventType="touchUpInside" id="jI1-kj-L6t"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="odG-OU-bfH">
+                                        <rect key="frame" x="0.0" y="240" width="288" height="24"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <datePicker contentMode="scaleToFill" verticalCompressionResistancePriority="250" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="JQB-NR-tNr">
+                                        <rect key="frame" x="0.0" y="272" width="288" height="200"/>
+                                        <date key="date" timeIntervalSinceReferenceDate="555969999.44948304">
+                                            <!--2018-08-14 20:06:39 +0000-->
+                                        </date>
+                                        <connections>
+                                            <action selector="datePickerDidChangeValue:" destination="aja-8Z-If9" eventType="valueChanged" id="rJT-jo-uJv"/>
+                                        </connections>
+                                    </datePicker>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="JQB-NR-tNr" firstAttribute="height" secondItem="UyU-GU-ZSb" secondAttribute="height" id="OOW-OT-A18"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="xrE-Fv-fVc" firstAttribute="top" secondItem="E55-s7-d7a" secondAttribute="top" constant="16" id="GPh-QT-v2B"/>
+                            <constraint firstItem="xrE-Fv-fVc" firstAttribute="leading" secondItem="E55-s7-d7a" secondAttribute="leading" constant="16" id="f15-Kc-H96"/>
+                            <constraint firstItem="E55-s7-d7a" firstAttribute="trailing" secondItem="xrE-Fv-fVc" secondAttribute="trailing" constant="16" id="ohl-Yv-T0L"/>
+                            <constraint firstItem="E55-s7-d7a" firstAttribute="bottom" secondItem="xrE-Fv-fVc" secondAttribute="bottom" constant="16" id="ydk-z1-KbX"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="E55-s7-d7a"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Details" id="Imt-ZQ-MFs">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="oF6-HF-sMA">
+                            <connections>
+                                <segue destination="9tp-f4-fqy" kind="unwind" identifier="unwind from cancel" unwindAction="unwindToHome:" id="xto-I8-NYh"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="b2l-d5-1vw">
+                            <connections>
+                                <action selector="pressSave:" destination="aja-8Z-If9" id="Lyj-D4-v6y"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="buttonAmazingMood" destination="nN5-ME-HdV" id="fLw-aP-Cnr"/>
+                        <outlet property="buttonBadMood" destination="51X-Sa-9v4" id="5qf-uh-mS6"/>
+                        <outlet property="buttonGoodMood" destination="zeQ-k6-FJC" id="Fc6-KC-4mL"/>
+                        <outlet property="buttonNeutralMood" destination="ckv-Yt-qZJ" id="eYz-P0-kWz"/>
+                        <outlet property="buttonTerribleMood" destination="7GT-4H-rXf" id="Cah-1t-9xR"/>
+                        <outlet property="datePicker" destination="JQB-NR-tNr" id="SNW-mf-g62"/>
+                        <segue destination="9tp-f4-fqy" kind="unwind" identifier="unwind from save" unwindAction="unwindToHome:" id="1Je-Nk-vYh"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HE8-hq-SIh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="9tp-f4-fqy" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="1868" y="113"/>
+        </scene>
+        <!--Calendar View Controller-->
+        <scene sceneID="hOs-Ak-5H5">
+            <objects>
+                <viewController storyboardIdentifier="calendar vc" id="FF4-Qb-vVv" customClass="CalendarViewController" customModule="Mood_Tracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="0xP-Zd-WUd">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nz9-94-onB">
+                                <rect key="frame" x="142" y="269" width="37" height="30"/>
+                                <state key="normal" title="Done"/>
+                                <connections>
+                                    <action selector="pressDone:" destination="FF4-Qb-vVv" eventType="touchUpInside" id="erQ-4o-lXH"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Nz9-94-onB" firstAttribute="centerX" secondItem="0xP-Zd-WUd" secondAttribute="centerX" id="4q6-8g-8z9"/>
+                            <constraint firstItem="Nz9-94-onB" firstAttribute="centerY" secondItem="0xP-Zd-WUd" secondAttribute="centerY" id="cOP-cj-5ee"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="mTe-hR-Fzb"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Fkx-EJ-b7J" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2657" y="112"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="hZ4-t8-8xi">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="q17-KM-cIh" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="7EH-o9-uMV">
+                        <rect key="frame" x="0.0" y="20" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="6UE-14-LsW"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xGK-JG-RS5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="117.59999999999999" y="112.89355322338831"/>
+        </scene>
+    </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="X7r-Rg-jMC"/>
+    </inferredMetricsTieBreakers>
+</document>

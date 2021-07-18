@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <title>Syllabus Template Slides</title>
+    <link rel="stylesheet" href="./../css/reveal.css" />
+    <link rel="stylesheet" href="./../css/theme/black.css" id="theme" />
+    <link rel="stylesheet" href="./../css/highlight/zenburn.css" />
+    <link rel="stylesheet" href="./../css/print/paper.css" type="text/css" media="print" />
+    <link rel="stylesheet" href="./../assets/Reveal/makeschool.css" />
+
+    <script>
+      document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>');
+    </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides"><section  data-markdown><script type="text/template"><!-- Run this slideshow via the following command: -->
+<!-- reveal-md README.md -w -->
+
+<!-- .slide: class="header" -->
+
+# Protocols
+
+## [Slides](https://make-school-courses.github.io/MOB-1.1-Introduction-to-Swift/Slides/09-POP/README.html ':ignore')
+</script></section><section  data-markdown><script type="text/template">
+## Warmup - Review of UIKit
+
+**Q1:** What view would you use to display information that doesn't fit on the screen? Select all that apply
+
+1. UIView
+1. UILabel
+1. UIScrollView <!--correct-->
+1. UITableView <!--correct-->
+
+**Q2:** Which view or control allows the user to enter a single line of text? Which one allows the user to enter multiple lines of text?
+
+1. UITextField <!--single-->
+1. UITextView <!--multiple-->
+
+**Q3:** Which of the following allows you to execute code for a specific control event? Which allows you to access properties on a specific view or control?
+
+1. IBAction <!--execute code-->
+1. IBOutlet <!--access properties-->
+</script></section><section  data-markdown><script type="text/template">
+## Agenda
+
+- Intro to Protocols
+- Protocols vs Inheritance
+- Protocols in the Swift Standard Library
+- Break
+- Final project specifications
+</script></section><section  data-markdown><script type="text/template">
+## Learning Objectives
+
+- Create and use Protocols
+- Distinguish between Protocol Conformance and Inheritance
+- Use protocols to describe properties and behaviors of a conforming type
+- Identify common protocols in the Swift Standard Library
+</script></section><section  data-markdown><script type="text/template">
+## What are we trying to solve?
+
+<p class="fragment fade-in">We start with class inheritance.</p>
+<p class="fragment fade-in">We realize we need more functionality in one class from two other classes.</p>
+<p class="fragment fade-in">We need multiple inheritance. Not supported 😟</p>
+<p class="fragment fade-in">Passing around classes can cause unexpected behavior. We want to avoid this as much.</p>
+<p class="fragment fade-in">Tight coupling.</p>
+</script></section><section ><section data-markdown><script type="text/template">
+## Protocol
+
+Protocols are another type in Swift. 🙃
+
+But **they don't create any instances**. Instead, they **define a blueprint** of methods, properties, and other requirements that other types need to implement.
+
+A protocol can be adopted by a class, structure, or enumeration.
+
+Any type that satisfies the requirements of a protocol is said to **conform** to that protocol.
+</script></section><section data-markdown><script type="text/template">
+**Protocols are similar to contracts.**
+
+A contract is a guarantee that some terms will be satisfied. ✍🏼
+
+Anything on the contract becomes a set of obligations to whoever gets it.
+
+<!-- whiteboard mini diagram -->
+</script></section><section data-markdown><script type="text/template">
+```swift
+protocol FullName {
+  var fullName: String {get}
+  func printToConsole()
+}
+```
+
+<aside class="notes">
+This protocol indicates that any class, struct or enum that conforms to it, needs a property called fullName. And it is get only. This means we can only read it after we give an initial value.
+
+We can declare methods in a protocol but notice we don't define any implementation for them. A protocol makes no assumption about the implementation details of any type that conforms to it.
+</aside>
+</script></section><section data-markdown><script type="text/template">
+```swift
+struct Person: FullName{
+    var fullName: String
+    func printToConsole() {
+        print(fullName)
+    }
+}
+
+var author = Person(fullName: "Haruki Murakami")
+
+struct Person: FullName{
+    var firstName: String
+    var lastName: String
+    var fullName: String {
+      return "\(firstName) \(lastName)"
+    }
+    func printToConsole() {
+        print(fullName)
+    }
+}
+
+var author = Person(firstName: "Haruki", lastName: "Murakami")
+```
+
+<aside class="notes">
+Conforming to a protocol looks like class inheritance but it isn’t. Structs and enumerations can also conform to protocols with this syntax.
+
+If a class inherits from another and also conforms to a protocol, all can be separated by commas and the inheritance comes first.
+</aside>
+</script></section></section><section  data-markdown><script type="text/template">
+## Mini challenge
+
+Create a protocol `Perimeter` that defines a read-only property `perimeter` of type `Double`.
+</script></section><section  data-markdown><script type="text/template">
+## Mini challenge
+
+Implement `Perimeter` with structs representing `Square`, and `Circle`.
+</script></section><section  data-markdown><script type="text/template">
+## Mini challenge
+
+Add a circle and a square to an array, print their perimeters.
+</script></section><section  data-markdown><script type="text/template">
+## Walkthrough
+
+[Walkthrough](https://github.com/Product-College-Labs/protocols-introduction-ios/archive/master.zip)
+</script></section><section ><section data-markdown><script type="text/template">
+## Mini challenge
+
+1. Create a model of a car, it should have:
+  - max speed
+  - number of wheels
+  - doors
+  - model  
+</script></section><section data-markdown><script type="text/template">
+2. Generalize the car, create a model for a vehicle which will represent all vehicles, a truck, motorcycle & bus are vehicles
+
+3. Create a model(struct) and instances of each a truck, motorcycle and bus.
+</script></section></section><section ><section data-markdown><script type="text/template">
+## Jigsaw activity 🧩
+
+Swift uses protocols extensively. We won't learn every single aspect of the Swift standard library, it makes no difference in our code's performance. But we can benefit from being familiar with several commonly used protocols.
+
+In groups of X, get together to research about one of the following protocols. **One per group.**
+
+- [Sequence Protocol](https://swiftdoc.org/v4.2/protocol/sequence/)
+- [Collection Protocol](https://swiftdoc.org/v4.2/protocol/collection/)
+- [Equatable Protocol](https://swiftdoc.org/v4.2/protocol/equatable/)
+- [Hashable Protocol](https://swiftdoc.org/v4.2/protocol/hashable/)
+- [CaseIterable Protocol](https://swiftdoc.org/v4.2/protocol/caseiterable/)
+
+<!-- have students number themselves from 1 to 5 and then make groups, it's ok if in the end some groups are smaller -->
+</script></section><section data-markdown><script type="text/template">
+Make sure everyone understands how they work and **individually prepare an example in a playground**. (it can be the same for everyone in the group).
+
+Also **make sure you can explain in words what it does, it might be helpful to have notes.**
+
+It will be thanks to your contribution that others can learn about what you researched.
+</script></section><section data-markdown><script type="text/template">
+- Now split the group. Go and find people who did the other protocols.
+
+- We should have groups with people who know about all of them combined.
+
+- Take turns to have each person explain their protocol and show the example.
+
+- By the end of the activity you should be familiarized with all 4 protocols thanks to your peers. 😀
+</script></section></section><section  data-markdown><script type="text/template">
+Any questions?
+</script></section><section  data-markdown><script type="text/template">
+## Mini challenge
+
+Given the Artist struct below, implement the Equatable protocol. You'll define what makes two instances equal.
+
+```swift
+// Used by Artist to determine style of Artist
+enum Style: String {
+    case impressionism
+    case surrealism
+    case cubism
+    case popArt
+}
+
+struct Artist {
+    let name: String
+    let style: Style
+    let yearBorn: Int
+}
+
+// Example instances of Artists, use for testing your equatable
+let monet = Artist(name: "Monet", style: .impressionism, yearBorn: 1840)
+let dali = Artist(name: "Salvador Dali", style: .surrealism, yearBorn: 1904)
+let andy = Artist(name: "Andy Warhol", style: .popArt, yearBorn: 1928)
+
+```
+</script></section><section  data-markdown><script type="text/template">
+## After class
+
+Begin your final project. Follow the instructions [here](https://github.com/Make-School-Courses/MOB-1.1-Introduction-to-Swift/blob/master/Assignments/FinalProject.md).
+</script></section><section  data-markdown><script type="text/template">
+## External resources
+
+1. [Iterator](https://developer.apple.com/documentation/swift/iteratorprotocol)
+1. [Protocols](https://docs.swift.org/swift-book/LanguageGuide/Protocols.html)
+1. [Protocols - article](https://medium.com/ios-os-x-development/how-protocol-oriented-programming-in-swift-saved-my-day-75737a6af022)
+1. [Protocols](https://docs.swift.org/swift-book/LanguageGuide/Protocols.html#ID521)
+</script></section></div>
+    </div>
+
+    <script src="./../js/reveal.js"></script>
+
+    <script>
+      function extend() {
+        var target = {};
+        for (var i = 0; i < arguments.length; i++) {
+          var source = arguments[i];
+          for (var key in source) {
+            if (source.hasOwnProperty(key)) {
+              target[key] = source[key];
+            }
+          }
+        }
+        return target;
+      }
+
+      // Optional libraries used to extend on reveal.js
+      var deps = [
+        { src: './../plugin/markdown/marked.js', condition: function() { return !!document.querySelector('[data-markdown]'); } },
+        { src: './../plugin/markdown/markdown.js', condition: function() { return !!document.querySelector('[data-markdown]'); } },
+        { src: './../plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+        { src: './../plugin/zoom-js/zoom.js', async: true },
+        { src: './../plugin/notes/notes.js', async: true },
+        { src: './../plugin/math/math.js', async: true }
+      ];
+
+      // default options to init reveal.js
+      var defaultOptions = {
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+        transition: 'default', // none/fade/slide/convex/concave/zoom
+        dependencies: deps
+      };
+
+      // options from URL query string
+      var queryOptions = Reveal.getQueryHash() || {};
+
+      var options = extend(defaultOptions, {"controls":true,"progress":true,"autoPlayMedia":false,"slideNumber":"c/t","showSlideNumber":"all","controlsTutorial":true,"controlsLayout":"edges","transition":"slide","transitionSpeed":"medium","minScale":0.5,"maxScale":3}, queryOptions);
+    </script>
+
+
+    <script>
+      Reveal.initialize(options);
+    </script>
+  </body>
+</html>

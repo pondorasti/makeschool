@@ -1,0 +1,23 @@
+body {
+    background-color: #e6faff;
+    display: flex;
+    justify-content: center;
+    font-family: "Roboto", sans-serif;
+}
+
+main {
+    width: 800px;
+}
+
+main > section {
+    background-color: #fff;
+    border: 1px solid #007a99;
+    box-shadow: 5px 5px 5px #999;
+    padding: 20px;
+    margin-top: 20px;
+    width: 100%;
+}
+
+fieldset {
+    border: 1px solid #000;
+}

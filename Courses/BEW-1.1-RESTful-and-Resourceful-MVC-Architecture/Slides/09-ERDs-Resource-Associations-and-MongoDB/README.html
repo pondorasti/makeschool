@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <title>BEW 1.1 Slides</title>
+    <link rel="stylesheet" href="./../css/reveal.css" />
+    <link rel="stylesheet" href="./../css/theme/black.css" id="theme" />
+    <link rel="stylesheet" href="./../css/highlight/atom-one-light.css" />
+    <link rel="stylesheet" href="./../css/print/paper.css" type="text/css" media="print" />
+    <link rel="stylesheet" href="./../assets/Reveal/makeschool.css" />
+
+    <script>
+      document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>');
+    </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides"><section  data-markdown><script type="text/template"><!-- .slide: data-background="./../Images/header.svg" data-background-repeat="none" data-background-size="40% 40%" data-background-position="center 10%" class="header" -->
+# ERDs, Resource Associations, & MongoDB
+
+### [Slides](https://make-school-courses.github.io/BEW-1.1-RESTful-and-Resourceful-MVC-Architecture/Slides/09-ERDs-Resource-Associations-and-MongoDB/README ':ignore')
+### [Demo](https://github.com/Make-School-Courses/BEW-1.1-RESTful-and-Resourceful-MVC-Architecture/tree/master/Lessons/09-ERDs-Resource-Associations-and-MongoDB/demo)
+</script></section><section  data-markdown><script type="text/template">
+## Objectives
+
+1. Master drawing a simple **Entity Relationship Diagrams** (ERDs) (2-5 resources)
+1. Utilize the common verbiage for defining **Resource Associations**
+</script></section><section ><section data-markdown><script type="text/template">
+# Resource Associations
+</script></section><section data-markdown><script type="text/template">
+## Types of Associations
+
+There are three sorts of resource associations:
+
+1. **One-to-Many** or *Has Many/Belongs To*
+1. **One-to-One** or *Has One/Belongs To*
+1. **Many-to-Many** or *Has And Belongs to Many*, or *Has Many Through*
+</script></section><section data-markdown><script type="text/template">
+## One-to-One
+
+A **person** has _exactly_ one **passport**. (A passport belongs to one person.)
+
+![one-to-one](assets/one-to-one.png)
+</script></section><section data-markdown><script type="text/template">
+## One-to-Many
+
+A **person** _has many_ **pets**. (A pet belongs to exactly one person.)
+
+![one-to-many](assets/one-to-many.png)
+</script></section><section data-markdown><script type="text/template">
+## Many-to-Many
+
+A **person** _can attend many_ **picnics**, and many people can attend one picnic.
+
+![many-to-many](assets/many-to-many.png)
+</script></section><section data-markdown><script type="text/template">
+## Examples
+
+<div class="compact">
+
+* **[Common] Facebook** - One to Many:
+    * Users have many Posts
+    * Users have many Comments
+    * Users have many Likes
+
+* **[Common] Eventbright** - Has and Belongs to Many:
+    * Users have many Events as reservations
+    * Users belong to many Events as guests
+
+* **[Rare] Eventbright** - Has One/Belongs To
+    * User has one Profile
+    * User has one Credit Card
+</div>
+</script></section><section data-markdown><script type="text/template">
+## Entity Relationship Diagrams — ERDs
+
+Before you code a project, it's a good idea to spend some time thinking about the relationships between objects.
+
+Connect resources in boxes with arrows depending on their relationship:
+
+1. One-to-Many: `=>`
+1. Many-to-Many: `<=>`
+1. One-to-One: `-->`
+</script></section><section data-markdown><script type="text/template">
+## A Blog ERD
+
+![Blog erd](assets/blog-erd.png)
+</script></section><section data-markdown><script type="text/template">
+## A School ERD
+
+![School erd](assets/school-erd.png)
+</script></section><section data-markdown><script type="text/template">
+## Activity - Drawing ERDs [15 min]
+
+Draw ERDs for the core features of 3 the following applications. When you finish each one, check with a partner. Form into groups of 4 and show your favorites off.
+
+1. Lyft
+1. Pinterest
+1. Airbnb
+1. Facebook
+1. Apple App Store
+</script></section></section><section  data-markdown><script type="text/template">
+
+## Break [10 mins]
+<!-- .slide: data-background="#087CB8" -->
+</script></section><section ><section data-markdown><script type="text/template">
+# Modeling Associations
+</script></section><section data-markdown><script type="text/template">
+## Modeling Associations Using MongoDB
+
+In a document-based database these **Resource Associations** are modeled in a few ways. Here they are ordered by frequency
+
+1. Reference Documents (very common)
+2. Value Associations (pretty common)
+3. Embedded Documents (very rare)
+</script></section><section data-markdown><script type="text/template">
+## Reference Documents
+
+In this case, each **document** (e.g. user or post) contains a reference to the **_id** field of the documents it's related to.
+
+```py
+# User has many posts
+{
+  "_id": ObjectId("dsf675as6f6a4s6f")
+  "name": "Ada Lovelace",
+  "posts": [ObjectId("a41492308329r900sdf"), ObjectId("9309safd0as0f9f098af")]
+}
+
+# Post belongs to user (as author)
+{
+  "_id": ObjectId("a41492308329r900sdf")
+  "title": "Understanding Model View Controller",
+  "author": ObjectId("dsf675as6f6a4s6f")
+}
+```
+</script></section><section data-markdown><script type="text/template">
+## Value Association
+
+In this case, a document contains a reference to the **value** (usually a name or ID code) of its related documents. The document for a Reddit post might look like this:
+
+```json
+{
+  "title": "Mastering the Three Ball Cascade",
+  "subreddit": "Jugglers Anonymous"
+}
+```
+
+And we can find all posts in a subreddit like this:
+
+```py
+# Return all Posts in a specific subreddit:
+juggling_posts = db.Posts.find({subreddit: "Jugglers Anonymous"})
+for post in juggling_posts:
+    print(post.title)
+```
+</script></section><section data-markdown><script type="text/template">
+## Embedded Documents
+
+Rare for one-to-many associations.
+
+Only use when you always want all children to appear with the parent, or if you don't want to edit the children very much or at all.
+
+```py
+embedded_post = {
+  "title": "Awesome Article",
+  "comments": [
+    { "content": "What a great article" },
+    { "content": "Agreed!" }
+  ]
+}
+
+db.Posts.insert_one(embedded_post)
+```
+</script></section><section data-markdown><script type="text/template">
+## Activity
+
+Choose one of your resource diagrams and decide whether to model the associations as a **Reference to Document**, **Value Association**, or **Embedded Document**. What are the pros and cons of each?
+
+If you finish early, work on your Playlister tutorial!
+</script></section></section><section  data-markdown><script type="text/template">
+<!-- .slide: data-background="#0D4062" -->
+## Homework
+
+- Playlister tutorial due on Monday, Dec 9
+
+- [Contractor Project](https://docs.google.com/document/d/1C8eOyLBeGMKJ2y50QwLU5tWjNb2JVcpAE4khUBIfm0U/edit) due on Thursday, Dec 12
+</script></section><section  data-markdown><script type="text/template">
+## Resources
+
+- [Mongo Shell Quick Reference](https://docs.mongodb.com/manual/reference/mongo-shell/)
+- [Mongo Shell Manual](https://docs.mongodb.com/manual/mongo/)
+- [PyMongo Documentation](https://api.mongodb.com/python/current/)
+- [Flask-PyMongo Documentation](https://flask-pymongo.readthedocs.io/en/latest/)
+</script></section></div>
+    </div>
+
+    <script src="./../js/reveal.js"></script>
+
+    <script>
+      function extend() {
+        var target = {};
+        for (var i = 0; i < arguments.length; i++) {
+          var source = arguments[i];
+          for (var key in source) {
+            if (source.hasOwnProperty(key)) {
+              target[key] = source[key];
+            }
+          }
+        }
+        return target;
+      }
+
+      // Optional libraries used to extend on reveal.js
+      var deps = [
+        { src: './../plugin/markdown/marked.js', condition: function() { return !!document.querySelector('[data-markdown]'); } },
+        { src: './../plugin/markdown/markdown.js', condition: function() { return !!document.querySelector('[data-markdown]'); } },
+        { src: './../plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+        { src: './../plugin/zoom-js/zoom.js', async: true },
+        { src: './../plugin/notes/notes.js', async: true },
+        { src: './../plugin/math/math.js', async: true }
+      ];
+
+      // default options to init reveal.js
+      var defaultOptions = {
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+        transition: 'default', // none/fade/slide/convex/concave/zoom
+        dependencies: deps
+      };
+
+      // options from URL query string
+      var queryOptions = Reveal.getQueryHash() || {};
+
+      var options = extend(defaultOptions, {"controls":true,"progress":true,"autoPlayMedia":false,"slideNumber":"c/t","showSlideNumber":"all","controlsTutorial":true,"controlsLayout":"edges","transition":"slide","transitionSpeed":"medium","minScale":0.5,"maxScale":3}, queryOptions);
+    </script>
+
+
+    <script>
+      Reveal.initialize(options);
+    </script>
+  </body>
+</html>

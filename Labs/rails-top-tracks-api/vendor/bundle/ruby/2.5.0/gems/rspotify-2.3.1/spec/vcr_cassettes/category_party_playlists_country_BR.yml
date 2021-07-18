@@ -1,0 +1,61 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.spotify.com/v1/browse/categories/party/playlists?country=BR&limit=20&offset=0
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - "*/*"
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - rest-client/2.0.2 (darwin16.7.0 x86_64) ruby/2.5.0p-1
+      Authorization:
+      - Bearer BQBj_AiSFlKCkNIMbCWEYjuJLl6n76QmVsHU6MGDgTUBLZqNiKZ4ALs6Kvm6ulbsW9O81JDdIHyXBndXyhUOxg
+      Host:
+      - api.spotify.com
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Fri, 06 Oct 2017 01:45:18 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Keep-Alive:
+      - timeout=600
+      Cache-Control:
+      - public, max-age=600
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Methods:
+      - GET, POST, OPTIONS, PUT, DELETE
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Max-Age:
+      - '604800'
+      Access-Control-Allow-Headers:
+      - Accept, Authorization, Origin, Content-Type
+      Content-Encoding:
+      - gzip
+      X-Content-Type-Options:
+      - nosniff
+      Strict-Transport-Security:
+      - max-age=31536000;
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        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
+    http_version: 
+  recorded_at: Fri, 06 Oct 2017 01:45:18 GMT
+recorded_with: VCR 3.0.3

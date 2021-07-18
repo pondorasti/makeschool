@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title></title>
+			<style>
+				.swatch {
+					width: 100px;
+					height: 100px;
+				}
+			
+				.swatch {
+					/* Remove this rule when you set your colors! */
+					background-color: red;
+					margin: 1px;
+				}
+			
+				main {
+					width: 600px;
+					margin: auto;
+				}
+			</style>
+	</head>
+	<body>
+
+		<!-- Base Styles - Set the base styles for the page -->
+
+		<main>
+
+			<!-- navbar - Style the navbar -->
+			<section id="nav">
+				<header>
+					<nav>
+						<a href="#">Color.com</a>
+						<a href="#about">About</a>
+						<a href="#popular">Popular</a>
+						<a href="#swatches">Swatches</a>
+						<a href="#cart">Order</a>
+						<a href="#contact">Contact</a>
+					</nav>
+				</header>
+			</section>
+
+			<!-- banner -->
+			<section>
+				<ticker-tape><h1>...Color.com is awesome...</h1></ticker-tape>
+			</section>
+
+
+			<!-- section about - -->
+			<section id="about">
+				<header>
+					<h1>What is color?</h1>
+				</header>
+				<p><strong>Color</strong> (American English), or colour (Commonwealth English), is the characteristic of visual perception described through color categories, with names such as red, orange, yellow, green, blue, or purple. This perception of color derives from the stimulation of photoreceptor cells (in particular cone cells in the human eye and other vertebrate eyes) by electromagnetic radiation (in the visible spectrum in the case of humans).</p>
+				<p>Color is really important for making great <abbr title="Cascading Style Sheets">CSS</abbr> styles. <a href="#">Color.com is the most amazing place to get your colors.</a></p>
+			</section>
+
+
+			
+			<!-- Section Color Cards - This section contains three cards Style these -->
+			<section id="popular">
+				<div class="card">
+					<img src="images/600px-64_365_Color_Macro.jpg">
+					<p>Colored Pencils</p>
+				</div>
+
+				<div class="card">
+					<img src="images/600px-Nasir-al_molk.jpg">
+					<p>Color effect—sunlight shining through stained glass onto carpet (Nasir ol Molk Mosque located in Shiraz, Iran)</p>
+				</div>
+
+				<div class="card">
+					<img src="images/600px-Chubb_Illusion.png">
+					<p>Colors can appear different depending on their surrounding colors and shapes. The two small squares have exactly the same color, but the right one looks slightly darker, the Chubb illusion.</p>
+				</div>
+			</section>
+
+
+
+			<!-- Section Color Swatches - This section contains -->
+			<section id="swatches">
+				<header>
+					<h1>Colors</h1>
+					<p>At color.com we offer a range of high quality colors.</p>
+				</header>
+				<div class="swatches">
+					
+				</div>
+			</section>
+
+			<section id="cart">
+				<header>
+					<h1>Cart</h1>
+				</header>
+
+				<ul id="items">
+					<!-- Items here -->
+				</ul>
+	
+				<div id="total">
+					<!-- Total here -->
+				</div>
+			</section>
+
+
+
+			<!-- Contact form -->
+			<section id="contact">
+				<header>
+					<h1>Contact</h1>
+				</header>
+				<div>
+					<form>
+						<label>
+							name
+							<input type="text">
+						</label>
+
+						<label>
+							Subject
+							<input type="text">
+						</label>
+
+						<label>
+							Message
+							<textarea></textarea>
+						</label>
+
+						<label>
+							Sign up for the newsletter
+							<input type="checkbox">
+						</label>
+
+						<label>
+							<input type="radio" name="user">
+							Artist
+						</label>
+
+						<label>
+							<input type="radio" name="user">
+							Designer
+						</label>
+
+						<label>
+							<input type="radio" name="user">
+							Enthusiast
+						</label>
+						<button>Submit</button>
+					</form>
+				</div>
+			</section>
+
+
+			<!-- Footer -->
+			<section id="footer">
+				<footer>
+					<ul>
+
+					</ul>
+				</footer>
+			</section>
+
+		</main>
+
+		<script>
+			
+
+			// All 100 color swatches has a CSS custom property assigne to it. 
+			// You can use this color each swatch with a unique color. 
+
+			// --color-sample-0 : red
+			// --color-sample-1 : green
+			// ...
+			// --color-sample-99 : blue
+
+			// make some swatches 
+			const swatchCount = 100
+			for (let i = 0; i < swatchCount; i += 1) {
+				const swatch = `
+				<div 
+					class="swatch add-to-cart color-${i}" 
+					style="background-color: 
+					var(--color-sample-${i});" 
+					data-color="Color ${i}" 
+					data-price="${(Math.random() * 10).toFixed(2)}"></div>`
+				document.querySelector('.swatches').innerHTML += swatch
+			}
+
+      const addForm = document.getElementById('add-form')
+      const inputName = document.getElementById('name')
+      const inputPrice = document.getElementById('price')
+      const itemsList = document.getElementById('items')
+      const divTotal = document.getElementById('total')
+
+			function handleClicks(e) {
+				if (e.target.matches('.swatch')) {
+					const color = e.target.dataset.color
+					const price = e.target.dataset.price
+					addToCart(color, price)
+				}
+			}
+			
+			document.querySelector('body').addEventListener('click', handleClicks)
+
+      const cart = []
+
+      document.querySelector('body').addEventListener('submit', function(e){
+        e.preventDefault()
+        const name = inputName.value
+        const price = inputPrice.value
+        addToCart(name, price)
+        showCart()
+      })
+
+			document.querySelector('body').addEventListener('click', function(e) {
+        if (e.target && e.target.classList.contains('remove')) {
+          console.log(e.target.dataset.name)
+          removeFromCart(e.target.dataset.name)
+        } else if (e.target && e.target.classList.contains('add-one')) {
+          addToCart(e.target.dataset.name)
+        } else if (e.target && e.target.classList.contains('remove-one')) {
+          removeFromCart(e.target.dataset.name, 1)
+        }
+			})
+
+      document.querySelector('body').addEventListener('input', function(e) {
+        if (e.target.matches('.update')) {
+          const qty = parseInt(e.target.value)
+          const name = e.target.dataset.name
+          updateCart(name, qty)
+        }
+      })
+
+      function addToCart(name, price) {
+        for (let i = 0; i < cart.length; i += 1) {
+          if (cart[i].name === name) {
+            cart[i].qty += 1
+            showCart()
+            return true
+          }
+        }
+        cart.push({ name, price, qty: 1})
+        showCart()
+      }
+
+      function removeFromCart(name, qty = 0) {
+        console.log(name, qty)
+        for (let i = 0; i < cart.length; i += 1) {
+          if (cart[i].name === name) {
+            if (qty) {
+              let newQty = cart[i].qty - qty
+              if (newQty > 0) {
+                cart[i].qty = newQty
+              } else {
+                cart.splice(i, 1)
+              }
+            } else {
+              cart.splice(i, 1)
+            }
+          }
+        }
+
+        showCart()
+      }
+
+      function showCart() {
+        let str = ''
+        for (let i = 0; i < cart.length; i += 1) {
+          str += `<li>
+            <span>
+							<span>${cart[i].name}</span>
+							<span>${cart[i].price}</span> 
+							<span>each x</span>
+							<span>${cart[i].qty}</span> 
+							<span> = </span>  
+							<span>${(cart[i].qty * cart[i].price).toFixed(2)}</span>
+						</span>
+            
+						<span>
+							<input class="update" data-name="${cart[i].name}" type="number" value="${cart[i].qty}">
+							<button class="add-one" data-name="${cart[i].name}"> + </button>
+							<button class="remove-one" data-name="${cart[i].name}"> - </button>
+							<button class="remove" data-name="${cart[i].name}">remove</button>
+						</span>
+          </li>`
+        }
+        itemsList.innerHTML = str
+        divTotal.innerHTML = getTotal()
+      }
+
+      function getTotal() {
+        let total = 0
+        for (let i = 0; i < cart.length; i += 1) {
+          total += cart[i].price * cart[i].qty
+        }
+        return total.toFixed(2)
+      }
+
+      function updateCart(name, qty) {
+        for (let i = 0; i < cart.length; i += 1) {
+          if (cart[i].name === name) {
+            cart[i].qty = qty
+            showCart()
+            return true
+          }
+        }
+        return false
+      }
+
+      showCart()
+      getTotal()
+
+		</script>
+		
+	</body>
+</html>

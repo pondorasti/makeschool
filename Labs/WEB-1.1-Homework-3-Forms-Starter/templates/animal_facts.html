@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Animal Facts
+{% endblock %}
+
+{% block content %}
+<h1>Animal Facts</h1>
+<form action="/animal_facts" method="GET">
+    <fieldset>
+        <legend>Your Info:</legend>
+
+        <label>
+            Which animal do you want facts on?
+
+            <!-- TODO: Use a for loop to show one option element for each 
+                animal. -->
+            <select name="animal">
+                <option value="koala">koala</option>
+            </select>
+        </label>
+
+        <input type="submit" value="Get Fact!">
+    </fieldset>
+</form>
+
+<!-- TODO: If an animal was chosen, show the section below with the appropriate 
+    animal fact. -->
+
+<section id="form_results">
+    <p>
+        Here is your animal fact:
+    </p>
+    <p>
+        <em>Your animal fact goes here.</em>
+    </p>
+</section>
+
+{% endblock %}

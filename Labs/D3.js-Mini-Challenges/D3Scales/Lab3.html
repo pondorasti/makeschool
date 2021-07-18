@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <script src="https://d3js.org/d3.v6.min.js" charset="utf-8"></script>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>D3 DOM Manipulation and Selection</title>
+
+  <style>
+    header {
+      padding-bottom: 1em;
+    }
+
+    .axis path,
+    .axis line {
+      fill: none;
+      stroke: black;
+      shape-rendering: crispEdges;
+    }
+
+    .axis text {
+      font-family: sans-serif;
+      font-size: 10px;
+    }
+  </style>
+</head>
+<body>
+  <section>
+    <header class="text-center">
+      <h2>Example using Linear scales</h2>
+    </header>
+
+    <svg id="example-0" height="400" width="500"></svg>
+  </section>
+
+  <section id="D3Scales">
+    <header class="text-center">
+      <h2 >Example One: Line Graph using D3 Linear Scale D3Scales</h2>
+    </header>
+        
+    <svg id="example1" height="400" width="500"></svg>
+  </section>
+
+    <section id="D3Axis">
+        <header class="text-center">
+            <h2 >Example Two: Line Graph with axis</h2>
+        </header>
+            
+        <svg id="example2" height="460" width="450"></svg>
+    </section>
+
+    <section id="D3Ordinal">
+        <header class="text-center">
+            <h2 >Example Three: Using D3 Ordinal Scale</h2>
+        </header>
+            
+        <svg id="example3" width="580" height="100"></svg>
+
+    </section>
+
+
+    <section id="titanic">
+        <header class="text-center">
+            <h2>Titanic</h2>
+        </header>
+    
+        <svg id="titanic-data" width="900" height="100"></svg>
+    
+    </section>
+
+
+     <script src="./Lab3.js"></script>
+   
+</body>
+</html>

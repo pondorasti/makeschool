@@ -1,0 +1,168 @@
+<div id="main">
+  <!-- attach objects here -->
+</div>
+
+<script>
+  (function(global) {
+    // Define a Class function
+    function Box(x, y, rot, hue) {
+      return new Box.init(x, y, rot, hue)
+    }
+    
+    Box.init = function(x, y, rot, hue) {
+      this.dx = Math.random() * 20
+      this.dr = Math.random() * 10
+      this.dh = Math.random() * 30
+
+      this.x = x || 0
+      this.y = y || 0
+
+      this.rot = rot || 0
+
+      this.hue = hue || Math.random() * 360
+
+      this.el = document.createElement('div')
+      this.el.style.width = '60px'
+      this.el.style.height = '60px'
+      this.el.style.borderStyle = 'solid'
+      this.el.style.borderWidth = '2px'
+      this.el.style.borderColor = `hsl(${this.hue}, 100%, 50%)`
+      this.el.style.position = 'absolute'
+    }
+    
+    Box.prototype.update = function() {
+      this.el.style.borderColor =
+        `hsl(${this.hue % 360}, 100%, 50%)`
+      this.el.style.transform =
+        `translateX(${this.x}px) 
+         translateY(${this.y}px)
+         rotate(${this.rot % 360}deg)`
+      return this
+    }
+    
+    Box.prototype.move = function() {
+      this.x += this.dx
+      if (this.x > 500) {
+        this.x = 0
+      }
+      this.rot += this.dr
+      this.hue += this.dh
+      return this
+    }
+    
+    Box.init.prototype = Box.prototype
+    
+    global.Box = Box
+    
+  }(window))
+
+  const box = Box(1,2,3,'red')
+  console.log(box)
+  console.log(box.update)
+  
+  box.move().move().update()
+
+
+//
+//  const main = document.querySelector('#main')
+//  const boxes = []
+//
+//  for (let i = 0; i < 160; i++) {
+//    const x = Math.random() * 500
+//    const y = Math.random() * 500
+//    const box = new Box(x, y)
+//    main.appendChild(box.el)
+//    box.update()
+//    boxes.push(box)
+//  }
+//
+//
+//  function onFrame() {
+//    boxes.forEach(function(box) {
+//      box.move()
+//    })
+//
+//    requestAnimationFrame(onFrame)
+//  }
+//
+//  requestAnimationFrame(onFrame)
+
+</script>
+
+
+<script>
+
+  // Make a Framework
+
+// This self executing function takes two params 
+// the global object and jQuery
+(function(global, $) {
+  // Define a function that represents the framework
+  var FW = function(el, x, y, size) {
+    // Calling this function creates and returns a new 
+    // instance of this class function. 
+    return new FW.init(el, x, y, size)
+  }
+  
+  // Define methods on the prototype of the framework function
+  FW.prototype = {
+    
+    // These methods are shared by all instances of this object
+    // The methods here move the object with css trandform. 
+    // calling move sets the x and y
+    // calling rotate sets the rotation
+    // You must call update to display the transformation!
+    // The methods are all chainable.
+    
+    color: function(c) {
+      this.el.style.backgroundColor = c
+      return this
+    },
+    
+    move: function(x, y) {
+      this.x = x
+      this.y = y
+      return this
+    },
+    
+    rotate: function(n) {
+      this.rotation = n
+      return this
+    },
+    
+    update: function() {
+      var transform = `translate3d(${this.x}px, ${this.y}px, 0) rotate3d(0, 0, 1, ${this.rotation}deg)`
+      this.el.style.transform = transform
+      return this
+    }
+  }
+  
+  // Define an initializer for the framework
+  FW.init = function(el, x, y, size) {
+    var self = this;
+    self.el = el || 'default el'
+    self.x = x || 'default x'
+    self.y = y || 'default y'
+    self.rotation = 0
+    self.size = size || 'default size'
+    
+    // self.el.style.position = 'absolute'
+    self.el.style.width = self.size
+    self.el.style.height = self.size
+    self.el.style.left = self.x
+    self.el.style.top = self.y
+  }
+  
+  // Set the prototyp of the initializer function to use the prototype 
+  // of the framework function
+  FW.init.prototype = FW.prototype
+  
+  // Assign the framework to the global object so it can be used outside 
+  // this function. 
+  global.FW = global.f$ = FW
+  
+})(window);
+  
+  const el = document.createElement('div')
+  console.log(FW(el, 11, 22, 33))
+</script>

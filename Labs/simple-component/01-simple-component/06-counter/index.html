@@ -1,0 +1,35 @@
+<html>
+  <head>
+    <title>Web Components - Counter</title>
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      
+      <h1>Web Components - Counter</h1>
+      <p>Below is a counter component</p>
+
+      <fancy-counter value="5"></fancy-counter>
+      <fancy-counter value="0" min="-5" max="5"></fancy-counter>
+
+    </div>
+
+    <script src="fancy-counter.js"></script>
+
+    <script>
+      // Listen for events from your component
+      // This component dispatches a change event when the value changes
+      document.querySelector('fancy-counter').addEventListener('change', (e) => {
+        console.log('fancy counter changed')
+        console.log(e.target._value)
+      })
+    </script>
+  </body>
+</html>
+

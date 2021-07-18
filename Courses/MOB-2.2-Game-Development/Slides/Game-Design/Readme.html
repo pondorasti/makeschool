@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <title>Syllabus Template Slides</title>
+    <link rel="stylesheet" href="./../css/reveal.css" />
+    <link rel="stylesheet" href="./../css/theme/black.css" id="theme" />
+    <link rel="stylesheet" href="./../css/highlight/zenburn.css" />
+    <link rel="stylesheet" href="./../css/print/paper.css" type="text/css" media="print" />
+    <link rel="stylesheet" href="./../assets/Reveal/makeschool.css" />
+
+    <script>
+      document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>');
+    </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides"><section  data-markdown><script type="text/template"><!-- .slide: class="header" -->
+
+# Game Design
+
+## [Slides](https://make-school-courses.github.io/MOB-2.2-Game-Development/Slides/Game-Design/Readme.html ':ignore')
+</script></section><section  data-markdown><script type="text/template">
+## Agenda
+
+- Course Intro
+- Game Design (what, why?)
+- Game Genres
+- Game frameworks
+- Video
+- Game design basics
+- Mini workshop
+</script></section><section  data-markdown><script type="text/template">
+## Learning Objectives
+
+1. Identify the importance of game design and identify its stages
+1. Identify different game genres
+1. Describe the MDA framework
+1. Implement a basic prototype of a game
+</script></section><section ><section data-markdown><script type="text/template">
+## Let's play a game...
+
+Take out your phone and for the next 5 minutes play your favorite game.
+
+*Share what you were playing* 👾
+</script></section><section data-markdown><script type="text/template">
+- What makes the game entertaining?
+- Why is it your favorite?
+- What's the genre of the game?
+</script></section></section><section  data-markdown><script type="text/template">
+# Game Design
+
+Game design is the art of applying design and aesthetics to create a game.
+
+It's the segment of game development that has to do with:
+
+- creating goals
+- defining rules
+- creating challenges
+
+It's what needs to happen before you start coding your game.
+</script></section><section ><section data-markdown><script type="text/template">
+## Game genres
+
+[List of genres](https://www.lsntap.org/sites/lsntap.org/files/game%20genres.pdf)
+</script></section><section data-markdown><script type="text/template">
+Was the genre of your favorite game correct? 😬
+</script></section></section><section ><section data-markdown><script type="text/template">
+## Game frameworks
+
+Various game frameworks that help in game design. One of them is the MDA framework. It formalizes the consumption of games by breaking them into 3 components.
+
+![mda](assets/mda.png)
+
+![mda2](assets/mda2.png)
+</script></section><section data-markdown><script type="text/template">
+### Mechanics
+
+Describes the particular components of the game, at the level of data representation and algorithms.
+</script></section><section data-markdown><script type="text/template">
+### Dynamics
+
+Describes the run-time behavior of the mechanics acting on player inputs and each other's outputs over time.
+</script></section><section data-markdown><script type="text/template">
+### Aesthetics
+
+Describes the desirable emotional responses evoked in the player, when they interact with the game system.
+</script></section><section data-markdown><script type="text/template">
+### Perspectives
+
+![mda3](assets/mda3.png)
+
+<aside class="notes">
+"From the designer's perspective, the mechanics give rise to dynamic system behavior, which in turn leads to particular aesthetic experiences.
+
+From the player's perspective, aesthetics set the tone, which is born out in observable dynamics and eventually, operable mechanics.
+
+It is helpful to consider both the designer and player perspectives. It helps us observe how even small changes in one layer can cascade into others." Hunicke, Robin & Leblanc, Marc & Zubek, Robert. (2004)
+
+</aside>
+</script></section><section data-markdown><script type="text/template">
+### Aesthetics
+
+So now let's go backwards. As in the player's perspective.
+
+When we describe why a game is fun, usually we use limited vocabulary.
+
+Here's a more descriptive list.
+
+![words](assets/vocabulary.png)
+</script></section><section data-markdown><script type="text/template">
+### Dynamics
+
+Dynamics work to create aesthetic experiences.
+
+**Challenge** - created by things like time pressure and opponent play
+
+**Fellowship** - encouraged by sharing information across a team or supplying winning conditions that are more difficult to achieve alone
+</script></section><section data-markdown><script type="text/template">
+### Mechanics
+
+Mechanics are...
+
+- Actions
+- Behaviors
+- Control mechanisms
+
+afforded to the player within a game context.
+
+Together with the game's content (levels, assets and so on) the mechanics support overall gameplay dynamics.
+</script></section><section data-markdown><script type="text/template">
+### Tuning
+
+To understand how changed in every component affect the player's experience a game needs to undergo a lot of testing and tuning.
+
+It's important to define the purpose of the game first, and all of the other components of the framework as simple as possible in the beginning.
+</script></section></section><section  data-markdown><script type="text/template">
+### Game design/development process: Jetpack Joyride
+
+[Video](https://www.gdcvault.com/play/1015527/Depth-in-Simplicity-The-Making)
+</script></section><section  data-markdown><script type="text/template">
+<!-- .slide: data-background="#087CB8" -->
+## [**10m**] BREAK
+</script></section><section ><section data-markdown><script type="text/template">
+## Game design basics
+
+- ⚒ Setup
+ - Board setup, arranging pieces, starting values for player
+- 🔁Game Loop
+  - Player turn
+    - Choose from and perform available actions
+  - Computer turn
+    - Move or perform actions of NPCs and update the environment
+  - Check game state
+    - If “won”, “lost”, or “tie", end game, otherwise repeat the game loop
+</script></section><section data-markdown><script type="text/template">
+- 🌎 World / Environment
+  - Board size and layout, barriers, tile stats, starting point, time limits
+- ✨ Objects
+  - Location, abilities, value
+- 💕 Non-player Characters (NPCs)
+  - Movement, abilities, health, objects
+- 🧙🏻‍♀️Player
+
+</script></section></section><section ><section data-markdown><script type="text/template">
+## Game prototype workshop
+
+Goal: Learn how people react to things you have created, how they interact with those things, and how it never is exactly how you expect. 😅
+
+Divide into **even** number of groups of 2 or 3 people.
+</script></section><section data-markdown><script type="text/template">
+- You will design a game using pen, paper, other materials.
+  (alternative for online is using [Jamboard](jamboard.com))
+- The game must be grid based,  turn based, and 1 or 2 players.
+- The players can play against the game (the team that designed the game can play as the computer) or versus each other.
+
+The game will be played by another team at the end of the exercise.
+
+You will need to design not only a simple game, but instructions on how to play it, and a set of rules for it.
+</script></section><section data-markdown><script type="text/template">
+## Brainstorm the idea
+
+10 min
+</script></section><section data-markdown><script type="text/template">
+## Build the game
+
+Pick and idea and build the game.
+
+- Create Board and Pieces
+  - Draw a board and create pieces
+- Write Player Rules
+  - What are the primary and secondary goals?
+  - Which abilities are available at which times?
+- Write Computer Rules
+  - What needs updating each game loop?
+  - Does the world or do NPCs react to any player actions?
+  - How do you know if the player has won, lost, or tied?
+
+25 min
+
+<aside class="notes">
+Once you swap with another team, you will not be allowed to talk.
+
+You can only operate the game as the computer.
+
+You will be allowed to explain the rules out loud once.
+
+</aside>
+</script></section><section data-markdown><script type="text/template">
+## Pairs to play
+
+1. Find another team.
+2. One team explains rules.
+3. Then they have to silently watch the other team play and act as NPC (non player character).
+4. Play for 5-8 minutes.
+5. Then swap and play the other game, same process.
+6. You are done!
+
+Things to check:
+- Is the player doing what you expected?
+- Is the player confident? Having fun? Frustrated?
+</script></section><section data-markdown><script type="text/template">
+## Insights
+
+- Were your instructions as clear as you thought they were?
+- Did the player win/lose faster than you expected?
+- Which parts of your game were the most fun?
+- Which parts of your game were the most confusing?
+- Did the player discover new play strategies?
+- What kinds of changes are you considering making to your game based on the playtest?
+</script></section></section><section  data-markdown><script type="text/template">
+## Wrap Up
+
+- Make sure you are in the slack channel for this class.
+- Stay tuned for project specifications. Spoiler: you will need a pair. 😀😀
+</script></section><section  data-markdown><script type="text/template">
+## Additional Resources
+
+1. Hunicke, Robin & Leblanc, Marc & Zubek, Robert. (2004). MDA: A Formal Approach to Game Design and Game Research. AAAI Workshop - Technical Report. 1.
+1. [MDA video](https://www.youtube.com/watch?v=uepAJ-rqJKA)
+</script></section></div>
+    </div>
+
+    <script src="./../js/reveal.js"></script>
+
+    <script>
+      function extend() {
+        var target = {};
+        for (var i = 0; i < arguments.length; i++) {
+          var source = arguments[i];
+          for (var key in source) {
+            if (source.hasOwnProperty(key)) {
+              target[key] = source[key];
+            }
+          }
+        }
+        return target;
+      }
+
+      // Optional libraries used to extend on reveal.js
+      var deps = [
+        { src: './../plugin/markdown/marked.js', condition: function() { return !!document.querySelector('[data-markdown]'); } },
+        { src: './../plugin/markdown/markdown.js', condition: function() { return !!document.querySelector('[data-markdown]'); } },
+        { src: './../plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+        { src: './../plugin/zoom-js/zoom.js', async: true },
+        { src: './../plugin/notes/notes.js', async: true },
+        { src: './../plugin/math/math.js', async: true }
+      ];
+
+      // default options to init reveal.js
+      var defaultOptions = {
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+        transition: 'default', // none/fade/slide/convex/concave/zoom
+        dependencies: deps
+      };
+
+      // options from URL query string
+      var queryOptions = Reveal.getQueryHash() || {};
+
+      var options = extend(defaultOptions, {"controls":true,"progress":true,"autoPlayMedia":false,"slideNumber":"c/t","showSlideNumber":"all","controlsTutorial":true,"controlsLayout":"edges","transition":"slide","transitionSpeed":"medium","minScale":0.5,"maxScale":3}, queryOptions);
+    </script>
+
+
+    <script>
+      Reveal.initialize(options);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="DUD-SD-dse">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="RPGGame" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Jx-9T-GKf">
+                                <rect key="frame" x="0.0" y="340" width="414" height="216"/>
+                            </pickerView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select a character!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vWS-BD-yiO">
+                                <rect key="frame" x="0.0" y="88" width="414" height="164"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="164" id="2wg-KT-vg3"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AvenirNextCondensed-Heavy" family="Avenir Next Condensed" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="7Jx-9T-GKf" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="4kh-Ap-tSz"/>
+                            <constraint firstItem="vWS-BD-yiO" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="5sW-XR-GSA"/>
+                            <constraint firstItem="vWS-BD-yiO" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="JFf-ye-QHe"/>
+                            <constraint firstItem="vWS-BD-yiO" firstAttribute="trailing" secondItem="7Jx-9T-GKf" secondAttribute="trailing" id="aBP-bT-QGv"/>
+                            <constraint firstItem="vWS-BD-yiO" firstAttribute="leading" secondItem="7Jx-9T-GKf" secondAttribute="leading" id="jCQ-YY-qfE"/>
+                            <constraint firstAttribute="trailing" secondItem="vWS-BD-yiO" secondAttribute="trailing" id="s3e-2S-VQS"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="D1s-px-TGO"/>
+                    <connections>
+                        <outlet property="pickerView" destination="7Jx-9T-GKf" id="pI4-jd-Iez"/>
+                        <outlet property="topLabel" destination="vWS-BD-yiO" id="i4X-Ei-0Vq"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="137.68115942028987" y="92.410714285714278"/>
+        </scene>
+        <!--CharacterVC-->
+        <scene sceneID="oHD-EB-tCb">
+            <objects>
+                <viewController restorationIdentifier="CharacterVC" storyboardIdentifier="CharacterVC" title="CharacterVC" id="Bbg-0q-cQc" customClass="PlayerViewController" customModule="RPGGame" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="qDG-n4-Bqa">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Press the action button!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nlT-mZ-k9B">
+                                <rect key="frame" x="20" y="144" width="374" height="41"/>
+                                <fontDescription key="fontDescription" name="AvenirNextCondensed-Heavy" family="Avenir Next Condensed" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nvw-4E-maB">
+                                <rect key="frame" x="20" y="285" width="374" height="51"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="32"/>
+                                <state key="normal" title="Action"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Nvw-4E-maB" firstAttribute="leading" secondItem="nlT-mZ-k9B" secondAttribute="leading" id="Fof-pM-zgg"/>
+                            <constraint firstItem="Nvw-4E-maB" firstAttribute="trailing" secondItem="nlT-mZ-k9B" secondAttribute="trailing" id="THt-Qc-lHb"/>
+                            <constraint firstItem="HPr-kF-gF8" firstAttribute="bottom" secondItem="Nvw-4E-maB" secondAttribute="bottom" constant="526" id="Zvz-Fx-3dQ"/>
+                            <constraint firstItem="nlT-mZ-k9B" firstAttribute="leading" secondItem="HPr-kF-gF8" secondAttribute="leading" constant="20" id="fCi-kn-csz"/>
+                            <constraint firstItem="HPr-kF-gF8" firstAttribute="trailing" secondItem="nlT-mZ-k9B" secondAttribute="trailing" constant="20" id="nLc-kC-FBc"/>
+                            <constraint firstItem="nlT-mZ-k9B" firstAttribute="top" secondItem="HPr-kF-gF8" secondAttribute="top" constant="100" id="ts8-jg-Egu"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="HPr-kF-gF8"/>
+                    </view>
+                    <connections>
+                        <outlet property="button" destination="Nvw-4E-maB" id="Ras-ko-5z2"/>
+                        <outlet property="topLabel" destination="nlT-mZ-k9B" id="j2J-5C-hxz"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0oR-Hl-gYt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1113.0434782608697" y="91.741071428571431"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="eZ6-we-GgT">
+            <objects>
+                <navigationController id="DUD-SD-dse" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="27W-zo-7bK">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="gu9-0d-key"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OJv-PI-XPI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-754" y="83"/>
+        </scene>
+    </scenes>
+</document>

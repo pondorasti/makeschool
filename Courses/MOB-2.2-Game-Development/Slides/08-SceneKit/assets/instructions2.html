@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <title>Syllabus Template Slides</title>
+    <link rel="stylesheet" href="./../../css/reveal.css" />
+    <link rel="stylesheet" href="./../../css/theme/black.css" id="theme" />
+    <link rel="stylesheet" href="./../../css/highlight/zenburn.css" />
+    <link rel="stylesheet" href="./../../css/print/paper.css" type="text/css" media="print" />
+    <link rel="stylesheet" href="./../../assets/Reveal/makeschool.css" />
+
+    <script>
+      document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>');
+    </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides"><section  data-markdown><script type="text/template">## Bouncing Shapes - Part 2
+
+First, let's adjust the camera so that the shape doesn't appear randomly in the middle of the screen.
+
+```swift
+cameraNode.position = SCNVector3(x: 0, y: 5, z: 10)
+```
+
+Now add the following to the part in your code where shapes are created:
+
+```swift
+geometry.materials.first?.diffuse.contents = UIColor.purple
+```
+
+Build and run. See how simple it is to give the shape a solid color as material.
+
+What you need to do is figure out a way to give the shape a different color every time it is created.
+
+### The Rendering Loop
+
+SceneKit renders the contents scenes using `SCNView` objects. `SCNView` has a delegate property that we can set to an object that conforms to the `SCNSceneRendererDelegate` protocol. `SCNView` will then call methods on that delegate when certain events occur on each frame.
+
+![loop](renderloop.png)
+
+We wan to add multiple shapes in the scene. Try adding this extension to the game:
+
+```swift
+extension GameViewController: SCNSceneRendererDelegate {
+    func renderer(_ renderer: SCNSceneRenderer, updateAtTime time: TimeInterval) {
+        spawnShape()
+    }
+}
+```
+
+Don't forget to set the delegate to self on the SceneKit's view.
+
+Build and run. 😱
+
+- What happens?  
+- Is this good for performance?
+- How can you tell?
+
+Let's try to spawn a few shapes every few seconds to make this better.
+
+```swift
+var spawnTime: TimeInterval = 0
+...
+if time > spawnTime { //Where do you think this goes?
+  spawnShape()
+  spawnTime = time + TimeInterval(Float.random(in:0.2...1.5)) //What is this doing?
+}
+```
+
+<!-- We check if time (the current system time) is greater than spawnTime. If so, spawn a new shape; otherwise, do nothing. After we spawn an object, update spawnTime with the next time to spawn a new object. The next spawn time is simply the current time incremented by a random amount. Since TimeInterval is in seconds, you spawn the next object between 0.2 seconds and 1.5 seconds after the current time. -->
+
+Build and run again. Isn't it much better now? 😀
+
+The last thing we need to do is make sure we are removing object from the screen. Just like in SpriteKit, there is a method to remove nodes from the scene. `removeFromParentNode()`. Find a way to remove objects once they are no longer on sight.
+
+In the end your scene should look something like this:
+
+![final](final.gif)
+</script></section></div>
+    </div>
+
+    <script src="./../../js/reveal.js"></script>
+
+    <script>
+      function extend() {
+        var target = {};
+        for (var i = 0; i < arguments.length; i++) {
+          var source = arguments[i];
+          for (var key in source) {
+            if (source.hasOwnProperty(key)) {
+              target[key] = source[key];
+            }
+          }
+        }
+        return target;
+      }
+
+      // Optional libraries used to extend on reveal.js
+      var deps = [
+        { src: './../../plugin/markdown/marked.js', condition: function() { return !!document.querySelector('[data-markdown]'); } },
+        { src: './../../plugin/markdown/markdown.js', condition: function() { return !!document.querySelector('[data-markdown]'); } },
+        { src: './../../plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+        { src: './../../plugin/zoom-js/zoom.js', async: true },
+        { src: './../../plugin/notes/notes.js', async: true },
+        { src: './../../plugin/math/math.js', async: true }
+      ];
+
+      // default options to init reveal.js
+      var defaultOptions = {
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+        transition: 'default', // none/fade/slide/convex/concave/zoom
+        dependencies: deps
+      };
+
+      // options from URL query string
+      var queryOptions = Reveal.getQueryHash() || {};
+
+      var options = extend(defaultOptions, {"controls":true,"progress":true,"autoPlayMedia":false,"slideNumber":"c/t","showSlideNumber":"all","controlsTutorial":true,"controlsLayout":"edges","transition":"slide","transitionSpeed":"medium","minScale":0.5,"maxScale":3}, queryOptions);
+    </script>
+
+
+    <script>
+      Reveal.initialize(options);
+    </script>
+  </body>
+</html>

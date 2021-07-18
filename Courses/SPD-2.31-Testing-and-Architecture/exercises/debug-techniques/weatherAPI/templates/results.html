@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<section>
+    <h1>Weather in {{ city }}</h1>
+    <p>on {{ date.strftime('%A, %B %-d, %Y at %-I:%M %p') }}</p>
+    
+
+    <ul>
+        <li>Temperature: {{ temp }}° {{ units_letter }}</li>
+        <li>Description: {{ description }}</li>
+        <li>Humidity: {{ humidity }}%</li>
+        <li>Wind speed: {{ wind_speed }} miles/hour</li>
+    </ul>
+    
+</section>
+{% endblock %}

@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Gif Search
+{% endblock %}
+
+{% block content %}
+<h1>Gif Search</h1>
+<form action="/gif_search" method="POST">
+    <fieldset>
+        <legend>Your Info:</legend>
+        
+        <p>
+            <label>
+                Type in a search query to search for GIFs:
+
+                <input type="text" name="search_query">
+            </label>
+        </p>
+        <p>
+            <label>
+                How many GIFs do you want?
+
+                <input type="number" name="quantity" min="1" max="10" value="5">
+            </label>
+        </p>
+
+        <input type="submit" value="Search for GIFs!">
+    </fieldset>
+</form>
+
+<!-- TODO: Only show this section if there are GIFs to show -->
+<section id="form_results">
+    <p>
+        Here are your GIFs:
+    </p>
+    <!-- TODO: Use a for loop to show each GIF separately in an img tag (and place each one in a 
+        separate p tag to show on separate lines). You can get the GIF's image URL by using: 
+        gif['media'][0]['gif']['url'] -->
+
+    <p>
+        <img src="https://your/gif/url/goes/here" alt="GIF">
+    </p>
+</section>
+
+{% endblock %}

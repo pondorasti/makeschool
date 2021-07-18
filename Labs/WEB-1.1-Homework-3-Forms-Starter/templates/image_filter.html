@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Image Filtering
+{% endblock %}
+
+{% block content %}
+<h1>Image Filtering</h1>
+<form action="/image_filter" method="POST" enctype="multipart/form-data">
+    <fieldset>
+        <legend>Your Info:</legend>
+        
+        <p>
+            <label>
+                Upload a file here (of file type .jpeg, .jpg, or .gif):
+
+                <input type="file" name="users_image" accept="image/png, image/jpeg, image/gif">
+            </label>
+        </p>
+        <p>
+            <label>
+                Select your filter:
+
+                <select name="filter_type">
+                    <!-- TODO: Use a for loop to display an option element for each possible filter 
+                        type-->
+                    <option value="blur">blur</option>
+                </select>
+            </label>
+        </p>
+
+        <input type="submit" value="Filter My Image!">
+    </fieldset>
+</form>
+
+{% if image_url %}
+<section id="form_results">
+    <p>
+        Here is your filtered image:
+    </p>
+    <p>
+        <!-- TODO: Display the filtered image using the img tag and the URL passed in -->
+    </p>
+</section>
+{% endif %}
+
+{% endblock %}

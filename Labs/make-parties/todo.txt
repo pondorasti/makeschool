@@ -1,0 +1,29 @@
+Make Parties
+
+initialize project
+add templating engine
+Layout template
+Bootstrap
+Outside in development
+- Events#index w mock data
+- Events#show w mock data
+- Events#new w mock data
+
+sequelize init
+   - update .sequelizerc to change paths to /db
+
+- Events#create
+- Events#edit
+- Events#update - method-overide
+```bash
+$ npm install method-override
+var methodOverride = require('method-override')
+app.use(methodOverride('_method'))
+```
+- Events#destroy
+make events.js controller
+CRUD RSVPs
+CRD Comments
+  - Reverse their display order
+  - Use nested routes
+  - Partial templates

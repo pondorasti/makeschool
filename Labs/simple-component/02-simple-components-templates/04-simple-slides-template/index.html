@@ -1,0 +1,36 @@
+<html>
+  <head>
+    <title></title>
+  </head>
+  <body>
+    <div>
+
+      <!-- Inspect this element - You should find the shadow root -->
+      <simple-slides time="2900" transition="300" width="259" height="183">
+        <img src="./images/kitten-0.jpg" width="259" height="183">
+        <img src="./images/kitten-1.jpg" width="259" height="183">
+        <img src="./images/kitten-2.jpg" width="259" height="183">
+        <img src="./images/kitten-3.jpg" width="259" height="183">
+        <img src="./images/kitten-4.jpg" width="259" height="183">
+        <img src="./images/kitten-5.jpg" width="259" height="183">
+      </simple-slides>
+
+      <!-- Inspect this element - You should find it doesn't use the shadow root -->
+      <custom-slides time="3200" transition="200" width="259" height="183" >
+        <img src="./images/kitten-0.jpg" width="259" height="183">
+        <img src="./images/kitten-1.jpg" width="259" height="183">
+        <img src="./images/kitten-2.jpg" width="259" height="183">
+        <img src="./images/kitten-3.jpg" width="259" height="183">
+        <img src="./images/kitten-4.jpg" width="259" height="183">
+        <img src="./images/kitten-5.jpg" width="259" height="183">
+      </custom-slides>
+    </div>
+
+    <template>
+      <button>Hello</button>
+    </template>
+
+    <script type="module" src="./js/simple-slides.js"></script>
+    <script type="module" src="./js/simple-slides-custom-element.js"></script>
+  </body>
+</html>

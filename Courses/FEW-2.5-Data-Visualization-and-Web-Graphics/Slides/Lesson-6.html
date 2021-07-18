@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <title>Syllabus Template Slides</title>
+    <link rel="stylesheet" href="./css/reveal.css" />
+    <link rel="stylesheet" href="./css/theme/black.css" id="theme" />
+    <link rel="stylesheet" href="./css/highlight/zenburn.css" />
+    <link rel="stylesheet" href="./css/print/paper.css" type="text/css" media="print" />
+    <link rel="stylesheet" href="./assets/Reveal/makeschool.css" />
+
+    <script>
+      document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>');
+    </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides"><section  data-markdown><script type="text/template">
+# FEW 2.5 - Canvas Part 2, Circle Math
+
+<!-- Put a link to the slides so that students can find them -->
+
+➡️ [**Slides**](https://make-school-courses.github.io/FEW-2.5-Data-Visualization-and-Web-Graphics/Slides/Lesson-6.html ':ignore')
+</script></section><section  data-markdown><script type="text/template">
+## Minute-by-Minute
+
+| **Elapsed** | **Time**  | **Activity**              |
+| ----------- | --------- | ------------------------- |
+| 0:00        | 0:05      | Objectives                |
+| 0:05        | 0:15      | Overview                  |
+| 0:20        | 0:30      | In Class Activity I       |
+| 0:50        | 0:10      | BREAK                     |
+| 1:00        | 0:45      | In Class Activity II      |
+| 1:45        | 0:05      | Wrap up review objectives |
+| TOTAL       | 1:50      | -                         |
+
+</script></section><section  data-markdown><script type="text/template">
+## Overview
+
+Today we'll learn how to draw circles and calculate coords in circles.
+
+### Why?
+
+Circles are used all the time in visualizations (pie chart, scatter plot, dot plot, cluster analysis, etc.) and it's important to know how to draw them in order to properly convey your analysis.
+
+Plus they're cool!
+</script></section><section  data-markdown><script type="text/template">
+## Learning Objectives
+
+- Use Math functions and simple trigonometry
+	- `Math.PI`
+	- `Math.sin(radians)` -1 to +1
+	- `Math.cos(radians)` -1 to +1
+</script></section><section  data-markdown><script type="text/template">
+## Initial Exercise (15 min)
+
+- Funny comic
+- Prime the Pump (e.g. think and jot, think pair share, etc)
+- Productivity Tip/Tool
+- Review of current event (e.g. tech news relevant to your track/topic)
+- Quiz on homework or topic(s) of past class
+- Concept Test
+</script></section><section ><section data-markdown><script type="text/template">
+## Intro
+
+Sometimes you'll want to place things in a circle. Imagine the numbers around a clock. If you had to make this yourself you'd need to place each of the numbers equally spaced around a center point.
+
+To do this, use `Math.sin()` and `Math.cos()`. Each of these takes a value in radians and return a number between -1 and +1. Multiply the return value by the radius.
+
+A full circle is `Math.PI * 2`.
+
+Think about the clock. To get the position of each hour divide the circle by 12.
+
+`const step = Math.PI * 2 / 12`
+</script></section><section data-markdown><script type="text/template">
+Decide what the radius of your clock face is. Imagine it's 200px.
+
+```JS
+const numbers = [1,2,3,4,5,6,7,8,9,10,11,12]
+const step = Math.PI * 2 / numbers.length
+const radius = 200
+numbers.forEach((n, i) => {
+	const x = Math.sin(step * i) * radius
+	const y = Math.cos(step * i) * radius
+
+	// draw number at x, y
+})
+```
+
+The center of the clock face would be at 0, 0 with the numbers arranged in a 200 pixels radius circle around that point. Imagine the center of the clock in the upper left corner.
+
+You usually don't want to place everything in the upper left corner. To move the center of the clock face anywhere on the canvas you'll need to offset the x and y values.
+</script></section><section data-markdown><script type="text/template">
+```JS
+const numbers = [1,2,3,4,5,6,7,8,9,10,11,12]
+const step = Math.PI * 2 / numbers.length
+const radius = 200
+const offsetX = 300
+const offsetY = 250
+numbers.forEach((n, i) => {
+	const x = Math.sin(step * i) * radius + offsetX
+	const y = Math.cos(step * i) * radius + offsetY
+
+	// draw number at x, y
+})
+```
+
+Just add the offset to the x and y. In this case the center of the clock face is at 300, 250 on the canvas.
+</script></section></section><section  data-markdown><script type="text/template">
+## Playing with Circles
+
+Check out the [Example code](../lesson-06.html) linked here and see how you can manipulate the circles!
+</script></section><section  data-markdown><script type="text/template">
+<!-- .slide: data-background="#087CB8" -->
+## [**10m**] BREAK
+</script></section><section  data-markdown><script type="text/template">
+## Lab
+</script></section><section  data-markdown><script type="text/template">
+## After class
+
+- Continue working on [Visualization 2](Assignments/Data-Visualization-2.md), due 2/12 11:59pm
+</script></section><section  data-markdown><script type="text/template">
+## Additional Resources
+
+- [Example code](../lesson-06.html)
+- [Sine/Cosine](https://en.wikipedia.org/wiki/Sine)
+</script></section></div>
+    </div>
+
+    <script src="./js/reveal.js"></script>
+
+    <script>
+      function extend() {
+        var target = {};
+        for (var i = 0; i < arguments.length; i++) {
+          var source = arguments[i];
+          for (var key in source) {
+            if (source.hasOwnProperty(key)) {
+              target[key] = source[key];
+            }
+          }
+        }
+        return target;
+      }
+
+      // Optional libraries used to extend on reveal.js
+      var deps = [
+        { src: './plugin/markdown/marked.js', condition: function() { return !!document.querySelector('[data-markdown]'); } },
+        { src: './plugin/markdown/markdown.js', condition: function() { return !!document.querySelector('[data-markdown]'); } },
+        { src: './plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+        { src: './plugin/zoom-js/zoom.js', async: true },
+        { src: './plugin/notes/notes.js', async: true },
+        { src: './plugin/math/math.js', async: true }
+      ];
+
+      // default options to init reveal.js
+      var defaultOptions = {
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+        transition: 'default', // none/fade/slide/convex/concave/zoom
+        dependencies: deps
+      };
+
+      // options from URL query string
+      var queryOptions = Reveal.getQueryHash() || {};
+
+      var options = extend(defaultOptions, {"controls":true,"progress":true,"autoPlayMedia":false,"slideNumber":"c/t","showSlideNumber":"all","controlsTutorial":true,"controlsLayout":"edges","transition":"slide","transitionSpeed":"medium","minScale":0.5,"maxScale":3}, queryOptions);
+    </script>
+
+
+    <script>
+      Reveal.initialize(options);
+    </script>
+  </body>
+</html>

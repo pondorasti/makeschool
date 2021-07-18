@@ -1,0 +1,38 @@
+"""
+Project: Jinja2-ExploitMe
+File: app.py
+---
+Launch w/ Live Reload:
+export FLASK_ENV=development; flask run
+"""
+
+import os
+from flask import Flask, render_template, render_template_string, request
+from jinja2.exceptions import TemplateSyntaxError
+
+
+app = Flask(__name__)
+
+
+@app.route("/")
+def index():
+    """
+    This route is vulnerable to Server Side Template Injection attacks.
+    Your goal is to exploit it in as many ways as possible.
+    Once you've found at least two (2) exploits, share your findings with a peer.
+    Finally, fix this code so that this route is no longer exploitable.
+    """
+    exploit = request.args.get('exploit')
+    rendered_template = render_template("app.html", exploit=exploit)
+
+    try:
+        render_template_string(rendered_template)
+    except TemplateSyntaxError:
+         rendered_template = render_template("app.html", exploit='Not a valid Jinja2 expression.')
+    finally:
+         return render_template_string(rendered_template)
+
+
+
+if __name__ == "__main__":
+    app.run(debug=True)

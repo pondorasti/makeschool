@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+    <style>
+      body,
+      html {
+        height: 100%;
+      }
+    
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    </style>
+  </head>
+
+  <body> 
+    <div style="display: grid; grid-template-columns: repeat(4, 80px);">
+    
+      <!-- Red box -->
+      <div style="
+      width: 50px; 
+      height: 50px; 
+      margin: 10px;
+      background-color: red"></div>
+    
+      <!-- Circle -->
+      <div style="
+      width: 50px; 
+      height: 50px; 
+      margin: 10px;
+      border-radius: 50%;
+      background-color: red"></div>
+    
+      <!-- Box with border -->
+      <div style="
+      width: 50px; 
+      height: 50px; 
+      margin: 10px;
+      background-color: red;
+      border: 4px solid black"></div>
+    
+    
+      <!-- One Corner -->
+      <div style="
+      width: 50px; 
+      height: 50px; 
+      margin: 10px;
+      background-color: red;
+      border: 4px solid black;
+      border-radius: 0 0 0 50%;"></div>
+    
+      <!-- Leaf -->
+      <div style="
+      width: 50px; 
+      height: 50px; 
+      margin: 10px;
+      background-color: rgb(62, 182, 26);
+      border: 4px solid black;
+      border-radius: 0 50% 50% 50%;"></div>
+    
+      <!-- lemmon -->
+      <div style="
+      width: 50px; 
+      height: 50px; 
+      margin: 10px;
+      background-color: rgb(245, 241, 34);
+      border: 4px solid black;
+      border-radius: 0 50% 0 50%;"></div>
+    
+      <!-- - -->
+      <div style="
+      width: 50px; 
+      height: 50px; 
+      background-color: white;
+      margin: 10px;
+      border: 4px solid black;
+      position: relative;">
+        <div style="
+      width: 30px;
+      height: 10px;
+      background-color: black;
+      transform: translate(10px, 10px);"></div>
+      </div>
+    
+      <!-- = -->
+      <div style="
+      width: 50px; 
+      height: 50px; 
+      background-color: rgb(30, 66, 184);
+      margin: 10px;
+      border: 4px solid black;
+      position: relative;">
+        <div style="
+        width: 30px;
+        height: 10px;
+        background-color: rgb(245, 228, 0);
+        transform: translate(10px, 10px);"></div>
+        <div style="
+        width: 30px;
+        height: 10px;
+        background-color: rgb(245, 228, 0);
+        transform: translate(10px, 20px);"></div>
+      </div>
+    
+      <!-- + -->
+      <div style="
+      width: 50px; 
+      height: 50px; 
+      background-color: rgb(216, 0, 0);
+      margin: 10px;
+      border: 4px solid black;
+      position: relative;">
+        <div style="
+        width: 30px;
+        height: 10px;
+        background-color: rgb(255, 255, 255);
+        position: absolute;
+        transform: translate(10px, 20px)"></div>
+        <div style="
+        width: 10px;
+        height: 30px;
+        background-color: rgb(255, 255, 255);
+        position: absolute;
+        transform: translate(20px, 10px)"></div>
+      </div>
+    
+      <!-- X -->
+      <div style="
+      width: 50px; 
+      height: 50px; 
+      background-color: white;
+      margin: 10px;
+      border: 4px solid black;
+      position: relative;">
+        <div style="
+        width: 30px;
+        height: 8px;
+        background-color: black;
+        position: absolute;
+        transform: translate(11px, 22px) rotate(-45deg);"></div>
+        <div style="
+        width: 30px;
+        height: 8px;
+        background-color: black;
+        position: absolute;
+        transform: translate(11px, 22px) rotate(45deg);"></div>
+      </div>
+    
+      <!-- Ox -->
+      <div style="
+      width: 50px; 
+      height: 50px; 
+      background-color: white;
+      margin: 10px;
+      border: 4px solid black;
+      border-radius: 50%;
+      position: relative;">
+        <div style="
+        width: 30px;
+        height: 10px;
+        background-color: black;
+        position: absolute;
+        transform: translate(10px, 20px) rotate(-45deg);"></div>
+        <div style="
+        width: 30px;
+        height: 10px;
+        background-color: black;
+        position: absolute;
+        transform: translate(10px, 20px) rotate(45deg);"></div>
+      </div>
+    
+      <!-- -> -->
+      <div style="
+      width: 50px; 
+      height: 50px; 
+      background-color: white;
+      margin: 10px;
+      border: 4px solid black;
+      border-radius: 50%;
+      position: relative;">
+        <div style="
+        width: 26px;
+        height: 4px;
+        background-color: black;
+        position: absolute;
+        transform: translate(10px, 23px);"></div>
+        <div style="
+        width: 20px;
+        height: 4px;
+        background-color: black;
+        position: absolute;
+        transform: translate(22px, 17px) rotate(45deg);"></div>
+        <div style="
+        width: 20px;
+        height: 4px;
+        background-color: black;
+        position: absolute;
+        transform: translate(22px, 29px) rotate(-45deg);"></div>
+      </div>
+    
+      <!-- Angry Robot -->
+      <div style="
+      width: 50px; 
+      height: 50px; 
+      background-color: rgb(180, 196, 209);
+      margin: 10px;
+      border: 4px solid black;
+      position: relative;">
+        <div style="
+        width: 8px;
+        height: 8px;
+        background-color: rgb(255, 0, 0);
+        border: 4px solid black;
+        border-radius: 50%;
+        position: absolute;
+        transform: translate(8px, 8px);"></div>
+        <div style="
+        width: 8px;
+        height: 8px;
+        background-color: rgb(255, 0, 0);
+        border: 4px solid black;
+        border-radius: 50%;
+        position: absolute;
+        transform: translate(28px, 8px);"></div>
+        <div style="
+        width: 28px;
+        height: 4px;
+        background-color: rgb(255, 0, 0);
+        border: 4px solid black;
+        border-radius: 5px;
+        position: absolute;
+        transform: translate(8px, 30px);"></div>
+      </div>
+    
+      <!-- Vampire -->
+      <div style="
+      width: 50px; 
+      height: 50px; 
+      background-color: white;
+      margin: 10px;
+      border: 4px solid black;
+      position: relative;
+      border-radius: 12px 12px 18px 18px">
+        <div style="
+        width: 8px;
+        height: 8px;
+        background-color: white;
+        border: 4px solid black;
+        border-radius: 0 50% 50% 50%;
+        position: absolute;
+        transform: translate(8px, 8px);">
+          <div style="
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            background-color: black;
+            transform: translate(2px, 4px);
+          "></div>
+        </div>
+        <div style="
+        width: 8px;
+        height: 8px;
+        background-color: white;
+        border: 4px solid black;
+        border-radius: 50% 0 50% 50%;
+        position: absolute;
+        transform: translate(28px, 8px);">
+          <div style="
+          width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            background-color: black;
+            transform: translate(2px, 4px);
+        "></div>
+        </div>
+        <div style="
+        width: 16px;
+        height: 0px;
+        border-top: 3px solid black;
+        border-left: 6px solid black;
+        border-right: 6px solid black;
+        border-bottom: 6px solid transparent;
+        position: absolute;
+        transform: translate(12px, 32px);"></div>
+      </div>
+    
+      <!-- Bird -->
+      <div style="
+      width: 50px; 
+      height: 50px; 
+      background-color: rgb(200, 230, 255);
+      margin: 10px;
+      border: 4px solid black;
+      position: relative;">
+        <!-- Body -->
+        <div style="
+        width: 30px;
+        height: 30px;
+        background-color: rgb(59, 90, 126);
+        border-radius: 50% 50% 50% 0;
+        position: absolute;
+        transform: translate(12px, 18px);"></div>
+        <!-- Wing -->
+        <div style="
+        width: 20px;
+        height: 20px;
+        background-color: rgb(66, 102, 143);
+        border-radius: 50% 50% 50% 0;
+        position: absolute;
+        border-right: 1px solid;
+        transform: translate(18px, 23px);"></div>
+    
+        <div style="
+        width: 14px;
+        height: 14px;
+        background-color: rgb(59, 90, 126);
+        border-radius: 50% 0 50% 50%;
+        position: absolute;
+        transform: translate(28px, 6px) rotate(45deg);">
+          <div style="
+          width: 3px;
+          height: 3px;
+          background-color: white;
+          border-radius: 50%;
+          transform: translate(4px, 4px)">
+    
+          </div>
+        </div>
+      </div>
+    
+    
+      <!-- ?? -->
+      <div style="
+      width: 50px; 
+      height: 50px; 
+      background-color: rgb(193, 238, 255);
+      margin: 10px;
+      border: 4px solid black;
+      position: relative;">
+    
+        <!-- left foot -->
+        <div style="
+      width: 14px;
+      height: 10px;
+      background-color: rgb(250, 95, 95);
+      border-radius: 50%;
+      position: absolute;
+      transform: translate(10px, 36px); rotate(-20deg)"></div>
+    
+        <!-- body -->
+        <div style="
+        width: 30px;
+        height: 30px;
+        background-color: rgb(255, 146, 146);
+        border-radius: 50%;
+        position: absolute;
+        transform: translate(10px, 14px);"></div>
+    
+        <!-- right foot -->
+        <div style="
+      width: 14px;
+      height: 10px;
+      background-color: rgb(250, 95, 95);
+      border-radius: 50%;
+      position: absolute;
+      transform: translate(26px, 36px);"></div>
+    
+        <!-- right foot -->
+        <div style="
+      width: 14px;
+      height: 10px;
+      background-color: rgb(250, 95, 95);
+      border-radius: 50%;
+      position: absolute;
+      transform: translate(26px, 36px);"></div>
+    
+        <!-- Left arm -->
+        <div style="
+      width: 5px;
+      height: 7px;
+      background-color: rgb(255, 146, 146);
+      border-radius: 50%;
+      border-right: 1px solid black;
+      position: absolute;
+      transform: translate(10px, 26px);"></div>
+    
+        <!-- Right Arm -->
+        <div style="
+        width: 5px;
+        height: 5px;
+        background-color: rgb(255, 146, 146);
+        border-radius: 50% ;
+        border-left: 1px solid black;
+        position: absolute;
+        transform: translate(34px, 26px);"></div>
+    
+        <!-- Left eye -->
+        <div style="
+        width: 2px;
+        height: 5px;
+        background-color: black;
+        position: absolute;
+        transform: translate(18px, 16px);"></div>
+    
+        <!-- right eye -->
+        <div style="
+        width: 2px;
+        height: 5px;
+        background-color: black;
+        position: absolute;
+        transform: translate(28px, 16px);"></div>
+    
+        <div style="
+        width: 14px;
+        height: 11px;
+        background-color: rgb(182, 55, 55);
+        border-radius: 50%;
+        position: absolute;
+        transform: translate(18px, 20px);">
+          <div style="
+            width: 6px;
+            height: 4px;
+            background-color: rgb(231, 112, 112);
+            border-radius: 50%;
+            position: absolute;
+            transform: translate(5px, 7px);">
+          </div>
+        </div>
+    
+      </div>
+
+  </body>
+
+</html>
+

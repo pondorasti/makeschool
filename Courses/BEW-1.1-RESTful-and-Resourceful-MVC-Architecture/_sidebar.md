@@ -1,0 +1,21 @@
+- **[Syllabus](README.md)**
+- **Lessons**
+  - [Static Website](Lessons/01-Static-Website/README.md)
+  - [Git and GitHub](Lessons/02-Git-and-GitHub/README.md)
+  - [Intro to Flask](Lessons/03-Intro-to-Flask/README.md)
+  - [Flask Templating](Lessons/04-Flask-Templating/README.md)
+  - [URLs, HTTP, REST, and Reading Errors](Lessons/05-URLs-HTTP-REST-and-Reading-Errors/README.md)
+  - [Testing RESTful Routes](Lessons/06-Testing-RESTful-Routes/README.md)
+  - [More Testing](Lessons/07-More-Testing/README.md)
+  - [Document-Based Databases](Lessons/08-Document-Based-Databases/README.md)
+  - [ERDs, Resource Associations, and MongoDB](Lessons/09-ERDs-Resource-Associations-and-MongoDB/README.md)
+  - [Project Planning and User-Centered Development](Lessons/10-Project-Planning-and-User-Centered-Development/README.md)
+  - [RESTful APIs and Deployment Environments](Lessons/11-Deployment-Environments/README.md)
+  - [Presentation Practice](Lessons/12-Presentation-Practice/README.md)
+  - Final Contractor Project Presentations
+- [**Homework**](Assignments/Weekly-Homework)
+- [**Quizzes**](Assignments/Quiz-Study-Guide)
+- **Tutorials**
+  - [**Playlister**](https://www.makeschool.com/academy/track/playlistr-video-playlists-with-flask-and-mongodb-1c)
+- **Projects**
+    - [Contractor Project](https://docs.google.com/document/d/1C8eOyLBeGMKJ2y50QwLU5tWjNb2JVcpAE4khUBIfm0U/edit?usp=sharing)

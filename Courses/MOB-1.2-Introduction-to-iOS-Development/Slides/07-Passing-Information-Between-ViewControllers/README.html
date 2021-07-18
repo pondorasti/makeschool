@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <title>Syllabus Template Slides</title>
+    <link rel="shortcut icon" href="./../favicon.ico"/>
+    <link rel="stylesheet" href="./../dist/reveal.css" />
+    <link rel="stylesheet" href="./../dist/theme/white.css" id="theme" />
+    <link rel="stylesheet" href="./../css/highlight/zenburn.css" />
+    <link rel="stylesheet" href="./../assets/Reveal/makeschool.css" />
+
+    <script>
+      document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>');
+    </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides"><section  data-markdown><script type="text/template"># Passing information between ViewControllers
+
+## Minute-by-Minute
+| **Time(min)** | **Activity**                            |
+| ------------- | ----------------------------------------|
+| 5             | Review of Last Class & Objectives       |
+| 10            | TT Segues                               |
+| 20            | Segues Demo                             |
+| 10            | Break                                   |
+| 50            | Mood Tracker Pt. 2                      |
+| 5             | Wrap up                                 |
+
+## Class Learning Objectives
+By the end of this lesson, students should be able to:
+
+- Identify and describe a segue.
+- Navigate between view ViewControllers using segues.
+- Setup and use a segue to pass information to a destination ViewController.
+- Pass information back to a ViewController with an unwind segue.
+- Manually perform a segue vs inducing through storyboard.
+
+### How to navigate between view ViewControllers
+
+So far we've been building apps with one screen. Most of the time you will need to interact between more than 2 screens in your apps. Think about how just a login screen and your main content are already 2 screens from the whole project. Screen transitions can be done both programmatically, using segues, or with a combination of both.
+
+### Segues
+
+*In real life:* Move or shift from one role, state, or condition to another without interruption.
+
+*In iOS:*  A transition between two view controllers in your app’s storyboard file. Segues are the building blocks of iOS navigation.
+
+The starting point of a segue is the button, table row, or gesture recognizer that initiates the segue. The end point of a segue is the view controller you want to display.
+
+At runtime, UIKit loads the segues associated with a view controller and connects them to the corresponding elements. When the user interacts with the element, UIKit loads the destination view controller, notifies your app that the segue is about to occur, and executes the transition.
+
+![segue](assets/segue.png)
+
+### How to
+
+**Step 1:** To create a segue between view controllers in the same storyboard file, Control-click element handling the user interaction in the first view controller and drag to the destination view controller.
+
+![howto](assets/target.png)
+
+**Step 2:** The Interface Builder then prompts you to select the type of relationship you want to create between the two view controllers.
+
+| **Option**          | **Description**                            |
+| -------------       | -------------------------------------------|
+| Show (push)         | Allows you to navigate through a stack of view controllers, on top of each other. It pushes the destination view controller, from right to left on the stack.   |
+| Show detail         | Used when you are working with split view controllers.|
+| Present modally     | Shows View controllers with animations.    |
+| Present as popover  | The view controller appears in a popover.  |
+| Custom              | You may implement your own custom segue and have control over the behavior.    |
+
+### Show
+![show](assets/show.gif)
+
+### Show detail
+![show](assets/showdetail.gif)
+
+### Present modally
+![show](assets/modally.gif)
+
+### Present as popover
+![show](assets/pop.gif)
+
+**Step 3:** After creating a segue, select the segue object and assign an identifier to it using the attributes inspector. During a segue, you can use it to determine which segue was triggered, which is especially useful if your view controller supports multiple segues.
+
+### How to pass information between view ViewControllers
+
+Here's what happens when a segue is triggered. Most of the work happens in the presenting view controller. The configuration of the new view controller follows the same process as when you create the view controller yourself and present it. Because segues are configured from storyboards, both view controllers involved in the segue must be in the same storyboard.
+
+![flow](assets/flow.png)
+
+There are 2 methods in the current view controller that give you opportunities to affect the outcome of the segue.
+
+The `shouldPerformSegueWithIdentifier:sender:` method gives you an opportunity to prevent a segue from happening. Returning NO from this method causes the segue to fail quietly but does not prevent other actions from happening.
+
+The `prepareForSegue:sender:` method of the source view controller lets you pass data from the source view controller to the destination view controller.
+
+
+### Unwind segue
+
+Unwind segues let you dismiss view controllers. You create unwind segues in Interface Builder by linking a button or other suitable object to the Exit object of the current view controller. When the user taps the button or interacts with the appropriate object, UIKit dismisses the current view controller and any intermediate view controllers to reveal the target of the unwind segue.
+
+### How to
+
+**Step 1:** Choose the view controller that should appear onscreen at the end of an unwind segue.
+
+**Step 2:** Define an unwind action method on the view controller you chose. `@IBAction func myUnwindAction(unwindSegue: UIStoryboardSegue)`
+
+**Step 3:** Navigate to the view controller that initiates the unwind action and control-click the button (or other object) that should initiate the unwind segue. This element should be in the view controller you want to dismiss.
+
+**Step 4:** Drag to the Exit object at the top of the view controller.
+
+![dismiss](assets/dismiss.png)
+
+**Step 5:** Select your unwind action method from the relationship panel.
+
+<aside class="notes"><p>You must define an unwind action method in one of your view controllers <strong>before</strong> trying to create the corresponding unwind segue in Interface Builder. The presence of that method is required and tells Interface Builder that there is a valid target for the unwind segue.</p>
+<p>Example</p>
+<pre><code class="language-swift">
+ @IBAction func myUnwindAction(_ sender: UIStoryboardSegue){
+        if sender.source is NextViewController{
+            if let senderVC = sender.source as? NextViewController{
+                //Sending back a property from the pevious View Controller
+                print(senderVC.receivedText)
+            }
+        }
+    }
+</code></pre>
+<h3 id="programmatic-segues">Programmatic Segues</h3>
+<pre><code class="language-swift">@IBAction func nextVC(_ sender: UIBarButtonItem) {
+        performSegue(withIdentifier: &quot;nextVC&quot;, sender: nil)
+    }
+</code></pre>
+<h2 id="in-class-activities">In Class Activities</h2>
+<p>Complete the <a href="https://github.com/amelinagzz/segue-starter">Segue Challenge</a></p>
+<p>Continue working on the Mood Tracker app with</p>
+<p><a href="https://github.com/Product-College-Labs/mood-tracker/blob/master/content/6.1-content.md">part 2.1</a></p>
+<p><a href="https://github.com/Product-College-Labs/mood-tracker/blob/master/content/6.2-content.md">part 2.2</a></p>
+<p><a href="https://github.com/Product-College-Labs/mood-tracker/blob/master/content/6.3-content.md">part 2.3</a></p>
+<h2 id="wrap-up">Wrap Up</h2>
+<p>Complete <a href="https://www.hackingwithswift.com/read/19/1/setting-up">this project</a> using MapKit (we will use it next class)</p>
+<p>Start <a href="https://www.makeschool.com/academy/track/habitual-tutorial---swift-4">Habitual tutorial</a></p>
+<h2 id="additional-resources">Additional Resources</h2>
+<p><a href="https://medium.com/@samstone/create-custom-uinavigationcontroller-transitions-in-ios-1acd6a0b6d25">Tutorial with custom transition</a><br>
+Custom transitions library <a href="https://github.com/HeroTransitions/Hero">Hero</a><br>
+Segues - <a href="https://developer.apple.com/library/archive/featuredarticles/ViewControllerPGforiPhoneOS/UsingSegues.html">Apple Docs</a></p>
+</aside></script></section></div>
+    </div>
+
+    <script src="./../dist/reveal.js"></script>
+
+    <script src="./../plugin/markdown/markdown.js"></script>
+    <script src="./../plugin/highlight/highlight.js"></script>
+    <script src="./../plugin/zoom/zoom.js"></script>
+    <script src="./../plugin/notes/notes.js"></script>
+    <script src="./../plugin/math/math.js"></script>
+    <script>
+      function extend() {
+        var target = {};
+        for (var i = 0; i < arguments.length; i++) {
+          var source = arguments[i];
+          for (var key in source) {
+            if (source.hasOwnProperty(key)) {
+              target[key] = source[key];
+            }
+          }
+        }
+        return target;
+      }
+
+      // default options to init reveal.js
+      var defaultOptions = {
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+        transition: 'default', // none/fade/slide/convex/concave/zoom
+        plugins: [
+          RevealMarkdown,
+          RevealHighlight,
+          RevealZoom,
+          RevealNotes,
+          RevealMath
+        ]
+      };
+
+      // options from URL query string
+      var queryOptions = Reveal().getQueryHash() || {};
+
+      var options = extend(defaultOptions, {"controls":true,"progress":true,"autoPlayMedia":false,"slideNumber":"c/t","showSlideNumber":"all","controlsTutorial":true,"controlsLayout":"edges","transition":"slide","transitionSpeed":"medium","minScale":0.5,"maxScale":3}, queryOptions);
+    </script>
+
+
+    <script>
+      Reveal.initialize(options);
+    </script>
+  </body>
+</html>

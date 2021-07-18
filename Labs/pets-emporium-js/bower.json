@@ -1,0 +1,21 @@
+{
+  "name": "jwt-auth",
+  "description": "",
+  "main": "",
+  "authors": [
+    "Adam Braus <ajbraus@gmail.com>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/ajbraus/express-jwt-jquery",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/vendor",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.7"
+  }
+}

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title></title>
+		<style>
+			canvas {
+				border: 1px solid;
+			}
+		</style>
+	</head>
+	<body>
+		<canvas width="600" height="600"></canvas>
+
+		<script>
+			const canvas = document.querySelector('canvas')
+			const ctx = canvas.getContext('2d')
+
+			const size = 113
+			const x = 1 * size
+			const y = 2 * size
+
+			// draw a square
+			ctx.beginPath()
+			ctx.rect(x, y, size, size)
+			ctx.fillStyle = 'tomato'
+			ctx.fill()
+
+			// draw a circle 
+			ctx.beginPath()
+			// draw a complete circle
+			ctx.arc(x + size / 2, y + size / 2, 40, 0, Math.PI * 2)
+			ctx.fillStyle = '#333'
+			ctx.fill()
+
+			// Stroke a path
+			ctx.beginPath()
+			// draw half a circle
+			ctx.arc(x + size / 2, y + size / 2, 30, 0, Math.PI)
+			ctx.lineWidth = 3
+			ctx.strokeStyle = '#ffeeee'
+			ctx.stroke()
+
+			// Draw some text
+			ctx.beginPath()
+			ctx.font = '18px Helvetica'
+			ctx.fillStyle = '#fff'
+			ctx.fillText('Hello', x + 8, y + 20)
+			
+			// Use the docs to figure out how to draw other things
+			// https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D
+
+			
+
+		</script>
+	</body>
+</html>

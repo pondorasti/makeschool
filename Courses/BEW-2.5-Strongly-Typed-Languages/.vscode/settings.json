@@ -1,0 +1,6 @@
+{
+  "markdownlint.config": {
+    "MD040": false
+  },
+  "go.inferGopath": false
+}

@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	{% comment %} /// TO DO: Time to look at the form. Forms have lots of details that need style attention. Be sure to style the border. 
+	Check the README for more details.
+	 {% endcomment %}
+		<title>Electronic Music: A short history</title>
+		<style>
+
+			body {
+				margin: 0;
+				font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+				background-color: #1d1818;
+				line-height: 1.5;
+			}
+
+			nav, main > section {
+				overflow: auto;
+			}
+
+			main > section, main > footer {
+				min-height: 100vh;
+			}
+
+			/* Style the nav bar */
+			#nav {
+				justify-content: space-between;
+				align-items: baseline;
+				padding: 1em;
+				background-color: #1d1818;
+				color: #eee;
+				display: flex;
+			}
+
+			nav h1, ul {
+				margin: 0
+			}
+
+			nav a {
+				text-decoration: none;
+				color: #eee;
+			}
+
+			nav ul {
+				display: flex;
+				list-style: none;
+			}
+
+			nav ul a {
+				padding: 1em;
+				color: tomato;
+			}
+
+			nav ul a:hover {
+				color: pink;
+			}
+
+			#raymond-scott {
+				background-color: #26B63E;
+				background-image: url(images/scott-1.jpg);
+				background-size: cover;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				font-size: 4em;
+				color: #fff;
+			}
+
+			#raymond-scott > div {
+				position: relative;
+				left: -120px;
+				top: 120px;
+			}
+
+			#raymond-scott h2, #raymond-scott p {
+				margin: 0;
+				text-shadow: 0 0 20px #000000;
+			}
+
+
+			/* Create some cards in this section */
+			#robert-moog {
+				background-color: #26323f;
+			}
+
+			#robert-moog ul {
+				list-style: none;
+				margin: 0;
+				padding: 0;
+				display: flex;
+				justify-content: center;
+			}
+
+			#robert-moog > h2 {
+				margin: 1em;
+				font-size: 3em;
+				text-align: center;
+				color: #eee;
+			}
+
+			.card {
+				width: 400px;
+				margin: 1em;
+				background-color: #eee;
+				box-shadow: 0 0 22px rgba(0, 0, 0, 0.44);
+			}
+
+			.card img {
+				width: 100%;
+			}
+
+			.card h3 {
+				font-size: 2em;
+			}
+
+			.card h3, .card p {
+				margin: 1rem;
+			}
+
+			#wendy-carlos {
+				background-color: #5856D6;
+				background-image: url(images/carlos-0.jpg);
+				background-size: cover;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			}
+
+			#wendy-carlos > div {
+				background-color:rgba(255, 255, 255, 0.65);
+				padding: 2em;
+				width: 75%;
+				max-width: 700px;
+			}
+
+			#wendy-carlos  h2 {
+				font-size: 4em;
+				margin: 0 0 1rem 0;
+				text-align: center;
+			}
+
+
+			/* Style this */
+			#suzanne-ciani {
+				background-color: #461c3b;
+				display: flex;
+				color: #fff;
+				background-image: url(images/sound-texture.jpg);
+				background-size: cover;
+			}
+
+			#suzanne-ciani > div {
+				display: flex;
+				justify-content: center;
+				width: 75%;
+				margin: auto;
+			}
+
+			#suzanne-ciani h2, #suzanne-ciani p {
+				margin: 0 0 1rem 0;
+			}
+
+			#suzanne-ciani h2 {
+				font-size: 2em;
+			}
+
+			#suzanne-ciani > div > div:nth-child(1) {
+				flex: 3;
+				margin: 0 2em 0 0;
+			}
+
+			#suzanne-ciani > div > div:nth-child(2) {
+				flex: 2;
+			}
+
+			#suzanne-ciani > div img {
+				width: 100%;
+				box-shadow:0 0 22px rgba(0, 0, 0, 0.44);
+			}
+
+
+			#contact {
+				background-color: #FF9500;
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				align-items: center;
+			}
+
+			#contact > form {
+				display: flex;
+			}
+
+			#contact > form > div {
+				display: flex;
+				flex-direction: column;
+			}
+
+			#contact label {
+				display: flex;
+				flex-direction: column;
+			}
+
+			label {
+				margin: 1em 0;
+			}
+
+			label span {
+				margin: 1em 0;
+			}
+
+			input, textarea {
+				border: 1px solid #000;
+				padding: 0.5em;
+				margin: 0 2em 0 0;
+				width: 20em;
+				font-size: 1em;
+			}
+
+			textarea {
+				height: 9em;
+				margin: 0 0 0 0;
+			}
+
+			form button {
+				width: auto;
+				font-size: 1em;
+				margin: 1em 0;
+				align-self: flex-end;
+				padding: 0.5em 1em;
+				background-color:rgb(0, 0, 0);
+				color: #fff;
+				border: none;
+			}
+		</style>
+	</head>
+	<body>
+
+		<main>
+			<nav id="nav">
+				<h1><a href="#">Electronic Music</a></h1>
+				<ul>
+					<li><a href="#raymond-scott">Raymond Scott</a></li>
+					<li><a href="#robert-moog">Robert Moog</a></li>
+					<li><a href="#wendy-carlos">Wendy Carlos</a></li>
+					<li><a href="#suzanne-ciani">Suzanne Ciani</a></li>
+				</ul>
+			</nav>
+		
+			<section id="raymond-scott">
+				<div>
+					<h2>Raymond Scott</h2>
+					<p>Some Text...</p>
+				</div>
+			</section>
+		
+			<section id="robert-moog">
+				<h2>Robert Moog</h2>
+				<ul>
+					<li class="card">
+						<img src="images/moog-0.jpg">
+						<h3>Bob Moog</h3>
+						<p>The inovator...</p>
+					</li>
+					<li class="card">
+						<img src="images/moog-1.jpg">
+						<h3>Moog 100 series</h3>
+						<p>Started the synthesis revolution...</p>
+					</li>
+					<li class="card">
+						<img src="images/moog-2.jpg">
+						<h3>The Artists</h3>
+						<p>Used by countless artists...</p>
+					</li>
+				</ul>
+			</section>
+		
+			<section id="wendy-carlos">
+				<div>
+					<h2>Wendy Carlos</h2>
+					<p>Wendy Carlos
+					Birth name Walter Carlos
+					Born November 14, 1939 (age 80)
+					Pawtucket, Rhode Island, U.S.
+					Genres Electronic, classical, ambient, jazz, synthpop
+					Occupation(s) Musician, composer
+					Instruments Synthesizer, keyboards, vocoder
+					Years active 1964–2005
+					Labels Columbia Masterworks, CBS, Audion, Telarc, East Side Digital
+					Website wendycarlos.com
+					Wendy Carlos (born Walter Carlos; November 14, 1939) is an American musician and composer best known for her electronic
+					music and film scores. Born and raised in Rhode Island, Carlos studied physics and music at Brown University before
+					moving to New York City in 1962 to study music composition at Columbia University. Studying and working with various
+					electronic musicians and technicians at the city's Columbia-Princeton Electronic Music Center, she helped the
+					development of the Moog synthesizer, the first commercially available keyboard instrument created by Robert Moog</p>
+				</div>
+			</section>
+		
+			<section id="suzanne-ciani">
+				<div>
+					<div>
+						<h2>Suzanne Ciani</h2>
+						<p>Suzanne Ciani (born June 4, 1946) is an American musician, sound designer, composer, and record label executive who
+						found early success in the 1970s with her innovative electronic music and sound effects for films and television
+						commercials. Her career has included works with quadraphonic sound. She has been nominated for a Grammy Award for Best
+						New Age Album five times. Her success with electronic music has her dubbed "Diva of the Diode" and "America's first
+						female synth hero".</p>
+					</div>
+					<div>
+						<img src="images/ciani-2.jpg">
+					</div>
+
+				</div>
+				<figure>
+					<img>
+				</figure>
+			</section>
+		
+			<footer id="contact">
+				<h2>Contact Us</h2>
+				<form>
+					<div>
+						<label>
+							<span>Name</span>
+							<input type="text">
+						</label>
+			
+						<label>
+							<span>Email</span>
+							<input type="email">
+						</label>
+					</div>
+					<div>
+						<label>
+							<span>Message</span>
+							<textarea></textarea>
+						</label>
+						<button type="submit">Send</button>
+					</div>
+				</form>
+			</footer>
+		</main>
+	</body>
+</html>

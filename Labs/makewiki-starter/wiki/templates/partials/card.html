@@ -1,0 +1,12 @@
+<div class="card mb-3">
+  <h5 class="card-header ">{{ article.title }}</h5>
+  <div class="card-body border-dark">
+    <p class="card-text text-dark">
+      {{ article.content|truncatewords_html:30 }}
+      <hr>
+      <div class="text-right"><a href="{% url 'wiki-details-page' article.slug %}" title="Read More">Read More</a></div>
+  </div>
+  <div class="card-footer">
+    <small class="text-muted">Last updated {{ article.modified|date:"SHORT_DATETIME_FORMAT" }} by <b>{{ article.author.username }}</b></small>
+  </div>
+</div>

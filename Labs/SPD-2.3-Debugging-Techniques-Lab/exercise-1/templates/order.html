@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Order Form</h1>
+
+<form action="/order" method="POST">
+    <fieldset>
+        <legend>Please enter your information:</legend>
+
+        <p><label>
+            Name for the order:
+            <input type="text" name="order_name">
+        </label></p>
+
+        <p>
+            Size:
+        </p>
+        <p>
+            {% for size in sizes %}
+            <label>
+                <input type="radio" name="pizza_size" value="{{ size.name }}"> 
+                {{ size.value }}
+            </label><br>
+            {% endfor %}
+        </p>
+
+        <p>
+            Type of crust:
+        </p>
+        <p>
+            {% for crust_type in crust_types %}
+            <label>
+                <input type="radio" name="crust_type" value="{{ crust_type.name }}">
+                {{ crust_type.value }}
+            </label><br>
+            {% endfor %}
+        </p>
+
+        <p>
+            Toppings:
+        </p>
+        <p>
+            {% for topping in toppings %}
+            <label>
+                <input type="checkbox" name="toppings" value="{{ topping.name }}">
+                {{ topping.value }}
+            </label><br>
+            {% endfor %}
+        </p>
+
+        <input type="submit" value="Submit Order!">
+    </fieldset>
+</form>
+{% endblock %}

@@ -1,0 +1,31 @@
+#!/usr/bin/env bash
+
+
+
+# ------------------------------- DO NOT REMOVE ------------------------------ #
+# `make_assignment` will overwrite these values.
+REPLACE_NAME
+REPLACE_SOLUTION
+REPLACE_REPO_NAME
+# ------------------------------- DO NOT REMOVE ------------------------------ #
+
+
+# Update git repo:
+BASE_DIR=/autograder/$REPO_NAME
+cd $BASE_DIR
+git pull origin master
+
+# Install any dependency changes since last pull:
+pip3 install -r $BASE_DIR/requirements.txt
+
+# Change to assignment directory:
+cd $BASE_DIR/$NAME
+
+# Delete any solution files or folders in the git repo:
+rm -rf $SOLUTION
+
+# Copy student submission to folder:
+cp -r /autograder/submission/$SOLUTION ./
+
+# Execute the unit tests:
+python3 $BASE_DIR/base/run_tests.py

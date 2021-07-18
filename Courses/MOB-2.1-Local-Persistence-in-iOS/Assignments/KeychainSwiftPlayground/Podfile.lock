@@ -1,0 +1,12 @@
+PODS:
+  - KeychainSwift (9.0.2)
+
+DEPENDENCIES:
+  - KeychainSwift
+
+SPEC CHECKSUMS:
+  KeychainSwift: 3ab1d428d0dbff59cd056f1d0bfc640b36c2b081
+
+PODFILE CHECKSUM: f5723632f52f1d39c05f275ef07c95c971d88386
+
+COCOAPODS: 1.2.1

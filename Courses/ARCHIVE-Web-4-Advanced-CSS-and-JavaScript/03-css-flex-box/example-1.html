@@ -1,0 +1,102 @@
+<div class="container">
+  <div class="header">
+    
+    <div class="title-nav">
+      <h1>Title</h1>
+      <div>
+        <a href="#">About</a>
+        <a href="#">Things</a>
+      </div>
+    </div>
+    
+    <div>
+      <input type="text" placeholder="search">
+      <button>Go</button>
+    </div>
+    
+  </div>
+  
+  <div class="main">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+  
+  <div class="footer">
+    <ul>
+      <li><a href="#">Things</a></li>
+      <li><a href="#">Whatevs</a></li>
+      <li><a href="#">Memes</a></li>
+      <li><a href="#">Junk</a></li>
+      <li><a href="#">Memes</a></li>
+      <li><a href="#">Junk</a></li>
+    </ul>
+    
+    <ul>
+      <li><a href="#">Other</a></li>
+      <li><a href="#">Stuff</a></li>
+      <li><a href="#">Wigdets</a></li>
+      <li><a href="#">Fluff</a></li>
+    </ul>
+    
+    <ul>
+      <li><a href="#">Serious</a></li>
+      <li><a href="#">Important</a></li>
+    </ul>
+  </div>
+</div>
+
+
+<style>
+  body {
+    margin: 0;
+  }
+  .container {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .header {
+    height: 100px;
+    background-color: cornflowerblue;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center
+  }
+  
+  .title-nav {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  
+  .title-nav a {
+    display: inline-block;
+    margin: 10px;
+  }
+  
+  .footer {
+    background-color: #999;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: flex-start;
+  }
+  
+  .main {
+    background-color: #ddd;
+  }
+  
+  .main > div {
+    width: 100px;
+    height: 100px;
+    border: solid 2px;
+  }
+</style>

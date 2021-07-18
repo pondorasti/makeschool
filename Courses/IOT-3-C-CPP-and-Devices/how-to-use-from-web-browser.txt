@@ -1,0 +1,5 @@
+
+To use this set of materials, enter:
+https://product-college-courses.github.io/IOT1-C-CPlusPlus-And-Devices/
+and navigate the lessons 1-7 (8 and byond currently left to instructor in class presentations)
+Download the various XCode and Arduino projects from the docs/code subdirectory

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Horoscope</title>
+    </head>
+    <body>
+        <h1>What's your personality?</h1>
+        <form action="/horoscope_results" method="GET">
+            <fieldset>
+                <legend>Your Info:</legend>
+
+                <label>
+                    What is your name?
+                    <input type="text" name="users_name">
+                </label>
+                <br><br>
+
+                <label>
+                    When were you born?
+                    <select name="horoscope_sign">
+                        <option value="aries">March 21 - April 20</option>
+                        <option value="taurus">April 21 - May 21</option>
+                        <option value="gemini">May 22 - June 21</option>
+                        <option value="cancer">June 22 - July 22</option>
+                        <option value="leo">July 23 - August 21</option>
+                        <option value="virgo">August 22 - September 23</option>
+                        <option value="libra">September 24 - October 23</option>
+                        <option value="scorpio">October 24 - November 22</option>
+                        <option value="sagittarius">November 23 - December 22</option>
+                        <option value="capricorn">December 23 - January 20</option>
+                        <option value="aquarius">January 21 - February 19</option>
+                        <option value="pisces">February 20 - March 20</option>
+                    </select>
+                </label>
+                <br><br>
+
+                <input type="submit" value="Tell me my personality!">
+            </fieldset>
+        </form>
+    </body>
+</html>

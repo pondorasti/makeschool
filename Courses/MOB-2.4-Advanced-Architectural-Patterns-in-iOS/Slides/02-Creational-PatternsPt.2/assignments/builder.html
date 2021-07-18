@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <title>Syllabus Template Slides</title>
+    <link rel="stylesheet" href="./../../css/reveal.css" />
+    <link rel="stylesheet" href="./../../css/theme/black.css" id="theme" />
+    <link rel="stylesheet" href="./../../css/highlight/zenburn.css" />
+    <link rel="stylesheet" href="./../../css/print/paper.css" type="text/css" media="print" />
+    <link rel="stylesheet" href="./../../assets/Reveal/makeschool.css" />
+
+    <script>
+      document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>');
+    </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides"><section  data-markdown><script type="text/template">
+### Builder Practice
+
+The code below uses the Builder pattern (with a Director) to standardize the creation of three types of bicycles.
+
+The implementation for the Kids bike is already complete.
+
+Your job is to complete the code so that the remaining two bicycle types can also be created.
+</script></section><section  data-markdown><script type="text/template">
+
+```swift
+import UIKit
+
+enum BicycleSize: String {
+   case small
+   case medium
+   case large
+}
+
+enum BicycleType : String {
+   case kids
+   case standard
+   case mountain
+}
+
+struct Bicycle
+{
+   public let type: BicycleType
+   public let color: UIColor
+   public let size: BicycleSize
+}
+
+extension Bicycle: CustomStringConvertible {
+   public var description: String {
+       return type.rawValue + ” bicycle”
+   }
+}
+
+// Builder Protocol
+protocol BikeBuilder {
+   var type: BicycleType { get set }
+   var color: UIColor { get set }
+   var size: BicycleSize { get set }
+
+   func construct() -> Bicycle
+}
+
+// MARK: - Builder
+class BicycleBuilder: BikeBuilder {
+
+   var type: BicycleType = .standard
+   var color: UIColor = .gray
+   var size: BicycleSize = .medium
+
+   func construct() -> Bicycle {
+       return Bicycle(type: type, color: color, size: size)
+   }
+}
+
+// MARK: - Director
+public class BikeAssembler {
+
+   // Build a kids bike
+   func createKidsBike() -> Bicycle {
+       let builder = BicycleBuilder()
+       builder.type = .kids
+       builder.size = .small
+       return builder.construct()
+   }
+
+   // TODO: 1) build the Mountain bike
+
+   // TODO: 2) the Standard bike
+
+}
+
+let bikeAssembler = BikeAssembler()
+let kids = bikeAssembler.createKidsBike()
+print(kids.description)
+```
+</script></section></div>
+    </div>
+
+    <script src="./../../js/reveal.js"></script>
+
+    <script>
+      function extend() {
+        var target = {};
+        for (var i = 0; i < arguments.length; i++) {
+          var source = arguments[i];
+          for (var key in source) {
+            if (source.hasOwnProperty(key)) {
+              target[key] = source[key];
+            }
+          }
+        }
+        return target;
+      }
+
+      // Optional libraries used to extend on reveal.js
+      var deps = [
+        { src: './../../plugin/markdown/marked.js', condition: function() { return !!document.querySelector('[data-markdown]'); } },
+        { src: './../../plugin/markdown/markdown.js', condition: function() { return !!document.querySelector('[data-markdown]'); } },
+        { src: './../../plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+        { src: './../../plugin/zoom-js/zoom.js', async: true },
+        { src: './../../plugin/notes/notes.js', async: true },
+        { src: './../../plugin/math/math.js', async: true }
+      ];
+
+      // default options to init reveal.js
+      var defaultOptions = {
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+        transition: 'default', // none/fade/slide/convex/concave/zoom
+        dependencies: deps
+      };
+
+      // options from URL query string
+      var queryOptions = Reveal.getQueryHash() || {};
+
+      var options = extend(defaultOptions, {"controls":true,"progress":true,"autoPlayMedia":false,"slideNumber":"c/t","showSlideNumber":"all","controlsTutorial":true,"controlsLayout":"edges","transition":"slide","transitionSpeed":"medium","minScale":0.5,"maxScale":3}, queryOptions);
+    </script>
+
+
+    <script>
+      Reveal.initialize(options);
+    </script>
+  </body>
+</html>

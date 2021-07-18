@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Pizza Ordering Site</title>
+        <link rel="stylesheet" href="/static/style.css">
+    </head>
+    <body>
+        <div id="content">
+            {% for message in get_flashed_messages() %}
+            {{ message }}
+            {% endfor %}
+            
+            {% block content %}{% endblock %}
+        </div>
+    </body>
+</html>

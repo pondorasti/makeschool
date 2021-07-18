@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <title>Syllabus Template Slides</title>
+    <link rel="shortcut icon" href="./../../favicon.ico"/>
+    <link rel="stylesheet" href="./../../dist/reveal.css" />
+    <link rel="stylesheet" href="./../../dist/theme/white.css" id="theme" />
+    <link rel="stylesheet" href="./../../css/highlight/zenburn.css" />
+    <link rel="stylesheet" href="./../../assets/Reveal/makeschool.css" />
+
+    <script>
+      document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>');
+    </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides"><section  data-markdown><script type="text/template"># Codable example
+
+```swift
+struct Location: Codable {
+    var name: String
+    var distance: Double
+}
+
+struct Park: Codable{
+    var name: String
+    var location: Location
+}
+
+let parks:[Park] = [Park(name: "Universal Studios", location: Location(name: "Florida", distance: 100.0)), Park(name: "Disneyland", location: Location(name: "California", distance: 200.0)), Park(name: "Cedar Point", location: Location(name: "Ohio", distance: 300.0))
+]
+
+//Encoding
+
+do {
+    let encoder = JSONEncoder()
+    let jsonData = try encoder.encode(parks)
+    let jsonString = String(decoding: jsonData, as: UTF8.self)
+    print(jsonString)
+} catch {
+    print(error.localizedDescription)
+}
+
+//Decoding
+
+do {
+    let encoder = JSONEncoder()
+    let jsonData = try encoder.encode(parks)
+
+    let decoder = JSONDecoder()
+    let decoded = try decoder.decode([Park].self, from: jsonData)
+
+    for park in decoded{
+        print(park.name)
+    }
+
+} catch {
+    print(error.localizedDescription)
+}
+```
+</script></section><section  data-markdown><script type="text/template">
+### Encoding
+1. Initiate the encoding process
+1. Encoder calls `encode(to:Encoder)` method passing itself as the argument.<br>
+   Ex. `let jsonData = try encoder.encode(parks)`<br> which in result calls `parks.encode(to:self)`
+1. In order to encode itself in the correct format, it will use *encoding containers* <br>The Encoder protocol returns these containers.
+ ##### Types of containers
+ - **Keyed container**: Encodes key value pairs. Will turn into JSON objects.
+ - **Unkeyed container**: Encodes multiple values sequentially, omitting keys. Will turn into JSON arrays.
+ - **Single value container**: Encodes a single value. Will turn into numbers, strings, booleans or null.
+1. The compiler generates an enum named `CodingKeys`. It contains one case for every stored property of the struct.
+
+Strongly typed keys lead to safety but they must eventually be able to turn into strings/integers. The CodingKey protocol handles this task.
+</script></section><section  data-markdown><script type="text/template">
+### Decoding
+1. Call `try decoder.decode([Park].self, from: jsonData)`
+1. Decoder creates an instance of the type passed in. What is it in this case?
+1. Decoder manages a tree of *decoding continers* where each value travels down recursively in a container hierarchy while initializing values.
+
+If at some point in the hierarchy, an error occurs, the entire process fails.
+</script></section></div>
+    </div>
+
+    <script src="./../../dist/reveal.js"></script>
+
+    <script src="./../../plugin/markdown/markdown.js"></script>
+    <script src="./../../plugin/highlight/highlight.js"></script>
+    <script src="./../../plugin/zoom/zoom.js"></script>
+    <script src="./../../plugin/notes/notes.js"></script>
+    <script src="./../../plugin/math/math.js"></script>
+    <script>
+      function extend() {
+        var target = {};
+        for (var i = 0; i < arguments.length; i++) {
+          var source = arguments[i];
+          for (var key in source) {
+            if (source.hasOwnProperty(key)) {
+              target[key] = source[key];
+            }
+          }
+        }
+        return target;
+      }
+
+      // default options to init reveal.js
+      var defaultOptions = {
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+        transition: 'default', // none/fade/slide/convex/concave/zoom
+        plugins: [
+          RevealMarkdown,
+          RevealHighlight,
+          RevealZoom,
+          RevealNotes,
+          RevealMath
+        ]
+      };
+
+      // options from URL query string
+      var queryOptions = Reveal().getQueryHash() || {};
+
+      var options = extend(defaultOptions, {"controls":true,"progress":true,"autoPlayMedia":false,"slideNumber":"c/t","showSlideNumber":"all","controlsTutorial":true,"controlsLayout":"edges","transition":"slide","transitionSpeed":"medium","minScale":0.5,"maxScale":3}, queryOptions);
+    </script>
+
+
+    <script>
+      Reveal.initialize(options);
+    </script>
+  </body>
+</html>

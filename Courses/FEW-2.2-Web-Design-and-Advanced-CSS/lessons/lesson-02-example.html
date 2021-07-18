@@ -1,0 +1,959 @@
+<div class="container">
+
+
+
+    <!-- ******************************************* -->
+    <!-- Transition with Hover -->
+    <div>
+        <div class="a"></div>
+        <span>1. Hover</span>
+    </div>
+    
+    <style>
+      /* Transitions with Hover */
+      
+      .a {
+        width: 100px;
+        height: 100px;
+        background-color: #f00;
+        /* Sets the time to apply changes to this element */
+        transition: 400ms;
+        /* s = secs ms = milliseconds  */
+        /* Starting values */
+        transform: scale(1) rotate(0);
+      }
+      
+      .a:hover {
+        /* These changes occur over the transition time */
+        transform: scale(1.25) rotate(12deg);
+      }
+  
+    </style>
+    <!-- ******************************************* -->
+
+
+
+
+    <!-- ******************************************* -->
+    <!-- You can animation any property -->
+    <div>
+      <div class="b">
+        <div></div>
+      </div>
+      <span>2. Animate Radius</span>
+    </div>
+  
+    <style>
+      
+      .b {
+        width: 100px;
+        height: 100px;
+        border: 1px solid #000;
+        position: relative;
+      }
+      
+      .b > div {
+        width: 60px;
+        height: 60px;
+        background-color: red;
+        position: absolute;
+        left: 20px;
+        top: 20px;
+        transition: 400ms;
+        border-radius: 0;
+      }
+      
+      /* Change the radius on a hover */
+      .b > div:hover {
+        border-radius: 50%;
+        background-color: cornflowerblue;
+      }
+  
+    </style>
+    <!-- ******************************************* -->
+
+
+
+
+    <!-- ******************************************* -->
+    <!-- Nested Hovers -->
+    <div>
+      <div class="b2">
+        <div></div>
+        <div>Hello</div>
+      </div>
+
+      <span>3. Nest Hover</span>
+    </div>
+  
+    <style>
+      .b2 {
+        width: 100px;
+        height: 100px;
+        border: 1px solid #000;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      
+      .b2 > div:first-child {
+        height: 0;
+        width: 100%;
+        background-color: red;
+        position: absolute;
+        left: 0;
+        top: 0;
+        transition: 400ms;
+      }
+
+      .b2 > div:last-child {
+        position: absolute;
+        left: 0;
+        top: calc(50% - 1em / 2);
+        text-align: center;
+        width: 100%;
+        transition: 400ms;
+      }
+      
+      /* The hover triggers on the parent 
+      and changes to properties apply to 
+      a descendant 
+      
+      div:first-child gets height 100px
+      When, div.b2 is in the hover state 
+
+      */
+
+      .b2:hover > div:first-child {
+        height: 100px;
+      }
+
+      .b2:hover > div:last-child {
+        color: white;
+      }
+  
+    </style>
+    <!-- ******************************************* -->
+  
+
+
+
+    <!-- ******************************************* -->
+    <!-- Timing function linear -->
+    <div>
+      <div class="c1">
+        <div></div>
+      </div>
+      <span>4. Easing</span>
+    </div>
+  
+    <style>
+      .c1 {
+        width: 100px;
+        height: 100px;
+        border: 1px solid #000;
+        position: relative;
+      }
+      
+      .c1 > div {
+        width: 60px;
+        height: 60px;
+        background-color: red;
+        position: absolute;
+        left: 20px;
+        top: 20px;
+        transition: 2000ms;
+        /* Use timing function */
+        transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1)
+      }
+      .c1:hover > div {
+        transform: scale(1.25) rotate(12deg);
+      }
+  
+    </style>
+    <!-- ******************************************* -->
+
+
+
+
+    <!-- ******************************************* -->
+    <!-- Overflow -->
+    <div>
+      <div class="e">
+        <div>
+          <div>Hello</div>
+          <div>Hello</div>
+        </div>
+      </div>
+      <span>5. Overflow</span>
+    </div>
+  
+    <style>
+      /* Overflow 2 */
+      
+      .e {
+        width: 100px;
+        height: 40px;
+        position: relative;
+        overflow: hidden;
+        border: 1px solid #000;
+        cursor: pointer;
+      }
+      
+      .e > div {
+        position: absolute;
+        width: 100%;
+        height: 200%;
+        text-align: center;
+        line-height: 40px;
+        left: 0;
+        top: 0;
+        transition: 200ms;
+      }
+      
+      .e:hover > div {
+        top: -40px;
+      }
+      
+      .e > div > div:first-child {
+        color: black;
+      }
+      
+      .e > div > div:last-child {
+        color: white;
+        background-color: red;
+      }
+  
+    </style>
+    <!-- ******************************************* -->
+  
+
+
+
+
+    <!-- ******************************************* -->
+    <!-- Active -->
+    <div>
+      <div class="f">
+        <div>Click</div>
+      </div>
+      <span>6. :active (click)</span>
+    </div>
+  
+    <style>
+      /* Active 
+      Use the :active pseudo class to trigger a change 
+      when the mouse is pressed over an element. */
+      
+      .f {
+        width: 100px;
+        height: 100px;
+        border: 1px solid #000;
+        position: relative;
+      }
+      
+      .f>div {
+        width: 60px;
+        height: 60px;
+        background-color: red;
+        position: absolute;
+        left: 20px;
+        top: 20px;
+        transition: 400ms;
+        transition-timing-function: cubic-bezier(0.6, -0.28, 0.735, 0.045);
+        text-align: center;
+        line-height: 60px;
+        color: white;
+        cursor: pointer;
+      }
+      /* LoVe and HAte 
+        :link :visited :hover :active
+      */
+      
+      .f:hover > div {
+        background-color: orange;
+        transform: scale(1.25) rotate(12deg);
+        
+      }
+      
+      /* :checked */
+      .f:active > div {
+        background-color: blue;
+      }
+    </style>
+    <!-- ******************************************* -->
+  
+
+
+
+    <!-- ******************************************* -->
+    <!-- Switch hover -->
+    <div>
+      <div class="g">
+        <div></div>
+      </div>
+      <span>7. :hover Switch</span>
+    </div>
+  
+    <style>
+      /* Switch Hover 
+      This switch looks like the iOS UIKit switch! */
+      
+      .g {
+        width: 100px;
+        height: 60px;
+        border-radius: 30px;
+        border: 1px solid #ddd;
+        background-color: #efefef;
+        position: relative;
+        transition: 200ms;
+        cursor: pointer;
+      }
+      
+      .g > div {
+        width: 56px;
+        height: 56px;
+        background-color: #fff;
+        border-radius: 50%;
+        margin: 2px;
+        position: absolute;
+        left: 0;
+        transition: 200ms
+      }
+      
+      .g:hover {
+        background-color: #07e207;
+      }
+      
+      .g:hover > div {
+        left: 40px;
+      }
+  
+    </style>
+    <!-- ******************************************* -->
+  
+
+
+
+    <!-- ******************************************* -->
+    <!-- Switch with Click -->
+    <div>
+      <div id="switch-1" class="switch">
+        <div></div>
+      </div>
+      <span>8. Click Switch w/JS</span>
+    </div>
+  
+    <style>
+      /* Switch Click 
+      This switch is toggled on a click. The JavaScript 
+      below adds or removes the class .on to change the 
+      visual state of the switch. */
+      
+      .switch {
+        width: 100px;
+        height: 60px;
+        border-radius: 30px;
+        border: 1px solid #ddd;
+        background-color: #efefef;
+        position: relative;
+        transition: 200ms;
+        cursor: pointer;
+      }
+      
+      .switch > div {
+        width: 56px;
+        height: 56px;
+        background-color: #fff;
+        border-radius: 50%;
+        margin: 2px;
+        position: absolute;
+        left: 0;
+        transition: 200ms;
+      }
+
+      /* When the .switch has the class .on change the 
+      color to green. */
+      
+      .switch.on {
+        background-color: #07e207;
+      }
+      /* When the .switch has the .on class change the 
+      position left to 40px. */
+      
+      .switch.on > div {
+        left: 40px;
+      }
+  
+    </style>
+  
+    <script>
+      // Use minimal JS to add and remove a class
+      const switch_1 = document.getElementById('switch-1')
+      // switch_1 handles clicks with the function below. 
+      switch_1.onclick = function(e) {
+        this.classList.toggle('on') // Adds or removes the class "on"
+      }
+    </script>
+    <!-- ******************************************* -->
+
+
+
+
+    <!-- ******************************************* -->
+    <!-- Switch with Click -->
+    <div>
+      <label id="switch-2" class="switch-2">
+        <input type="checkbox">
+          <div>
+            <div></div>
+          </div>
+        </label>
+        <span>9. Click Switch no JS</span>
+      </div>
+    
+      <style>
+        /* Switch Click 
+        This switch is toggled on a click. The JavaScript 
+        below adds or removes the class .on to change the 
+        visual state of the switch. */
+        
+        .switch-2 {
+          width: 100px;
+          height: 60px;
+          border-radius: 30px;
+          border: 1px solid #ddd;
+          background-color: #efefef;
+          position: relative;
+          transition: 200ms;
+          cursor: pointer;
+        }
+
+        .switch-2 > input {
+          /* display: none; */
+        }
+        
+        .switch-2 > div {
+          width: 56px;
+          height: 56px;
+          background-color: #fff;
+          border-radius: 50%;
+          margin: 2px;
+          position: absolute;
+          left: 0;
+          transition: 200ms
+        }
+        /* When the .switch has the class .on change the 
+        color to green. */
+        
+        .switch-2 input:checked ~ div {
+          background-color: #07e207;
+        }
+        /* When the .switch has the .on class change the 
+        position left to 40px. */
+        
+        .switch-2 input:checked ~ div {
+          left: 40px;
+        }
+    
+      </style>
+    <!-- ******************************************* -->
+  
+
+
+
+    <!-- ******************************************* -->
+    <!-- Hamburger X -->
+    <div>
+      <div class="k">
+        <div></div>
+        <div></div>
+      </div>
+      <span>Hamburger 1</span>
+    </div>
+    <!-- Styles for hamburger X -->
+    <style>
+      /* Create two divs to form a = shape */
+      
+      .k {
+        border: solid 1px black;
+        width: 100px;
+        height: 100px;
+        transition: 200ms;
+      }
+      
+      .k>div {
+        width: 60px;
+        height: 10px;
+        background-color: black;
+        position: absolute;
+      }
+      
+      .k>div:nth-child(1) {
+        transform: translate(20px, 35px) rotate(0);
+        transition: 200ms;
+      }
+      
+      .k>div:nth-child(2) {
+        transform: translate(20px, 55px) rotate(0);
+        transition: 200ms;
+      }
+      /* On a hover */
+      
+      .k:hover {
+        /* Change the background color to black */
+        background-color: black;
+      }
+      
+      .k:hover>div {
+        /* Change the background of the X to white */
+        background-color: white;
+      }
+      /* Translate and rotate the inner divs to make an X */
+      
+      .k:hover>div:nth-child(1) {
+        transform: translate(20px, 45px) rotate(45deg);
+      }
+      
+      .k:hover>div:nth-child(2) {
+        transform: translate(20px, 45px) rotate(-45deg);
+      }
+  
+    </style>
+    <!-- ******************************************* -->
+  
+
+
+
+    <!-- ******************************************* -->
+    <!-- Hamburger X 2 -->
+    <div>
+      <div class="l">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+      <span>Hamburger 2</span>
+    </div>
+    <!-- Styles for Hamburger X 2 -->
+    <style>
+      /* Make a Hamburger menu with three horizontal bars */
+      
+      .l {
+        border: solid 1px black;
+        width: 100px;
+        height: 100px;
+        transition: 200ms;
+      }
+      
+      .l>div {
+        width: 60px;
+        height: 10px;
+        background-color: black;
+        position: absolute;
+      }
+      
+      .l>div:nth-child(1) {
+        transform: translate(20px, 25px) rotate(0);
+        transition: 200ms;
+      }
+      
+      .l>div:nth-child(2) {
+        opacity: 1;
+        transform: scale(1, 1) translate(20px, 45px) rotate(0);
+        transition: 200ms;
+      }
+      
+      .l>div:nth-child(3) {
+        transform: translate(20px, 65px) rotate(0);
+        transition: 200ms;
+      }
+      
+      .l:hover {
+        background-color: black;
+      }
+      
+      .l:hover>div {
+        background-color: white;
+      }
+      /* Animate the three bars */
+      
+      .l:hover>div:nth-child(1) {
+        transform: translate(20px, 45px) rotate(45deg);
+      }
+      /* Change the scale x to 0 */
+      
+      .l:hover>div:nth-child(2) {
+        opacity: 0;
+        transform: scale(0, 1) translate(20px, 45px) rotate(0);
+      }
+      
+      .l:hover>div:nth-child(3) {
+        transform: translate(20px, 45px) rotate(-45deg);
+      }
+  
+    </style>
+    <!-- ******************************************* -->
+  
+
+
+
+    <!-- ******************************************* -->
+    <!-- Hamburger X 3 -->
+    <div>
+      <div class="m">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+      <span>Hamburger 3</span>
+    </div>
+    <!-- Styles for Hamburger X 3 -->
+    <style>
+      /* Start with a hamburger made from three horizontal 
+      bars. These will form an arrow on hover. */
+      
+      .m {
+        border: solid 1px black;
+        width: 100px;
+        height: 100px;
+        transition: 200ms;
+      }
+      
+      .m>div {
+        width: 60px;
+        height: 10px;
+        background-color: black;
+        position: absolute;
+      }
+      
+      .m>div:nth-child(1) {
+        transform: translate(20px, 25px) rotate(0);
+        transition: 200ms;
+      }
+      
+      .m>div:nth-child(2) {
+        opacity: 1;
+        transform: scale(1, 1) translate(20px, 45px) rotate(0);
+        transition: 200ms;
+      }
+      
+      .m>div:nth-child(3) {
+        transform: translate(20px, 65px) rotate(0);
+        transition: 200ms;
+      }
+      
+      .m:hover {
+        background-color: black;
+      }
+      
+      .m:hover>div {
+        background-color: white;
+      }
+      
+      .m:hover>div:nth-child(1) {
+        width: 53px;
+        transform: translate(10px, 30px) rotate(-45deg);
+      }
+      
+      .m:hover>div:nth-child(2) {
+        transform: translate(20px, 45px) rotate(0);
+      }
+      
+      .m:hover>div:nth-child(3) {
+        width: 53px;
+        transform: translate(10px, 60px) rotate(45deg);
+      }
+  
+    </style>
+    <!-- ******************************************* -->
+  
+
+
+
+    <!-- ******************************************* -->
+    <!-- Hamburger X 4 -->
+    <div>
+      <div class="n">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+      <span>Hamburger 4</span>
+    </div>
+    <!-- Styles for Hamburger X 4 -->
+    <style>
+      .n {
+        border: solid 1px black;
+        width: 100px;
+        height: 100px;
+        transition: 200ms;
+      }
+      
+      .n>div {
+        width: 60px;
+        height: 10px;
+        background-color: black;
+        position: absolute;
+      }
+      
+      .n>div:nth-child(1) {
+        transform: translate(20px, 25px) rotate(0);
+        transition: 200ms;
+      }
+      
+      .n>div:nth-child(2) {
+        border: none;
+        border-radius: 0;
+        transform: translate(20px, 45px);
+        transition: 200ms;
+      }
+      
+      .n>div:nth-child(3) {
+        transform: translate(20px, 65px) rotate(0);
+        transition: 200ms;
+      }
+      
+      .n:hover {
+        background-color: black;
+      }
+      
+      .n:hover>div {
+        background-color: white;
+      }
+      
+      .n:hover>div:nth-child(1) {
+        width: 50px;
+        transform: translate(25px, 45px) rotate(45deg);
+      }
+      /* This div changes from a bar to circle */
+      
+      .n:hover>div:nth-child(2) {
+        width: 60px;
+        height: 60px;
+        background-color: transparent;
+        border: 10px solid white;
+        border-radius: 50%;
+        transform: translate(10px, 10px);
+      }
+      
+      .n:hover>div:nth-child(3) {
+        width: 50px;
+        transform: translate(25px, 45px) rotate(-45deg);
+      }
+  
+    </style>
+    <!-- ******************************************* -->
+
+
+
+
+    <!-- ******************************************* -->
+    <!-- Filters - blur -->
+    <div>
+      <div>
+        <div class="blur"></div>
+      </div>
+      <span>Fliter: blur</span>
+    </div>
+    <style>
+      .blur {
+        width: 100px;
+        height: 100px;
+        background-image: url(images/o.png);
+        background-repeat: none;
+        background-position: center;
+        filter: blur(20px);
+        transition: 400ms;
+      }
+      
+      .blur:hover {
+        filter: blur(0px);
+      }
+  
+    </style>
+    <!-- ******************************************* -->
+  
+
+
+
+    <!-- ******************************************* -->
+    <!-- Filters - grayscale -->
+    <div>
+      <div>
+        <div class="gray"></div>
+      </div>
+      <span>Filter: grayscale</span>
+    </div>
+    <style>
+      .gray {
+        width: 100px;
+        height: 100px;
+        background-image: url(images/o.png);
+        background-repeat: none;
+        background-position: center;
+        filter: grayscale(100%);
+        transition: 400ms;
+      }
+      
+      .gray:hover {
+        filter: grayscale(0%);
+      }
+  
+    </style>
+    <!-- ******************************************* -->
+  
+
+
+
+    <!-- ******************************************* -->
+    <!-- Filters - brightness -->
+    <div>
+      <div>
+        <div class="brightness"></div>
+      </div>
+      <span>Filter: brightness</span>
+    </div>
+    <style>
+      .brightness {
+        width: 100px;
+        height: 100px;
+        background-image: url(images/o.png);
+        background-repeat: none;
+        background-position: center;
+        filter: brightness(200%);
+        transition: 400ms;
+      }
+      
+      .brightness:hover {
+        filter: brightness(0%);
+      }
+  
+    </style>
+    <!-- ******************************************* -->
+  
+
+
+
+    <!-- ******************************************* -->
+    <!-- Filters - brightness -->
+    <div>
+      <div>
+        <div class="color-rotate"></div>
+      </div>
+      <span>filter: color rotate</span>
+    </div>
+    <style>
+      .color-rotate {
+        width: 100px;
+        height: 100px;
+        background-image: url(images/o.png);
+        background-repeat: none;
+        background-position: center;
+        filter: hue-rotate(0deg);
+        transition: 4000ms;
+      }
+      
+      .color-rotate:hover {
+        filter: hue-rotate(360deg);
+      }
+  
+    </style>
+    <!-- ******************************************* -->
+  
+
+
+
+    <!-- ******************************************* -->
+    <!-- Filters - Contrast -->
+    <div>
+      <div>
+        <div class="contrast"></div>
+      </div>
+      <span>Filter: contrast</span>
+    </div>
+    <style>
+      .contrast {
+        width: 100px;
+        height: 100px;
+        background-image: url(images/o.png);
+        background-repeat: none;
+        background-position: center;
+        filter: contrast(0%);
+        transition: 400ms;
+      }
+      
+      .contrast:hover {
+        filter: contrast(100%);
+      }
+  
+    </style>
+    <!-- ******************************************* -->
+  
+
+
+
+    <!-- ******************************************* -->
+    <!-- Filters - sepia -->
+    <div>
+      <div>
+        <div class="sepia"></div>
+      </div>
+      <span>Filter: sepia</span>
+    </div>
+    <style>
+      .sepia {
+        width: 100px;
+        height: 100px;
+        background-image: url(images/o.png);
+        background-repeat: none;
+        background-position: center;
+        filter: sepia(100%);
+        transition: 400ms;
+      }
+      
+      .sepia:hover {
+        filter: sepia(0%);
+      }
+  
+    </style>
+    <!-- ******************************************* -->
+  
+  </div>
+  
+  
+
+
+
+  <!-- Container styles -->
+  <style>
+    body {
+      background-color: #eee;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    }
+    .container {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      grid-gap: 40px;
+
+      width: 900px;
+      margin: auto;
+    }
+
+    .container > div {
+      width: 100%;
+      height: 195px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background-color: #fff;
+    }
+    .container > div > span {
+      justify-self: flex-end;
+      margin-top: 1em;
+    }
+  
+  </style>
+  

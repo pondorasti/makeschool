@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TopViewController" customModule="ios_view_hierarcy_sample" customModuleProvider="target">
+            <connections>
+                <outlet property="view" destination="iN0-l3-epB" id="Gh5-dy-p6G"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uBY-fj-T1I" userLabel="BlueView">
+                    <rect key="frame" x="25" y="25" width="325" height="250"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HfS-bZ-QtP" userLabel="GreenView">
+                            <rect key="frame" x="137.5" y="100" width="50" height="50"/>
+                            <color key="backgroundColor" red="0.80207331729999998" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="50" id="0kJ-8Y-XIL"/>
+                                <constraint firstAttribute="width" secondItem="HfS-bZ-QtP" secondAttribute="height" id="brg-vZ-p1X"/>
+                            </constraints>
+                        </view>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vQh-GJ-RBx">
+                            <rect key="frame" x="110" y="169" width="106" height="30"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <state key="normal" title="Switch Window">
+                                <color key="titleColor" name="alternateSelectedControlTextColor" catalog="System" colorSpace="catalog"/>
+                            </state>
+                            <connections>
+                                <action selector="switchWindowPressed:" destination="-1" eventType="touchUpInside" id="amx-Ki-FJm"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" red="0.0" green="0.62363219599999997" blue="0.95200002189999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    <constraints>
+                        <constraint firstItem="HfS-bZ-QtP" firstAttribute="centerY" secondItem="uBY-fj-T1I" secondAttribute="centerY" id="91N-6F-mTk"/>
+                        <constraint firstAttribute="height" constant="250" id="TY9-Ma-Kjj"/>
+                        <constraint firstItem="HfS-bZ-QtP" firstAttribute="centerX" secondItem="uBY-fj-T1I" secondAttribute="centerX" id="ZVL-Q4-4b1"/>
+                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="250" id="gzJ-9X-ByM"/>
+                    </constraints>
+                    <viewLayoutGuide key="safeArea" id="z0S-TB-ToF"/>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="uBY-fj-T1I" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="25" id="0c8-gD-nom"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="uBY-fj-T1I" secondAttribute="trailing" constant="25" id="cig-sN-qXV"/>
+                <constraint firstItem="uBY-fj-T1I" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="25" id="dPO-jh-1kx"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+        </view>
+    </objects>
+</document>

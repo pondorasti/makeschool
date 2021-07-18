@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>will wolf</title>
+	<meta name="description" content="data science things and thoughts on the world">
+	<meta name="author" content="Will Wolf">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- Favicon -->
+	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+	<link rel="icon" href="/favicon.ico" type="image/x-icon">
+	<!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+	<!--[if lt IE 9]>
+		<script src="https://cavaunpeu.github.io/theme/html5.js"></script>
+		<![endif]-->
+
+	<!-- Atom Feed -->
+
+	<!-- Twitter Cards -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="@willwolf_">
+  <meta name="twitter:creator" content="@willwolf_">
+  <meta name="twitter:domain" content="https://cavaunpeu.github.io">
+    <meta property="twitter:title" content="Random Effects Neural Networks in Edward and Keras"/>
+    <meta property="twitter:description" content="Coupling nimble probabilistic models with neural architectures in Edward and Keras: &#34;what worked and what didn&#39;t,&#34; a conceptual overview of random effects, and directions for further exploration."/>
+    <meta property="twitter:image" content="https://cavaunpeu.github.io/images/random_colors.jpg"/>
+
+	<!-- CSS -->
+	<link href="https://cavaunpeu.github.io/theme/css/ipython.css?v={12345}" rel="stylesheet">
+	<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+	<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+	<link href="//maxcdn.bootstrapcdn.com/bootswatch/3.3.7/simplex/bootstrap.min.css" rel="stylesheet">
+	<link href="https://cavaunpeu.github.io/theme/css/local.css?v={12345}" rel="stylesheet">
+	<link href="https://cavaunpeu.github.io/theme/css/pygments.css?v={12345}" rel="stylesheet">
+	<link href="https://cavaunpeu.github.io/theme/css/main.css?v={12345}" rel="stylesheet">
+</head><body>
+<div class="container">
+<div class="page-header">
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <h1><a id="site-title" href="https://cavaunpeu.github.io/">will wolf</a></h1>
+          <h4 id="site-subtitle">data science things and thoughts on the world</h4>
+      </div>
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav navbar-right">
+              <li><a href="https://cavaunpeu.github.io/about/" title="About"><span class="glyphicon glyphicon-user"></span> About</a></li>
+              <li><a href="https://cavaunpeu.github.io/cv/" title="CV"><span class="glyphicon glyphicon-folder-open"></span> CV</a></li>
+              <li><a href="https://cavaunpeu.github.io/archive/" title="Archive"><span class="glyphicon glyphicon-th-list"></span> Archive</a></li>
+              <li><a href="https://cavaunpeu.github.io/feeds/all.atom.xml" title="willwolf.io Atom feed"><span class="icon-rss"></span> RSS</a></li>
+          <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="https://cavaunpeu.github.io" title=English id="activeLanguage"><span class="glyphicon glyphicon-flag"></span>EN<span class="caret"></span></a>
+            <ul class="dropdown-menu">
+                <li>
+                  <a id="inactiveLanguage" href="https://cavaunpeu.github.io/es/" title=Español>ES</a>
+                </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</div>	<div class="row">
+		<div class="col-md-10 col-md-offset-1">
+<div class="article" itemscope itemtype="http://schema.org/BlogPosting">
+	<div class="text-center article-header">
+		<h1 itemprop="name headline" class="article-title">Random Effects Neural Networks in Edward and Keras</h1>
+		<span itemprop="author" itemscope itemtype="http://schema.org/Person">
+			<h4 itemprop="name">Will Wolf</h4>
+		</span>
+		<time datetime="2017-06-15T18:00:00-04:00" itemprop="datePublished">June 15, 2017</time>
+	</div>
+	<div itemprop="articleBody" class="article-body"><p>Bayesian probabilistic models provide a nimble and expressive framework for modeling "small-world" data. In contrast, deep learning offers a more rigid yet much more powerful framework for modeling data of massive size. <a href="http://edwardlib.org/">Edward</a> is a probabilistic programming library that bridges this gap: "black-box" variational inference enables us to fit extremely flexible Bayesian models to large-scale data. Furthermore, these models themselves may take advantage of classic deep-learning architectures of arbitrary complexity.</p>
+<p>Edward uses <a href="https://www.tensorflow.org/">TensorFlow</a> for symbolic gradients and data flow graphs. As such, it interfaces cleanly with other libraries that do the same, namely <a href="https://research.googleblog.com/2016/08/tf-slim-high-level-library-to-define.html">TF-Slim</a>, <a href="https://github.com/google/prettytensor">PrettyTensor</a> and <a href="https://keras.io/">Keras</a>. Personally, I've been working often with the latter, and am consistently delighted by the ease with which it allows me to specify complex neural architectures.</p>
+<p>The aim of this post is to lay a practical foundation for Bayesian modeling in Edward, then explore how, and how easily, we can extend these models in the direction of classical deep learning via Keras. It will give both a conceptual overview of the models below, as well as notes on the practical considerations of their implementation —  what worked and what didn't. Finally, this post will conclude with concrete ways in which to extend these models further, of which there are many.</p>
+<p>If you're just getting started with Edward or Keras, I recommend first perusing the <a href="http://edwardlib.org/tutorials">Edward tutorials</a> and <a href="https://keras.io/">Keras documentation</a> respectively.</p>
+<p>To "pull us down the path," we build three models in additive fashion: a Bayesian linear regression model, a Bayesian linear regression model with random effects, and a neural network with random effects. We fit them on the <a href="https://www.kaggle.com/c/zillow-prize-1">Zillow Prize</a> dataset, which asks us to predict <code>logerror</code> (in house-price estimate, i.e. the "Zestimate") given metadata for a list of homes. These models are intended to be demonstrative, not performant: they will not win you the prize in their current form.</p>
+<h2>Data preparation</h2>
+<h3>Build training DataFrame</h3>
+<div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">transactions_df</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">properties_df</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">'left'</span><span class="p">,</span> <span class="n">left_on</span><span class="o">=</span><span class="s1">'id_parcel'</span><span class="p">,</span> <span class="n">right_on</span><span class="o">=</span><span class="s1">'id_parcel'</span><span class="p">)</span>
+</pre></div>
+<h3>Drop columns containing too many nulls</h3>
+<p>Bayesian probabilistic models allow us to flexibly model <em>missing</em> data itself. To this end, we conceive of a given predictor as a vector of both:</p>
+<ol>
+<li>Observed values.</li>
+<li>Parameters in place of missing values, which will form a posterior distribution for what this value might have been.</li>
+</ol>
+<p>In a (partially-specified, for brevity) linear model, this might look as follows:</p>
+<div class="math">$$
+y_i \sim \mathcal{N}(\mu_i, \sigma)\\
+\mu_i = \alpha + \beta_N N_i\\
+N_i \sim \mathcal{N}(\nu, \sigma_N)\\
+$$</div>
+<p>where <span class="math">\(N_i\)</span> is our sometimes-missing predictor. When <span class="math">\(N_i\)</span> is observed, <span class="math">\(\mathcal{N}(\nu, \sigma_N)\)</span> serves as a likelihood: given this data-point, we tweak retrodictive distributions on the parameters <span class="math">\((\nu, \sigma_N)\)</span> by which it was produced. Conversely, when <span class="math">\(N_i\)</span> is missing it serves as a prior: after learning distributions of <span class="math">\((\nu, \sigma_N)\)</span> we can generate a likely value of <span class="math">\(N_i\)</span> itself. Finally, inference will give us (presumably-wide) distributions on the model's belief in what was the true value of each missing <span class="math">\(N_i\)</span> conditional on the data observed.</p>
+<p>I tried this in Edward, albeit briefly, to no avail. Dustin Tran gives an <a href="https://discourse.edwardlib.org/t/how-to-handle-missing-values-in-gaussian-matrix-factorization/95/2">example</a> of how one might accomplish this task in the case of Gaussian Matrix Factorization. In my case, I wasn't able to apply a 2-D missing-data-mask placeholder to a 2-D data placeholder via <a href="https://www.tensorflow.org/api_docs/python/tf/gather"><code>tf.gather</code></a> nor <a href="https://www.tensorflow.org/api_docs/python/tf/gather_nd"><code>tf.gather_nd</code></a>. With more effort, I'm sure I could make this work. Help appreciated.</p>
+<p>For now, we'll first drop columns containing too many null values, then, after choosing a few of the predictors most correlated with the target, drop the remaining rows containing nulls.</p>
+<h3>Select three fixed-effect predictors</h3>
+<div class="highlight"><pre><span></span><span class="n">fixed_effect_predictors</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">'area_live_finished'</span><span class="p">,</span>
+    <span class="s1">'num_bathroom'</span><span class="p">,</span>
+    <span class="s1">'build_year'</span>
+<span class="p">]</span>
+</pre></div>
+<h3>Select one random-effect predictor</h3>
+<div class="highlight"><pre><span></span><span class="n">zip_codes</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">'region_zip'</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">'category'</span><span class="p">)</span><span class="o">.</span><span class="n">cat</span><span class="o">.</span><span class="n">codes</span>
+</pre></div>
+<h3>Split data into train, validation sets</h3>
+<div class="highlight"><pre><span></span>Dataset sizes:
+    X_train:  (36986, 3)
+    X_val:    (36986, 3)
+    y_train:  (36986,)
+    y_val:    (36986,)
+</pre></div>
+<h1>Bayesian linear regression</h1>
+<p>Using three fixed-effect predictors we'll fit a model of the following form:</p>
+<div class="math">$$
+y_i \sim \mathcal{N}(\mu_i, 1)\\
+\mu_i = \alpha + \beta x_i\\
+\alpha \sim \mathcal{N}(0, 1)\\
+\beta \sim \mathcal{N}(0, 1)\\
+$$</div>
+<p>Having normalized our data to have mean 0 and unit-variance, we place our priors on a similar scale.</p>
+<p>To infer posterior distributions of the model's parameters conditional on the data observed we employ variational inference — one of three inference classes supported in Edward. This approach posits posterior inference as posterior <em>approximation</em> via <em>optimization</em>, where optimization is done via stochastic, gradient-based methods. This is what enables us to scale complex probabilistic functional forms to large-scale data.</p>
+<p>For an introduction to variational inference and Edward's API thereof, please reference:</p>
+<ul>
+<li><a href="http://edwardlib.org/tutorials/inference">Edward: Inference of Probabilistic Models</a></li>
+<li><a href="http://edwardlib.org/tutorials/variational-inference">Edward: Variational Inference</a></li>
+<li><a href="http://edwardlib.org/tutorials/klqp">Edward: KL(q||p) Minimization</a></li>
+<li><a href="http://edwardlib.org/api/inference">Edward: API and Documentation - Inference</a></li>
+</ul>
+<p>Additionally, I provide an introduction to the basic math behind variational inference and the <a href="https://www.cs.princeton.edu/courses/archive/fall11/cos597C/lectures/variational-inference-i.pdf">ELBO</a> in the previous post on this blog: <a href="https://cavaunpeu.github.io/2017/07/06/further-exploring-common-probabilistic-models/">Further Exploring Common Probabilistic Models</a>.</p>
+<h3>Fit model</h3>
+<p>For the approximate q-distributions, we apply the <a href="https://www.tensorflow.org/api_docs/python/tf/nn/softplus">softplus function</a> — <code>log(exp(z) + 1)</code> — to the scale parameter values at the suggestion of the Edward docs.</p>
+<div class="highlight"><pre><span></span><span class="n">N</span><span class="p">,</span> <span class="n">D</span> <span class="o">=</span> <span class="n">X_train</span><span class="o">.</span><span class="n">shape</span>
+
+<span class="c1"># fixed-effects placeholders</span>
+<span class="n">fixed_effects</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">placeholder</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">float32</span><span class="p">,</span> <span class="p">[</span><span class="n">N</span><span class="p">,</span> <span class="n">D</span><span class="p">])</span>
+
+<span class="c1"># fixed-effects parameters</span>
+<span class="err">β</span><span class="n">_fixed_effects</span> <span class="o">=</span> <span class="n">Normal</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">D</span><span class="p">),</span> <span class="n">scale</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">D</span><span class="p">))</span>
+<span class="err">α</span> <span class="o">=</span> <span class="n">Normal</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="n">scale</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
+
+<span class="c1"># model</span>
+<span class="err">μ</span><span class="n">_y</span> <span class="o">=</span> <span class="err">α</span> <span class="o">+</span> <span class="n">ed</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">fixed_effects</span><span class="p">,</span> <span class="err">β</span><span class="n">_fixed_effects</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">Normal</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="err">μ</span><span class="n">_y</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">N</span><span class="p">))</span>
+
+<span class="c1"># approximate fixed-effects distributions</span>
+<span class="n">qβ_fixed_effects</span> <span class="o">=</span> <span class="n">Normal</span><span class="p">(</span>
+    <span class="n">loc</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">random_normal</span><span class="p">([</span><span class="n">D</span><span class="p">])),</span>
+    <span class="n">scale</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">softplus</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">random_normal</span><span class="p">([</span><span class="n">D</span><span class="p">])))</span>
+<span class="p">)</span>
+<span class="n">qα</span> <span class="o">=</span> <span class="n">Normal</span><span class="p">(</span>
+    <span class="n">loc</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">random_normal</span><span class="p">([</span><span class="mi">1</span><span class="p">])),</span>
+    <span class="n">scale</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">softplus</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">random_normal</span><span class="p">([</span><span class="mi">1</span><span class="p">])))</span>
+<span class="p">)</span>
+</pre></div>
+<h3>Infer parameters</h3>
+<div class="highlight"><pre><span></span><span class="n">latent_vars</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="err">β</span><span class="n">_fixed_effects</span><span class="p">:</span> <span class="n">qβ_fixed_effects</span><span class="p">,</span>
+    <span class="err">α</span><span class="p">:</span> <span class="n">qα</span>
+<span class="p">}</span>
+
+<span class="n">sess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">INIT_OP</span><span class="p">)</span>
+<span class="n">inference</span> <span class="o">=</span> <span class="n">ed</span><span class="o">.</span><span class="n">KLqp</span><span class="p">(</span><span class="n">latent_vars</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="p">{</span><span class="n">fixed_effects</span><span class="p">:</span> <span class="n">X_train</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">y_train</span><span class="p">})</span>
+<span class="n">inference</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">n_samples</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">n_iter</span><span class="o">=</span><span class="mi">250</span><span class="p">)</span>
+</pre></div>
+<div class="highlight"><pre><span></span>250/250 [100%] ██████████████████████████████ Elapsed: 4s | Loss: 35405.105
+</pre></div>
+<h3>Criticize model</h3>
+<h4>Visualize data fit given parameter priors</h4>
+<p><img alt="data fit given parameter priors" class="img-responsive" src="https://cavaunpeu.github.io/figures/data_fit_given_parameter_priors.png"/></p>
+<h4>Visualize data fit given parameter posteriors</h4>
+<p><img alt="data fit given parameter posteriors" class="img-responsive" src="https://cavaunpeu.github.io/figures/data_fit_given_parameter_posteriors.png"/></p>
+<p>It appears as if our model fits the data along the first two dimensions. This said, we could improve this fit considerably. This will become apparent when we compute the MAE on our validation set.</p>
+<div class="highlight"><pre><span></span>param_posteriors = {
+  β_fixed_effects: qβ_fixed_effects.mean(),
+  α: qα.mean()
+}
+X_val_feed_dict = {
+  fixed_effects: X_val
+}
+y_posterior = ed.copy(y, param_posteriors)
+
+print(f'Mean validation `logerror`: {y_val.mean()}')
+compute_mean_absolute_error(y_posterior, X_val_feed_dict)
+</pre></div>
+<div class="highlight"><pre><span></span>Mean validation `logerror`: 0.012986094738549725
+Mean absolute error on validation data: 0.089943
+</pre></div>
+<h4>Inspect residuals</h4>
+<p><img alt="bayesian linear regression residuals" class="img-responsive" src="https://cavaunpeu.github.io/figures/bayesian_linear_regression_residuals.png"/></p>
+<p>"The residuals appear normally distributed with mean 0: this is a good sanity check for the model."<sup>1</sup> However, with respect to the magnitude of the mean of the validation <code>logerror</code>, our validation score is terrible. This is likely due to the fact that three predictors are not nearly sufficient for capturing the variation in the response. (Additionally, because the response itself is an <em>error</em>, it should be fundamentally harder to capture than the thing actually being predicted — the house price. This is because Zillow's team has already built models to capture this signal, then effectively threw the remaining "uncaptured" signal into this competition, i.e. "figure out how to get right the little that we got wrong.")</p>
+<h4>Inspect parameter posteriors</h4>
+<p><img alt="bayesian linear regression posteriors" class="img-responsive" src="https://cavaunpeu.github.io/figures/bayesian_linear_regression_posteriors.png"/></p>
+<p>In keeping with the definition of multivariate linear regression itself, the above parameter posteriors tell us: "conditional on the assumption that the log-error and fixed effects can be related by a straight line, what is the predictive value of one variable once I already know the values of all other variables?"<sup>2</sup></p>
+<h2>Bayesian linear regression with random effects</h2>
+<p>Random effects models — also known as hierarchical models — allow us to ascribe distinct behaviors to different "clusters" of observations, i.e. groups that may each act in a materially unique way. Furthermore, these models allow us to infer these tendencies in a <em>collaborative</em> fashion: while each cluster is assumed to behave differently, it can learn its parameters by heeding to the behavior of the population at large. In this example, we assume that houses in different zipcodes — holding all other predictors constant — should be priced in different ways.</p>
+<p>For clarity, let's consider the two surrounding extremes:</p>
+<ol>
+<li>Estimate a single set of parameters for the population, i.e. the vanilla, <a href="http://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LinearRegression.html">scikit-learn linear regression</a>, Bayesian or not. This confers no distinct behaviors to houses in different zipcodes.</li>
+<li>Estimate a set of parameters for each individual zipcode, i.e. split the data into its cluster groups and estimate a single model for each. This confers maximally distinct behaviors to houses in different zip codes: the behavior of one cluster knows nothing about that of the others.</li>
+</ol>
+<p>Random-effects models "walk the line" between these two approaches — between maximally <em>underfitting</em> and maximally <em>overfitting</em> the behavior of each cluster. To this effect, its parameter estimates exhibit the canonical "shrinkage" phenomenon: the estimate for a given parameter is balanced between the within-cluster expectation and the global expectation. Smaller clusters exhibit larger shrinkage; larger clusters, i.e. those for which we've observed more data, are more bullheaded (in typical Bayesian fashion). A later plot illustrates this point.</p>
+<p>We specify our random-effects functional form as follows:</p>
+<div class="highlight"><pre><span></span><span class="err">μ</span><span class="n">_y</span> <span class="o">=</span> <span class="err">α</span> <span class="o">+</span> <span class="err">α</span><span class="n">_random_effects</span> <span class="o">+</span> <span class="n">ed</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">fixed_effects</span><span class="p">,</span> <span class="err">β</span><span class="n">_fixed_effects</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">Normal</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="err">μ</span><span class="n">_y</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">N</span><span class="p">))</span>
+</pre></div>
+<p>With respect to the previous model, we've simply added <code>α_random_effects</code> to the mean of our response. As such, this is a <em>varying-intercepts</em> model: the intercept term will be different for each cluster. To this end, we learn the <em>global</em> intercept <code>α</code> as well as the <em>offsets</em> from this intercept <code>α_random_effects</code> — a random variable with as many dimensions as there are zipcodes. In keeping with the notion of "offset," we ascribe it a prior of <code>(0, σ_zc)</code>. This approach allows us to flexibly extend the model to include more random effects, e.g. city, architecture style, etc. With only one, however, we could have equivalently included the global intercept <em>inside</em> of our prior, i.e. <code>α_random_effects ~ Normal(α, σ_zc)</code>, with priors on both <code>α</code> and <code>σ_zc</code> as per usual. This way, our random effect would no longer be a zip-code-specific <em>offset</em> from the global intercept, but a vector of zip-code-specific intercepts outright.</p>
+<p>Finally, as Richard McElreath notes, "we can think of the <code>σ_zc</code> parameter for each cluster as a crude measure of that cluster's "relevance" in explaining variation in the response variable."<sup>3</sup></p>
+<h3>Fit model</h3>
+<div class="highlight"><pre><span></span><span class="n">n_zip_codes</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">zip_codes</span><span class="p">))</span>
+
+<span class="c1"># random-effect placeholder</span>
+<span class="n">zip_codes_ph</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">placeholder</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">int32</span><span class="p">,</span> <span class="p">[</span><span class="n">N</span><span class="p">])</span>
+
+<span class="c1"># random-effect parameter</span>
+<span class="err">σ</span><span class="n">_zip_code</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">random_normal</span><span class="p">([]))))</span>
+<span class="err">α</span><span class="n">_zip_code</span> <span class="o">=</span> <span class="n">Normal</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n_zip_codes</span><span class="p">),</span> <span class="n">scale</span><span class="o">=</span><span class="err">σ</span><span class="n">_zip_code</span> <span class="o">*</span> <span class="n">tf</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">n_zip_codes</span><span class="p">))</span>
+
+<span class="c1"># model</span>
+<span class="err">α</span><span class="n">_random_effects</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">gather</span><span class="p">(</span><span class="err">α</span><span class="n">_zip_code</span><span class="p">,</span> <span class="n">zip_codes_ph</span><span class="p">)</span>
+<span class="err">μ</span><span class="n">_y</span> <span class="o">=</span> <span class="err">α</span> <span class="o">+</span> <span class="err">α</span><span class="n">_random_effects</span> <span class="o">+</span> <span class="n">ed</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">fixed_effects</span><span class="p">,</span> <span class="err">β</span><span class="n">_fixed_effects</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">Normal</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="err">μ</span><span class="n">_y</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">N</span><span class="p">))</span>
+
+<span class="c1"># approximate random-effect distribution</span>
+<span class="n">qα_zip_code</span> <span class="o">=</span> <span class="n">Normal</span><span class="p">(</span>
+    <span class="n">loc</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">random_normal</span><span class="p">([</span><span class="n">n_zip_codes</span><span class="p">])),</span>
+    <span class="n">scale</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">softplus</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">random_normal</span><span class="p">([</span><span class="n">n_zip_codes</span><span class="p">])))</span>
+<span class="p">)</span>
+</pre></div>
+<h3>Infer parameters</h3>
+<div class="highlight"><pre><span></span><span class="n">latent_vars</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="err">β</span><span class="n">_fixed_effects</span><span class="p">:</span> <span class="n">qβ_fixed_effects</span><span class="p">,</span>
+    <span class="err">α</span><span class="p">:</span> <span class="n">qα</span><span class="p">,</span>
+    <span class="err">α</span><span class="n">_zip_code</span><span class="p">:</span> <span class="n">qα_zip_code</span>
+<span class="p">}</span>
+
+<span class="n">sess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">INIT_OP</span><span class="p">)</span>
+<span class="n">inference</span> <span class="o">=</span> <span class="n">ed</span><span class="o">.</span><span class="n">KLqp</span><span class="p">(</span><span class="n">latent_vars</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="p">{</span><span class="n">fixed_effects</span><span class="p">:</span> <span class="n">X_train</span><span class="p">,</span> <span class="n">zip_codes_ph</span><span class="p">:</span> <span class="n">zip_codes</span><span class="p">[</span><span class="n">train_index</span><span class="p">],</span> <span class="n">y</span><span class="p">:</span> <span class="n">y_train</span><span class="p">})</span>
+<span class="n">inference</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">n_samples</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">n_iter</span><span class="o">=</span><span class="mi">250</span><span class="p">)</span>
+</pre></div>
+<div class="highlight"><pre><span></span>250/250 [100%] ██████████████████████████████ Elapsed: 6s | Loss: 34898.613
+</pre></div>
+<h3>Criticize model</h3>
+<div class="highlight"><pre><span></span>Mean absolute error on validation data: 0.084635
+</pre></div>
+<h4>Inspect residuals</h4>
+<p><img alt="bayesian linear regression with random effects residuals" class="img-responsive" src="https://cavaunpeu.github.io/figures/bayesian_linear_regression_with_random_effects_residuals.png"/></p>
+<h3>Plot shrinkage</h3>
+<p>To illustrate shrinkage we'll pare our model down to intercepts only (removing the fixed effects entirely). We'll first fit a random-effects model on the full dataset then compute the cluster-specific-intercept posterior means. Next, we'll fit a separate model to each individual cluster and compute the intercept posterior mean of each. The plot below shows how estimates from the former can be viewed as "estimates from the latter — shrunk towards the global-intercept posterior mean."</p>
+<p>Finally, <span style="color: #377eb8">blue</span>, <span style="color: #4daf4a">green</span> and <span style="color: #ff7f00">orange</span> points represent small, medium and large clusters respectively. As mentioned before, the larger the cluster size, i.e. the more data points we've observed belonging to a given cluster, the <em>less</em> prone it is to shrinkage towards the mean.</p>
+<p><img alt="shrinkage plot" class="img-responsive" src="https://cavaunpeu.github.io/figures/shrinkage_plot.png"/></p>
+<h2>Neural network with random effects</h2>
+<p>Neural networks are powerful function approximators. Keras is a library that lets us flexibly define complex neural architectures. Thus far, we've been approximating the relationship between our fixed effects and response variable with a simple dot product; can we leverage Keras to make this relationship more expressive? Is it painless? Finally, how does it integrate with Edward's existing APIs and constructs? Can we couple nimble generative models with deep neural networks?</p>
+<p>While my experimentation was brief, all answers point delightfully towards "yes" for two simple reasons:</p>
+<ol>
+<li>Edward and Keras both run on TensorFlow.</li>
+<li>"Black-box" variational inference makes everything scale.</li>
+</ol>
+<p>This said, we must be nonetheless explicit about what's "Bayesian" and what's not, i.e. for which parameters do we infer full (approximate) posterior distributions, and for which do we infer point estimates of the posterior distribution.</p>
+<p>Below, we drop a <code>neural_network</code> in place of our dot product. Our latent variables remain <code>β_fixed_effects</code>, <code>α</code> and <code>α_zip_code</code>: while we will infer their full (approximate) posterior distributions as before, we'll only compute <em>point estimates</em> for the parameters of the neural network as in the typical case. Conversely, to the best of my knowledge, to infer full distributions for the latter, we'll need to specify our network manually in raw TensorFlow, i.e. ditch Keras entirely. We then treat our weights and biases as standard latent variables and infer their approximate posteriors via variational inference.  Edward's documentation contains a straightforward <a href="http://edwardlib.org/tutorials/bayesian-neural-network">tutorial</a> to this end.</p>
+<h3>Fit model</h3>
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">neural_network</span><span class="p">(</span><span class="n">fixed_effects</span><span class="p">,</span> <span class="err">λ</span><span class="o">=.</span><span class="mo">001</span><span class="p">,</span> <span class="n">input_dim</span><span class="o">=</span><span class="n">D</span><span class="p">):</span>
+    <span class="n">dense</span> <span class="o">=</span> <span class="n">Dense</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">'tanh'</span><span class="p">,</span> <span class="n">kernel_regularizer</span><span class="o">=</span><span class="n">l2</span><span class="p">(</span><span class="err">λ</span><span class="p">))(</span><span class="n">fixed_effects</span><span class="p">)</span>
+    <span class="n">output</span> <span class="o">=</span> <span class="n">Dense</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">'linear'</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">'output'</span><span class="p">,</span> <span class="n">kernel_regularizer</span><span class="o">=</span><span class="n">l2</span><span class="p">(</span><span class="err">λ</span><span class="p">))(</span><span class="n">dense</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">K</span><span class="o">.</span><span class="n">squeeze</span><span class="p">(</span><span class="n">output</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># model</span>
+<span class="n">fixed_effects</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">placeholder</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">float32</span><span class="p">,</span> <span class="p">[</span><span class="n">N</span><span class="p">,</span> <span class="n">D</span><span class="p">])</span>
+<span class="err">μ</span><span class="n">_y</span> <span class="o">=</span> <span class="err">α</span> <span class="o">+</span> <span class="err">α</span><span class="n">_random_effects</span> <span class="o">+</span> <span class="n">neural_network</span><span class="p">(</span><span class="n">fixed_effects</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">Normal</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="err">μ</span><span class="n">_y</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">N</span><span class="p">))</span>
+</pre></div>
+<div class="highlight"><pre><span></span><span class="n">latent_vars</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="err">β</span><span class="n">_fixed_effects</span><span class="p">:</span> <span class="n">qβ_fixed_effects</span><span class="p">,</span>
+    <span class="err">α</span><span class="p">:</span> <span class="n">qα</span><span class="p">,</span>
+    <span class="err">α</span><span class="n">_zip_code</span><span class="p">:</span> <span class="n">qα_zip_code</span>
+<span class="p">}</span>
+
+<span class="n">sess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">INIT_OP</span><span class="p">)</span>
+<span class="n">inference</span> <span class="o">=</span> <span class="n">ed</span><span class="o">.</span><span class="n">KLqp</span><span class="p">(</span><span class="n">latent_vars</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="p">{</span><span class="n">fixed_effects</span><span class="p">:</span> <span class="n">X_train</span><span class="p">,</span> <span class="n">zip_codes_ph</span><span class="p">:</span> <span class="n">zip_codes</span><span class="p">[</span><span class="n">train_index</span><span class="p">],</span> <span class="n">y</span><span class="p">:</span> <span class="n">y_train</span><span class="p">})</span>
+<span class="n">optimizer</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">train</span><span class="o">.</span><span class="n">RMSPropOptimizer</span><span class="p">(</span><span class="mf">0.01</span><span class="p">,</span> <span class="n">epsilon</span><span class="o">=</span><span class="mf">1.0</span><span class="p">)</span>
+<span class="n">inference</span><span class="o">.</span><span class="n">initialize</span><span class="p">(</span><span class="n">optimizer</span><span class="o">=</span><span class="n">optimizer</span><span class="p">)</span>
+<span class="n">inference</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">n_samples</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">n_iter</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
+</pre></div>
+<div class="highlight"><pre><span></span>1000/1000 [100%] ██████████████████████████████ Elapsed: 18s | Loss: 34446.191
+</pre></div>
+<h3>Criticize model</h3>
+<div class="highlight"><pre><span></span>Mean absolute error on validation data: 0.081484
+</pre></div>
+<h4>Inspect residuals</h4>
+<p><img alt="neural network with random effects residuals" class="img-responsive" src="https://cavaunpeu.github.io/figures/neural_network_with_random_effects_residuals.png"/></p>
+<h1>Future work</h1>
+<p>We've now laid a stable, if trivially simple foundation for building models with Edward and Keras. From here, I see two distinct paths to building more expressive probabilistic models using these tools:</p>
+<ol>
+<li>Build probabilistic models in Edward, and abstract deep-network-like subgraphs into Keras layers. This allows us to flexibly define complex neural architectures, e.g. a <a href="https://keras.io/getting-started/functional-api-guide/#video-question-answering-model">video question answering model</a>, with a nominal amount of code, yet restricts us from, or at least makes it awkward to, infer full posterior distributions for the subgraph parameters.</li>
+<li>Build probabilistic models in Edward, and specify deep-network-like subgraphs with raw TensorFlow — ditching Keras entirely. Defining deep-network-like subgraphs becomes more cumbersome, while inferring full posterior distributions for the subgraph parameters becomes more natural and consistent with the flow of Edward code.</li>
+</ol>
+<p>This work has shown a few basic variants of (generalized) Bayesian linear regression models. From here, there's tons more to explore — varying-slopes models, Gaussian process regression, mixture models and probabilistic matrix factorizations to name a random few.</p>
+<p>Edward and Keras have proven a flexible, expressive and powerful duo for performing inference in deep probabilistic models. The models we built were simple; the only direction to go, and to go rather painlessly, is more.</p>
+<p>Many thanks for reading.</p>
+<h2>Code</h2>
+<p>The <a href="https://github.com/cavaunpeu/random-effects-neural-networks">repository</a> and <a href="http://nbviewer.jupyter.org/github/cavaunpeu/random-effects-neural-networks/blob/master/zillow.ipynb">rendered notebook</a> for this project can be found at their respective links.</p>
+<h2>References</h2>
+<ol>
+<li><a href="http://edwardlib.org/tutorials/linear-mixed-effects-models">Edward - Linear Mixed Effects Models</a></li>
+<li>McElreath, Richard. "Chapter 5." Statistical Rethinking: A Bayesian Course with Examples in R and Stan. Boca Raton, FL: CRC, Taylor &amp; Francis Group, 2016. N. pag. Print.</li>
+<li>McElreath, Richard. "Chapter 12." Statistical Rethinking: A Bayesian Course with Examples in R and Stan. Boca Raton, FL: CRC, Taylor &amp; Francis Group, 2016. N. pag. Print.</li>
+<li><a href="http://twiecki.github.io/blog/2014/03/17/bayesian-glms-3/">The Best Of Both Worlds: Hierarchical Linear Regression in PyMC3</a></li>
+<li><a href="https://blog.keras.io/keras-as-a-simplified-interface-to-tensorflow-tutorial.html">Keras as a simplified interface to TensorFlow</a></li>
+<li><a href="http://cbonnett.github.io/MDN_EDWARD_KERAS_TF.html">Mixture Density Networks with Edward, Keras and TensorFlow</a></li>
+<li><a href="http://sl8r000.github.io/ab_testing_statistics/use_a_hierarchical_model/">Use a Hierarchical Model</a></li>
+<li>McElreath, Richard. "Chapter 14." Statistical Rethinking: A Bayesian Course with Examples in R and Stan. Boca Raton, FL: CRC, Taylor &amp; Francis Group, 2016. N. pag. Print.</li>
+</ol>
+<script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var align = "center",
+        indent = "0em",
+        linebreak = "false";
+
+    if (false) {
+        align = (screen.width < 768) ? "left" : align;
+        indent = (screen.width < 768) ? "0em" : indent;
+        linebreak = (screen.width < 768) ? 'true' : linebreak;
+    }
+
+    var mathjaxscript = document.createElement('script');
+    var location_protocol = (false) ? 'https' : document.location.protocol;
+    if (location_protocol !== 'http' && location_protocol !== 'https') location_protocol = 'https:';
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript';
+    mathjaxscript.src = location_protocol + '//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+    mathjaxscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: '"+ align +"'," +
+        "    displayIndent: '"+ indent +"'," +
+        "    showMathMenu: true," +
+        "    messageStyle: 'normal'," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: 'TeX'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
+        "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
+        "    }, " +
+        "}); " +
+        "if ('default' !== 'default') {" +
+            "MathJax.Hub.Register.StartupHook('HTML-CSS Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax['HTML-CSS'].FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+            "MathJax.Hub.Register.StartupHook('SVG Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax.SVG.FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+        "}";
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+</script></div>
+	<hr>
+	<h2>Comments</h2>
+<a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="willwolf_">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'willwolf';
+    var disqus_title = 'Random Effects Neural Networks in Edward and Keras';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+		</div>
+	</div> </div>
+<footer class="aw-footer bg-danger">
+	<div class="container"> <!-- footer -->
+		<div class="row">
+			<div class="col-md-10 col-md-offset-1" id="footer-wrapper">
+				<div id="social-links">
+					<h4>
+						Social:
+						<a href="http://twitter.com/willwolf_"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+						<a href="http://github.com/cavaunpeu"><i class="fa fa-github" aria-hidden="true"></i></a>
+						<a href="http://linkedin.com/in/williamabrwolf"><i class="fa fa-linkedin-square" aria-hidden="true"></i></a>
+						<a href="mailto:williamabrwolf@gmail.com"><i class="fa fa-envelope-o" aria-hidden="true"></i></a>
+					</h4>
+				</div>
+				<div id="travel-blog">
+					<h4>
+						Links:
+						<a href="http://willtravellife.com">Travel Blog</a>, <a href="https://github.com/cavaunpeu/willwolf.io-source">Source Code</a>
+					</h4>
+				</div>
+			</div>
+		</div>
+	</div>
+</footer><div class="container">
+	<div class="row">
+		<div class="col-md-12 text-center center-block aw-bottom">
+			<p>&copy; Will Wolf 2017</p>
+			<p>Powered by Pelican</p>
+		</div>
+	</div>
+</div><!-- JavaScript -->
+<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"></script>
+<script type="text/javascript">
+jQuery(document).ready(function($) {
+	$("div.collapseheader").click(function () {
+		$header = $(this).children("span").first();
+		$codearea = $(this).children(".input_area");
+		$codearea.slideToggle(500, function () {
+			$header.text(function () {
+				return $codearea.is(":visible") ? "Collapse Code" : "Expand Code";
+			});
+		});
+	});
+});
+</script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-97412095-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

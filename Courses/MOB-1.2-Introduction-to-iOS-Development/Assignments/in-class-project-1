@@ -1,0 +1,21 @@
+# In Class Project 1 - Mood Tracker
+
+## Objectives
+
+- Use Segues to manage views
+- Use Collections to store data
+- Use Table views to display data
+- Use formatters to display dates
+
+## Description
+
+Creates a Mood tracker that
+
+- Shows a list of of Moods
+- Stores the Moods with user Defaults
+- Create new Objects to represent a mood with a date
+- Update Mood Objects
+
+## Stretch Challenges
+
+- SocialFramework Actions to share mood on Twitter and FB etc.

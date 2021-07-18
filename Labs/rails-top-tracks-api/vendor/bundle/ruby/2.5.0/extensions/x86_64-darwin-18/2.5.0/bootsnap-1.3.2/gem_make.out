@@ -1,0 +1,15 @@
+current directory: /Users/droxey/dev/repos/rails-top-tracks-api/vendor/bundle/ruby/2.5.0/gems/bootsnap-1.3.2/ext/bootsnap
+/usr/local/opt/ruby/bin/ruby -r ./siteconf20181108-97417-1lpbnjv.rb extconf.rb
+creating Makefile
+
+current directory: /Users/droxey/dev/repos/rails-top-tracks-api/vendor/bundle/ruby/2.5.0/gems/bootsnap-1.3.2/ext/bootsnap
+make "DESTDIR=" clean
+
+current directory: /Users/droxey/dev/repos/rails-top-tracks-api/vendor/bundle/ruby/2.5.0/gems/bootsnap-1.3.2/ext/bootsnap
+make "DESTDIR="
+compiling bootsnap.c
+linking shared-object bootsnap/bootsnap.bundle
+
+current directory: /Users/droxey/dev/repos/rails-top-tracks-api/vendor/bundle/ruby/2.5.0/gems/bootsnap-1.3.2/ext/bootsnap
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 bootsnap.bundle ./.gem.20181108-97417-1kkitkv/bootsnap

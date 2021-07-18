@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FinalAssessmentMOB1.3/controllers/SourceViewController.swift"
+            timestampString = "573579318.0100189"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "74"
+            endingLineNumber = "74"
+            landmarkName = "processSourcesFetchRequest(data:error:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FinalAssessmentMOB1.3/controllers/SourceViewController.swift"
+            timestampString = "573579318.010613"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "93"
+            endingLineNumber = "93"
+            landmarkName = "decodeSourceItems(fromJSON:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "FinalAssessmentMOB1_3.SourceViewController.decodeSourceItems(fromJSON: Foundation.Data) -&gt; ()"
+                  moduleName = "FinalAssessmentMOB1.3"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/thomas_vandegriff/Documents/VanderVision%20Digital,%20Inc.%20(formerly%20McGuffinDigital)/Client%20Projects/Training%20Projects/Make%20School%20(started%20JAN%202019)/Curriculum%20Development%20Work/First%20Term%20worked%20-%20Term%203%20(JAN%20to%20end%20of%20Mar,%202019)/Final%20Exam%20for%20T3%20/FinalAssessmentMOB1.3/FinalAssessmentMOB1.3/controllers/SourceViewController.swift"
+                  timestampString = "573579318.131407"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "94"
+                  endingLineNumber = "94"
+                  offsetFromSymbolStart = "318">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; () in FinalAssessmentMOB1_3.SourceViewController.decodeSourceItems(fromJSON: Foundation.Data) -&gt; ()"
+                  moduleName = "FinalAssessmentMOB1.3"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/thomas_vandegriff/Documents/VanderVision%20Digital,%20Inc.%20(formerly%20McGuffinDigital)/Client%20Projects/Training%20Projects/Make%20School%20(started%20JAN%202019)/Curriculum%20Development%20Work/First%20Term%20worked%20-%20Term%203%20(JAN%20to%20end%20of%20Mar,%202019)/Final%20Exam%20for%20T3%20/FinalAssessmentMOB1.3/FinalAssessmentMOB1.3/controllers/SourceViewController.swift"
+                  timestampString = "573579318.1365401"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "95"
+                  endingLineNumber = "95"
+                  offsetFromSymbolStart = "37">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FinalAssessmentMOB1.3/controllers/SourceViewController.swift"
+            timestampString = "573579318.011024"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "55"
+            endingLineNumber = "55"
+            landmarkName = "fetchSources()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FinalAssessmentMOB1.3/controllers/SourceViewController.swift"
+            timestampString = "573579318.0113699"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "58"
+            endingLineNumber = "58"
+            landmarkName = "fetchSources()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "FinalAssessmentMOB1_3.SourceViewController.fetchSources() -&gt; ()"
+                  moduleName = "FinalAssessmentMOB1.3"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/thomas_vandegriff/Documents/VanderVision%20Digital,%20Inc.%20(formerly%20McGuffinDigital)/Client%20Projects/Training%20Projects/Make%20School%20(started%20JAN%202019)/Curriculum%20Development%20Work/First%20Term%20worked%20-%20Term%203%20(JAN%20to%20end%20of%20Mar,%202019)/Final%20Exam%20for%20T3%20/FinalAssessmentMOB1.3/FinalAssessmentMOB1.3/controllers/SourceViewController.swift"
+                  timestampString = "573579318.166847"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "59"
+                  endingLineNumber = "59"
+                  offsetFromSymbolStart = "413">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in FinalAssessmentMOB1_3.SourceViewController.fetchSources() -&gt; ()"
+                  moduleName = "FinalAssessmentMOB1.3"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/thomas_vandegriff/Documents/VanderVision%20Digital,%20Inc.%20(formerly%20McGuffinDigital)/Client%20Projects/Training%20Projects/Make%20School%20(started%20JAN%202019)/Curriculum%20Development%20Work/First%20Term%20worked%20-%20Term%203%20(JAN%20to%20end%20of%20Mar,%202019)/Final%20Exam%20for%20T3%20/FinalAssessmentMOB1.3/FinalAssessmentMOB1.3/controllers/SourceViewController.swift"
+                  timestampString = "573579318.170068"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "62"
+                  endingLineNumber = "62"
+                  offsetFromSymbolStart = "58">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FinalAssessmentMOB1.3/controllers/SourceViewController.swift"
+            timestampString = "573579318.011676"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "115"
+            endingLineNumber = "115"
+            landmarkName = "urlBuilder()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FinalAssessmentMOB1.3/controllers/SourceViewController.swift"
+            timestampString = "573579318.011981"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "112"
+            endingLineNumber = "112"
+            landmarkName = "urlBuilder()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>

@@ -1,0 +1,219 @@
+<div id="canvas-container">
+  <canvas id="main-canvas" width="400" height="400"></canvas>
+</div>
+
+<div id="thumbs">
+  <img id="my-image" src="images/IMG_1035.jpg">
+  <img src="images/IMG_1056.jpg">
+  <img src="images/IMG_1101.jpg">
+  <img src="images/IMG_1107.jpg">
+  <img src="images/IMG_1111.jpg">
+  <img src="images/IMG_1112.jpg">
+  <img src="images/IMG_1132.jpg">
+  <img src="images/IMG_1155.jpg">
+  <img src="images/IMG_1157.jpg">
+  <img src="images/IMG_1159.jpg">
+</div>
+
+
+<script>
+  const mainCanvas = document.getElementById('main-canvas');
+  const mainctx = mainCanvas.getContext('2d');
+  const imgs = document.querySelectorAll('#thumbs > img');
+
+  const w = 400
+  const h = 400
+
+  function loadImage(src, cb) {
+    const image = new Image()
+    image.src = src
+    image.onload = function() {
+      cb(image)
+    }
+  }
+
+  loadImage('images/IMG_1159.jpg', function(image) {
+    // mainctx.drawImage(image, 0, 0, 400, 400)
+    const canvas = document.createElement("canvas")
+    canvas.width = w
+    canvas.height = h
+    const ctx = canvas.getContext('2d')
+    ctx.drawImage(image, 0, 0, 400, 400)
+    const dataRaw = ctx.getImageData(0, 0, w, h).data;
+    const data = []
+    for (let i = 0; i < dataRaw.length; i += 4) {
+      data.push(dataRaw.slice(i, i + 4))
+    }
+    // makeStreak(data)
+  })
+
+  function makeStreak(data) {
+    let i = 0
+
+    setInterval(function() {
+      const r = data[i][0]
+      const g = data[i][1]
+      const b = data[i][2]
+      const a = data[i][3]
+      const c = `rgba(${r},${g},${b},${a})`
+
+      const dx = i % w
+      const dy = Math.floor(i / w)
+
+      mainctx.fillStyle = c
+      mainctx.fillRect(dx, dy, w - dx, 1)
+
+      i += 4
+    }, 1)
+  }
+
+
+  var a = function x() {
+    console.log(x, 'x() is usable inside the function.');
+  };
+  a();
+
+  try {
+    x(); // Error
+  } catch (e) {
+    console.log(true, 'x() is undefined outside the function.');
+  }
+
+
+(function() {
+  var testDeclaration = false,
+    foo;
+  // This function gets erroneously overridden in IE8.
+  function bar(arg1, bleed) {
+    if (bleed) {
+      console.log(false,
+        'Declaration bar() should NOT be callable from' + ' inside the expression.');
+    } else {
+      console.log(true,
+        'Declaration bar() should be called outside the' + ' expression.');
+    }
+    testDeclaration = true;
+  }
+  foo = function bar(declaration, recurse) {
+    if (recurse) {
+      console.log(true,
+        'Expression bar() should support scope safe recursion');
+    } else if (declaration === true) {
+      console.log(true,
+        'Expression bar() should be callable via foo()');
+      bar(false, true);
+    } else {
+      // Fails in IE8 and older
+      console.log(false,
+        'Expression bar() should NOT be callable outside the expression');
+    }
+  };
+  bar();
+  foo(true);
+  // Fails in IE8 and older
+  console.log(testDeclaration,
+    'The bar() declaration should NOT get overridden by' +
+    ' the expression bar()');
+}());
+
+
+  //  imgs.forEach((img) => {
+  //    img.onclick = clickImg
+  //  })
+  //
+  //  function clickImg(e) {
+  //    showImage(e.target.getAttribute('src'))
+  //  }
+  //
+  //  function showImage(src) {
+  //
+  //  }
+  //
+  //  const img = document.getElementById('my-image');
+  //  const canvas = document.createElement('canvas');
+  //  
+  //  const w = canvas.width
+  //  const h = canvas.height
+  //  let row = 0
+  //  let col = 0
+  //  
+  //  canvas.width = img.width;
+  //  canvas.height = img.height;
+  //  const canvasctx = canvas.getContext('2d')
+  //  // canvasctx.drawImage(img, 0, 0, img.width, img.height);
+  //  canvasctx.drawImage(img, 0, 0, img.width, img.height);
+  //  var pixelData = canvasctx.getImageData(0, 0, 1, 1).data;
+  //  
+  //  // console.log(pixelData);
+  //  // mainctx.drawImage(img, 0, 0, 400, 400 * w / h);
+  //  
+  //  // aaaaai1.
+  //  // bbbbbM0z
+  //  // mainctx.fillStyle = getColorFromData(pixelData)
+  //  // mainctx.fillRect(0, 0, 20, 20);
+  //  
+  //  function getColorFromData(data) {
+  //    return `rgba(${data[0]}, ${data[1]}, ${data[2]}, ${data[3]/255})`
+  //  }
+  //  
+  //  function fill(x, y, w, h, c) {
+  //    
+  //  }
+  //  
+  //  function onFrame(t) {
+  //    var pixel = canvasctx.getImageData(col, row, 1, 1).data;
+  //    
+  //    mainctx.fillStyle = getColorFromData(pixelData)
+  //    
+  //    mainctx.fillRect(col, row, w - col, 1);
+  //    
+  //    col += 1
+  //    
+  //    if (col > w) {
+  //      col = 0
+  //      row += 1
+  //    }
+  //    
+  //    if (row < h) {
+  //      requestAnimationFrame(onFrame)
+  //    }
+  //  }
+  //  
+  //  function startImageThing() {
+  //    const imageData = canvasctx.getImageData(col, row, w, h).data;
+  //    console.log(imageData)
+  //  }
+  //  
+  //  startImageThing()
+
+</script>
+
+
+<style>
+  #canvas-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  canvas {
+    border: solid 3px #000;
+    margin: 30px;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
+  }
+  
+  #thumbs {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  #thumbs>img {
+    width: 100px;
+    height: auto;
+    margin: 10px;
+    border: solid 3px #000;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
+  }
+
+</style>

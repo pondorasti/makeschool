@@ -1,0 +1,1 @@
+You open the door and see a large cave. in center of the cave is a pile of treasure the size of a compact car on top of which is sleeping dragon the size of a size of a large rotweiler. The drag is covered in red scales, and has a long sonuous tail that wraps the pile of treasure several times. Small puffs of flare from it's nostrils as snores. 

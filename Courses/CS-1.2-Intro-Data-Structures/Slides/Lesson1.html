@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <title>Syllabus Template Slides</title>
+    <link rel="stylesheet" href="./css/reveal.css" />
+    <link rel="stylesheet" href="./css/theme/black.css" id="theme" />
+    <link rel="stylesheet" href="./css/highlight/zenburn.css" />
+    <link rel="stylesheet" href="./css/print/paper.css" type="text/css" media="print" />
+    <link rel="stylesheet" href="./assets/Reveal/makeschool.css" />
+
+    <script>
+      document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>');
+    </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides"><section  data-markdown><script type="text/template"><!-- .slide: data-background="./../Images/header.svg" data-background-repeat="none" data-background-size="40% 40%" data-background-position="center 10%" class="header" -->
+# Fundamentals and OOP Review Part I
+
+[Slides]()
+</script></section><section  data-markdown><script type="text/template">
+## Agenda
+
+- Check In
+- Review Functions & Scope
+- Review OOP Fundamentals
+    - Encapsulation
+    - Classes
+    - Objects
+    - Methods
+    - Properties
+- Converting Functions to a Class
+</script></section><section  data-markdown><script type="text/template">
+## Check In
+
+What are you most interested in learning in this class?
+</script></section><section  data-markdown><script type="text/template">
+## Learning Goals
+
+- Be able to write and apply functions
+- Be able to write and apply OOP concepts
+- Understand how to convert a set of related functionality into a class
+</script></section><section  data-markdown><script type="text/template">
+## Functions Review
+
+We can think of functions like a recipe, the inputs or parameters are the ingredients and the output is the complete sandwich
+
+![Functions as Sandwich Recipe](Images/functionrecipe.png)
+</script></section><section  data-markdown><script type="text/template">
+## Types of Functions
+
+We can think of dividing functions into two broad categories
+- Functions that take in input, process it, and return output
+- Functions that take in input, process it, and return None
+</script></section><section  data-markdown><script type="text/template">
+## Types of Functions
+
+Let's do a code trace this function that returns the average of a list
+
+<iframe src="https://trinket.io/embed/python/7e04439ad9" width="100%" height="356" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+</script></section><section  data-markdown><script type="text/template">
+## Types of Functions
+
+Let's do a code trace of this function that prints something but returns None
+
+<iframe src="https://trinket.io/embed/python/0a8a05e9c6" width="100%" height="356" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+</script></section><section  data-markdown><script type="text/template">
+## Scope
+
+All variables have a scope associated with them. Think of the scope as when a given name can refer to a given variable. Scope can be passed down the chain from global (everything) to function (within a function definition) to block (within a for or if statement)
+</script></section><section  data-markdown><script type="text/template">
+## Scope Example
+
+Think of a function as a small community
+
+<iframe src="https://trinket.io/embed/python/2657c7b74d" width="100%" height="356" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+</script></section><section  data-markdown><script type="text/template">
+## Functions Practice
+
+Complete this exercise
+
+<iframe src="https://trinket.io/embed/python/fd3574935f" width="100%" height="356" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+</script></section><section  data-markdown><script type="text/template">
+## Object Oriented Programming
+</script></section><section  data-markdown><script type="text/template">
+## Encapsulation
+
+Bundling related data and functionality together
+Providing an interface to access this information while hiding the details
+</script></section><section  data-markdown><script type="text/template">
+## Classes
+
+A class is like a blueprint
+
+![Functions as Sandwich Recipe](Images/houseblueprint.jpeg)
+</script></section><section  data-markdown><script type="text/template">
+## Objects
+
+An object is a thing built from the blueprint
+
+![Functions as Sandwich Recipe](Images/suburbia.jpg)
+</script></section><section  data-markdown><script type="text/template">
+## Methods
+
+Methods are behaviors or functions defined within a class 
+</script></section><section  data-markdown><script type="text/template">
+## Properties
+
+Properties are data or variables defined within a class
+</script></section><section  data-markdown><script type="text/template">
+## Instantiation
+
+To create a thing (object) using the blueprint (class) we use instantiation
+</script></section><section  data-markdown><script type="text/template">
+## An Example in Python
+
+<iframe src="https://trinket.io/embed/python/959996e007" width="100%" height="356" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+</script></section><section  data-markdown><script type="text/template">
+## OOP Practice
+
+<iframe src="https://trinket.io/embed/python/47c67d0a94" width="100%" height="356" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+</script></section><section  data-markdown><script type="text/template">
+## Shout Outs
+</script></section><section  data-markdown><script type="text/template">
+## Learning Goals
+
+- Be able to write and apply functions
+- Be able to write and apply OOP concepts
+- Understand how to convert a set of related functionality into a class
+</script></section><section  data-markdown><script type="text/template">
+## Lab Time
+
+</script></section></div>
+    </div>
+
+    <script src="./js/reveal.js"></script>
+
+    <script>
+      function extend() {
+        var target = {};
+        for (var i = 0; i < arguments.length; i++) {
+          var source = arguments[i];
+          for (var key in source) {
+            if (source.hasOwnProperty(key)) {
+              target[key] = source[key];
+            }
+          }
+        }
+        return target;
+      }
+
+      // Optional libraries used to extend on reveal.js
+      var deps = [
+        { src: './plugin/markdown/marked.js', condition: function() { return !!document.querySelector('[data-markdown]'); } },
+        { src: './plugin/markdown/markdown.js', condition: function() { return !!document.querySelector('[data-markdown]'); } },
+        { src: './plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+        { src: './plugin/zoom-js/zoom.js', async: true },
+        { src: './plugin/notes/notes.js', async: true },
+        { src: './plugin/math/math.js', async: true }
+      ];
+
+      // default options to init reveal.js
+      var defaultOptions = {
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+        transition: 'default', // none/fade/slide/convex/concave/zoom
+        dependencies: deps
+      };
+
+      // options from URL query string
+      var queryOptions = Reveal.getQueryHash() || {};
+
+      var options = extend(defaultOptions, {"controls":true,"progress":true,"autoPlayMedia":false,"slideNumber":"c/t","showSlideNumber":"all","controlsTutorial":true,"controlsLayout":"edges","transition":"slide","transitionSpeed":"medium","minScale":0.5,"maxScale":3}, queryOptions);
+    </script>
+
+
+    <script>
+      Reveal.initialize(options);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,13 @@
+{
+    "controls": true,
+    "progress": true,
+    "autoPlayMedia": false,
+    "slideNumber": "c/t",
+    "showSlideNumber": "all",
+    "controlsTutorial": true,
+    "controlsLayout": "edges",
+    "transition": "slide",
+    "transitionSpeed": "medium",
+    "minScale": 0.5,
+    "maxScale": 3
+}

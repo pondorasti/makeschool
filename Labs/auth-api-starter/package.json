@@ -1,0 +1,83 @@
+{
+  "name": "auth-api-starterpack",
+  "version": "1.0.0",
+  "description": "A Boilerplate application for building REST APIs using express, mongoose in ES6 with code coverage",
+  "author": "Dani Roxberry <dani@makeschool.com>",
+  "main": "src/index.js",
+  "private": false,
+  "engines": {
+    "node": ">=8.10.0",
+    "npm": ">=5.6.0",
+    "yarn": ">=1.5.1"
+  },
+  "scripts": {
+    "start": "node src/index.js",
+    "start:debug": "cross-env DEBUG=auth-api-starterpack:* yarn start",
+    "lint": "esw *.js server config --color",
+    "lint:watch": "yarn lint -- --watch",
+    "precommit": "yarn lint && yarn test",
+    "test": "mocha ./src/test",
+    "test:watch": "yarn test -- --watch",
+    "test:coverage": "cross-env NODE_ENV=test ./node_modules/.bin/istanbul cover _mocha -- --ui bdd --reporter spec --colors server --recursive",
+    "test:check-coverage": "yarn test:coverage && istanbul check-coverage",
+    "report-coverage": "coveralls < ./coverage/lcov.info"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:make-school-labs/auth-api-starterpack.git"
+  },
+  "keywords": [
+    "express",
+    "node",
+    "node.js",
+    "mongodb",
+    "mongoose",
+    "es6",
+    "mocha",
+    "istanbul",
+    "REST",
+    "API",
+    "boilerplate",
+    "makeschool",
+    "authenticated",
+    "MVC"
+  ],
+  "dependencies": {
+    "body-parser": "1.18.2",
+    "cors": "2.8.4",
+    "debug": "^2.4.5",
+    "docsify-cli": "4.2.1",
+    "dotenv": "^4.0.0",
+    "express": "4.16.3",
+    "express-jwt": "5.3.1",
+    "http-status": "1.0.1",
+    "joi": "10.6.0",
+    "jsonwebtoken": "7.1.9",
+    "method-override": "^2.3.10",
+    "mongoose": "4.7.4"
+  },
+  "devDependencies": {
+    "chai": "4.1.2",
+    "chai-http": "^4.3.0",
+    "commitizen": "^2.9.6",
+    "coveralls": "^3.0.0",
+    "cross-env": "5.1.4",
+    "cz-conventional-changelog": "1.2.0",
+    "eslint": "3.16.1",
+    "eslint-config-airbnb-base": "7.1.0",
+    "eslint-plugin-import": "1.16.0",
+    "eslint-watch": "2.1.14",
+    "husky": "0.14.3",
+    "istanbul": "1.1.0-alpha.1",
+    "mocha": "3.5.0",
+    "supertest": "3.0.0",
+    "supertest-as-promised": "4.0.2",
+    "validate-commit-msg": "^2.14.0"
+  },
+  "license": "MIT",
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
+}

@@ -1,0 +1,3 @@
+**In Exercise 5**, change the bounds of the inner for loop to `len(list_of_nums) - 1` instead of `len(list_of_nums)` to fix the error. Because we are comparing every pair of numbers, we cannot compare the _last_ number with the one after it - because there is nothing after it! So, the last item we visit should be the second-to-last one.
+
+**In Exercise 7**, replace `start_str` with `sentence` on lines 10 and 13 to fix the bug.

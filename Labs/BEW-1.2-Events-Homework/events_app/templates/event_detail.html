@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<a href="/">Home</a>
+
+<!-- 
+    TODO: Instead of the hard-coded values, use the event object to display the
+    correct title, description, date, time, and number of guests
+-->
+
+<h1>Zoom Party!</h1>
+
+<p>Come join us for some fun zoom games!</p>
+
+<p><strong>Date:</strong> Friday March 5, 2021</p>
+<p><strong>Time:</strong> 5:00 PM</p>
+
+<p><strong>Number of Guests:</strong> 5</p>
+
+<form method="POST">
+    <fieldset>
+        <legend>RSVP</legend>
+        {% if error %}
+            <p class="error">{{ error }}</p>
+        {% endif %}
+        <p>
+            <label>
+                Your Name:
+                <input type="text" name="guest_name">
+            </label>
+        </p>
+        <p>
+            <label>
+                <input type="checkbox" name="returning" onchange="returningGuestChanged(this.checked)">
+                Returning Guest?
+            </label>
+        </p>
+        <div id="new-guest-info">
+            <p>
+                <label>
+                    Your Email Address:
+                    <input type="email" name="email">
+                </label>
+            </p>
+            <p>
+                <label>
+                    Your Phone Number:
+                    <input type="phone" name="phone">
+                </label>
+            </p>
+        </div>
+        <p>
+            <input type="submit" name="submit" value="Add">
+        </p>
+    </fieldset>
+</form>
+
+<!-- TODO: Display the actual guests attending -->
+
+<h2>Guests Attending:</h2>
+<ul>
+    
+    <li><a href="/guest/1">Meredith</a></li>
+    <li><a href="/guest/2">Dani</a></li>
+    <li><a href="/guest/3">Jordan</a></li>
+    <li><a href="/guest/4">Ducky</a></li>
+</ul>
+
+{% endblock %}

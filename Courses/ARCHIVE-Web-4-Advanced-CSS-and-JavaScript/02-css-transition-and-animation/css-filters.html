@@ -1,0 +1,237 @@
+<div class="container">
+  
+  <!-- 
+  
+  Use filters to create special effects. 
+  Filters are effects like: blur, color-rotate, 
+  contrast, and sepia. 
+  
+  Like transform filters are all applied to the filter 
+  property. 
+  
+  -->
+
+  <!-- ******************************************* -->
+  <!-- Filters - blur -->
+  <div>
+    <div class="blur"></div>
+  </div>
+  <style>
+    .blur {
+      width: 100px;
+      height: 100px;
+      background-image: url(images/o.png);
+      background-repeat: none;
+      background-position: center;
+      filter: blur(20px);
+      transition: 600ms;
+    }
+    
+    .blur:hover {
+      filter: blur(0px);
+    }
+
+  </style>
+
+  <!-- ******************************************* -->
+  <!-- Filters - grayscale -->
+  <div>
+    <div class="gray"></div>
+  </div>
+  <style>
+    .gray {
+      width: 100px;
+      height: 100px;
+      background-image: url(images/image-1.jpg);
+      background-repeat: none;
+      background-position: center;
+      background-size: cover;
+      filter: grayscale(100%);
+      transition: 400ms;
+    }
+    
+    .gray:hover {
+      filter: grayscale(0%);
+    }
+
+  </style>
+
+
+  <!-- ******************************************* -->
+  <!-- Filters - brightness -->
+  <div>
+    <div class="brightness"></div>
+  </div>
+  <style>
+    .brightness {
+      width: 100px;
+      height: 100px;
+      background-image: url(images/image-2.jpg);
+      background-repeat: none;
+      background-position: center;
+      background-size: cover;
+      filter: brightness(200%);
+      transition: 400ms;
+    }
+    
+    .brightness:hover {
+      filter: brightness(0%);
+    }
+
+  </style>
+
+  <!-- ******************************************* -->
+  <!-- Filters - color-rotate -->
+  <div>
+    <div class="color-rotate"></div>
+  </div>
+  <style>
+    .color-rotate {
+      width: 100px;
+      height: 100px;
+      background-image: url(images/image-3.jpg);
+      background-repeat: none;
+      background-position: center;
+      background-size: cover;
+      filter: hue-rotate(0deg);
+      transition: 4000ms;
+    }
+    
+    .color-rotate:hover {
+      filter: hue-rotate(360deg);
+    }
+
+  </style>
+
+  <!-- ******************************************* -->
+  <!-- Filters - Contrast -->
+  <div>
+    <div class="contrast"></div>
+  </div>
+  <style>
+    .contrast {
+      width: 100px;
+      height: 100px;
+      background-image: url(images/image-4.jpg);
+      background-repeat: none;
+      background-position: center;
+      background-size: cover;
+      filter: contrast(0);
+      transition: 400ms;
+    }
+    
+    .contrast:hover {
+      filter: contrast(100%);
+    }
+
+  </style>
+
+
+  <!-- ******************************************* -->
+  <!-- Filters - sepia -->
+  <div>
+    <div class="sepia"></div>
+  </div>
+  <style>
+    .sepia {
+      width: 100px;
+      height: 100px;
+      background-image: url(images/image-5.jpg);
+      background-repeat: none;
+      background-position: center;
+      background-size: cover;
+      filter: sepia(100%);
+      transition: 400ms;
+    }
+    
+    .sepia:hover {
+      filter: sepia(0%);
+    }
+
+  </style>
+
+  <!-- ******************************************* -->
+  <!-- Filters - invert -->
+  <div>
+    <div class="invert"></div>
+  </div>
+  <style>
+    .invert {
+      width: 100px;
+      height: 100px;
+      background-image: url(images/image-6.jpg);
+      background-repeat: none;
+      background-position: center;
+      background-size: cover;
+      filter: invert(100%);
+      transition: 400ms;
+    }
+    
+    .invert:hover {
+      filter: invert(0%);
+    }
+
+  </style>
+
+  <!-- ******************************************* -->
+  <!-- Filters - drop shadow -->
+  <div>
+    <div class="drop-shadow"></div>
+  </div>
+  <style>
+    .drop-shadow {
+      width: 100px;
+      height: 100px;
+      background-image: url(images/o.png);
+      background-repeat: none;
+      background-position: center;
+      filter: drop-shadow(0 0 1px #000);
+      transition: 400ms;
+    }
+    
+    .drop-shadow:hover {
+      filter: drop-shadow(0 0 5px #000);
+    }
+
+  </style>
+  
+  <!-- ******************************************* -->
+  <!-- Filters - drop shadow, color-rotate, blur -->
+  <div>
+    <div class="mulitple"></div>
+  </div>
+  <style>
+    .mulitple {
+      width: 100px;
+      height: 100px;
+      background-image: url(images/o.png);
+      background-repeat: none;
+      background-position: center;
+      filter: drop-shadow(0 0 0px #000) hue-rotate(180deg) blur(10px);
+      transition: 400ms;
+    }
+    
+    .mulitple:hover {
+      filter: drop-shadow(0 0 5px #000) hue-rotate(0) blur(0);
+    }
+
+  </style>
+
+  <p>For more info see this filter <a href="http://css3.bradshawenterprises.com/filters/">filter playground</a>.</p>
+
+</div>
+
+
+
+<!-- Container styles -->
+
+<style>
+  .container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 10px;
+    width: 600px;
+    margin: auto;
+  }
+
+</style>

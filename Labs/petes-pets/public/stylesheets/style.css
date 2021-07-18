@@ -1,0 +1,13 @@
+@media (min-width: 992px) {
+    .navbar-expand-lg .navbar-collapse {
+        justify-content: space-between;
+    }    
+}
+
+.navbar {
+    margin-bottom:20px;
+}
+
+.card {
+    margin-bottom:20px;
+}

@@ -1,0 +1,30 @@
+extends layout
+
+block content
+    
+  .row.justify-content-center
+    .col-sm-6
+      legend New Pet
+      form(action="/pets", method="post")
+        .form-group
+            label Name
+            input.form-control(name="name")
+        .form-group
+            label Birthday
+            input.form-control(name="birthday")
+        .form-group
+            label Species
+            input.form-control(name="species")
+        .form-group
+            label Rectangular Image URL
+            input.form-control(name="picUrl") 
+        .form-group
+            label Square Image URL
+            input.form-control(name="picUrlSq")   
+        .form-group
+            label Favorite Food
+            input.form-control(name="favoriteFood") 
+        .form-group
+            label Description
+            textarea.form-control(name="description")   
+        button(type="submit").btn.btn-primary Save

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>[SPD] Advanced Bash & Unix Utilities</title>
+    <link rel="apple-touch-icon-precomposed" sizes="57x57" href="assets/bash.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/bash.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/bash.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/bash.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="120x120" href="assets/bash.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="assets/bash.png" />
+    <link rel="icon" type="image/png" href="assets/bash.png" sizes="32x32" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Mono:500" rel="stylesheet" />
+    <link rel="stylesheet" href="css/reveal.css" />
+    <link rel="stylesheet" href="css/theme/night.css" />
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="lib/css/dracula.css" />
+    <script>
+      var link = document.createElement('link');
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+      document.getElementsByTagName('head')[0].appendChild(link);
+    </script>
+    <style></style>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section
+          data-markdown="lesson-plan.md"
+          data-separator="^\r?\n---\r?\n"
+          data-separator-vertical="^\r?\n~~~\r?\n"
+          data-separator-notes="^Note:"
+          data-charset="iso-8859-15"
+        ></section>
+      </div>
+    </div>
+
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.js"></script>
+
+    <script>
+      // More info about config & dependencies:
+      // - https://github.com/hakimel/reveal.js#configuration
+      // - https://github.com/hakimel/reveal.js#dependencies
+      Reveal.initialize({
+        history: true,
+        slideNumber: true,
+        fragmentInURL: true,
+        width: 1240,
+        height: 900,
+        dependencies: [
+          // Cross-browser shim that fully implements classList - https://github.com/eligrey/classList.js/
+          {
+            src: 'lib/js/classList.js',
+            condition: function() {
+              return !document.body.classList;
+            }
+          },
+
+          // Interpret Markdown in <section> elements
+          {
+            src: 'plugin/markdown/marked.js',
+            condition: function() {
+              return !!document.querySelector('[data-markdown]');
+            }
+          },
+          {
+            src: 'plugin/markdown/markdown.js',
+            condition: function() {
+              return !!document.querySelector('[data-markdown]');
+            }
+          },
+
+          // Syntax highlight for <code> elements
+          {
+            src: 'plugin/highlight/highlight.js',
+            async: true,
+            callback: function() {
+              hljs.initHighlightingOnLoad();
+            }
+          },
+
+          // Zoom in and out with Alt+click
+          { src: 'plugin/zoom-js/zoom.js', async: true },
+
+          // Speaker notes
+          { src: 'plugin/notes/notes.js', async: true },
+
+          // MathJax
+          { src: 'plugin/math/math.js', async: true }
+        ]
+      });
+
+      Reveal.addEventListener('ready', function(event) {
+        // event.currentSlide, event.indexh, event.indexv
+      });
+    </script>
+  </body>
+</html>

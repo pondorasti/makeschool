@@ -1,0 +1,19 @@
+<div class="row">
+    <div class="col-sm-8 col-sm-offset">
+        <div>
+            <p>ID: {{user.id}}</p>
+            <p>Username: {{user.username}}</p>
+            <p> Name: {{user.displayName}}</p>
+            <ul>
+                {{#if user.emails}}
+                {{#each user.emails}}
+                <li>Email: {{this}} </li>
+                {{/each}}
+                {{/if}}
+            </ul>
+
+        </div>
+        <a href="/logout">Log out</a>
+
+    </div>
+</div>

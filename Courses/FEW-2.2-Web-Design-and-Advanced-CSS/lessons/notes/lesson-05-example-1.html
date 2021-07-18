@@ -1,0 +1,109 @@
+<html>
+	<head>
+		<title></title>
+		<link href="lesson-05-example-1-reset.css" rel="stylesheet">
+		<style>
+			:root {
+				--color-background: #efefef;
+				--color-foreground: #444;
+				--color-dark: #000;
+				--color-light: #fff;
+				--color-md-light: #aaa;
+				--color-md-dark: #666;
+				--color-primary: #007bff;
+				--color-info: #17a2b8;
+				--color-success: #28a745;
+				--color-danger: #dc3545;
+				--color-callout: #ffa107;
+				
+				--font-stack: "Helvetica Neue";
+				--font-stack-code: Courier;
+				--font-size: 18px;
+				--font-line-height: 1.65;
+				
+				--vertical-space: 2rem;
+			}
+			
+			body {
+				background-color: var(--color-background);
+				color: var(--color-foreground);
+				font-family: var(--font-stack);
+				font-size: var(--font-size);
+				line-height: var(--font-line-height);
+			}
+			
+			p, .info, h1, h2, h3, h4, h5, h6 {
+				margin: 0 0 var(--vertical-space) 0;
+			}
+			
+			strong {
+				color: var(--color-dark);
+			}
+			
+			.info {
+				background-color: var(--color-info);
+				color: var(--color-background);
+				padding: 1em;
+				border-radius: 0.5em;
+			}
+			
+			.info p {
+				margin: 0;
+			}
+			
+			.container {
+				width: 600px;
+				margin: auto;
+			}
+
+      label > span {
+				display: block
+			}
+			
+			input, label {
+				display: block;
+			}
+			
+			form {
+				display: flex;
+				flex-direction: column;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<h1>CSS Custom Properties Example 1</h1>
+			<p>CSS Custom properties are custom properties you define.</p>
+			
+			<div class="info">
+				<p>CSS Custom properties add a whole new dimension to CSS.</p>
+			</div>
+			
+			<div class="info" style="--color-info: var(--color-danger)">
+				<p><strong style="color: var(--color-light)">Important!</strong></p>
+				<ul>
+					<li>Custom property names must begin with a double hyphen: <br><code>'--name'</code></li>
+					<li>The rest of the name should be kabobcase: <br><code>'--font-stack'</code></li> 
+					<li>Access the value of a custom property with <code>var()</code>: <br><code>var(--font-stack)</code></li>
+				</ul>
+			</div>
+			
+      <p>Custom properties are <strong>live</strong>. Unlike <em>SASS</em> where variable values are compiled and written into vanilla CSS as fixed values. Custom properties are applied whenever they change.</p>
+      
+      <form>
+        <h3>Comment</h3>
+        <p>We value your input!</p>
+        <label>
+            <span>Email</span>
+            <input type="email" placeholder="email">
+        </label>
+        <label>
+            <span>Comment</span>
+            <textarea placeholder="Your thoughts"></textarea>
+        </label>
+        <button type="submit">Submit</button>
+        <button type="reset">Cancel</button>
+      </form>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Challenge 4</title>
+  <style>
+
+    /* In this example you will need to write the selectors yourself! */
+
+    /* Style the list use the selector: ul { ... your styles here... } */
+    /* Remove the bullet list-style none */
+      
+
+    /* Style the blockquote: blockquote { ... } */
+    /* make the font large 2em */
+    /* Set the font to a serif use Gerogia */
+    /* Needs some line height 1.5 */
+      
+    /* Here are some new selectors */
+
+    /* Even numbered list items */
+    li:nth-child(even) {
+      /* Set the color #775 */
+      
+      /* Align the text to the right */
+      
+    }
+
+    /* These style will use some advanced selectors. */
+    /* You in this case you need to select only the */
+    /* odd numbered list items */
+    li:nth-child(odd) {
+      /* Set the color #757 */
+      
+      /* Align the text to the left */
+      
+    }
+  
+    /* Style the first letter */
+    blockquote::first-letter {
+      /* Set the color #000 */
+      
+      /* Try changing the font size */
+
+    }
+  
+    /* Here you need to style the authors name. */
+    /* The name is in a footer tag that is inside a blockquote. */
+    /* If you use footer as the selector it would also affect the */
+    /* the footer at the top of the page. To solve this use  */
+    /* blockqoute footer { ... } This selector will only target */
+    /* footer tags that exist inside a blockquote */
+    
+    /* Style the author */
+    blockquote footer {
+      /* Make the font smaller 0.5em */
+      
+      /* Make the font weight bold */
+      
+      /* Change the color #666 */
+      
+    }
+
+    /* Now style the footer at the bottom of the page */
+    /* This footer is a child of main. Use this selector: */
+    /* main > footer */
+    main > footer {
+      /* text align center */
+      
+    }
+
+    /* Stretch Challenges
+      
+      - Adjust the colors. 
+      - Swap the alignment. Currently the even list items are on the 
+      left and the odd numbered items are on the right. Swap these. 
+      - Choose some different fonts. The example currently uses Georgia. 
+      - Adjust the style of the author's name. Your goal is to make the 
+      legible but have a style that makes it clear that it's associated
+      with the quote but not part of quoted text itself. 
+     */
+  </style>
+</head>
+
+<body>
+<main>
+  <header>
+    <h1>Famous Quotes</h1>
+  </header>
+
+  <ul>
+    <li>
+      <blockquote>
+        <p>&ldquo;The first step toward success is taken when you refuse
+          to be a captive of the environment in which you first
+          find yourself.&rdquo;</p>
+        <footer>
+          <p>&mdash; Mark Caine</p>
+        </footer>
+      </blockquote>
+    </li>
+
+    <li>
+      <blockquote>
+        <p>&ldquo;Twenty years from now you will be more disappointed by
+          the things that you didn't do than by the ones you
+          did do.&rdquo;</p>
+        <footer>
+          <p>&mdash; Mark Twain</p>
+        </footer>
+      </blockquote>
+    </li>
+
+    <li>
+      <blockquote>
+        <p>&ldquo;Those who dare to fail miserably can achieve greatly.&rdquo;</p>
+        <footer>
+          <p>&mdash; John F. Kennedy</p>
+        </footer>
+      </blockquote>
+    </li>
+  </ul>
+
+  <footer>
+    <small>Copyright 2020 FamousQuotes.com</small>
+  </footer>
+</main>
+</body>
+
+</html>

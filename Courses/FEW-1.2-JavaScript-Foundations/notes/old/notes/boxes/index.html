@@ -1,0 +1,69 @@
+<head>
+	<style>
+		body {
+			font-family: Helvetica;
+		}
+		#boxes {
+			display: grid;
+			grid-template-columns: repeat(3, 1fr);
+			grid-gap: 10px;
+		}
+
+		.box {
+			background: red;
+			padding: 1em;
+			text-align: center;
+		}
+	</style>
+</head>
+
+<body>
+  <div id="boxes"></div>
+
+  <script>
+		const boxes = []
+		for (let c = 0; c < 3; c += 1) {
+			for (let r = 0; r < 3; r += 1) {
+				const div = document.createElement('div')
+				div.className = 'box'
+				div.innerHTML = `${r} ${c}`
+				div.addEventListener('click', (e) => {
+					console.log(`Col:${c} Row:${r}`)
+				})
+				
+				document.getElementById('boxes').appendChild(div)
+			}
+		}
+		
+		function draw(arr) {
+			if (Array.isArray(arr[0])) {
+				for (let r = 0; r < arr.length; r += 1) {
+					let rowStr = ''
+					for (let c = 0; c < arr[r].length; c += 1) {
+						rowStr += arr[r][c]
+					}
+						console.log(rowStr)
+					}
+				}
+			}
+		
+		draw([[1,2,3],[4,5,6],[7,8,9]])
+		
+		function makeGrid(width, height, value = 0) {
+			const grid = []
+			for (let r = 0; r < height; r += 1) {
+				grid.push([])
+				for (let c = 0; c < width; c += 1) {
+					grid[r].push(value)
+				}
+			}
+			return grid
+		}
+		
+		draw(makeGrid(10, 10))
+		
+		
+		
+		
+	</script>
+</body>

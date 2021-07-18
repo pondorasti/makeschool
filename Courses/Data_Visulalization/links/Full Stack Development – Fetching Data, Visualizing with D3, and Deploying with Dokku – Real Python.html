@@ -1,0 +1,786 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+<link href="//files.realpython.com" rel="dns-prefetch">
+<link href="//fonts.googleapis.com" rel="dns-prefetch">
+<link href="//fonts.gstatic.com" rel="dns-prefetch">
+<title>Full Stack Development – Fetching Data, Visualizing with D3, and Deploying with Dokku – Real Python</title>
+<meta name="author" content="Real Python">
+<meta name="description" content="In this tutorial we&#39;ll build a web application to grab data from the NASDAQ-100 and visualize it as a bubble graph with D3. Then we&#39;ll deploy this app on Digital Ocean via Dokku.">
+<meta name="keywords" content="python, web development, flask, d3, data visualizing, dokku, digital ocean. deployment">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link rel="canonical" href="https://realpython.com/web-development-with-flask-fetching-data-with-requests/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://files.realpython.com/media/flask-stock-visualizer.0427ad74f1f8.png">
+<meta property="og:image" content="https://files.realpython.com/media/flask-stock-visualizer.0427ad74f1f8.png">
+<meta name="twitter:creator" content="@realpython">
+<meta name="twitter:site" content="@realpython">
+<meta property="og:title" content="Full Stack Development – Fetching Data, Visualizing with D3, and Deploying with Dokku – Real Python">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://realpython.com/web-development-with-flask-fetching-data-with-requests/">
+<meta property="og:description" content="In this tutorial we&#39;ll build a web application to grab data from the NASDAQ-100 and visualize it as a bubble graph with D3. Then we&#39;ll deploy this app on Digital Ocean via Dokku.">
+<link href="/static/favicon.68cbf4197b0c.png" rel="icon">
+<link href="https://realpython.com/atom.xml" rel="alternate" title="Real Python" type="application/atom+xml">
+<link rel="manifest" href="/manifest.json">
+<link rel="stylesheet" href="/static/realpython.min.fef932df8ef2.css">
+<script src="https://d31vxm9ubutrmw.cloudfront.net/static/js/2153.js"></script>
+<script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-35184939-1', 'auto', {'allowLinker': true});
+      ga('require', 'linker');
+      ga('linker:autoLink', ['fastspring.com', 'realpython.onfastspring.com', 'onfastspring.com']);
+      ga('send', 'pageview');
+      
+      ga('require', 'ecommerce');
+      
+    </script>
+</head>
+<body>
+<nav class="navbar sticky-top navbar-expand-lg navbar-dark flex-column">
+<div class="container flex-row">
+<a class="navbar-brand" href="/">
+<img src="/static/real-python-logo.ab1a167d9717.svg" height="40" class="d-inline-block align-top" alt="Real Python">
+</a>
+<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+<span class="navbar-toggler-icon"></span>
+</button>
+<div class="collapse navbar-collapse" id="navbarSupportedContent">
+<ul class="navbar-nav mr-auto">
+<li class="nav-item">
+<a class="nav-link" href="/start-here/">Start Here</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="/">Tutorials</a>
+</li>
+<li class="nav-item dropdown">
+<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownBooksCourses" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+<span class="fa fa-graduation-cap"></span> Products
+</a>
+<div class="dropdown-menu" aria-labelledby="navbarDropdownBooksCourses">
+<a class="dropdown-item" href="/products/python-basics-book/">Python Basics Book</a>
+<a class="dropdown-item" href="/products/python-tricks-book/">Python Tricks Book</a>
+<a class="dropdown-item" href="/products/real-python-course/">The Real Python Course</a>
+<a class="dropdown-item" href="/products/managing-python-dependencies/">Managing Python Dependencies</a>
+<a class="dropdown-item" href="/products/sublime-python/">Sublime Text + Python Setup</a>
+<a class="dropdown-item" href="/products/pythonic-wallpapers/">Pythonic Wallpapers Pack</a>
+<a class="dropdown-item" href="https://nerdlettering.com" target="_blank">Python Mugs, T-Shirts, and More</a>
+<a class="dropdown-item" href="https://www.pythonistacafe.com" target="_blank">Pythonista Cafe Community</a>
+<a class="dropdown-item border-top" href="/products/">Browse All »</a>
+</div>
+</li>
+<li class="nav-item dropdown">
+<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMore" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+More
+</a>
+<div class="dropdown-menu" aria-labelledby="navbarDropdownMore">
+<a class="dropdown-item" href="/quizzes/">Python Quizzes</a>
+<a class="dropdown-item" href="/learning-paths/">Learning Paths</a>
+<a class="dropdown-item" href="/newsletter/">Newsletter</a>
+<a class="dropdown-item" href="/resources/">Resources</a>
+<a class="dropdown-item" href="/team/">The Team</a>
+<a class="dropdown-item" href="/write-for-us/">Join Real Python</a>
+<a class="dropdown-item" href="https://www.pythonjobshq.com" target="_blank">Python Job Board</a>
+</div>
+</li>
+</ul>
+<form class="form-inline my-2 my-lg-0" action="/search" method="GET">
+<input class="search-field form-control form-control-md mr-sm-1 mr-lg-2 w-100" type="search" placeholder="Search&hellip;" aria-label="Search" name="q">
+</form>
+</div>
+</div>
+</nav>
+<div class="container main-content">
+<div class="row justify-content-center">
+<div class="col-md-11 col-lg-8 article">
+<figure class="embed-responsive embed-responsive-16by9">
+<img class="card-img-top m-0 p-0 embed-responsive-item rounded" style="object-fit: contain;" alt="Flask stock visualizer app screenshot" src="https://files.realpython.com/media/flask-stock-visualizer.0427ad74f1f8.png" width="600" height="446" srcset="https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/flask-stock-visualizer.0427ad74f1f8.png&amp;w=150&amp;sig=02fcdf28c95d1043af7148a98c663e5c67775817 150w, https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/flask-stock-visualizer.0427ad74f1f8.png&amp;w=300&amp;sig=bb25e1be9138428810010f7e6618c41c64b259a9 300w, https://files.realpython.com/media/flask-stock-visualizer.0427ad74f1f8.png 600w" sizes="75vw">
+</figure>
+<h1>Full Stack Development – Fetching Data, Visualizing with D3, and Deploying with Dokku</h1>
+<p>
+<span class="text-muted">by <a class="text-muted" href="#team">Real Python</a>
+<span class="ml-3 mr-1 fa fa-comments"></span><a href="#reader-comments"><span class="disqus-comment-count text-muted" data-disqus-identifier="https://realpython.com/web-development-with-flask-fetching-data-with-requests/"></span></a>
+<span class="ml-3 fa fa-tags"></span>
+<a href="/tutorials/data-science/" class="badge badge-light text-muted">data-science</a>
+<a href="/tutorials/devops/" class="badge badge-light text-muted">devops</a>
+<a href="/tutorials/flask/" class="badge badge-light text-muted">flask</a>
+<a href="/tutorials/front-end/" class="badge badge-light text-muted">front-end</a>
+<a href="/tutorials/web-dev/" class="badge badge-light text-muted">web-dev</a>
+</span></p>
+<div class="article-body">
+<div class="bg-light sidebar-module sidebar-module-inset">
+<p class="h3 mb-2 text-muted">Table of Contents</p>
+<div class="toc">
+<ul>
+<li><a href="#fetching-data">Fetching Data</a><ul>
+<li><a href="#the-script">The script</a></li>
+</ul>
+</li>
+<li><a href="#visualizing">Visualizing</a></li>
+<li><a href="#bower">Bower</a><ul>
+<li><a href="#update-indexhtml">Update index.html</a></li>
+</ul>
+</li>
+<li><a href="#d3">D3</a><ul>
+<li><a href="#setup">Setup</a></li>
+<li><a href="#main-config">Main Config</a></li>
+<li><a href="#bubble-config">Bubble Config</a></li>
+<li><a href="#svg-config">SVG Config</a></li>
+<li><a href="#request-the-data">Request the Data</a></li>
+<li><a href="#tooltips">Tooltips</a></li>
+<li><a href="#refactor">Refactor</a></li>
+<li><a href="#css">CSS</a></li>
+</ul>
+</li>
+<li><a href="#deploying">Deploying</a><ul>
+<li><a href="#setup-digital-ocean">Setup Digital Ocean</a></li>
+<li><a href="#deploy-config">Deploy Config</a></li>
+<li><a href="#update-apppy">Update app.py:</a></li>
+<li><a href="#deploy">Deploy!</a></li>
+</ul>
+</li>
+<li><a href="#next-steps">Next Steps</a></li>
+</ul>
+</div>
+</div>
+<div class="sidebar-module sidebar-module-inset p-0" style="overflow:hidden;">
+<div style="display:block;position:relative;">
+<div style="display:block;width:100%;padding-top:12.5%;"></div>
+<div class="rpad" data-unit="8x1" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;"></div>
+</div>
+</div>
+<p>In this tutorial we&rsquo;ll build a web application to grab data from the <a href="http://www.nasdaq.com/quotes/nasdaq-100-stocks.aspx">NASDAQ-100</a> and visualize it as a bubble graph with D3. Then to top it off, we&rsquo;ll deploy this on Digital Ocean via Dokku.</p>
+<blockquote>
+<p><strong>Note:</strong> Bubble charts are perfect for visualizing hundreds of values in a small space. However, they are harder to read because it can be difficult to differentiate similar size circles. If you&rsquo;re working with only a few values, a bar chart is probably the better option since it&rsquo;s much easier to read.</p>
+</blockquote>
+<p>Main Tools used in this tutorial: Python v2.7.8, Flask v0.10.1, Requests v2.4.1, D3 v3.4.11, Dokku v0.2.3, and Bower v1.3.9</p>
+<p>Start by locating and downloading the file <em>_app_boilerplate.zip</em> from this <a href="https://github.com/realpython/flask-stock-visualizer">repo</a>. This file contains a Flask boilerplate. Once downloaded, extract the file and folders, activate a virtualenv, and install the dependencies with Pip:</p>
+<div class="highlight python"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="o">-</span><span class="n">r</span> <span class="n">requirements</span><span class="o">.</span><span class="n">txt</span>
+</pre></div>
+<p>Then test to make sure it works: Fire up the server, open your browser, and navigate to <a href="http://localhost:5000/">http://localhost:5000/</a>. You should see &ldquo;Hello, world!&rdquo; staring back at you.</p>
+<h2 id="fetching-data">Fetching Data</h2>
+<p>Create a new route and view function in the <em>app.py</em> file:</p>
+<div class="highlight python"><pre><span></span><span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s2">&quot;/data&quot;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">data</span><span class="p">():</span>
+    <span class="k">return</span> <span class="n">jsonify</span><span class="p">(</span><span class="n">get_data</span><span class="p">())</span>
+</pre></div>
+<p>Update the imports:</p>
+<div class="highlight python"><pre><span></span><span class="kn">from</span> <span class="nn">flask</span> <span class="k">import</span> <span class="n">Flask</span><span class="p">,</span> <span class="n">render_template</span><span class="p">,</span> <span class="n">jsonify</span>
+<span class="kn">from</span> <span class="nn">stock_scraper</span> <span class="k">import</span> <span class="n">get_data</span>
+</pre></div>
+<p>So, when that route is called, it converts the returned value from a function called <code>get_data()</code> to JSON and then returns it. This function resides in a file called <em>stock_scraper.py</em>, which - surprise! - fetches data from the NASDAQ-100.</p>
+<h3 id="the-script">The script</h3>
+<p>Add <em>stock_scraper.py</em> to the main directory.</p>
+<p><strong>Your turn</strong>: Create the script on your own, following these steps:</p>
+<ol>
+<li>Download the CSV from <a href="http://www.nasdaq.com/quotes/nasdaq-100-stocks.aspx?render=download">http://www.nasdaq.com/quotes/nasdaq-100-stocks.aspx?render=download</a>.</li>
+<li>Grab the relevant data from the CSV: stock name, stock symbol, current price, net change, percent change, volume, and value.</li>
+<li>Convert the parsed data to a Python dictionary.</li>
+<li>Return the dictionary.</li>
+</ol>
+<p>How&rsquo;d it go? Need help? Let&rsquo;s look at one possible solution:</p>
+<div class="highlight python"><pre><span></span><span class="kn">import</span> <span class="nn">csv</span>
+<span class="kn">import</span> <span class="nn">requests</span>
+
+
+<span class="n">URL</span> <span class="o">=</span> <span class="s2">&quot;http://www.nasdaq.com/quotes/nasdaq-100-stocks.aspx?render=download&quot;</span>
+
+
+<span class="k">def</span> <span class="nf">get_data</span><span class="p">():</span>
+    <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">URL</span><span class="p">)</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">text</span>
+    <span class="n">RESULTS</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;children&#39;</span><span class="p">:</span> <span class="p">[]}</span>
+    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">csv</span><span class="o">.</span><span class="n">DictReader</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">splitlines</span><span class="p">(),</span> <span class="n">skipinitialspace</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="n">RESULTS</span><span class="p">[</span><span class="s1">&#39;children&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">({</span>
+            <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="n">line</span><span class="p">[</span><span class="s1">&#39;Name&#39;</span><span class="p">],</span>
+            <span class="s1">&#39;symbol&#39;</span><span class="p">:</span> <span class="n">line</span><span class="p">[</span><span class="s1">&#39;Symbol&#39;</span><span class="p">],</span>
+            <span class="s1">&#39;symbol&#39;</span><span class="p">:</span> <span class="n">line</span><span class="p">[</span><span class="s1">&#39;Symbol&#39;</span><span class="p">],</span>
+            <span class="s1">&#39;price&#39;</span><span class="p">:</span> <span class="n">line</span><span class="p">[</span><span class="s1">&#39;lastsale&#39;</span><span class="p">],</span>
+            <span class="s1">&#39;net_change&#39;</span><span class="p">:</span> <span class="n">line</span><span class="p">[</span><span class="s1">&#39;netchange&#39;</span><span class="p">],</span>
+            <span class="s1">&#39;percent_change&#39;</span><span class="p">:</span> <span class="n">line</span><span class="p">[</span><span class="s1">&#39;pctchange&#39;</span><span class="p">],</span>
+            <span class="s1">&#39;volume&#39;</span><span class="p">:</span> <span class="n">line</span><span class="p">[</span><span class="s1">&#39;share_volume&#39;</span><span class="p">],</span>
+            <span class="s1">&#39;value&#39;</span><span class="p">:</span> <span class="n">line</span><span class="p">[</span><span class="s1">&#39;Nasdaq100_points&#39;</span><span class="p">]</span>
+        <span class="p">})</span>
+    <span class="k">return</span> <span class="n">RESULTS</span>
+</pre></div>
+<p><strong>What&rsquo;s happening?</strong></p>
+<ol>
+<li>Here, we fetch the URL via a GET request and then convert the Response object, <code>r</code>, to unicode.</li>
+<li>We then work with the <code>CSV</code> library to convert the comma delimited text into an instance of the <code>DictReader()</code> class, which maps the data to a dictionary rather than a list.</li>
+<li>Finally, after looping through the data, creating a list of dictionaries (where each dictionary represents a different stock), we return the <code>RESULTS</code> dict.</li>
+</ol>
+<blockquote>
+<p>NOTE: You could also use a dict comprehension to create the individual dictionaries. This is a much more efficient method, however you sacrifice readability. Your call.</p>
+</blockquote>
+<p><a href="https://realpython.com/python-testing/">Time to test</a>: Fire up the server and then navigate to <a href="http://localhost:5000/data">http://localhost:5000/data</a>. If all went well, you should see an object containing the relevant stock data.</p>
+<p>With the data at hand, we can now work with visualizing it on the front-end.</p>
+<h2 id="visualizing">Visualizing</h2>
+<p>Along with HTML and CSS, we&rsquo;ll be using <a href="http://getbootstrap.com/">Bootstrap</a>, Javascript/jQuery, and <a href="http://d3js.org/">D3</a> to power our front-end. We&rsquo;ll also use the client-side dependency management tool <a href="http://bower.io/">Bower</a> to download and manage these libraries.</p>
+<p><strong>Your turn</strong>: Follow the <a href="https://github.com/bower/bower#install">installation instructions</a> to setup Bower on your machine. <em>Hint: You will need to install <a href="http://nodejs.org/download/">Node.js</a> before you install Bower</em>.</p>
+<p>Ready?</p>
+<h2 id="bower">Bower</h2>
+<p>Two files are needed to get bower going - <em><a href="http://bower.io/docs/creating-packages/#bowerjson">bower.json</a></em> and <em>.<a href="http://bower.io/docs/config/">bowerrc</a></em>.</p>
+<p>The latter file is used to configure Bower. Add it to the main directory:</p>
+<div class="highlight json"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;directory&quot;</span><span class="p">:</span> <span class="s2">&quot;static/bower_components&quot;</span>
+<span class="p">}</span>
+</pre></div>
+<p>This just specifies that we want the dependencies installed in the <em>bower_components</em> directory (convention) within the app&rsquo;s <em>static</em> directory.</p>
+<p>Meanwhile, the first file, <em>bower.json</em>, stores the Bower manifest - meaning that it contains metadata about the Bower components as well as the application itself. The file can be created interactively with the <code>bower init</code> command. Do that now. Just accept all the defaults.</p>
+<p>Now, we can install the dependencies.</p>
+<div class="highlight sh"><pre><span></span><span class="gp">$</span> bower install bootstrap#3.2.0 jquery#2.1.1 d3#3.4.11 --save
+</pre></div>
+<p>The <code>--save</code> flag adds the packages to the <em>bower.json</em> dependencies array. Check it out. Also, make sure the dependency versions in <em>bower.json</em> match up to the versions we specified - i.e., <code>bootstrap#3.20</code>.</p>
+<p>With our dependencies installed, let&rsquo;s make them accessible in our app.</p>
+<h3 id="update-indexhtml">Update <em>index.html</em></h3>
+<div class="highlight html"><pre><span></span><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Flask Stock Visualizer<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;viewport&quot;</span> <span class="na">content</span><span class="o">=</span><span class="s">&quot;width=device-width, initial-scale=1.0&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">link</span> <span class="na">href</span><span class="o">=</span><span class="s">{{</span> <span class="na">url_for</span><span class="err">(&#39;</span><span class="na">static</span><span class="err">&#39;,</span> <span class="na">filename</span><span class="o">=</span><span class="s">&#39;./bower_components/bootstrap/dist/css/bootstrap.min.css&#39;</span><span class="err">)</span> <span class="err">}}</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">media</span><span class="o">=</span><span class="s">&quot;screen&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">link</span> <span class="na">href</span><span class="o">=</span><span class="s">{{</span> <span class="na">url_for</span><span class="err">(&#39;</span><span class="na">static</span><span class="err">&#39;,</span> <span class="na">filename</span><span class="o">=</span><span class="s">&#39;main.css&#39;</span><span class="err">)</span> <span class="err">}}</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">media</span><span class="o">=</span><span class="s">&quot;screen&quot;</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;container&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">{{</span> <span class="na">url_for</span><span class="err">(&#39;</span><span class="na">static</span><span class="err">&#39;,</span> <span class="na">filename</span><span class="o">=</span><span class="s">&#39;./bower_components/jquery/dist/jquery.min.js&#39;</span><span class="err">)</span> <span class="err">}}</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">{{</span> <span class="na">url_for</span><span class="err">(&#39;</span><span class="na">static</span><span class="err">&#39;,</span> <span class="na">filename</span><span class="o">=</span><span class="s">&#39;./bower_components/bootstrap/dist/js/bootstrap.min.js&#39;</span><span class="err">)</span> <span class="err">}}</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">{{</span> <span class="na">url_for</span><span class="err">(&#39;</span><span class="na">static</span><span class="err">&#39;,</span> <span class="na">filename</span><span class="o">=</span><span class="s">&#39;./bower_components/d3/d3.min.js&#39;</span><span class="err">)</span> <span class="err">}}</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">{{</span> <span class="na">url_for</span><span class="err">(&#39;</span><span class="na">static</span><span class="err">&#39;,</span> <span class="na">filename</span><span class="o">=</span><span class="s">&#39;main.js&#39;</span><span class="err">)</span> <span class="err">}}</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</pre></div>
+<h2 id="d3">D3</h2>
+<p>With so many data visualization frameworks out there, why <a href="http://d3js.org/">D3</a>? Well, D3 is fairly low level, so it let&rsquo;s you build the type of framework you want. Once you append your data to the DOM, you use a combo of CSS3, HTML5, and SVG to create the actual visualization. Then you can add interactivity through D3&rsquo;s built-in data-driven <a href="https://github.com/mbostock/d3/wiki/Transitions">transitions</a>.</p>
+<p>To be fair, this library is not for everyone. Since you have a lot of freedom to build what you want, the learning curve is fairly high. If you are looking for a quick start, check out <a href="https://github.com/areski/python-nvd3">Python-NVD3</a>, which is a wrapper for D3, used to make working with D3 much, much easier. We are not using it for this tutorial though, since Python-NVD3 does not support bubble charts.</p>
+<p><strong>Your turn</strong>: Go through the D3 <a href="http://d3js.org/#introduction">intro tutorial</a>.</p>
+<p>Now let&rsquo;s code.</p>
+<h3 id="setup">Setup</h3>
+<p>Add the following code to <em>main.js</em>:</p>
+<div class="highlight javascript"><pre><span></span><span class="c1">// Custom JavaScript</span>
+
+<span class="nx">$</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;jquery is working!&#39;</span><span class="p">);</span>
+  <span class="nx">createGraph</span><span class="p">();</span>
+<span class="p">});</span>
+
+<span class="kd">function</span> <span class="nx">createGraph</span><span class="p">()</span> <span class="p">{</span>
+  <span class="c1">// Code goes here</span>
+<span class="p">}</span>
+</pre></div>
+<p>Here, after the initial page load, we log &lsquo;jquery is working!&rsquo; to the console then fire a function called <code>createGraph()</code>. Test this out. Fire up the server then navigate to <a href="http://localhost:5000/">http://localhost:5000/</a> and with the JavaScript Console open, refresh the page. You should see the &lsquo;jquery is working!&rsquo; text if all went well.</p>
+<p>Add the following tag to the <em>index.html</em> file, within the <code>&lt;div&gt;</code> tag that has an <code>id</code> of <code>container</code> (after line 10), to hold the D3 bubble chart:</p>
+<div class="highlight html"><pre><span></span><span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;chart&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</pre></div>
+<h3 id="main-config">Main Config</h3>
+<p>Add the following code to the <code>createGraph()</code> function in <em>main.js</em>:</p>
+<div class="highlight javascript"><pre><span></span><span class="kd">var</span> <span class="nx">width</span> <span class="o">=</span> <span class="mi">960</span><span class="p">;</span> <span class="c1">// chart width</span>
+<span class="kd">var</span> <span class="nx">height</span> <span class="o">=</span> <span class="mi">700</span><span class="p">;</span> <span class="c1">// chart height</span>
+<span class="kd">var</span> <span class="nx">format</span> <span class="o">=</span> <span class="nx">d3</span><span class="p">.</span><span class="nx">format</span><span class="p">(</span><span class="s2">&quot;,d&quot;</span><span class="p">);</span>  <span class="c1">// convert value to integer</span>
+<span class="kd">var</span> <span class="nx">color</span> <span class="o">=</span> <span class="nx">d3</span><span class="p">.</span><span class="nx">scale</span><span class="p">.</span><span class="nx">category20</span><span class="p">();</span>  <span class="c1">// create ordinal scale with 20 colors</span>
+<span class="kd">var</span> <span class="nx">sizeOfRadius</span> <span class="o">=</span> <span class="nx">d3</span><span class="p">.</span><span class="nx">scale</span><span class="p">.</span><span class="nx">pow</span><span class="p">().</span><span class="nx">domain</span><span class="p">([</span><span class="o">-</span><span class="mi">100</span><span class="p">,</span><span class="mi">100</span><span class="p">]).</span><span class="nx">range</span><span class="p">([</span><span class="o">-</span><span class="mi">50</span><span class="p">,</span><span class="mi">50</span><span class="p">]);</span>  <span class="c1">// https://github.com/mbostock/d3/wiki/Quantitative-Scales#pow</span>
+</pre></div>
+<p>Be sure to consult the code comments for an explantation as well as the official D3 <a href="https://github.com/mbostock/d3/wiki/API-Reference">documentation</a>. Look anything up you don&rsquo;t understand. <em>A coder must be self-reliant!</em></p>
+<h3 id="bubble-config">Bubble Config</h3>
+<div class="highlight javascript"><pre><span></span><span class="kd">var</span> <span class="nx">bubble</span> <span class="o">=</span> <span class="nx">d3</span><span class="p">.</span><span class="nx">layout</span><span class="p">.</span><span class="nx">pack</span><span class="p">()</span>
+  <span class="p">.</span><span class="nx">sort</span><span class="p">(</span><span class="kc">null</span><span class="p">)</span>  <span class="c1">// disable sorting, use DOM tree traversal</span>
+  <span class="p">.</span><span class="nx">size</span><span class="p">([</span><span class="nx">width</span><span class="p">,</span> <span class="nx">height</span><span class="p">])</span>  <span class="c1">// chart layout size</span>
+  <span class="p">.</span><span class="nx">padding</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>  <span class="c1">// padding between circles</span>
+  <span class="p">.</span><span class="nx">radius</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">d</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="mi">20</span> <span class="o">+</span> <span class="p">(</span><span class="nx">sizeOfRadius</span><span class="p">(</span><span class="nx">d</span><span class="p">)</span> <span class="o">*</span> <span class="mi">30</span><span class="p">);</span> <span class="p">});</span>  <span class="c1">// radius for each circle</span>
+</pre></div>
+<p>Again, add the above code to the <code>createGraph()</code> function, and check the <a href="https://github.com/mbostock/d3/wiki/Pack-Layout">docs</a> for any questions.</p>
+<h3 id="svg-config">SVG Config</h3>
+<p>Next, add the following code to <code>createGraph()</code>, which select the element with the <code>id</code> of <code>chart</code>, then appends the circles along with a number of attributes:</p>
+<div class="highlight javascript"><pre><span></span><span class="kd">var</span> <span class="nx">svg</span> <span class="o">=</span> <span class="nx">d3</span><span class="p">.</span><span class="nx">select</span><span class="p">(</span><span class="s2">&quot;#chart&quot;</span><span class="p">).</span><span class="nx">append</span><span class="p">(</span><span class="s2">&quot;svg&quot;</span><span class="p">)</span>
+  <span class="p">.</span><span class="nx">attr</span><span class="p">(</span><span class="s2">&quot;width&quot;</span><span class="p">,</span> <span class="nx">width</span><span class="p">)</span>
+  <span class="p">.</span><span class="nx">attr</span><span class="p">(</span><span class="s2">&quot;height&quot;</span><span class="p">,</span> <span class="nx">height</span><span class="p">)</span>
+  <span class="p">.</span><span class="nx">attr</span><span class="p">(</span><span class="s2">&quot;class&quot;</span><span class="p">,</span> <span class="s2">&quot;bubble&quot;</span><span class="p">);</span>
+</pre></div>
+<p>Continuing with the <code>createGraph()</code> function, we now need to grab the data, which can be done asynchronously with D3.</p>
+<h3 id="request-the-data">Request the Data</h3>
+<div class="highlight javascript"><pre><span></span><span class="c1">// REQUEST THE DATA</span>
+<span class="nx">d3</span><span class="p">.</span><span class="nx">json</span><span class="p">(</span><span class="s2">&quot;/data&quot;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">quotes</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">node</span> <span class="o">=</span> <span class="nx">svg</span><span class="p">.</span><span class="nx">selectAll</span><span class="p">(</span><span class="s1">&#39;.node&#39;</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">data</span><span class="p">(</span><span class="nx">bubble</span><span class="p">.</span><span class="nx">nodes</span><span class="p">(</span><span class="nx">quotes</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">filter</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">d</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="o">!</span><span class="nx">d</span><span class="p">.</span><span class="nx">children</span><span class="p">;</span> <span class="p">}))</span>
+    <span class="p">.</span><span class="nx">enter</span><span class="p">().</span><span class="nx">append</span><span class="p">(</span><span class="s1">&#39;g&#39;</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">attr</span><span class="p">(</span><span class="s1">&#39;class&#39;</span><span class="p">,</span> <span class="s1">&#39;node&#39;</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">attr</span><span class="p">(</span><span class="s1">&#39;transform&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">d</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="s1">&#39;translate(&#39;</span> <span class="o">+</span> <span class="nx">d</span><span class="p">.</span><span class="nx">x</span> <span class="o">+</span> <span class="s1">&#39;,&#39;</span> <span class="o">+</span> <span class="nx">d</span><span class="p">.</span><span class="nx">y</span> <span class="o">+</span> <span class="s1">&#39;)&#39;</span><span class="p">});</span>
+
+    <span class="nx">node</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="s1">&#39;circle&#39;</span><span class="p">)</span>
+      <span class="p">.</span><span class="nx">attr</span><span class="p">(</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">d</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="nx">d</span><span class="p">.</span><span class="nx">r</span><span class="p">;</span> <span class="p">})</span>
+      <span class="p">.</span><span class="nx">style</span><span class="p">(</span><span class="s1">&#39;fill&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">d</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="nx">color</span><span class="p">(</span><span class="nx">d</span><span class="p">.</span><span class="nx">symbol</span><span class="p">);</span> <span class="p">});</span>
+
+    <span class="nx">node</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="s1">&#39;text&#39;</span><span class="p">)</span>
+      <span class="p">.</span><span class="nx">attr</span><span class="p">(</span><span class="s2">&quot;dy&quot;</span><span class="p">,</span> <span class="s2">&quot;.3em&quot;</span><span class="p">)</span>
+      <span class="p">.</span><span class="nx">style</span><span class="p">(</span><span class="s1">&#39;text-anchor&#39;</span><span class="p">,</span> <span class="s1">&#39;middle&#39;</span><span class="p">)</span>
+      <span class="p">.</span><span class="nx">text</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">d</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="nx">d</span><span class="p">.</span><span class="nx">symbol</span><span class="p">;</span> <span class="p">});</span>
+<span class="p">});</span>
+</pre></div>
+<p>So, we hit the <code>/data</code> endpoint that we set up earlier to return the data. The remainder of this code simply adds the bubbles and the text to the DOM. This is standard boilerplate <a href="http://bl.ocks.org/mbostock/4063269">code</a>, modified slightly for our data.</p>
+<h3 id="tooltips">Tooltips</h3>
+<p>Since we have limited room on the chart, still within the <code>createGraph()</code> function, let&rsquo;s add some tooltips that show additional information about each specific stock.</p>
+<div class="highlight javascript"><pre><span></span><span class="c1">// tooltip config</span>
+<span class="kd">var</span> <span class="nx">tooltip</span> <span class="o">=</span> <span class="nx">d3</span><span class="p">.</span><span class="nx">select</span><span class="p">(</span><span class="s2">&quot;body&quot;</span><span class="p">)</span>
+  <span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="s2">&quot;div&quot;</span><span class="p">)</span>
+  <span class="p">.</span><span class="nx">style</span><span class="p">(</span><span class="s2">&quot;position&quot;</span><span class="p">,</span> <span class="s2">&quot;absolute&quot;</span><span class="p">)</span>
+  <span class="p">.</span><span class="nx">style</span><span class="p">(</span><span class="s2">&quot;z-index&quot;</span><span class="p">,</span> <span class="s2">&quot;10&quot;</span><span class="p">)</span>
+  <span class="p">.</span><span class="nx">style</span><span class="p">(</span><span class="s2">&quot;visibility&quot;</span><span class="p">,</span> <span class="s2">&quot;hidden&quot;</span><span class="p">)</span>
+  <span class="p">.</span><span class="nx">style</span><span class="p">(</span><span class="s2">&quot;color&quot;</span><span class="p">,</span> <span class="s2">&quot;white&quot;</span><span class="p">)</span>
+  <span class="p">.</span><span class="nx">style</span><span class="p">(</span><span class="s2">&quot;padding&quot;</span><span class="p">,</span> <span class="s2">&quot;8px&quot;</span><span class="p">)</span>
+  <span class="p">.</span><span class="nx">style</span><span class="p">(</span><span class="s2">&quot;background-color&quot;</span><span class="p">,</span> <span class="s2">&quot;rgba(0, 0, 0, 0.75)&quot;</span><span class="p">)</span>
+  <span class="p">.</span><span class="nx">style</span><span class="p">(</span><span class="s2">&quot;border-radius&quot;</span><span class="p">,</span> <span class="s2">&quot;6px&quot;</span><span class="p">)</span>
+  <span class="p">.</span><span class="nx">style</span><span class="p">(</span><span class="s2">&quot;font&quot;</span><span class="p">,</span> <span class="s2">&quot;12px sans-serif&quot;</span><span class="p">)</span>
+  <span class="p">.</span><span class="nx">text</span><span class="p">(</span><span class="s2">&quot;tooltip&quot;</span><span class="p">);</span>
+</pre></div>
+<p>These are just the CSS styles associated with the tooltip. We still need to add the actual data. Update the code where we append the circles to the DOM:</p>
+<div class="highlight javascript"><pre><span></span><span class="nx">node</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="s2">&quot;circle&quot;</span><span class="p">)</span>
+  <span class="p">.</span><span class="nx">attr</span><span class="p">(</span><span class="s2">&quot;r&quot;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">d</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="nx">d</span><span class="p">.</span><span class="nx">r</span><span class="p">;</span> <span class="p">})</span>
+  <span class="p">.</span><span class="nx">style</span><span class="p">(</span><span class="s1">&#39;fill&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">d</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="nx">color</span><span class="p">(</span><span class="nx">d</span><span class="p">.</span><span class="nx">symbol</span><span class="p">);</span> <span class="p">})</span>
+
+  <span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s2">&quot;mouseover&quot;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">d</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">tooltip</span><span class="p">.</span><span class="nx">text</span><span class="p">(</span><span class="nx">d</span><span class="p">.</span><span class="nx">name</span> <span class="o">+</span> <span class="s2">&quot;: $&quot;</span> <span class="o">+</span> <span class="nx">d</span><span class="p">.</span><span class="nx">price</span><span class="p">);</span>
+    <span class="nx">tooltip</span><span class="p">.</span><span class="nx">style</span><span class="p">(</span><span class="s2">&quot;visibility&quot;</span><span class="p">,</span> <span class="s2">&quot;visible&quot;</span><span class="p">);</span>
+  <span class="p">})</span>
+  <span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s2">&quot;mousemove&quot;</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">tooltip</span><span class="p">.</span><span class="nx">style</span><span class="p">(</span><span class="s2">&quot;top&quot;</span><span class="p">,</span> <span class="p">(</span><span class="nx">d3</span><span class="p">.</span><span class="nx">event</span><span class="p">.</span><span class="nx">pageY</span><span class="o">-</span><span class="mi">10</span><span class="p">)</span><span class="o">+</span><span class="s2">&quot;px&quot;</span><span class="p">).</span><span class="nx">style</span><span class="p">(</span><span class="s2">&quot;left&quot;</span><span class="p">,(</span><span class="nx">d3</span><span class="p">.</span><span class="nx">event</span><span class="p">.</span><span class="nx">pageX</span><span class="o">+</span><span class="mi">10</span><span class="p">)</span><span class="o">+</span><span class="s2">&quot;px&quot;</span><span class="p">);</span>
+  <span class="p">})</span>
+  <span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s2">&quot;mouseout&quot;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(){</span><span class="k">return</span> <span class="nx">tooltip</span><span class="p">.</span><span class="nx">style</span><span class="p">(</span><span class="s2">&quot;visibility&quot;</span><span class="p">,</span> <span class="s2">&quot;hidden&quot;</span><span class="p">);});</span>
+</pre></div>
+<p>Test this out, navigate to <a href="http://localhost:5000/">http://localhost:5000/</a>. Now when you hoover over a circle, you&rsquo;ll see some underlying metadata - company name and stock price.</p>
+<p><strong>Your turn</strong>: Add more metadata. What other data do you think is relevant? Think of what we&rsquo;re displaying here - the relative change in price. You could perhaps calculate the previous price and show:</p>
+<ol>
+<li>Current Price</li>
+<li>Relative change</li>
+<li>Previous Price</li>
+</ol>
+<h3 id="refactor">Refactor</h3>
+<p>stocks
+What if we just wanted to visualize stocks with a modified market value-weighted index - the NASDAQ-100 Points <a href="http://www.nasdaq.com/quotes/nasdaq-100-stocks.aspx">column</a> - greater than .1?</p>
+<p>Add a conditional to the <code>get_data()</code> function:</p>
+<div class="highlight python"><pre><span></span><span class="k">def</span> <span class="nf">get_data</span><span class="p">():</span>
+    <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">URL</span><span class="p">)</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">text</span>
+    <span class="n">RESULTS</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;children&#39;</span><span class="p">:</span> <span class="p">[]}</span>
+    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">csv</span><span class="o">.</span><span class="n">DictReader</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">splitlines</span><span class="p">(),</span> <span class="n">skipinitialspace</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="k">if</span> <span class="nb">float</span><span class="p">(</span><span class="n">line</span><span class="p">[</span><span class="s1">&#39;Nasdaq100_points&#39;</span><span class="p">])</span> <span class="o">&gt;</span> <span class="o">.</span><span class="mi">01</span><span class="p">:</span>
+            <span class="n">RESULTS</span><span class="p">[</span><span class="s1">&#39;children&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">({</span>
+                <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="n">line</span><span class="p">[</span><span class="s1">&#39;Name&#39;</span><span class="p">],</span>
+                <span class="s1">&#39;symbol&#39;</span><span class="p">:</span> <span class="n">line</span><span class="p">[</span><span class="s1">&#39;Symbol&#39;</span><span class="p">],</span>
+                <span class="s1">&#39;symbol&#39;</span><span class="p">:</span> <span class="n">line</span><span class="p">[</span><span class="s1">&#39;Symbol&#39;</span><span class="p">],</span>
+                <span class="s1">&#39;price&#39;</span><span class="p">:</span> <span class="n">line</span><span class="p">[</span><span class="s1">&#39;lastsale&#39;</span><span class="p">],</span>
+                <span class="s1">&#39;net_change&#39;</span><span class="p">:</span> <span class="n">line</span><span class="p">[</span><span class="s1">&#39;netchange&#39;</span><span class="p">],</span>
+                <span class="s1">&#39;percent_change&#39;</span><span class="p">:</span> <span class="n">line</span><span class="p">[</span><span class="s1">&#39;pctchange&#39;</span><span class="p">],</span>
+                <span class="s1">&#39;volume&#39;</span><span class="p">:</span> <span class="n">line</span><span class="p">[</span><span class="s1">&#39;share_volume&#39;</span><span class="p">],</span>
+                <span class="s1">&#39;value&#39;</span><span class="p">:</span> <span class="n">line</span><span class="p">[</span><span class="s1">&#39;Nasdaq100_points&#39;</span><span class="p">]</span>
+            <span class="p">})</span>
+    <span class="k">return</span> <span class="n">RESULTS</span>
+</pre></div>
+<p>Now, let&rsquo;s increase each bubbles&rsquo; radius, in the bubble config section of <em>main.js</em>; modify the code accordingly:</p>
+<div class="highlight javascript"><pre><span></span><span class="c1">// Radius for each circle</span>
+<span class="p">.</span><span class="nx">radius</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">d</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="mi">20</span> <span class="o">+</span> <span class="p">(</span><span class="nx">sizeOfRadius</span><span class="p">(</span><span class="nx">d</span><span class="p">)</span> <span class="o">*</span> <span class="mi">60</span><span class="p">);</span> <span class="p">});</span>
+</pre></div>
+<h3 id="css">CSS</h3>
+<p>Finally, let&rsquo;s add some basic styles to <em>main.css</em>:</p>
+<div class="highlight css"><pre><span></span><span class="nt">body</span> <span class="p">{</span>
+  <span class="k">padding-top</span><span class="p">:</span> <span class="mi">20</span><span class="kt">px</span><span class="p">;</span>
+  <span class="k">font</span><span class="p">:</span> <span class="mi">12</span><span class="kt">px</span> <span class="kc">sans-serif</span><span class="p">;</span>
+  <span class="k">font-weight</span><span class="p">:</span> <span class="kc">bold</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+<p>Look good? Ready to deploy?</p>
+<h2 id="deploying">Deploying</h2>
+<p><a href="https://github.com/progrium/dokku">Dokku</a> is an open-source, Heroku-like, Platform as a Service (PaaS), powered by Docker. Once setup, you can push your app to it with Git.</p>
+<p>We&rsquo;re using <a href="https://www.digitalocean.com/">Digital Ocean</a> as our host. Let&rsquo;s get started.</p>
+<h3 id="setup-digital-ocean">Setup Digital Ocean</h3>
+<p><a href="https://cloud.digitalocean.com/registrations/new">Sign up</a> for an account, if you don&rsquo;t already have one. Then follow this <a href="https://www.digitalocean.com/community/tutorials/how-to-set-up-ssh-keys--2">guide</a> to add a public key.</p>
+<p>Create a new Droplet - specify a name, size, and location. For the image, click the &ldquo;Applications&rdquo; tab and select the Dokku application. Be sure to select your SSH key.</p>
+<p>Once created, complete the setup by entering the IP of the newly created Droplet into your browser, which will take you to the Dokku setup screen. Confirm that the public key is correct, then click &ldquo;Finish Setup&rdquo;.</p>
+<p>Now the VPS can accept pushes.</p>
+<h3 id="deploy-config">Deploy Config</h3>
+<ol>
+<li>Create a Procfile with the following code: <code>web: gunicorn app:app</code>. (This file contains the command that must run in order to start the web process.)</li>
+<li>Install gunicorn: <code>pip install gunicorn</code></li>
+<li>Update the <em>requirements.txt</em> file: <code>pip freeze &gt; requirements.txt</code></li>
+<li>Initialize a new local Git repo: <code>git init</code></li>
+<li>Add a remote: <code>git remote add dokku dokku@192.241.208.61:app_name</code> (Be sure to add your own IP address.)</li>
+</ol>
+<h3 id="update-apppy">Update <em>app.py</em>:</h3>
+<div class="highlight python"><pre><span></span><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">port</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;PORT&#39;</span><span class="p">,</span> <span class="mi">5000</span><span class="p">))</span>
+    <span class="n">app</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">host</span><span class="o">=</span><span class="s1">&#39;0.0.0.0&#39;</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="n">port</span><span class="p">)</span>
+</pre></div>
+<p>So, we first try to grab the port from the app&rsquo;s environment, and if not found, it defaults to port 5000.</p>
+<p>Make sure to update the imports as well:</p>
+<div class="highlight python"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+</pre></div>
+<h3 id="deploy">Deploy!</h3>
+<p>Commit your changes, then push: <code>git push dokku master</code>. If all went well, you should see the application&rsquo;s URL in your terminal:</p>
+<div class="highlight sh"><pre><span></span><span class="go">=====&gt; Application deployed:</span>
+<span class="go">       http://192.241.208.61:49155</span>
+</pre></div>
+<p>Test it out. Navigate to <a href="http://192.241.208.61:49155">http://192.241.208.61:49155</a>. (Again, be sure to add your own IP address along with the correct port.) You should see your live app! (See the image at the top of this post for a preview.)</p>
+<h2 id="next-steps">Next Steps</h2>
+<p>Want to take this to the next level? Add the following features to the app:</p>
+<ol>
+<li>Error Handling</li>
+<li>Unit testing</li>
+<li>Integration testing</li>
+<li>Continuous integration/delivery</li>
+</ol>
+<blockquote>
+<p>These features (and more!) will be included in the next edition of the <a href="https://realpython.com">Real Python</a> courses, coming in early October 2014!</p>
+</blockquote>
+<p>Comment below if you have questions.</p>
+<p>Cheers!</p>
+</div>
+<div class="card mt-4 mb-4 bg-secondary">
+<p class="card-header h3 text-center bg-light">🐍 Python Tricks 💌</p>
+<div class="card-body">
+<div class="container">
+<div class="row">
+<div class="col-xs-12 col-sm-7">
+<p>Get a short &amp; sweet <strong>Python Trick</strong> delivered to your inbox every couple of days. No spam ever. Unsubscribe any time. Curated by the Real Python team.</p>
+</div>
+<div class="col-xs-12 col-sm-5">
+<img class="img-fluid rounded mb-3" src="/static/pytrick-dict-merge.4201a0125a5e.png" width="738" height="490" alt="Python Tricks Dictionary Merge">
+</div>
+</div>
+<div class="row mb-3">
+<form class="col-12" action="/optins/process/" method="post">
+<input type="hidden" name="csrfmiddlewaretoken" value="1pDsgagH1ec7Pk5iCkzx2uSbGcfgNiybx3R5FAKYjCplD1VZyWjP7CEWpQlj2C41">
+<input type="hidden" name="slug" value="static-python-tricks-footer">
+<div class="form-group">
+<input name="email" type="email" class="form-control form-control-lg" placeholder="Email Address" required>
+</div>
+<button name="submit" type="submit" class="btn btn-primary btn-lg btn-block">Send Me Python Tricks »</button>
+</form>
+</div>
+</div>
+</div>
+</div>
+<div class="card mt-4" id="team">
+<p class="card-header h3">About The Team</p>
+<div class="card-body pb-0">
+<div class="container">
+<div class="row">
+<p><em>Each tutorial at Real Python is created by a team of developers so that it meets our high quality standards. The team members who worked on this tutorial are:</em></p>
+</div>
+<div class="row align-items-center w-100 mx-auto">
+<div class="col-4 col-sm-2 align-self-center">
+<a href="/team/dkearney/"><img src="https://files.realpython.com/media/u5IrCBmy_400x400.bba49ae14b8d.jpg" class="rounded-circle img-fluid w-100" alt="Derrick Kearney"></a>
+</div>
+<div class="col pl-0 d-none d-sm-block">
+<a href="/team/dkearney/" class="card-link"><p>Derrick</p></a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sidebar-module sidebar-module-inset p-0 my-4" style="overflow:hidden;">
+<div style="display:block;position:relative;">
+<div style="display:block;width:100%;padding-top:25%;"></div>
+<div class="rpad" data-unit="4x1" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;"></div>
+</div>
+</div>
+<div class="card mt-4" id="reader-comments">
+<p class="card-header h3">What Do You Think?</p>
+<div class="card-body">
+<div class="alert alert-dark">
+<p class="mb-0"><strong>Real Python Comment Policy:</strong> The most useful comments are those written with the goal of learning from or helping out other readers—after reading the whole article and all the earlier comments. Complaints and insults generally won’t make the cut here.</p>
+</div>
+<div class="mb-4" id="disqus_thread"></div>
+</div>
+</div>
+<div class="card mt-4 mb-4">
+<p class="card-header h3">Keep Reading</p>
+<div class="card-body">
+<a href="/tutorials/data-science/" class="badge badge-light text-muted">data-science</a>
+<a href="/tutorials/devops/" class="badge badge-light text-muted">devops</a>
+<a href="/tutorials/flask/" class="badge badge-light text-muted">flask</a>
+<a href="/tutorials/front-end/" class="badge badge-light text-muted">front-end</a>
+<a href="/tutorials/web-dev/" class="badge badge-light text-muted">web-dev</a>
+</div>
+</div>
+</div>
+<aside class="col-md-7 col-lg-4">
+<div class="card mb-3 bg-secondary">
+<form class="card-body" action="/optins/process/" method="post">
+<div class="form-group">
+<p class="h5 text-muted text-center">— FREE Email Series —</p>
+<p class="h3 text-center">🐍 Python Tricks 💌</p>
+<p><img class="img-fluid rounded" src="/static/pytrick-dict-merge.4201a0125a5e.png" width="738" height="490" alt="Python Tricks Dictionary Merge"></p>
+</div>
+<div class="form-group">
+<input type="hidden" name="csrfmiddlewaretoken" value="1pDsgagH1ec7Pk5iCkzx2uSbGcfgNiybx3R5FAKYjCplD1VZyWjP7CEWpQlj2C41">
+<input type="hidden" name="slug" value="static-python-tricks-sidebar">
+<input type="email" class="form-control form-control-md" name="email" placeholder="Email&hellip;" required>
+</div>
+<button type="submit" name="submit" class="btn btn-primary btn-md btn-block">Get Python Tricks »</button>
+<p class="mb-0 mt-2 text-muted text-center">🔒 No spam. Unsubscribe any time.</p>
+</form>
+</div>
+<div class="sidebar-module sidebar-module-inset border">
+<p class="h4">All Tutorial Topics</p>
+<a href="/tutorials/advanced/" class="badge badge-light text-muted">advanced</a>
+<a href="/tutorials/api/" class="badge badge-light text-muted">api</a>
+<a href="/tutorials/basics/" class="badge badge-light text-muted">basics</a>
+<a href="/tutorials/best-practices/" class="badge badge-light text-muted">best-practices</a>
+<a href="/tutorials/community/" class="badge badge-light text-muted">community</a>
+<a href="/tutorials/databases/" class="badge badge-light text-muted">databases</a>
+<a href="/tutorials/data-science/" class="badge badge-light text-muted">data-science</a>
+<a href="/tutorials/devops/" class="badge badge-light text-muted">devops</a>
+<a href="/tutorials/django/" class="badge badge-light text-muted">django</a>
+<a href="/tutorials/docker/" class="badge badge-light text-muted">docker</a>
+<a href="/tutorials/flask/" class="badge badge-light text-muted">flask</a>
+<a href="/tutorials/front-end/" class="badge badge-light text-muted">front-end</a>
+<a href="/tutorials/intermediate/" class="badge badge-light text-muted">intermediate</a>
+<a href="/tutorials/machine-learning/" class="badge badge-light text-muted">machine-learning</a>
+<a href="/tutorials/python/" class="badge badge-light text-muted">python</a>
+<a href="/tutorials/testing/" class="badge badge-light text-muted">testing</a>
+<a href="/tutorials/tools/" class="badge badge-light text-muted">tools</a>
+<a href="/tutorials/web-dev/" class="badge badge-light text-muted">web-dev</a>
+<a href="/tutorials/web-scraping/" class="badge badge-light text-muted">web-scraping</a>
+</div>
+<div class="sidebar-module sidebar-module-inset p-0" style="overflow:hidden;">
+<div style="display:block;position:relative;">
+<div style="display:block;width:100%;padding-top:100%;"></div>
+<div class="rpad" data-unit="1x1" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;"></div>
+</div>
+</div>
+<div class="sidebar-sticky">
+<div class="sidebar-module sidebar-module-inset border">
+<p class="h4">Table of Contents</p>
+<div class="toc">
+<ul>
+<li><a href="#fetching-data">Fetching Data</a><ul>
+<li><a href="#the-script">The script</a></li>
+</ul>
+</li>
+<li><a href="#visualizing">Visualizing</a></li>
+<li><a href="#bower">Bower</a><ul>
+<li><a href="#update-indexhtml">Update index.html</a></li>
+</ul>
+</li>
+<li><a href="#d3">D3</a><ul>
+<li><a href="#setup">Setup</a></li>
+<li><a href="#main-config">Main Config</a></li>
+<li><a href="#bubble-config">Bubble Config</a></li>
+<li><a href="#svg-config">SVG Config</a></li>
+<li><a href="#request-the-data">Request the Data</a></li>
+<li><a href="#tooltips">Tooltips</a></li>
+<li><a href="#refactor">Refactor</a></li>
+<li><a href="#css">CSS</a></li>
+</ul>
+</li>
+<li><a href="#deploying">Deploying</a><ul>
+<li><a href="#setup-digital-ocean">Setup Digital Ocean</a></li>
+<li><a href="#deploy-config">Deploy Config</a></li>
+<li><a href="#update-apppy">Update app.py:</a></li>
+<li><a href="#deploy">Deploy!</a></li>
+</ul>
+</li>
+<li><a href="#next-steps">Next Steps</a></li>
+</ul>
+</div>
+</div>
+<div class="sidebar-module sidebar-module-inset p-0" style="overflow:hidden;">
+<div style="display:block;position:relative;">
+<div style="display:block;width:100%;padding-top:25%;"></div>
+<div class="rpad" data-unit="4x1" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;"></div>
+</div>
+</div>
+</div>
+</aside>
+</div>
+</div>
+<footer class="footer">
+<div class="container">
+<div id="waldo-tag-2168" class="w-100 my-3 text-center"></div>
+<p class="text-center text-muted">© 2012–2019 Real Python ⋅ <a href="/newsletter/">Newsletter</a> ⋅ <a href="https://www.youtube.com/realpython">YouTube</a> ⋅ <a href="https://twitter.com/realpython">Twitter</a> ⋅ <a href="https://facebook.com/LearnRealPython">Facebook</a> ⋅ <a href="https://www.instagram.com/realpython/">Instagram</a><br><a href="/">Python Tutorials</a> ⋅ <a href="/search">Search</a> ⋅ <a href="/privacy-policy/">Privacy Policy</a> ⋅ <a href="/sponsorships/">Advertise</a> ⋅ <a href="/contact/">Contact</a><br>❤️ Happy Pythoning!</p>
+</div>
+</footer>
+<script>
+      (function(document, history, location) {
+        var HISTORY_SUPPORT = !!(history && history.pushState);
+
+        var anchorScrolls = {
+          ANCHOR_REGEX: /^#[^ ]+$/,
+          OFFSET_HEIGHT_PX: 120,
+
+          /**
+           * Establish events, and fix initial scroll position if a hash is provided.
+           */
+          init: function() {
+            this.scrollToCurrent();
+            window.addEventListener('hashchange', this.scrollToCurrent.bind(this));
+            document.body.addEventListener('click', this.delegateAnchors.bind(this));
+          },
+
+          /**
+           * Return the offset amount to deduct from the normal scroll position.
+           * Modify as appropriate to allow for dynamic calculations
+           */
+          getFixedOffset: function() {
+            return this.OFFSET_HEIGHT_PX;
+          },
+
+          /**
+           * If the provided href is an anchor which resolves to an element on the
+           * page, scroll to it.
+           * @param  {String} href
+           * @return {Boolean} - Was the href an anchor.
+           */
+          scrollIfAnchor: function(href, pushToHistory) {
+            var match, rect, anchorOffset;
+
+            if(!this.ANCHOR_REGEX.test(href)) {
+              return false;
+            }
+
+            match = document.getElementById(href.slice(1));
+
+            if(match) {
+              rect = match.getBoundingClientRect();
+              anchorOffset = window.pageYOffset + rect.top - this.getFixedOffset();
+              window.scrollTo(window.pageXOffset, anchorOffset);
+
+              // Add the state to history as-per normal anchor links
+              if(HISTORY_SUPPORT && pushToHistory) {
+                history.pushState({}, document.title, location.pathname + href);
+              }
+            }
+
+            return !!match;
+          },
+
+          /**
+           * Attempt to scroll to the current location's hash.
+           */
+          scrollToCurrent: function() {
+            this.scrollIfAnchor(window.location.hash);
+          },
+
+          /**
+           * If the click event's target was an anchor, fix the scroll position.
+           */
+          delegateAnchors: function(e) {
+            var elem = e.target;
+
+            if(
+              elem.nodeName === 'A' &&
+              this.scrollIfAnchor(elem.getAttribute('href'), true)
+            ) {
+              e.preventDefault();
+            }
+          }
+        };
+
+        window.addEventListener(
+          'DOMContentLoaded', anchorScrolls.init.bind(anchorScrolls)
+        );
+      })(window.document, window.history, window.location);
+    </script>
+<script src="/static/jquery.min.a09e13ee94d5.js"></script>
+<script src="/static/popper.min.7e58cd01528a.js"></script>
+<script src="/static/bootstrap.min.67176c242e1b.js"></script>
+<script src="/static/repl-toggle.488df965d09a.js"></script>
+<script>window.rp_prop_id = '58946116052';</script>
+<script src="https://srv.realpython.net/tag.js" async></script>
+<script id="dsq-count-scr" src="https://realpython.disqus.com/count.js" async></script>
+<script>
+    var disqus_config = function () {
+      this.page.url = 'https://realpython.com/web-development-with-flask-fetching-data-with-requests/';
+      this.page.identifier = 'https://realpython.com/web-development-with-flask-fetching-data-with-requests/';
+    };
+    (function() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://realpython.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();
+  </script>
+<script src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5ab09986ea83ff7a" async></script>
+<script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>
+<script>
+    var OneSignal = window.OneSignal || [];
+    OneSignal.push(function() {
+      OneSignal.init({
+        appId: "c0081e20-a523-42bb-b0ac-04c5a9e8bf40"
+      });
+    });
+  </script>
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "Article",
+    "headline": "Full Stack Development – Fetching Data, Visualizing with D3, and Deploying with Dokku",
+    
+    "image": {
+      "@type": "ImageObject",
+      "url": "https://files.realpython.com/media/flask-stock-visualizer.0427ad74f1f8.png",
+      "width": 600,
+      "height": 446
+    },
+    
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://realpython.com/web-development-with-flask-fetching-data-with-requests/"
+    },
+    "datePublished": "2014-10-01T13:48:03+00:00",
+    "dateModified": "2018-10-25T11:43:56.233662+00:00",
+     "publisher": {
+      "@type": "Organization",
+      "name": "Real Python",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://realpython.com/static/real-python-logo-square-tiny.b2452b6d3823.png",
+        "width": 60,
+        "height": 60
+      }
+    },
+    "author": {
+      "@type": "Organization",
+      "name": "Real Python",
+      "url": "https://realpython.com",
+      "logo": "https://realpython.com/static/real-python-logo-square.28474fda9228.png"
+    },
+    "description": "In this tutorial we&#39;ll build a web application to grab data from the NASDAQ-100 and visualize it as a bubble graph with D3. Then we&#39;ll deploy this app on Digital Ocean via Dokku."
+  }
+  </script>
+<script>
+  var _dcq = _dcq || [];
+  var _dcs = _dcs || {};
+  _dcs.account = '6214500';
+
+  (function() {
+    var dc = document.createElement('script');
+    dc.type = 'text/javascript'; dc.async = true;
+    dc.src = '//tag.getdrip.com/6214500.js';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(dc, s);
+  })();
+</script>
+<script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '2220911568135371');
+  fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=2220911568135371&ev=PageView&noscript=1"
+/></noscript>
+</body>
+</html>

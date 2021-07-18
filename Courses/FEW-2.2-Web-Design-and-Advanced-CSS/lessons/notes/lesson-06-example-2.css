@@ -1,0 +1,118 @@
+/* Colors */
+:root {
+  --color-lighter-4: #ffcccc;
+  --color-lighter-3: #ff9999;
+  --color-lighter-2: #ff6666;
+  --color-lighter-1: #ff3333;
+}
+
+:root {
+  /* Tints */
+  --color-gray-lighter-4: #e6e6e6;
+  --color-gray-lighter-3: #cdcdcd;
+  --color-gray-lighter-2: #b3b3b3;
+  --color-gray-lighter-1: #9a9a9a;
+  --color-gray: gray;
+  /* Shades */
+  --color-gray-darker-1: #676767;
+  --color-gray-darker-2: #4d4d4d;
+  --color-gray-darker-3: #343434;
+  --color-gray-darker-4: #1a1a1a;
+  /* Tints */
+  --color-primary-lighter-4: #cce5ff;
+  --color-primary-lighter-3: #99caff;
+  --color-primary-lighter-2: #66b0ff;
+  --color-primary-lighter-1: #3395ff;
+  --color-primary: #007bff;
+  /* Shades */
+  --color-primary-darker-1: #0062cc;
+  --color-primary-darker-2: #004a99;
+  --color-primary-darker-3: #003166;
+  --color-primary-darker-4: #001933;
+  /* Tints */
+  --color-info-lighter-4: #a7e9f4;
+  --color-info-lighter-3: #7adeee;
+  --color-info-lighter-2: #4cd3e9;
+  --color-info-lighter-1: #1fc8e3;
+  --color-info: #17a2b8;
+  /* Shades */
+  --color-info-darker-1: #117a8b;
+  --color-info-darker-2: #0c525d;
+  --color-info-darker-3: #062a30;
+  --color-info-darker-4: #000203;
+  /* Tints */
+  --color-success-lighter-4: #afecbd;
+  --color-success-lighter-3: #86e29b;
+  --color-success-lighter-2: #5dd879;
+  --color-success-lighter-1: #34ce57;
+  --color-success: #28a745;
+  /* Shades */
+  --color-success-darker-1: #1e7e34;
+  --color-success-darker-2: #145523;
+  --color-success-darker-3: #0a2c12;
+  --color-success-darker-4: #010201;
+  /* Tints */
+  --color-danger-lighter-4: #fae3e5;
+  --color-danger-lighter-3: #f3b7bd;
+  --color-danger-lighter-2: #eb8c95;
+  --color-danger-lighter-1: #e4606d;
+  --color-danger: #dc3545;
+  /* Shades */
+  --color-danger-darker-1: #bd2130;
+  --color-danger-darker-2: #921925;
+  --color-danger-darker-3: #66121a;
+  --color-danger-darker-4: #3b0a0f;
+  /* Tints */
+  --color-callout-lighter-4: #ffeed3;
+  --color-callout-lighter-3: #ffdba0;
+  --color-callout-lighter-2: #ffc86d;
+  --color-callout-lighter-1: #ffb43a;
+  --color-callout: #ffa107;
+  /* Shades */
+  --color-callout-darker-1: #d38300;
+  --color-callout-darker-2: #a06300;
+  --color-callout-darker-3: #6d4400;
+  --color-callout-darker-4: #3a2400;
+  /* Tints */
+  --color-secondary-lighter-4: #fff6d3;
+  --color-secondary-lighter-3: #ffeca0;
+  --color-secondary-lighter-2: #ffe26d;
+  --color-secondary-lighter-1: #ffd73a;
+  --color-secondary: #ffcd07;
+  /* Shades */
+  --color-secondary-darker-1: #d3a800;
+  --color-secondary-darker-2: #a08000;
+  --color-secondary-darker-3: #6d5700;
+  --color-secondary-darker-4: #3a2e00;
+  /* Tints */
+  --color-other-lighter-4: white;
+  --color-other-lighter-3: #f4dbf9;
+  --color-other-lighter-2: #e6b0f1;
+  --color-other-lighter-1: #d885e9;
+  --color-other: #ca5ae1;
+  /* Shades */
+  --color-other-darker-1: #bc2fd9;
+  --color-other-darker-2: #9b21b4;
+  --color-other-darker-3: #761989;
+  --color-other-darker-4: #51115e;
+  /* Tints */
+  --color-alternate-lighter-4: white;
+  --color-alternate-lighter-3: #ebdbf9;
+  --color-alternate-lighter-2: #d4b0f1;
+  --color-alternate-lighter-1: #bc85e9;
+  --color-alternate: #a45ae1;
+  /* Shades */
+  --color-alternate-darker-1: #8c2fd9;
+  --color-alternate-darker-2: #7221b4;
+  --color-alternate-darker-3: #561989;
+  --color-alternate-darker-4: #3b115e;
+  /* base Color names */
+  --color-background: var(--color-gray-lighter-4);
+  --color-foreground: var(--color-gray-darker-4);
+  --color-lightest: var(--color-gray-lighter-4);
+  --color-light: var(--color-gray-lighter-2);
+  --color-md-light:var(--color-gray);
+  --color-md-dark: var(--color-gray-darker-1);
+  --color-dark: var(--color-darker-3);
+}
+/*# sourceMappingURL=lesson-06-example-2.css.map */

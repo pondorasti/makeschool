@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>SPD 2.3</title>
+    <meta name="description" content="SPD 2.3 Testing and Architecture">
+    <meta name="author" content="Dan Morse (dan@makeschool.com)">
+    <meta property="og:site_name" content="SPD 2.3 Testing and Architecture">
+    <meta property="og:title" content="SPD 2.3">
+    <meta property="og:description" content="SPD 2.3 Testing and Architecture">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport"
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <link rel="apple-touch-icon" sizes="500x500"
+      href="https://www.makeschool.com/assets/apple-touch-icon-bac21dc3895855ecf9b4a76e8da48a91fa59db1bc7358d7cd33576b63fac2eab.png">
+    <link rel="icon" type="image/png"
+      href="https://www.makeschool.com/assets/favicon_500x500-010a022696e85dab6be51930d58c18cb7c94bb94fc6d326ece1c78bc2bdd268f.png"
+      sizes="500x500">
+    <link rel="icon" type="image/png"
+      href="https://www.makeschool.com/assets/favicon_50x50-68cece25ffd4ff9e6545769d8a525b9ba532d432318c94e33fca9b96edb8cf6a.png"
+      sizes="50x50">
+    <meta name="keywords" content="makeschool">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://make-school-courses.github.io/SPD-2.31-Testing-and-Architecture">
+    <meta property="og:image"
+      content="http://make-school-courses.github.io/SPD-2.31-Testing-and-Architecture/Web/logo-icononly.svg">
+    <meta property="og:image:secure_url"
+      content="https://make-school-courses.github.io/SPD-2.31-Testing-and-Architecture/Web/logo-icononly.svg">
+    <meta property="og:image:type" content="image/svg">
+    <meta property="og:image:width" content="250">
+    <meta property="og:image:height" content="250">
+    <meta property="og:image:alt" content="Make School">
+    <link rel="stylesheet" href="//unpkg.com/docsify/lib/themes/vue.css">
+    <link rel="stylesheet" href="Web/style.css">
+  </head>
+  <body>
+    <div id="app"></div>
+    <!-- UPDATE: Make sure to update all REPO_NAME values for your course repo in the following object.-->
+    <script>
+      window.$docsify = {
+        logo: 'Web/logo-icononly.svg',
+        name: 'SPD 2.3',
+        repo: 'Make-School-Courses/SPD-2.31-Testing-and-Architecture',
+        themeColor: '#126893',
+        formatUpdated: '{MM}/{DD} {HH}:{mm}',
+        executeScript: true,
+        auto2top: true,
+        autoHeader: true,
+        loadSidebar: true,
+        maxLevel: 6,
+        subMaxLevel: 2,
+        el: "#app",
+        maxLevel: 3,
+        loadNavbar: true,
+        themeable: {
+          readyTransition: true,
+          responsiveTables: true
+        },
+        search: {
+          maxAge: 86400000, // Expiration time, the default one day
+          paths: "auto",
+          placeholder: 'Search class content...',
+          noData: 'No Results!',
+          depth: 4,
+          hideOtherSidebarContent: false,
+          namespace: 'SPD-2.31-Testing-and-Architecture',
+        },
+        copyCode: {
+          buttonText: '📋 Click to Copy',
+          errorText: '',
+          successText: '✓'
+        },
+        'flexible-alerts': {
+          style: 'flat'
+        }
+      }
+    </script>
+    <script src="//unpkg.com/docsify-themeable"></script>
+    <script src="//unpkg.com/docsify/lib/docsify.min.js"></script>
+    <script src="//unpkg.com/docsify/lib/plugins/search.min.js"></script>
+    <script src="//unpkg.com/docsify/lib/plugins/emoji.min.js"></script>
+    <script src="//unpkg.com/docsify/lib/plugins/external-script.min.js"></script>
+    <script src="//unpkg.com/docsify-copy-code@2"></script>
+    <script src="https://unpkg.com/docsify-plugin-flexible-alerts"></script>
+    <script src="//unpkg.com/prismjs/components/prism-bash.min.js"></script>
+    <script src="//unpkg.com/prismjs/components/prism-diff.min.js"></script>
+    <script src="//unpkg.com/prismjs/components/prism-git.min.js"></script>
+    <script src="//unpkg.com/prismjs/components/prism-json.min.js"></script>
+    <script src="//unpkg.com/prismjs/components/prism-markdown.min.js"></script>
+    <script src="//unpkg.com/prismjs/components/prism-python.min.js"></script>
+    <script src="//unpkg.com/prismjs/components/prism-yaml.min.js"></script>
+    <script>
+      if (typeof navigator.serviceWorker !== 'undefined') {
+        navigator.serviceWorker.register('Web/sw.js')
+      }
+    </script>
+  </body>
+</html>

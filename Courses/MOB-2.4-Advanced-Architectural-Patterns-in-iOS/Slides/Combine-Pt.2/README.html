@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <title>Syllabus Template Slides</title>
+    <link rel="stylesheet" href="./../css/reveal.css" />
+    <link rel="stylesheet" href="./../css/theme/black.css" id="theme" />
+    <link rel="stylesheet" href="./../css/highlight/zenburn.css" />
+    <link rel="stylesheet" href="./../css/print/paper.css" type="text/css" media="print" />
+    <link rel="stylesheet" href="./../assets/Reveal/makeschool.css" />
+
+    <script>
+      document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>');
+    </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides"><section  data-markdown><script type="text/template"><!-- Run this slideshow via the following command: -->
+<!-- reveal-md README.md -w -->
+
+
+<!-- .slide: class="header" -->
+
+# Combine
+
+## [Slides](https://make-school-courses.github.io/MOB-2.4-Advanced-Architectural-Patterns-in-iOS/Slides/Combine-Pt.2/README.html ':ignore')
+</script></section><section  data-markdown><script type="text/template">
+## Learning Objectives
+
+By the end of this lesson, you will be able to:
+
+**Describe**:
+- Subjects
+- Back pressure
+
+**Implement**:
+- Subscriptions with operators
+</script></section><section ><section data-markdown><script type="text/template">
+## Review from last class
+
+Combine is a **declarative + reactive** framework for processing async events over time.
+</script></section><section data-markdown><script type="text/template">
+![components](assets/components.png)
+</script></section><section data-markdown><script type="text/template">
+![flow](assets/flow.png)
+</script></section><section data-markdown><script type="text/template">
+```swift
+let _ = Just(8)
+    .map { value -> String in
+        // do something with the incoming value here
+        return "\(value) as a string"
+    }
+    .sink { receivedValue in
+        // sink is the subscriber and terminates the pipeline
+        print("The end result was \(receivedValue)")
+    }
+```
+</script></section></section><section  data-markdown><script type="text/template">
+## Creating a custom Subscriber
+
+Playground Demo
+
+[Subscriber Docs](https://developer.apple.com/documentation/combine/subscriber)
+
+```swift
+class StringSubscriber: Subscriber {
+    typealias Input = String
+    typealias Failure = MyError
+    
+    func receive(subscription: Subscription) {
+    }
+    
+    func receive(_ input: String) -> Subscribers.Demand {
+    }
+    
+    func receive(completion: Subscribers.Completion<MyError>) {
+    }
+}
+```
+</script></section><section  data-markdown><script type="text/template">
+## Subject
+
+A special case of publisher that also follows the [Subject protocol](https://developer.apple.com/documentation/combine/subject). 
+
+Lets you inject values in a stream by calling a `send` method.
+
+A way of emitting a single value whenever you say so.
+
+<aside class = "notes">
+Subjects can act as a conductor to send values from non-Combine imperative code to Combine subscribers.
+</aside>
+</script></section><section  data-markdown><script type="text/template">
+## Built-in Subjects
+
+- 🚪🛎 [PassthroughSubject](https://heckj.github.io/swiftui-notes/#reference-passthroughsubject)
+    
+    Let's you publish new values on demand. They will pass along values and a completion event.
+
+- 🏠💡 [CurrentValueSubject](https://heckj.github.io/swiftui-notes/#reference-currentvaluesubject)
+    
+    Lets you look at the current value of a publisher.
+
+[Analogy](https://stackoverflow.com/questions/60482737/what-is-passthroughsubject-currentvaluesubject)
+
+<aside class ="notes">
+PassthroughSubject: When someone rings the door, you are notified if you are at home (you are the subscriber)
+
+CurrentValueSubject: If someone turns on the lights in your house when you are out, when you get back you'll find them turned on.
+
+</aside>
+</script></section><section  data-markdown><script type="text/template">
+## Playground Demo
+
+- PassthroughSubject
+- CurrentValueSubject
+</script></section><section  data-markdown><script type="text/template">
+## Playground Challenge
+
+Blackjack hand dealer
+</script></section><section ><section data-markdown><script type="text/template">
+## Transforming Operators
+
+**Collect**
+
+```swift
+["🐊", "🦖", "🦕", "🐢", "🐍"].publisher
+    .collect() //variation: specifying receiving up to a number of values
+    .sink(receiveCompletion: { print($0) },
+          receiveValue: { print($0) })
+```
+</script></section><section data-markdown><script type="text/template">
+**Map**
+
+```swift
+let formatter = NumberFormatter()
+formatter.numberStyle = .spellOut
+
+[8, 16, 20].publisher
+    .map {
+        formatter.string(for: NSNumber(integerLiteral: $0)) ?? ""
+    }
+    .sink(receiveValue: { print($0) })
+```
+</script></section></section><section ><section data-markdown><script type="text/template">
+## Filtering Operators
+
+**Filter**
+
+```swift
+let numbers = (1...100).publisher
+
+numbers
+    .filter { $0.isMultiple(of: 5) }
+    .sink(receiveValue: { n in
+        print("\(n) is a multiple of 5")
+    })
+```
+</script></section><section data-markdown><script type="text/template">
+**CompactMap**
+
+```swift
+let strings = ["hey", "meh", "8","0.88", "80"].publisher
+
+strings
+    .compactMap { Int($0) }
+    .sink(receiveValue: {
+        print($0)
+    })
+```
+</script></section></section><section ><section data-markdown><script type="text/template">
+## Combining Operators
+
+**Append**
+
+```swift
+let publisherA = ["1️⃣", "2️⃣", "3️⃣"].publisher
+let publisherB = ["4️⃣", "5️⃣", "6️⃣"].publisher
+
+publisherA
+    .append(publisherB)
+    .sink(receiveValue: { print($0) })
+```
+</script></section><section data-markdown><script type="text/template">
+**CombineLatest**
+
+```swift
+let publisherA = PassthroughSubject<String, Never>()
+let publisherB = PassthroughSubject<String, Never>()
+
+publisherA
+    .combineLatest(publisherB)
+    .sink(receiveCompletion: { _ in print("Completed") },
+          receiveValue: { print("\($0),\($1)") })
+```
+</script></section></section><section ><section data-markdown><script type="text/template">
+## Sequence Operators
+
+**Min**
+
+```swift
+let publisher = [100, 80, -2, 0].publisher
+
+publisher
+    .min()
+    .sink(receiveValue: { print("Smallest value: \($0)") })
+```
+</script></section><section data-markdown><script type="text/template">
+**Count**
+
+```swift
+let publisher = ["🐣", "🐣", "🐣"].publisher
+
+publisher
+    .count()
+    .sink(receiveValue: { print("I have \($0) chickens") })
+```
+</script></section><section data-markdown><script type="text/template">
+**Contains**
+
+```swift
+struct Movie {
+    let year: Int
+    let title: String
+}
+
+let movies = [
+    (2001, "Harry Potter and the Philosopher's Stone"),
+    (2002, "Harry Potter and the Chamber of Secrets"),
+    (2004, "Harry Potter and the Prisoner of Azkaban"),
+    (2005, "Harry Potter and the Goblet of Fire"),
+    (2007, "Harry Potter and the Order of the Phoenix"),
+    (2009, "Harry Potter and the Half-Blood Prince"),
+    (2010, "Harry Potter and the Deathly Hallows – Part 1"),
+    (2011, "Harry Potter and the Deathly Hallows – Part 2"),
+]
+.map(Movie.init)
+.publisher
+
+movies
+    .contains(where: { $0.year == 2005 })
+    .sink(receiveValue: { contains in
+        print(contains ? "A HP movie was released" : "No HP movie was released that year.")
+    })
+```
+</script></section></section><section  data-markdown><script type="text/template">
+## In-Class Activity
+
+Challenges in Operators.playground
+</script></section><section  data-markdown><script type="text/template">
+## After Class
+
+Look up:
+- Time manipulation operators
+- Type erasure
+</script></section><section  data-markdown><script type="text/template">
+## Additional Resources
+
+- [Using Combine](https://heckj.github.io/swiftui-notes/#coreconcepts-publisher-subscriber)
+- [Custom Subscriber](https://www.donnywals.com/understanding-combines-publishers-and-subscribers/)
+- [Publishers in Combine](https://www.donnywals.com/publishing-property-changes-in-combine/)
+- [Filtering Operators - examples](https://levelup.gitconnected.com/9-filtering-combine-operators-you-should-know-9c1ef2911352)
+- [Transforming Operators - examples](https://medium.com/better-programming/5-transforming-combine-operators-you-should-know-4603fe112d74)
+- Book: Practical Combine by Donny Walls
+- Book: Combine - Asynchronous programming with Swift By Shai Mishali, Marin Todorov, Florent Pillet and Scott Gardner
+
+</script></section></div>
+    </div>
+
+    <script src="./../js/reveal.js"></script>
+
+    <script>
+      function extend() {
+        var target = {};
+        for (var i = 0; i < arguments.length; i++) {
+          var source = arguments[i];
+          for (var key in source) {
+            if (source.hasOwnProperty(key)) {
+              target[key] = source[key];
+            }
+          }
+        }
+        return target;
+      }
+
+      // Optional libraries used to extend on reveal.js
+      var deps = [
+        { src: './../plugin/markdown/marked.js', condition: function() { return !!document.querySelector('[data-markdown]'); } },
+        { src: './../plugin/markdown/markdown.js', condition: function() { return !!document.querySelector('[data-markdown]'); } },
+        { src: './../plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+        { src: './../plugin/zoom-js/zoom.js', async: true },
+        { src: './../plugin/notes/notes.js', async: true },
+        { src: './../plugin/math/math.js', async: true }
+      ];
+
+      // default options to init reveal.js
+      var defaultOptions = {
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+        transition: 'default', // none/fade/slide/convex/concave/zoom
+        dependencies: deps
+      };
+
+      // options from URL query string
+      var queryOptions = Reveal.getQueryHash() || {};
+
+      var options = extend(defaultOptions, {"controls":true,"progress":true,"autoPlayMedia":false,"slideNumber":"c/t","showSlideNumber":"all","controlsTutorial":true,"controlsLayout":"edges","transition":"slide","transitionSpeed":"medium","minScale":0.5,"maxScale":3}, queryOptions);
+    </script>
+
+
+    <script>
+      Reveal.initialize(options);
+    </script>
+  </body>
+</html>

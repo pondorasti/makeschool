@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <title>Syllabus Template Slides</title>
+    <link rel="stylesheet" href="./../../css/reveal.css" />
+    <link rel="stylesheet" href="./../../css/theme/black.css" id="theme" />
+    <link rel="stylesheet" href="./../../css/highlight/zenburn.css" />
+    <link rel="stylesheet" href="./../../css/print/paper.css" type="text/css" media="print" />
+    <link rel="stylesheet" href="./../../assets/Reveal/makeschool.css" />
+
+    <script>
+      document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>');
+    </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides"><section  data-markdown><script type="text/template">## Creating a Singleton
+
+#### Individually
+
+Let's create a simple example of a Singleton class that designed to create an array to be used as an application's a single, globally-accessible data source.
+
+**Step 1:** Create the Singleton
+
+In a playground, create a Singleton class called `DataSource` with these members:
+
+1. An array that holds a few items:
+
+```Swift
+var creationalPatternsArray = ["Abstract Factory", "Factory Method",
+                      "Builder", "Dependency Injection", "Lazy Initialization",
+                      "Object Pool", "Prototype", "Singleton"]
+```
+
+2. A `private init()` function that only contains these two statements:</br>
+
+    ```Swift
+        print("self is:", self)
+        print("creationalPatternsArray is", creationalPatternsArray)
+      ```
+
+**Step 2:**  Instantiate the Singleton object
+
+`let data = DataSource.sharedInstance`
+
+Now, __*run*__ your playground...
+
+**Step 3:**  Below your code so far, add and invoke the following `looper()` function:
+
+```Swift
+func looper(){
+
+  for num in 1...5 {
+          _ = DataSource.sharedInstance
+          print("num is:", num)
+    }
+}
+looper()
+```
+
+__*Run*__ your playground again...
+
+
+#### As A Class
+
+Discuss...
+
+**Q:** What is surprising or noteworthy about the result of running `looper()`?
+
+**Q:** What use cases can you imagine for the Singleton pattern?
+
+   <!--
+#### Part 2 - As A Class
+
+Discuss...
+
+**Q:** How do you think this pattern works to create a single, global instance?
+
+**Q:** What advantages and disadvantages come to mind?
+-->
+
+<!-- FIRST ACTIVITY 1 - retained as fallback:
+- View [Swift 2.0 Programming : Design Patterns : The Singleton Pattern](https://www.youtube.com/watch?v=3g7zZJWEbX0) video by the funza Academy (7 mins)
+
+### 2. In Pairs - Discuss
+
+**Q:** What iOS design patterns have you used or are familiar with so far?
+
+**Q:** When have you encountered the Singleton pattern in code you've written or come across so far? (See the list of Apple examples above for ideas.)
+- Why do you think a Singleton was chosen for either (a) the Apple examples listed, or (b) code you've used or seen?
+
+### 3. As A Class
+
+- 1 or 2 students to share results of discussion with class...
+-->
+
+#### Stretch Challenge
+
+Create a networking class that will serve as a shared resource in an app. You can read [this article](https://cocoacasts.com/what-is-a-singleton-and-how-to-create-one-in-swift) to find some inspiration.
+</script></section></div>
+    </div>
+
+    <script src="./../../js/reveal.js"></script>
+
+    <script>
+      function extend() {
+        var target = {};
+        for (var i = 0; i < arguments.length; i++) {
+          var source = arguments[i];
+          for (var key in source) {
+            if (source.hasOwnProperty(key)) {
+              target[key] = source[key];
+            }
+          }
+        }
+        return target;
+      }
+
+      // Optional libraries used to extend on reveal.js
+      var deps = [
+        { src: './../../plugin/markdown/marked.js', condition: function() { return !!document.querySelector('[data-markdown]'); } },
+        { src: './../../plugin/markdown/markdown.js', condition: function() { return !!document.querySelector('[data-markdown]'); } },
+        { src: './../../plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+        { src: './../../plugin/zoom-js/zoom.js', async: true },
+        { src: './../../plugin/notes/notes.js', async: true },
+        { src: './../../plugin/math/math.js', async: true }
+      ];
+
+      // default options to init reveal.js
+      var defaultOptions = {
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+        transition: 'default', // none/fade/slide/convex/concave/zoom
+        dependencies: deps
+      };
+
+      // options from URL query string
+      var queryOptions = Reveal.getQueryHash() || {};
+
+      var options = extend(defaultOptions, {"controls":true,"progress":true,"autoPlayMedia":false,"slideNumber":"c/t","showSlideNumber":"all","controlsTutorial":true,"controlsLayout":"edges","transition":"slide","transitionSpeed":"medium","minScale":0.5,"maxScale":3}, queryOptions);
+    </script>
+
+
+    <script>
+      Reveal.initialize(options);
+    </script>
+  </body>
+</html>

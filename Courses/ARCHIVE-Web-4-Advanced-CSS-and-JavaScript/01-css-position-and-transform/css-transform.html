@@ -1,0 +1,650 @@
+<!-- 
+  Some example icons drawn with CSS 
+
+  The examples below are organized with a div displays 
+  an example followed by style element that contains 
+  the CSS for the preceding example. 
+  
+-->
+<div class="container">
+
+  <!-- ************************************************* -->
+  <!-- Use transform to move and rotate -->
+  <div>
+    <div class="f"></div>
+  </div>
+  <style>
+    .f {
+      width: 10px;
+      height: 100px;
+      left: 100px;
+      top: 50px;
+      background-color: brown;
+      /* Move */
+      transform: translate(50px, 10px) rotate(30deg);
+    }
+
+  </style>
+  <!-- ************************************************* -->
+
+
+
+  <!-- ************************************************* -->
+  <!-- Draw an X -->
+  <div>
+    <div class="gh">
+      <div class="g"></div>
+      <div class="h"></div>
+    </div>
+  </div>
+  <style>
+    /* X */
+    
+    .gh {
+      position: relative;
+      width: 100px;
+      height: 100px;
+      border: 1px solid #000;
+    }
+    
+    .gh>div {
+      width: 10px;
+      height: 100px;
+      position: absolute;
+    }
+    
+    .g {
+      background-color: blueviolet;
+      /* Transforms are applied in order! */
+      transform: translate(45px, 0) rotate(45deg);
+    }
+    
+    .h {
+      background-color: blueviolet;
+      transform: translate(45px, 0) rotate(-45deg);
+    }
+
+  </style>
+  <!-- ************************************************* -->
+
+
+
+
+  <!-- ************************************************* -->
+  <!-- Draw a circle -->
+  <div>
+    <div class="i"></div>
+  </div>
+  <style>
+    /* O */
+    
+    .i {
+      width: 100px;
+      height: 100px;
+      left: 250px;
+      top: 50px;
+      border-radius: 50%;
+      border: 10px solid blueviolet;
+    }
+
+  </style>
+  <!-- ************************************************* -->
+
+
+
+
+
+  <!-- ************************************************* -->
+  <!-- Leaf -->
+  <div>
+    <div class="j"></div>
+  </div>
+  <style>
+    /* Leaf */
+    
+    .j {
+      width: 100px;
+      height: 100px;
+      /* Corner radius can be applied to each corner */
+      border-top-left-radius: 50%;
+      border-bottom-right-radius: 50%;
+      background-color: #18d318;
+    }
+
+  </style>
+  <!-- ************************************************* -->
+  
+  
+  
+  
+  
+
+  <!-- ************************************************* -->
+  <!-- Drop -->
+  <div>
+    <div class="k"></div>
+  </div>
+  <style>
+    /* Drop */
+    
+    .k {
+      width: 100px;
+      height: 100px;
+      left: 300px;
+      top: 150px;
+      border-top-left-radius: 50%;
+      border-bottom-right-radius: 50%;
+      border-top-right-radius: 50%;
+      background-color: aqua;
+      transform: translate(20px, 10px)rotate(135deg);
+    }
+
+  </style>
+  <!-- ************************************************* -->
+
+
+
+  
+  
+  <!-- ************************************************* -->
+  <!-- Map Marker -->
+  <div>
+    <div class="l">
+      <div></div>
+    </div>
+  </div>
+  <style>
+    /* Marker */
+    
+    .l {
+      width: 100px;
+      height: 100px;
+      border-top-left-radius: 50%;
+      border-bottom-right-radius: 50%;
+      border-top-right-radius: 50%;
+      background-color: firebrick;
+      transform: translate(20px, -10px) rotate(-45deg);
+    }
+    
+    .l>div {
+      position: absolute;
+      width: 50%;
+      height: 50%;
+      background-color: white;
+      border-radius: 50%;
+      left: 25px;
+      top: 25px;
+    }
+
+  </style>
+  <!-- ************************************************* -->
+
+
+
+  
+  <!-- ************************************************* -->
+  <!-- Eye -->
+  <div>
+    <div class="a m">
+      <div>
+        <div></div>
+      </div>
+    </div>
+  </div>
+  <style>
+    /* Eye */
+    
+    .m {
+      width: 100px;
+      height: 100px;
+      border-top-left-radius: 50%;
+      border-bottom-right-radius: 50%;
+      background-color: white;
+      border-width: 10px;
+      border-style: solid;
+      border-color: black;
+      position: absolute;
+      transform: translate(20px, -10px) rotate(45deg);
+    }
+    
+    .m>div {
+      width: 40%;
+      height: 40%;
+      background-color: white;
+      border-radius: 50%;
+      border: solid 20px black;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
+    
+    .m>div>div {
+      background-color: black;
+      border-radius: 50%;
+      width: 45%;
+      height: 45%;
+      position: absolute;
+      left: -3px;
+      top: 10px;
+    }
+
+  </style>
+  <!-- ************************************************* -->
+
+
+
+
+
+  <!-- ************************************************* -->
+  <!-- Heart -->
+  <div>
+    <div class="a n">
+      <div></div>
+    </div>
+  </div>
+  <style>
+    /* Heart */
+    
+    .n {
+      position: absolute;
+      border-radius: 40px 40px 0 0;
+      width: 80px;
+      height: 120px;
+      background-color: pink;
+      transform: translate(40px, -20px) rotate(-45deg);
+    }
+    
+    .n>div {
+      width: 80px;
+      height: 120px;
+      border-radius: 40px 40px 0 0;
+      background-color: pink;
+      transform: rotate(90deg) translate(20px, -20px);
+    }
+
+  </style>
+  <!-- ************************************************* -->
+  
+  
+  
+  
+
+  <!-- ************************************************* -->
+  <!-- Heart 2 -->
+  <div>
+    <div class="a o">
+      <div></div>
+      <div></div>
+    </div>
+  </div>
+  <style>
+    /* Heart 2*/
+    
+    .o {
+      border-radius: 40px 40px 0 0;
+      width: 80px;
+      height: 120px;
+      background-color: rgba(0, 149, 255, 0.56);
+      transform: rotate(-45deg);
+    }
+    
+    .o>div:first-child {
+      width: 80px;
+      height: 120px;
+      border-radius: 40px 40px 0 0;
+      background-color: rgba(233, 30, 99, 0.5);
+      transform: rotate(90deg) translate(20px, -20px);
+    }
+    
+    .o>div:last-child {
+      width: 66px;
+      height: 66px;
+      border-radius: 33px 33px 33px 0;
+      background-color: rgba(233, 30, 99, 0.58);
+      transform: translate(-0px, -66px);
+    }
+
+  </style>
+  <!-- ************************************************* -->
+
+
+
+  
+  <!-- ************************************************* -->
+  <!-- Slacklike -->
+  <div>
+    <div class="a p">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </div>
+  <style>
+    /* Slack Logo */
+    
+    .p {
+      width: 100px;
+      height: 100px;
+      /* Use Skew */
+      transform: skewX(-10deg);
+    }
+    
+    .p>div {
+      width: 18px;
+      height: 100px;
+      position: absolute;
+      border-radius: 9px;
+    }
+    
+    .p>div:nth-child(1) {
+      background-color: rgba(76, 175, 80, 0.74);
+      top: 0;
+      left: 20px;
+    }
+    
+    .p>div:nth-child(2) {
+      background-color: rgba(255, 193, 7, 0.81);
+      top: 0;
+      right: 20px;
+    }
+    
+    .p>div:nth-child(3) {
+      width: 100px;
+      height: 18px;
+      background-color: rgba(233, 30, 86, 0.62);
+      bottom: 20px;
+      left: 0;
+    }
+    
+    .p>div:nth-child(4) {
+      width: 100px;
+      height: 18px;
+      background-color: rgba(3, 169, 244, 0.45);
+      left: 0;
+      top: 20px;
+    }
+
+  </style>
+  <!-- ************************************************* -->
+
+  
+  
+  
+  <!-- ************************************************* -->
+  <!-- Hamburger -->
+  <div>
+    <div class="a r">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </div>
+  <style>
+    /* Hamburger */
+    
+    .r {
+      width: 100px;
+      height: 100px;
+    }
+    
+    .r>div {
+      margin: 1px;
+    }
+    
+    .r>div:nth-child(1) {
+      width: 100%;
+      height: 25%;
+      background-color: #d6a93b;
+      border-radius: 40px 40px 15px 15px;
+    }
+    
+    .r>div:nth-child(2) {
+      width: 100%;
+      height: 4px;
+      background-color: #fd481d;
+      border-radius: 2px;
+    }
+    
+    .r>div:nth-child(3) {
+      width: 100%;
+      height: 4px;
+      background-color: #1bc134;
+      border-radius: 2px;
+    }
+    
+    .r>div:nth-child(4) {
+      width: 100%;
+      height: 4px;
+      background-color: #ffcb20;
+      border-radius: 2px;
+    }
+    
+    .r>div:nth-child(5) {
+      width: 100%;
+      height: 12px;
+      background-color: #5d4c1b;
+      border-radius: 5px;
+    }
+    
+    .r>div:nth-child(6) {
+      width: 100%;
+      height: 15%;
+      background-color: #d1a63c;
+      border-radius: 3px 3px 8px 8px;
+    }
+
+  </style>
+  <!-- ************************************************* -->
+  
+  
+  
+  
+  
+  
+  <!-- ************************************************* -->
+  <!-- Landscape -->
+  <div>
+    <div class="landscape">
+      <div class="sun"></div>
+
+      <div class="clouds cloud-1"></div>
+      <div class="clouds cloud-2"></div>
+      <div class="clouds cloud-3"></div>
+      <div class="clouds cloud-4"></div>
+
+      <div class="hills hill-0"></div>
+      <div class="hills hill-1"></div>
+      <div class="hills hill-2"></div>
+    </div>
+  </div>
+
+  <style>
+    .landscape {
+      position: relative;
+      width: 100%;
+      height: 120px;
+      background-image: linear-gradient(to bottom, #3b8eff, #759aff);
+      overflow: hidden;
+    }
+    
+    .sun {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: yellow;
+      box-shadow: 0 0 23px #fff;
+      transform: translate(22px, 10px)
+    }
+    
+    .clouds {
+      position: absolute;
+      background-image: linear-gradient(to bottom, #f7faff, #d3dfff);
+      height: 20px;
+      width: 60px;
+      border-radius: 50%;
+    }
+    
+    .cloud-1 {
+      transform: translate(40px, 30px);
+    }
+    
+    .cloud-2 {
+      transform: translate(80px, 35px);
+    }
+    
+    .cloud-3 {
+      transform: translate(120px, 10px);
+    }
+    
+    .cloud-4 {
+      transform: translate(45px, 40px);
+      width: 44px;
+      height: 12px
+    }
+    
+    .hills {
+      position: absolute;
+      border-radius: 50%;
+    }
+    
+    .hill-0 {
+      width: 400%;
+      height: 80px;
+      transform: translate(-16px, 74px);
+      background-image: linear-gradient(to bottom, #33952b, #258634);
+    }
+    
+    .hill-1 {
+      width: 200%;
+      height: 60px;
+      transform: translate(-170px, 81px);
+      background-image: linear-gradient(to bottom, #36a52c, #20782e);
+    }
+    
+    .hill-2 {
+      width: 400%;
+      height: 80px;
+      transform: translate(-68px, 90px);
+      background-image: linear-gradient(to bottom, #4da746, #30893e);
+    }
+
+  </style>
+  <!-- ************************************************* -->
+
+</div>
+
+
+
+
+<!-- ************************************************* -->
+<!-- Use position to display information in a 'card' -->
+<div class="card">
+  <div class="card-title">Honey Bee</div>
+  <div class="card-notes">
+    <div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+    <div>
+      <h3>Honey Bee</h3>
+      <p>A honey bee (or honeybee) is any member of the genus Apis.</p>
+    </div>
+  </div>
+</div>
+<style>
+  .card {
+    font-family: Helvetica;
+    font-size: 14px;
+    line-height: 1.25em;
+    /* Declare this element as the coordinate reference for it's children */
+    position: relative;
+    width: 300px;
+    height: 400px;
+    /* Set a background images and add a gradient over the top */
+    background-image: /* Create a gradient  */
+    linear-gradient(to bottom, transparent 50%, rgba(0, 0, 0, 0.75) 100%), /* Add an image */
+    url(_downloadfiles_wallpapers_1920_1200_bee_on_flower_widescreen_7529.jpg);
+    /* This image should fill the area */
+    background-size: cover;
+    /* Center the image */
+    background-position: center;
+    margin: 20px;
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    /* Mask the contents to this box, this is important for the rounded corners */
+    overflow: hidden;
+  }
+  
+  .card-title {
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 10px 18px 10px 40px;
+    clip-path: polygon(0% 0%, 100% 0%, 95% 50%, 100% 100%, 0% 100%);
+    transform: translate(0, 20px);
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
+  }
+  
+  .card-notes {
+    position: absolute;
+    background-color: #fff;
+    bottom: 0;
+    width: 100%;
+    height: 30%;
+  }
+  
+  .card-notes>div {
+    box-sizing: border-box;
+    padding: 10px;
+    position: absolute;
+    height: 100%;
+  }
+  
+  .card-notes>div:first-child {
+    width: 33%;
+    background-color: #f6e108;
+    left: 0;
+  }
+  
+  .card-notes h3, .card-notes p {
+    margin: 0 0 10px 0;
+  }
+  
+  .card-notes p {
+    color: #666;
+  }
+  
+  .card-notes>div:last-child {
+    width: 67%;
+    background-color: white;
+    right: 0;
+  }
+
+</style>
+<!-- ************************************************* -->
+
+
+
+
+<!-- ************************************************* -->
+<!-- Create a grid to display the drawings -->
+<style>
+  .container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 10px;
+    justify-content: center;
+  }
+  
+  .container>div {
+    border: 1px solid #000;
+    padding: 20px;
+  }
+
+</style>

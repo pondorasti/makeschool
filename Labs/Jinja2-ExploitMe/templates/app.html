@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>Jinja2: SSTI Exploits</title>
+    <style>
+      .jumbotron {
+        background-image: url("{{url_for('static', filename='hacker.jpg')}}");
+        background-size: cover;
+        margin-top: 30px;
+        height: 360px;
+        position: relative;
+      }
+
+      .jumbotron h1 {
+        color: white;
+        background: black;
+        font-family: monospace;
+        position: absolute;
+        bottom: 20px;
+      }
+
+      textarea {
+        height: 500px;
+        width: 100%;
+        font-family: monospace;
+      }
+    </style>
+  </head>
+  <body>
+
+    <div class="container">
+      <div class="jumbotron">
+        <h1 class="display-4">Jinja2: Server Side Template Injection</h1>
+      </div>
+      <div class="row">
+        <div class="col-5">
+          <h5>Challenges</h5>
+          <p><strong>Use the provided <code>?exploit=</code> param to&hellip;</strong></p>
+          <ul>
+            <li>Multiply <code>2</code> integers</li>
+            <li>Multiply an <code>int</code> & a <code>str</code></li>
+            <li>Output <code>hack.txt</code> from the local filesystem</li>
+            <li>Fix and prevent the exploit in <code>app.py</code></li>
+            <li><strong>Stretch</strong>: Use <a
+                href="https://insights.dice.com/2019/03/04/exploring-magic-methods-python-3-vital-programmers/"
+                target="_blank">magic methods</a> to expose more info</li>
+            <li><strong>Stretch</strong>: Open a remote shell</li>
+          </ul>
+        </div>
+        <div class="col-7">
+          <h5>Output Viewer</h5>
+          <textarea class="form-control"
+            readonly>{% if exploit %}{{exploit}}{% else %}Everything seems to be fine here...{% endif %}</textarea>
+        </div>
+      </div>
+  </body>
+</html>

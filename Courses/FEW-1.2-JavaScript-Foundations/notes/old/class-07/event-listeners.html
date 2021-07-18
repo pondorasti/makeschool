@@ -1,0 +1,62 @@
+<!doctype html>
+<html>
+	<head>
+		<title></title>
+	</head>
+	<body>
+		
+		<p>Key Code:<span id="display-key"></span></p>
+		
+		<script>
+			const display_key = document.getElementById('display-key')
+			
+			// Event listener facts
+			
+			// Define a handler to handle key down events 
+			// Handlers begin with on by convention
+			// Handlers always receive an event object as a parameter
+			// An event object contain properties that describe event 
+			function onKeyDown(e) {
+				// What is an Event Object? In this example the event is a KeyboardEvent
+				// KeyboardEvent > UIEvent > Event
+				// Look at the inheritence of the KeyboardEvent
+				console.log(e)
+				display_key.innerHTML = `${e.keyCode} ${e.key}`
+			}
+			
+			// What can issue events? EventTargets can issue events! 
+			// https://developer.mozilla.org/en-US/docs/Web/API/EventTarget
+			
+			// Add an event with addEventListener
+			// The first parameter is the type of the event
+			// The secon param is the handler for the event
+			document.addEventListener('keydown', onKeyDown)
+			document.addEventListener('keydown', (e) => {
+				console.log(e)
+			})
+			
+			// Let's talk inheritence
+			// Look at what the window inherits
+			console.log(window)
+			
+			class Notifier extends EventTarget {
+				constructor(ms) {
+					super(ms)
+					
+					setInterval(() => {
+						this.dispatchEvent(new Event('notification'))
+					}, ms)
+				}
+				
+			}
+			
+			const notifier = new Notifier(5000)
+			notifier.addEventListener('notification', (e) => {
+				console.log("Notified")
+				console.log(e)
+			})
+//			
+//			console.log(notifier)
+		</script>
+	</body>
+</html>

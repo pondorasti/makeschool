@@ -1,0 +1,1 @@
+Complete the TODOs in `app.py` and `templates/show_fruits.html` to fill out the missing functionality!

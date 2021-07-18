@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Audio Visualizer</title>
+    <style>
+      body, html {
+        height: 100%;
+      }
+
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+      }
+
+      #canvas {
+        border: 1px solid;
+      }
+
+      button {
+        margin: 5px;
+        padding: 1em;
+        border-radius: 0.25em;
+        border: 1px solid;
+      }
+    </style>
+  </head>
+  <body>
+
+    <canvas id="canvas" width="300" height="300"></canvas>
+    
+    <button id="button-play">Play</button>
+    <button id="button-pause">Stop</button>
+
+    <script src="main.js" type="module"></script>
+  </body>
+</html>

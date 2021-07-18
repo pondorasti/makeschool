@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <title>Syllabus Template Slides</title>
+    <link rel="stylesheet" href="./../../css/reveal.css" />
+    <link rel="stylesheet" href="./../../css/theme/black.css" id="theme" />
+    <link rel="stylesheet" href="./../../css/highlight/zenburn.css" />
+    <link rel="stylesheet" href="./../../css/print/paper.css" type="text/css" media="print" />
+    <link rel="stylesheet" href="./../../assets/Reveal/makeschool.css" />
+
+    <script>
+      document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>');
+    </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides"><section  data-markdown><script type="text/template">
+The RxSwift library currently offers most (but not all) of the standard Rx operators, which are typically grouped into types describing general functional behavior.
+
+Below is a partial list of RxSwift operators by type, followed by only a few of the operators which exemplify each type.
+
+
+<!-- TODO: add short descriptions of each example below each type -->
+
+
+**Transforming Operators** &mdash; Operators that transform `Next` event elements emitted by an Observable sequence.
+
+- map, scan, flatMap, flatMapLatest
+
+**Combination Operators** &mdash; Operators that combine multiple source Observables into a single Observable.
+
+- startWith, merge, zip, switchLatest
+
+**Filtering and Conditional Operators** &mdash; Operators that selectively emit elements from a source Observable sequence.
+
+- filter, distinctUntilChanged, take, takeUntil, skip
+
+**Mathematical and Aggregate Operators** &mdash; Operators that operate on the entire sequence of items emitted by an Observable.
+
+- toArray, reduce, concat
+
+**Connectable Operators** &mdash; Connectable Observable sequences resembles ordinary Observable sequences, except that they do not begin emitting elements when subscribed to, but instead, only when their connect() method is called. In this way, you can wait for all intended subscribers to subscribe to a connectable Observable sequence __*before*__ it begins emitting elements.
+
+- publish, replay, multicast
+
+**Error Handling Operators** &mdash; Operators that help to recover from error notifications from an Observable.
+
+- catchError, catchErrorJustReturn, retry
+
+
+> For more RxSwift operators and examples of each, see the Rx.playground in the RxSwift library, as a starting point for your exploration into RxSwift operators.
+
+...and, by the way, you can also __*create your own operators!*__
+
+https://github.com/ReactiveX/RxSwift/blob/master/Documentation/GettingStarted.md#custom-operators
+
+<!-- TODO: end: You can create your own - show link  -->
+
+
+<!-- TODO: pick a couple and show examples...esp. those that the class was confused by -->
+<!-- TODO: retry()? -->
+</script></section></div>
+    </div>
+
+    <script src="./../../js/reveal.js"></script>
+
+    <script>
+      function extend() {
+        var target = {};
+        for (var i = 0; i < arguments.length; i++) {
+          var source = arguments[i];
+          for (var key in source) {
+            if (source.hasOwnProperty(key)) {
+              target[key] = source[key];
+            }
+          }
+        }
+        return target;
+      }
+
+      // Optional libraries used to extend on reveal.js
+      var deps = [
+        { src: './../../plugin/markdown/marked.js', condition: function() { return !!document.querySelector('[data-markdown]'); } },
+        { src: './../../plugin/markdown/markdown.js', condition: function() { return !!document.querySelector('[data-markdown]'); } },
+        { src: './../../plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+        { src: './../../plugin/zoom-js/zoom.js', async: true },
+        { src: './../../plugin/notes/notes.js', async: true },
+        { src: './../../plugin/math/math.js', async: true }
+      ];
+
+      // default options to init reveal.js
+      var defaultOptions = {
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+        transition: 'default', // none/fade/slide/convex/concave/zoom
+        dependencies: deps
+      };
+
+      // options from URL query string
+      var queryOptions = Reveal.getQueryHash() || {};
+
+      var options = extend(defaultOptions, {"controls":true,"progress":true,"autoPlayMedia":false,"slideNumber":"c/t","showSlideNumber":"all","controlsTutorial":true,"controlsLayout":"edges","transition":"slide","transitionSpeed":"medium","minScale":0.5,"maxScale":3}, queryOptions);
+    </script>
+
+
+    <script>
+      Reveal.initialize(options);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<p>Genre creation form.</p>
+
+<form method="POST" action="{{ url_for('main.create_genre') }}">
+    {{ form.csrf_token }}
+    <fieldset>
+        <legend>Enter a genre</legend>
+
+        {{ form.name.label }}
+        {{ form.name }}
+        <ul>
+        {% for error in form.name.errors %}
+            <li class="error">{{ error }}</li>
+        {% endfor %}
+        </ul>
+        
+        {{ form.submit }}
+    </fieldset>
+</form>
+
+{% endblock %}

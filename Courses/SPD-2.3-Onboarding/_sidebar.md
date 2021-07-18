@@ -1,0 +1,22 @@
+- **[Syllabus](README.md)**
+- **Lessons**
+  - [Lesson 1](Lessons/Lesson1.md)
+  - [Lesson 2](Lessons/Lesson2.md)
+  - [Lesson 3](Lessons/Lesson3.md)
+  - [Lesson 4](Lessons/Lesson4.md)
+  - [Lesson 5](Lessons/Lesson5.md)
+  - [Lesson 6](Lessons/Lesson6.md)
+  - [Lesson 7](Lessons/Lesson7.md)
+  - [Lesson 8](Lessons/Lesson8.md)
+  - [Lesson 9](Lessons/Lesson9.md)
+  - [Lesson 10](Lessons/Lesson10.md)
+  - [Lesson 11](Lessons/Lesson11.md)
+  - [Lesson 12](Lessons/Lesson12.md)
+  - [Lesson 13](Lessons/Lesson13.md)
+  - Final Class (Presentations, Demos, etc)
+  - Final Exam/Presentations
+- **[Personal Finance Tutorial](https://www.makeschool.com/academy/track/personal-finance-jx8)**
+- **[Personal Financial Model](https://github.com/Make-School-Courses/SPD-2.3-Onboarding/blob/master/Assignments/personal-financial-model.md)**
+  - **[Evaluation](https://github.com/Make-School-Courses/SPD-2.3-Onboarding/blob/master/Assignments/personal-financial-model.md)**
+- **[Personal Health/Wellness blog post](https://github.com/Make-School-Courses/SPD-2.3-Onboarding/blob/master/Assignments/health-wellness-blog-post.md)**
+  - **[Evaluation](https://github.com/Make-School-Courses/SPD-2.3-Onboarding/blob/master/Assignments/personal-financial-model.md)**

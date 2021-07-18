@@ -1,0 +1,112 @@
+<script src='https://code.jquery.com/jquery-3.2.1.min.js'></script>
+<script>
+  SESSION_SECRET = 'test'
+  MAP_KEY = 'AIzaSyA098tlCp-gUAnSgWAst8CXHWX2VYblE-o'
+  yelpId = 'JIeUjGAAK18HbJDRgvztOg'
+  yelpKey = '4bWgKkvgneO5vpp1uDvJKboull5xSEoFb8trV8pkV5b70DKlDRpy4ZBxeAqITrpT'
+  meetupapi_key = '105673692665581a3d265116731b826'
+  EVENTBRITE_token = 'TJYP2NE6GK7ATYWKHRTB'
+  EVENTBRITE_KEY = '15858913711'
+  
+  // Most of these apis have issues with cors. You can't test them from  
+  // localhost! 
+  
+  // To dodge this I used the cors-anywhere proxy. Eventbright didn't need
+  // the proxy server. But, meetup did. It didn't work for yelp. I think 
+  // I was missing the auth token for yelp. 
+  
+  const corsAnywhere = 'https://cors-anywhere.herokuapp.com/'
+  
+  // =================================================================
+  // Initial tests
+  
+  // This first set of tests just test test each of the apis on their own. 
+  // With a fetch() request. 
+  
+  // Notice each of these follows two steps! Make the initial request to the 
+  // api url, wait for a response, then handle the response stream. There 
+  // two promises being resolved in series. 
+  
+  const testEventBright = function() {
+    console.log("Testing Eventbright ---------")
+    const eventbriteIDURL = "https://www.eventbriteapi.com/v3/events/search/?token=" + EVENTBRITE_token + "&q=javascript&location.address=San Francisco&page=1" //EventBrite Group with Javascript and SF Location
+    // Make the initial promise
+    fetch(eventbriteIDURL).then(res => res.json())
+    .then((data) => {
+      console.log(' - Event bright response')
+      console.log(data)
+    }).catch((err) => {
+      console.log(err.message);
+    })
+  }
+    
+  // testEventBright()
+  
+  const testMeetup = function() {
+    console.log("Testing Meetup ---------")
+    //meetup API request
+    // const url = "https://api.meetup.com/find/groups?key=" + meetupapi_key +"&&sign=true&photo-host=public&zip=94502&text=javascript&page=20";
+    const url = 'https://api.meetup.com/find/upcoming_events?photo-host=public&page=20&sig_id=31132902&sig=042e1e8b47d9aa34724e6e82f50e35b77bc0a337'
+    // console.log(url);
+    // get search string and append to the api
+    
+    // Use cors-anywhere proxy for this url meetup doesn't
+    // allow cors request i.e. this won't work from localhost. 
+    fetch(corsAnywhere + url).then((res) => {
+      console.log(' - meetup response')
+      console.log(res);
+      return res.json()
+    }).then((json) => {
+      console.log(json)
+    }).catch((err) => {
+      console.log(err.message);
+    })
+  }
+  
+  // testMeetup() // cors error
+    
+  
+  const testYelp = function() {
+    console.log("Testing Yelp ---------")
+    const yelpurl = 'https://api.yelp.com/v3/autocomplete?text=del&latitude=37.786882&longitude=-122.399972'
+    fetch(corsAnywhere + yelpurl).then((res) => {
+      return res.json()
+    }).then((json) => {
+      console.log(json)
+    }).catch((err) => {
+      console.log(err.message);
+    })
+  }
+  
+  // testYelp()
+  
+  // ====================================================================
+  
+  
+  // ====================================================================
+  // Test with Promise all 
+  
+  function testAll(loc, tags) {
+    // `asdasda${loc}/${tags}`
+    const eventbriteIDURL = "https://www.eventbriteapi.com/v3/events/search/?token=" + EVENTBRITE_token + "&q=javascript&location.address=San Francisco&page=1"
+    const eb = fetch(eventbriteIDURL)
+    const url = 'https://api.meetup.com/find/upcoming_events?photo-host=public&page=20&sig_id=31132902&sig=042e1e8b47d9aa34724e6e82f50e35b77bc0a337'
+    const mu = fetch(corsAnywhere + url)
+    const yelpurl = 'https://api.yelp.com/v3/autocomplete?text=del&latitude=37.786882&longitude=-122.399972'
+    const yelp = fetch(corsAnywhere + yelpurl)
+    
+    Promise.all([eb, mu, yelp]).then((responses) => {
+      return Promise.all([
+        responses[0].json(),
+        responses[1].json(),
+        responses[2].json()
+      ])
+    }).then((jsons) => {
+      console.log(jsons);
+    }).catch((err) => {
+      console.log(err.message);
+    })
+  }
+  
+  testAll()
+</script>

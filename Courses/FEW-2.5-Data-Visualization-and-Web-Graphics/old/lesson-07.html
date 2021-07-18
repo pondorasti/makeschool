@@ -1,0 +1,114 @@
+<body style="display:flex;justify-content: center;align-items: center;flex-wrap: wrap;">
+<div style="width:400px; margin:10px", height="400px">
+	<canvas id="canvas" width="400" height="400"></canvas>
+</div>
+
+<div style="width:400px; margin:10px", height="400px">
+	<canvas id="canvas2" width="400" height="400"></canvas>
+</div>
+	
+<div style="width:400px; margin:10px", height="400px">
+	<canvas id="canvas3" width="400" height="400"></canvas>
+</div>
+
+
+<!-- Import Chart.js from CDN --> 
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0/dist/Chart.min.js"></script>
+<script>
+	
+	// ----------------------------------------------------
+	// This is the example from Chart.js
+	var ctx = document.getElementById('canvas').getContext('2d');
+
+	var myChart = new Chart(ctx, {
+			responsive: false,
+			type: 'bar',
+			data: {
+					labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+					datasets: [{
+							label: '# of Votes',
+							data: [12, 19, 3, 5, 2, 3],
+							backgroundColor: [
+									'rgba(255, 99, 132, 0.2)',
+									'rgba(54, 162, 235, 0.2)',
+									'rgba(255, 206, 86, 0.2)',
+									'rgba(75, 192, 192, 0.2)',
+									'rgba(153, 102, 255, 0.2)',
+									'rgba(255, 159, 64, 0.2)'
+							],
+							borderColor: [
+									'rgba(255, 99, 132, 1)',
+									'rgba(54, 162, 235, 1)',
+									'rgba(255, 206, 86, 1)',
+									'rgba(75, 192, 192, 1)',
+									'rgba(153, 102, 255, 1)',
+									'rgba(255, 159, 64, 1)'
+							],
+							borderWidth: 1
+					}]
+			},
+			options: {
+					scales: {
+							yAxes: [{
+									ticks: {
+											beginAtZero: true
+									}
+							}]
+					}
+			}
+	});
+	
+	// ------------------------------------
+	// Let's do that again
+	// This is a minimal implementation of Chart.js
+	
+	// Generate some random data
+	const data = new Array(9).fill(0).map(v => Math.random())
+	// Generate some colors
+	const colors = new Array(9).fill(0).map((v,i) => `hsla(${i*360/9},100%, 50%, 0.4)`)
+	// Make a chart - 
+	const chart2 = new Chart('canvas2', {
+		type: 'bar', 
+		data: {
+			labels: ['a','b','c', 'd', 'e', 'f','g','h','i'],
+			datasets: [{
+				label: 'Hello',
+				data: data,
+				backgroundColor: colors
+			}]
+		}
+	})
+	
+	// Seems like you need four things: 
+	// - labels: Array
+	// - data: Array
+	// - colors: Array
+	
+	// -----------------------------------
+	// This is a line chart. 
+	
+	{
+	const data = new Array(12)
+		.fill(0)
+		.map((v, i, arr) => {
+			return i > 0 ? Math.random() - 0.5 + arr[i-1] + v : v
+		})
+	// Generate some colors
+	const colors = new Array(12).fill(0).map((v,i) => `hsla(${i*360/9},100%, 50%, 0.9)`)
+	// Make a chart - requires ctx and options
+	const chart2 = new Chart('canvas3', {
+		type: 'line', 
+		data: {
+			labels: ['a','b','c', 'd', 'e', 'f','g','h','i', 'j','k', 'l'],
+			datasets: [{
+				label: 'Line Graph',
+				data: data,
+				backgroundColor: 'hsla(0, 100%, 50%, 0.5)'
+			}]
+		}
+	})
+	}
+	
+</script>
+</body>
+

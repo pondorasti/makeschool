@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <title>Syllabus Template Slides</title>
+    <link rel="stylesheet" href="./../../css/reveal.css" />
+    <link rel="stylesheet" href="./../../css/theme/black.css" id="theme" />
+    <link rel="stylesheet" href="./../../css/highlight/zenburn.css" />
+    <link rel="stylesheet" href="./../../css/print/paper.css" type="text/css" media="print" />
+    <link rel="stylesheet" href="./../../assets/Reveal/makeschool.css" />
+
+    <script>
+      document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>');
+    </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides"><section  data-markdown><script type="text/template">
+## In Class Activity I
+
+<!-- So far, we have learned that:
+- Functors are structures with `map` functions.
+- Applicative Functors are Functors with `apply` functions
+- Monads are Functors with `flatMap` (and `compactMap`) functions -->
+
+**Exercise 1:** The output for the following code snippet is `[Optional(1), Optional(2), nil, nil, Optional(5)]`, which is not the desired output.
+
+**TODO:** Rework this code so that it only prints the string equivalents of the the integers as `[1, 2, 5]`
+
+```Swift
+let possibleNumbers = ["1", "2", "three", "///4///", "5"]
+let mapped: [Int?] = possibleNumbers.map { str in Int(str) }
+
+print(mapped)
+```
+
+<!-- SOLUTION to Exercise 1:
+let compactMapped: [Int] = possibleNumbers.compactMap { str in Int(str) }
+// [1, 2, 5]
+-->
+
+**Exercise 2:** Using the `reduce` function, complete the code below so that the output is `6.667`
+
+__*Remember:*__ The function `reduce` takes two arguments, an initial value and a closure.
+
+For initial value, use: `0.0` </br>
+Closure expression: `{ $0 + ($1 / Double(values.count)) }`
+
+```Swift
+let values = [7.0, 3.0, 10.0]
+let avg:Double = // TODO: reduce values array to the average of all its elements
+
+print(avg)
+```
+<!-- SOLUTION to Exercise 2:
+let values = [7.0, 3.0, 10.0]
+let avg:Double = values.reduce(0.0) { $0 + ($1 / Double(values.count)) }
+print(avg)
+// Output: 6.667
+-->
+
+**Exercise 3:** For the `values` array below, return only the even numbers in a new array. The output of that new `even` array should be `[14, 22]`
+
+```Swift
+let values = [11, 13, 14, 17, 21, 33, 22]
+  // TODO: return only even numbers here
+
+print(even)
+// Output: [14, 22]
+```
+<!-- SOLUTION to Exercise 3:
+let values = [11, 13, 14, 17, 21, 33, 22]
+let even = values.filter { (someInt) -> Bool in
+    someInt % 2 == 0
+}
+print(even)
+// Output: [14, 22]
+-->
+
+
+**Exercise 4:** You’re working with 4 groups of giraffes, and want to create one single group of giraffes that are taller than a certain height.
+
+**TODO:** Complete by findining all the integers in the `giraffes` (nested) array that are greater than 10 and return them in one single, flat (non-nested) array:
+
+```Swift
+let giraffes = [[5, 6, 9], [11, 2, 13, 20], [1, 13, 7, 8, 2]]
+let tallest = giraffes.flatMap({ // TODO: Insert closure syntax here })
+
+print(tallest) // [11, 13, 20, 13]
+```
+<!-- SOLUTION to Exercise 4:
+let giraffes = [[5, 6, 9], [11, 2, 13, 20], [1, 13, 7, 8, 2]]
+let tallest = giraffes.flatMap({ $0.filter({ $0 > 10 }) })
+
+print(tallest) // [11, 13, 20, 13]
+```
+
+*from:* </br>
+https://learnappmaking.com/map-reduce-filter-swift-programming/#filter
+
+
+<!-- 1) a few examples for recognition
+2) coding exercises for reduce, filter, compactMap...and combining map and filter -->
+</script></section></div>
+    </div>
+
+    <script src="./../../js/reveal.js"></script>
+
+    <script>
+      function extend() {
+        var target = {};
+        for (var i = 0; i < arguments.length; i++) {
+          var source = arguments[i];
+          for (var key in source) {
+            if (source.hasOwnProperty(key)) {
+              target[key] = source[key];
+            }
+          }
+        }
+        return target;
+      }
+
+      // Optional libraries used to extend on reveal.js
+      var deps = [
+        { src: './../../plugin/markdown/marked.js', condition: function() { return !!document.querySelector('[data-markdown]'); } },
+        { src: './../../plugin/markdown/markdown.js', condition: function() { return !!document.querySelector('[data-markdown]'); } },
+        { src: './../../plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+        { src: './../../plugin/zoom-js/zoom.js', async: true },
+        { src: './../../plugin/notes/notes.js', async: true },
+        { src: './../../plugin/math/math.js', async: true }
+      ];
+
+      // default options to init reveal.js
+      var defaultOptions = {
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+        transition: 'default', // none/fade/slide/convex/concave/zoom
+        dependencies: deps
+      };
+
+      // options from URL query string
+      var queryOptions = Reveal.getQueryHash() || {};
+
+      var options = extend(defaultOptions, {"controls":true,"progress":true,"autoPlayMedia":false,"slideNumber":"c/t","showSlideNumber":"all","controlsTutorial":true,"controlsLayout":"edges","transition":"slide","transitionSpeed":"medium","minScale":0.5,"maxScale":3}, queryOptions);
+    </script>
+
+
+    <script>
+      Reveal.initialize(options);
+    </script>
+  </body>
+</html>

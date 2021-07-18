@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="185px" height="151px" viewBox="0 0 185 151" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 42 (36781) - http://www.bohemiancoding.com/sketch -->
+    <title>Cloud + Light Rain + Moon</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="09n" transform="translate(-8.000000, -22.000000)">
+            <g id="Cloud-+-Light-Rain-+-Moon" transform="translate(13.000000, 27.000000)">
+                <g id="Cloud" transform="translate(0.000000, 26.000000)" stroke="#000000" stroke-width="9" opacity="0.99000001">
+                    <path d="M113.979525,34.9035799 C107.817284,14.882906 89.1401007,0.328244275 67.0561798,0.328244275 C44.7005994,0.328244275 25.8360861,15.2431891 19.9111228,35.6448815 C8.5448758,37.9859273 0,48.0296674 0,60.0648855 C0,73.7763231 11.0908239,84.9029214 24.8089888,84.9993682 L130.516854,85 C140.445569,85 148.494382,76.9684669 148.494382,67.0610687 C148.494382,57.1536705 140.445569,49.1221374 130.516854,49.1221374 C130.419473,41.179809 123.937304,34.7709924 115.955056,34.7709924 C115.285013,34.7709924 114.62554,34.8161502 113.979526,34.9035822 Z" id="Cloud-2"></path>
+                </g>
+                <g id="Light-Rain" transform="translate(40.000000, 120.000000)" fill="#000000">
+                    <circle id="Oval-24" cx="5.5" cy="5.5" r="5.5"></circle>
+                    <circle id="Oval-24-Copy" cx="31.5" cy="5.5" r="5.5"></circle>
+                    <circle id="Oval-24-Copy-2" cx="57.5" cy="5.5" r="5.5"></circle>
+                    <circle id="Oval-24" cx="5.5" cy="20.5" r="5.5"></circle>
+                    <circle id="Oval-24-Copy" cx="31.5" cy="20.5" r="5.5"></circle>
+                    <circle id="Oval-24-Copy-2" cx="57.5" cy="20.5" r="5.5"></circle>
+                </g>
+                <g id="Moon" transform="translate(121.000000, 0.000000)" stroke="#000000" stroke-width="9" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M53.9378828,38.5659829 C49.7678177,48.7924229 39.7256188,56 28,56 C12.536027,56 0,43.463973 0,28 C0,14.2208878 9.95314264,2.76645659 23.0621172,0.434017084 C21.7326198,3.69440409 21,7.26164579 21,11 C21,26.463973 33.536027,39 49,39 C50.6848608,39 52.334964,38.8511853 53.9378828,38.5659829 L53.9378828,38.5659829 Z" id="Oval-31"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

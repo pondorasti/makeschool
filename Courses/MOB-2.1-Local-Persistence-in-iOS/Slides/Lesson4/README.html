@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <title>Syllabus Template Slides</title>
+    <link rel="shortcut icon" href="./../favicon.ico"/>
+    <link rel="stylesheet" href="./../dist/reveal.css" />
+    <link rel="stylesheet" href="./../dist/theme/white.css" id="theme" />
+    <link rel="stylesheet" href="./../css/highlight/zenburn.css" />
+    <link rel="stylesheet" href="./../assets/Reveal/makeschool.css" />
+
+    <script>
+      document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>');
+    </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides"><section  data-markdown><script type="text/template"><!-- Run this slideshow via the following command: -->
+<!-- reveal-md README.md -w -->
+
+
+<!-- .slide: class="header" -->
+
+# The File System 🗃
+
+## [Slides](https://make-school-courses.github.io/MOB-2.1-Local-Persistence-in-iOS/Slides/Lesson4/README.html ':ignore')
+</script></section><section  data-markdown><script type="text/template">
+Knowing about how the file system works in an iOS app will enable us to correctly manage how we **store and access** data.
+
+There's a lot of things to consider when using the file system, and as iOS developers it is in our best interest to responsibly handle these resources.
+
+This includes not abusing how much we save into files, using the correct file hierarchy and storing data only in files we are allowed to.
+</script></section><section  data-markdown><script type="text/template">
+## Learning Objectives
+
+- Identify the components of the File System in an iOS app.
+- Access, store & edit data from the File System.
+</script></section><section  data-markdown><script type="text/template">
+## File System
+
+Handles the persistent storage of data files, apps, and the files associated with the operating system itself.
+
+- Uses directories to create a hierarchical organization.
+- Only **some** directories are available to store and manage files.
+</script></section><section  data-markdown><script type="text/template">
+- User's files remain easily discoverable and files our code uses internally are kept out of the user's way.
+- Users of iOS devices do not have direct access to the file system and apps are expected to follow this convention.
+- Apps can only read/write files within their **sandbox**.
+
+Every app has a designated space to handle files, this is known as Sandbox.
+</script></section><section  data-markdown><script type="text/template">
+When installing a new app, the installer creates **container directories** for the app inside the sandbox directory. Each container directory has a specific role.
+
+- The **bundle container** directory holds the app's bundle.  
+- The **data container** directory holds data for both the app and the user. This can further be divided into a number of subdirectories that the app can use to sort and organize its data.
+- The app may also request access to additional container directories—for example, the iCloud container—at runtime.
+</script></section><section  data-markdown><script type="text/template">
+![App structure](app-structure.png)
+</script></section><section  data-markdown><script type="text/template">
+**Main App Bundle**
+
+```swift
+<Application_Home>/AppName.app
+```
+
+- This is the main bundle of the App.
+- All of the content here is created at compile time (based on files added in Xcode) and cannot be modified at runtime!
+- Contains binary along with resource files
+- You cannot write to this directory.
+</script></section><section  data-markdown><script type="text/template">
+**Documents Directory**
+
+```swift
+<Application_Home>/Documents/
+```
+
+- Place to store data that is critical to your application
+(user generated content, content that cannot be automatically
+regenerated)
+- Backed up with iTunes Backups and it can be
+made available to iTunes.
+- **This is what we use the most** 😀👍🏼
+</script></section><section  data-markdown><script type="text/template">
+**Temporary Directory**
+
+```swift
+<Application_Home>/tmp
+```
+
+- Use this to store files that you do not need to persist
+permanently.
+- You are responsible for removing files from this
+directory when they are no longer needed.
+- The system may purge this directory when your app is not running. 😰
+</script></section><section  data-markdown><script type="text/template">
+**Library Directory**
+
+```swift
+<Application_Home>/Library
+```
+
+- Used to store files that you don't want to expose to the user
+</script></section><section  data-markdown><script type="text/template">
+**Library Cache**
+
+```swift
+<Application_Home>/Library/Caches
+```
+
+- To store cached information (e.g. pictures that have been downloaded).
+- iOS will remove files from this directory when it needs to free
+disk space.
+</script></section><section  data-markdown><script type="text/template">
+| App Bundle | Documents Dir  | Temporary Dir | Library Dir | Library Cache |
+| -------- | --------- | ------ | ------ | ------ |
+
+Where would you store:
+
+<p class="fragment fade-up">Drawing created by a user in a graphics app</p>
+<p class="fragment fade-up">Temporary token</p>
+<p class="fragment fade-up">Text files from a notes app</p>
+<p class="fragment fade-up">Configuration files</p>
+<p class="fragment fade-up">Data files</p>
+<p class="fragment fade-up">Downloaded images (ex. profile pictures)</p>
+<p class="fragment fade-up">Videos and audio files</p>
+
+</script></section><section ><section data-markdown><script type="text/template">
+**FileManger demo**
+
+- Identifying the DocumentsDirectory url
+- Writing to a file
+- Reading from a file
+- Creating directories
+</script></section><section data-markdown><script type="text/template">
+## Writing files
+
+Writing a file to the documents directory:
+
+```swift
+let fileManager = FileManager.default
+let urls = fileManager.urls(for: .documentDirectory,
+                                    in: .userDomainMask)
+
+if let documentDirectory: URL = urls.first {
+    let documentURL = documentDirectory.appendingPathComponent("txtFile.txt")
+    // data you want to write to file
+    let data: Data? = "Hello World".data(using: .utf8)
+    do{
+      try data!.write(to: documentURL, options: .atomic)
+    }catch{
+        // some error    
+    }
+}
+```
+</script></section><section data-markdown><script type="text/template">
+## Accessing files within the documents directory:
+
+```swift
+let fileManager = FileManager.default
+let urls = fileManager.urls(for: .documentDirectory, in: .userDomainMask)
+if let documentDirectory: URL = urls.first {
+    let documentURL = documentDirectory.appendingPathComponent("txtFile.txt")
+    do {
+        print(documentURL)
+        let content = try String(contentsOf: documentURL, encoding: .utf8)
+        print(content)
+
+    } catch let error {
+        print(error.localizedDescription)
+    }
+}
+ ```
+</script></section><section data-markdown><script type="text/template">
+## Creating directories
+
+```swift
+do{
+  try manager.createDirectory(atPath: (urls.first?.appendingPathComponent("notes").path)!, withIntermediateDirectories: true, attributes: nil)
+}catch{
+  print(error)
+}
+```
+</script></section><section data-markdown><script type="text/template">
+Visit the documentation page for info on how to access specific directories in the filesystem
+
+[FileManager Documentation](https://developer.apple.com/documentation/foundation/filemanager)
+</script></section></section><section  data-markdown><script type="text/template">
+## When to use filesystem
+
+- Primarily when storing/caching binary data such as images/ audio/ video
+- Can also be used to store **serialized Objects**
+</script></section><section  data-markdown><script type="text/template">
+## In Class Activity
+
+In this activity you will use the file system to add persistence support to an app that reviews meals. 🍜
+
+Use [this project](https://github.com/amelinagzz/FoodRating-starter/tree/main) that has all the functionality you need except for persistence. If you delete the app, all the content will be gone. Your job is to fix this.
+
+</script></section><section  data-markdown><script type="text/template">
+## Resources
+
+[FileManger Documentation](https://developer.apple.com/documentation/foundation/filemanager)<br>
+[Apple's File system basics](https://developer.apple.com/library/archive/documentation/FileManagement/Conceptual/FileSystemProgrammingGuide/FileSystemOverview/FileSystemOverview.html)<br>
+[String to data and back](https://www.objc.io/blog/2018/02/13/string-to-data-and-back/)
+</script></section></div>
+    </div>
+
+    <script src="./../dist/reveal.js"></script>
+
+    <script src="./../plugin/markdown/markdown.js"></script>
+    <script src="./../plugin/highlight/highlight.js"></script>
+    <script src="./../plugin/zoom/zoom.js"></script>
+    <script src="./../plugin/notes/notes.js"></script>
+    <script src="./../plugin/math/math.js"></script>
+    <script>
+      function extend() {
+        var target = {};
+        for (var i = 0; i < arguments.length; i++) {
+          var source = arguments[i];
+          for (var key in source) {
+            if (source.hasOwnProperty(key)) {
+              target[key] = source[key];
+            }
+          }
+        }
+        return target;
+      }
+
+      // default options to init reveal.js
+      var defaultOptions = {
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+        transition: 'default', // none/fade/slide/convex/concave/zoom
+        plugins: [
+          RevealMarkdown,
+          RevealHighlight,
+          RevealZoom,
+          RevealNotes,
+          RevealMath
+        ]
+      };
+
+      // options from URL query string
+      var queryOptions = Reveal().getQueryHash() || {};
+
+      var options = extend(defaultOptions, {"controls":true,"progress":true,"autoPlayMedia":false,"slideNumber":"c/t","showSlideNumber":"all","controlsTutorial":true,"controlsLayout":"edges","transition":"slide","transitionSpeed":"medium","minScale":0.5,"maxScale":3}, queryOptions);
+    </script>
+
+
+    <script>
+      Reveal.initialize(options);
+    </script>
+  </body>
+</html>

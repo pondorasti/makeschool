@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>{{ book.title }}</h1>
+
+{% if current_user.is_authenticated %}
+    {% if book not in current_user.favorite_books %}
+    <form action="/favorite/{{ book.id }}" method="POST">
+        <input type="submit" value="Favorite This Book">
+    </form>
+    {% else %}
+    <form action="/unfavorite/{{ book.id }}" method="POST">
+        <input type="submit" value="Unfavorite This Book">
+    </form>
+    {% endif %}
+{% endif %}
+
+<p>
+    <strong>Author</strong>: {{ book.author.name }}
+</p>
+
+<p>
+    <strong>Author Bio</strong>: {{ book.author.biography }}
+</p>
+
+{% if book.publish_date %}
+<p>
+    <strong>Publish date</strong>: {{ book.publish_date.strftime('%B %d, %Y') }}
+</p>
+{% endif %}
+
+<p>
+    <strong>Audience</strong>: {{ book.audience }}
+</p>
+
+<p>
+    <strong>Genres</strong>: 
+    
+    {% for genre in book.genres %}
+    {{ genre.name }},
+    {% endfor %}
+</p>
+
+<form method="POST" action="{{ url_for('main.book_detail', book_id=book.id) }}">
+    {{ form.csrf_token }}
+    <fieldset>
+        <legend>Edit this book</legend>
+
+        {{ form.title.label }}
+        {{ form.title }}
+        
+        {{ form.publish_date.label }}
+        {{ form.publish_date(placeholder="YYYY-mm-dd") }}
+        
+        {{ form.author.label }}
+        {{ form.author }}
+        
+        {{ form.audience.label }}
+        {{ form.audience }}
+        
+        {{ form.genres.label }}
+        {{ form.genres }}
+            
+        {{ form.submit }}
+    </fieldset>
+</form>
+
+{% endblock %}

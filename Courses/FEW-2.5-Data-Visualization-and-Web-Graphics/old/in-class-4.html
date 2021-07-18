@@ -1,0 +1,105 @@
+<button id="button">Click</button>
+
+<button id="toggle">Toggle</button>
+
+<div id="container"></div>
+
+
+<script>
+	const container = document.getElementById('container')
+	container.style.width = '600px'
+	container.style.height = '300px'
+	container.style.border = '3px dashed purple'
+	
+	const data = []
+	for (let i = 0; i < 20; i += 1) {
+		let obj = {}
+		obj.a = Math.random()
+		obj.b = Math.random()
+		obj.c = Math.random()
+		data.push(obj)
+	}
+	
+	// ---------------------------------------
+	
+	const elements = []
+	
+	data.forEach((item) => {
+		const el = document.createElement('div')
+		container.appendChild(el)
+		el.style.height = '15px'
+		el.style.margin = '1px'
+		el.style.backgroundColor = 'green'
+		el.style.transition = '4000ms ease-in-out'
+			
+		el.get = (field) => {
+			return item[field]
+		}
+		
+		el.setWidth = (field) => {
+			el.style.width = `${item[field] * 600}px`
+		}
+		
+		el.setW = function(field) {
+			this.style.width = `${item[field] * 600}px`
+		}
+		
+		el.put = () => {}
+		
+		elements.push(el)
+	})
+	
+	function showData(field) {
+		elements.forEach((el) => {
+			el.setW(field)
+		})
+	}
+	
+	showData('a')
+	
+	// Challenge: Add a inset pink border...
+	
+	// -------------------------------------
+	
+	const button = document.getElementById('button')
+	const toggle = document.getElementById('toggle')
+	
+	function makeToggle(el, callback) {
+		let state = false
+		el.addEventListener('click', (e) => {
+			state = !state
+			if (state) {
+				el.style.backgroundColor = '#000'
+				el.style.color = '#fff'
+			} else {
+				el.style.backgroundColor = '#fff'
+				el.style.color = '#000'
+			}
+			callback(state)
+		})
+	}
+	
+	makeToggle(toggle, (state) => {
+		if (state) {
+			showData('b')
+		} else {
+			showData('a')
+		}
+	})
+	makeToggle(button, (state) => {
+		document.querySelector('body').style.flexDirection = state ? 'row' : 'column'
+		document.querySelector('body').style.display = 'flex'
+	})
+	
+	
+	
+</script>
+
+
+
+
+
+
+
+
+

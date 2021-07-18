@@ -1,0 +1,24 @@
+$cols: 4;
+$gap: 10px;
+$color: #ddd;
+$bg-color: #000;
+$box-size: 100px;
+
+body {
+  color: $color;
+  background-color: $bg-color;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: repeat($cols, 1fr);
+  grid-gap: $gap;
+  
+  .box {
+    height: $box-size;
+    background-color: #666;
+    border: solid 4px;
+    border-radius: 20px;
+  }
+  
+}

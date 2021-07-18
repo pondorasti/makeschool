@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <title>Syllabus Template Slides</title>
+    <link rel="stylesheet" href="./css/reveal.css" />
+    <link rel="stylesheet" href="./css/theme/black.css" id="theme" />
+    <link rel="stylesheet" href="./css/highlight/zenburn.css" />
+    <link rel="stylesheet" href="./css/print/paper.css" type="text/css" media="print" />
+    <link rel="stylesheet" href="./assets/Reveal/makeschool.css" />
+
+    <script>
+      document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>');
+    </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides"><section  data-markdown><script type="text/template"><!-- .slide: data-background="./../Images/header.svg" data-background-repeat="none" data-background-size="40% 40%" data-background-position="center 10%" class="header" -->
+
+## Linked Lists
+
+[Slides](https://make-school-courses.github.io/CS-1.2-Intro-Data-Structures/Slides/Lesson5.html)
+</script></section><section  data-markdown><script type="text/template">
+## Annoucements
+
+- Quiz 1 next Monday
+- Midterms next week
+
+## Check In
+</script></section><section  data-markdown><script type="text/template">
+## Agenda
+</script></section><section  data-markdown><script type="text/template">
+## Interview Question Warmup
+
+What are the key differences between a static and a dynamic array?
+</script></section><section  data-markdown><script type="text/template">
+## Lists
+
+So far we have talked about the idea of a list and two different ways to implement one
+
+- static array
+- dynamic array
+</script></section><section  data-markdown><script type="text/template">
+## Linked List
+
+A Linked List is another way to implement the idea of a list. Its key different is that it is non-contiguous in memory.
+</script></section><section  data-markdown><script type="text/template">
+## Linked List
+
+A linked list is a lot like a scavenger hunt!
+</script></section><section  data-markdown><script type="text/template">
+## Linked List Components
+
+- Node
+    - data
+    - next
+We can think of the data as the treasure and the next as a clue to the next Node (treasure location)
+</script></section><section  data-markdown><script type="text/template">
+## Linked List Drawing
+</script></section><section  data-markdown><script type="text/template">
+## Linked List Starter Code
+
+Find the starter code [here](https://github.com/Make-School-Courses/CS-1.2-Intro-Data-Structures/blob/master/Code/linkedlist.py)
+</script></section><section  data-markdown><script type="text/template">
+## Linked List vs. Arrays
+
+What are some advantages of the non-contiguous property? Some disadvantages?
+</script></section><section  data-markdown><script type="text/template">
+## Assignment
+
+Finish the linked list starter code so that it will pass all tests in linkedlist_test.py
+
+Assignment can be found [here](Lessons/HW2.md)
+</script></section><section  data-markdown><script type="text/template">
+## Shout Outs
+</script></section><section  data-markdown><script type="text/template">
+## Lab Time</script></section></div>
+    </div>
+
+    <script src="./js/reveal.js"></script>
+
+    <script>
+      function extend() {
+        var target = {};
+        for (var i = 0; i < arguments.length; i++) {
+          var source = arguments[i];
+          for (var key in source) {
+            if (source.hasOwnProperty(key)) {
+              target[key] = source[key];
+            }
+          }
+        }
+        return target;
+      }
+
+      // Optional libraries used to extend on reveal.js
+      var deps = [
+        { src: './plugin/markdown/marked.js', condition: function() { return !!document.querySelector('[data-markdown]'); } },
+        { src: './plugin/markdown/markdown.js', condition: function() { return !!document.querySelector('[data-markdown]'); } },
+        { src: './plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+        { src: './plugin/zoom-js/zoom.js', async: true },
+        { src: './plugin/notes/notes.js', async: true },
+        { src: './plugin/math/math.js', async: true }
+      ];
+
+      // default options to init reveal.js
+      var defaultOptions = {
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+        transition: 'default', // none/fade/slide/convex/concave/zoom
+        dependencies: deps
+      };
+
+      // options from URL query string
+      var queryOptions = Reveal.getQueryHash() || {};
+
+      var options = extend(defaultOptions, {"controls":true,"progress":true,"autoPlayMedia":false,"slideNumber":"c/t","showSlideNumber":"all","controlsTutorial":true,"controlsLayout":"edges","transition":"slide","transitionSpeed":"medium","minScale":0.5,"maxScale":3}, queryOptions);
+    </script>
+
+
+    <script>
+      Reveal.initialize(options);
+    </script>
+  </body>
+</html>

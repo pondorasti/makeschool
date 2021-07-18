@@ -1,0 +1,28 @@
+# Binaries for programs and plugins
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+
+# Test binary, build with `go test -c`
+*.test
+
+# Output of the go coverage tool, specifically when used with LiteIDE
+*.out
+.wakatime-project
+.DS_Store
+
+.idea/
+*.iml
+*.iws
+*.eml
+out/
+.svn
+log/*.log
+tmp/**
+Slides/template/node_modules/
+Slides/template/package-lock.json
+Slides/template/.sass-cache
+Slides/template/css/reveal.min.css
+Slides/template/js/reveal.min.js

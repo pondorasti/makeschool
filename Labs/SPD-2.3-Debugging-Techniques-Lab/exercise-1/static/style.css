@@ -1,0 +1,23 @@
+body {
+    display: flex;
+    justify-content: space-around;
+    background-color: #eee;
+}
+
+#content {
+    width: 80%;
+    background-color: white;
+    padding: 20px;
+}
+
+div.pizza_order {
+    border: 1px solid #999;
+    width: 600px;
+    padding: 0 20px 20px 20px;
+    margin-top: 20px;
+}
+
+div.pizza_order form {
+    display: flex;
+    justify-content: flex-end;
+}

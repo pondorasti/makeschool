@@ -1,0 +1,168 @@
+<!-- 
+
+# Oregon Trail 
+
+https://gamedevacademy.org/js13kgames-tutorial/
+  
+Game from the tutorial based on Oregon Trail
+
+The project is presented with Repls covering all of the base knowledge
+Loops functions conditionals classes etc. Challenges ask students to 
+modify and improve on the starter project, while stretch challenges 
+give students who already have the base knowledge something to work on.
+
+## Challenges 
+
+1) Get the tutorial working 
+2) Play the game
+  - Play the game a few times. 
+  - Get into it
+  - Have fun
+  - Get to oregon!
+  - Fight the bandits
+  - Run away from the bandits
+  - Ox Flu Sucks!
+3) Check for errors.
+  - Check for any errors you might find
+  - Play test and make sure all of the features in the game are working. 
+4) Add some styles 
+  - Use your CSS skills to improve the look of the game. 
+5) Update the code to more modern and easier to understand syntax
+  - Replace var with let, and const
+  - Object deconstruction
+6) OOP - Define class Objects for Caravan, Event, Game, and UI
+7) Make a class to represent the stat box. 
+   - Better to have an object that represents this element and it's 
+   children. Have this be a dependency of UI
+8) Make a class for the Fight box
+   - Better to have this be an object that is a dependency of the
+   UI class. 
+9) Make a class to represent the Shop box
+   - Better as it's own class dependency of UI
+10) Make a class to represent the status/history box thing.
+   - Yeah it's better as a class. 
+11) Could this use the MVC architecture? What about MVVM?
+  - The data classes like Caravan, EventType, and Product represent Model Data
+  - Classes like Game and UI represent controllers. 
+  - DOM elements, and or a class that holds them represent a view. 
+12) Look at the Numbers
+  - Examine the numbers and the probablities. 
+  - Play with the numbers make changes and play test
+  - 
+13) Display a game over screen that summarizes the game that just completed. Show:
+  - Number of mniles covered 
+  - The number of days traveled
+  - The number of crew to survive the trip
+  - Number of oxen to make the trip
+  - Stretch goals 
+    - the number of Bandit attacks 
+    - the number of crew killed
+    - the number of oxen lost on route
+    - the units of food eaten
+      
+
+Lessons Ideas 
+
+Repls illustrate concepts used in tutorial projects and challenges. 
+
+- Arrays 
+  - Defining an array 
+  - Accessing elements from an array 
+  - Adding elements to an array
+  - Removing items from an array
+  - finding an element in an array 
+- Objects 
+  - Defining an Object
+  - Accessing Keys and values 
+  - adding keys and values 
+  - removing keys and values 
+- Loops 
+  - Loop Types 
+    - for 
+    - for in 
+    - forEach
+    - while
+  - Counting forwards 
+  - Counting backwards 
+  - starting at a value
+  - Looping through all of the items in an array 
+  - Looping through all keys in an object
+  - Loop through keys to make or copy an object
+- OOP - Class syntax and concepts
+  - Defining a class
+  - Defining properties 
+  - Defining methods 
+  - Making an Instance of a class
+  - Calling methods on an instance 
+  - Accessing properties of an instance 
+  - Getters and setters 
+  - Static properties 
+- 
+
+- Notes 
+  - div#home is not used?
+  - 
+
+
+    -->
+    
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>Oregon Trail</title>
+    <link href="https://fonts.googleapis.com/css?family=Bai+Jamjuree|Roboto" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css"/>
+  </head>
+  <body>
+    <div id="journey">
+      <div class="title">
+        <h1>Oregon Trail</h1>
+        <p>A totally accurate historical simulation!</p>
+      </div>
+      <div id="stats-area" class="info-box">
+        <div class="stat">Day <span id="stat-day" class="stat-value"></span></div>
+        <div class="stat">Distance <span id="stat-distance" class="stat-value"></span></div>
+        <div class="stat">Crew <span id="stat-crew" class="stat-value"></span></div>
+        <div class="stat">Dilitheum Crystals <span id="stat-oxen" class="stat-value"></span></div>
+        <div class="stat">Supplies <span id="stat-food" class="stat-value"></span></div>
+        <div class="stat">Credits <span id="stat-money" class="stat-value"></span></div>
+        <div class="stat">Phasers <span id="stat-firepower" class="stat-value"></span></div>
+        <div class="stat">Tonnage <span id="stat-weight" class="stat-value"></span><span id="stat-capacity" class="stat-value"></span></div>
+      </div>
+      
+      <div class="updates-area info-box" id="updates-area"></div>
+      
+      <div id="shop" class="hidden info-box">
+        <div id="prods">
+        </div>
+        <button>Leave shop</button>
+      </div>
+      
+      <div id="attack" class="hidden info-box">
+        <div id="attack-description"></div>
+        <button id="fight">Battle</button>
+        <button id="runaway">Flee</button>
+      </div>
+      
+      <div id="progress-area">
+          <img id="trees" src="images/Planets.png" alt="Trees Image">
+        <img id="caravan" src="images/Ship.png" alt="Caravan Image">
+      </div>
+    </div>
+ 
+    <div id="event"></div>
+    
+    <!-- Be sure to load classes in order! Classes dependent on other classes 
+    should load *AFTER* their dependencies. For example Game loads after all 
+    of the other classes. -->
+    
+    <script src="js/Config.js"></script>
+    <script src="js/Event.js"></script>
+    <script src="js/Caravan.js"></script>
+    <script src="js/UI.js"></script>
+    <script src="js/Game.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>

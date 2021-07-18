@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <title>Syllabus Template Slides</title>
+    <link rel="stylesheet" href="./../css/reveal.css" />
+    <link rel="stylesheet" href="./../css/theme/black.css" id="theme" />
+    <link rel="stylesheet" href="./../css/highlight/zenburn.css" />
+    <link rel="stylesheet" href="./../css/print/paper.css" type="text/css" media="print" />
+    <link rel="stylesheet" href="./../assets/Reveal/makeschool.css" />
+
+    <script>
+      document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>');
+    </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides"><section  data-markdown><script type="text/template"># Structural Patterns Pt.2
+
+<!-- INSTRUCTOR <aside class="notes"><p>1) No quiz this class -- course project intro instead
+2) For Activity 1:</p>
+<ul>
+<li>Solution is embedded below Add&#39;l Resources
+3) for Activity 2:</li>
+<li>Solution is embedded below Add&#39;l Resources</li>
+<li>-&gt;</li>
+</ul>
+<h2 id="minute-by-minute">Minute-by-Minute</h2>
+<table>
+<thead>
+<tr>
+<th><strong>Elapsed</strong></th>
+<th><strong>Time</strong></th>
+<th><strong>Activity</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>0:00</td>
+<td>0:05</td>
+<td>Objectives</td>
+</tr>
+<tr>
+<td>0:05</td>
+<td>0:10</td>
+<td>Initial Exercise</td>
+</tr>
+<tr>
+<td>0:15</td>
+<td>0:25</td>
+<td>Overview  I</td>
+</tr>
+<tr>
+<td>0:40</td>
+<td>0:25</td>
+<td>In Class Activity I</td>
+</tr>
+<tr>
+<td>1:05</td>
+<td>0:10</td>
+<td>BREAK</td>
+</tr>
+<tr>
+<td>1:15</td>
+<td>0:20</td>
+<td>Overview  II</td>
+</tr>
+<tr>
+<td>1:35</td>
+<td>0:20</td>
+<td>In Class Activity II</td>
+</tr>
+<tr>
+<td>1:55</td>
+<td>0:05</td>
+<td>Wrap Up</td>
+</tr>
+<tr>
+<td>TOTAL</td>
+<td>2:00</td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id="learning-objectives-5-min">Learning Objectives (5 min)</h2>
+<p>By the end of this lesson, you should be able to...</p>
+<ol>
+<li>Describe:<ul>
+<li>the <strong>Proxy</strong> and <strong>Facade</strong> patterns</li>
+<li>the software construction problem each is intended to solve</li>
+<li>potential use cases for each (when to use them)</li>
+</ul>
+</li>
+<li>Assess:<ul>
+<li>the suitability of a given design pattern to solve a given problem</li>
+<li>the trade offs (pros/cons) inherent in each</li>
+</ul>
+</li>
+<li>Implement basic examples of both patterns explored in this class</li>
+</ol>
+<h2 id="initial-exercise-10-min">Initial Exercise (10 min)</h2>
+<h3 id="as-a-class">As A Class</h3>
+<ul>
+<li>Course Project Kickoff</li>
+</ul>
+<h2 id="overviewtt-i-25-min">Overview/TT I (25 min)</h2>
+<h4 id="proxy-mailbox_closed">Proxy &nbsp;:mailbox_closed:</h4>
+<p><img src="proxy.png" alt="proxy"></p>
+<p>*<a href="https://www.sihui.io/design-pattern-proxy/">Sihui Huang</a>*</p>
+<p>The Proxy design pattern is used to provide a <strong><em>surrogate</em></strong> or <strong><em>placeholder</em></strong> object, which references an underlying object.</p>
+<p>In its most general form, a <em>proxy</em> is a class functioning as an interface to something else.</p>
+<p>The proxy could interface to anything:</p>
+<ul>
+<li><p>a network connection to a remote service</p>
+</li>
+<li><p>a large object in memory</p>
+</li>
+<li><p>a file</p>
+</li>
+<li><p>or some other resource that is expensive or impossible to duplicate</p>
+<p>Calling components operate on the proxy, which in turn operates on the underlying resource.</p>
+</li>
+</ul>
+<h4 id="problems-addressed">Problems Addressed</h4>
+<p>The Proxy pattern is used to solve three different problems:</p>
+<ol>
+<li><p><strong>Remote Object Problem</strong> - This arises when dealing with resources that are accessed over a network, such as a web page or a RESTful web service.</p>
+</li>
+<li><p><strong>Expensive Operation Problem</strong> - Involves tasks such as making HTTP requests which are classified as <em>expensive</em> operations.</p>
+</li>
+<li><p><strong>Restricted Access Problem</strong> - When you need to restrict access to an object but you don’t have access to the source code or because there is already a dependency on the object type elsewhere in the application, and you cannot afford to let any user perform the operations that the object encapsulates.</p>
+</li>
+</ol>
+<p><em>From:
+Pro Design Patterns in Swift</em> - Adam Freeman</p>
+<h4 id="benefits">Benefits</h4>
+<p>Proxies allow close control over the way underlying resources are accessed, which is useful when you need to intercept and adapt operations.</p>
+<p>The <em>intent</em> of the pattern is to:</p>
+<ul>
+<li>Control access to some object by providing a surrogate or placeholder (proxy) to it.</li>
+<li>Use an extra level of indirection to support distributed, controlled, or intelligent access.</li>
+<li>Add a wrapper and delegation to protect the real component from undue complexity.</li>
+</ul>
+<p>Proxies can also be used to <em>defer expensive operations</em> (example, <code>lazy loading</code>).</p>
+<h4 id="pitfalls">Pitfalls</h4>
+<p>Pitfalls associated with the proxy pattern depend on how it is being implemented:</p>
+<ul>
+<li>For <strong>Remote Object proxies</strong> - Ensure that no unnecessary details of the mechanism used to access the remote object are revealed.</li>
+<li>For proxies used to manage <strong>Expensive Operations</strong> - Avoid exposing details of how the cost of the operation is being mitigated.</li>
+<li>For <strong>Access Restriction proxies</strong> - Take care not to allow calling components to bypass the proxy and access the underlying object directly.</li>
+</ul>
+<p>Some general, common themes are:</p>
+<ul>
+<li>Do not allow details of the implementation to leak out of the proxy class into the calling component.</li>
+<li>Avoid allowing instances of the underlying class to be instantiated when a proxy is used to restrict access to an object.</li>
+</ul>
+<p>And, if you use the proxy pattern to implement <strong><em>reference counting:</em></strong></p>
+<ul>
+<li>Do not use proxies to manage the life cycle of objects.</li>
+<li>Do not use proxies to implement concurrency protections such as locks and semaphores. Let GCD handle this.</li>
+</ul>
+<h3 id="proxy-in-ios">Proxy in iOS</h3>
+<p>Proxy is very popular in iOS. It is frequently used throughout the Cocoa Touch framework.</p>
+<p>Examples in iOS include:</p>
+<ul>
+<li><code>UIApperance protocol</code> - You can customize the appearance of instances of a class by sending appearance modification messages to the class’s appearance proxy.</li>
+<li><code>NSProxy class</code> - An abstract superclass defining an API for objects that act as stand-ins for other objects or for objects that don’t exist yet.</li>
+</ul>
+<p>In addition, due to the resource constraints inherent in iOS devices, <em>deferring operations</em> through the use of <code>lazy loading</code>/<code>lazy initialization</code> has long been an <strong>*iOS best practice *</strong> under relevant conditions.</p>
+<h4 id="when-to-use">When to use</h4>
+<p>The proxy pattern can be used whenever an object is required to represent some other resource. The resource can be something abstract, such as a web page, or something local to the application, such as another object.</p>
+<p>Proxies are used in three main situations mentioned:</p>
+<ul>
+<li>to define an interface to a remote resource</li>
+<li>to manage the execution of expensive operations</li>
+<li>to restrict access to the methods and properties of other objects</li>
+</ul>
+<p>Implementing proxy can be complex and labor intensive. If you need a solution that does <em>not</em> involve intercepting and adapting operations of another object, consider using one of the other Structural patterns instead.</p>
+<h4 id="protection-proxy-example">Protection Proxy Example</h4>
+<p>For this example, assume that the <code>HAL9000</code> object has its own access control/authentication mechanism and that you do not want client classes to access that mechanism directly.</p>
+<p>Instead, the <code>CurrentComputer</code> class acts as a Protection Proxy intercepting and handling the client&#39;s request for access to the <code>HAL9000</code> object.</p>
+<pre><code class="language-swift">//Protection Proxy protocol
+protocol DoorOperator {
+    func open(doors: String) -&gt; String
+}
+
+//Restricted Access Object
+class HAL9000 : DoorOperator {
+    func open(doors: String) -&gt; String {
+        return (&quot;HAL9000: Affirmative, Dave. I read you. Opened \(doors).&quot;)
+    }
+}
+
+//Protection Proxy object
+class CurrentComputer : DoorOperator {
+    private var computer: HAL9000!
+
+    func authenticate(password: String) -&gt; Bool {
+
+        guard password == &quot;pass&quot; else {
+            return false;
+        }
+
+        computer = HAL9000()
+
+        return true
+    }
+
+    func open(doors: String) -&gt; String {
+
+        guard computer != nil else {
+            return &quot;Access Denied. I&#39;m afraid I can&#39;t do that.&quot;
+        }
+
+        return computer.open(doors: doors)
+    }
+}
+
+//Client
+let computer = CurrentComputer()
+let podBay = &quot;Pod Bay Doors&quot;
+
+computer.open(doors: podBay) // Result: &quot;Access Denied. I&#39;m afraid I can&#39;t do that.&quot;
+computer.authenticate(password: &quot;pass&quot;)
+computer.open(doors: podBay) // Result: &quot;HAL9000: Affirmative, Dave. I read you. Opened Pod Bay Doors.&quot;</code></pre>
+<p><em>From this series of Swift design pattern articles:</em> </br>
+ <a href="https://github.com/ochococo/Design-Patterns-In-Swift">https://github.com/ochococo/Design-Patterns-In-Swift</a>
+ <!-- under GNU License --></p>
+<h2 id="implementation-notes">Implementation Notes</h2>
+<p>The <em>proxy class</em> provides the same public interface as the underlying <em>subject class,</em> adding a level of <strong><em>indirection</em></strong> <em>by accepting requests from a client object</em> and passing these to the real subject object as needed.</p>
+<p>But implementation of the proxy pattern varies based on the kind of problem that it is being used to solve.</p>
+<p><strong>Break into 3 groups where each group discusses one of the following problems. Can you add more to how the proxy pattern helps here?</strong></p>
+<h4 id="solving-the-remote-object-problem"><strong>Solving the Remote Object Problem</strong></h4>
+<p>Use a <strong>Remote Proxy</strong>, where a local object is a proxy for (represents) a remote object, and calling a method on the local object causes the corresponding method to be invoked on the remote object.</p>
+<pre><code>- The proxy object hides the details of how the remote resource is accessed and only presents its data.
+- It consolidates requests to the remote resource in a single application class. It allows implementation changes to itself or the remote object without requiring changes to the calling client code.</code></pre><p><strong><em>Examples:</em></strong></p>
+<ul>
+<li>HTTP requests to a remote web service</li>
+<li>Any scenario involving a <em>distributed system,</em> such as an ATM (the ATM must communicate transactions with the bank&#39;s central computing system).</li>
+</ul>
+<h4 id="solving-the-expensive-operation-problem"><strong>Solving the Expensive Operation Problem</strong></h4>
+<p>A <strong>Virtual Proxy</strong> is used for loading objects on demand. It provides a simplified version of a complex or heavy object. Only when the detail of the object is required is the main object actually populated, providing a form of lazy initialization.</p>
+<ul>
+<li>A Virtual Proxy can be used to minimize the cost of expensive operations by decoupling the operation from its use, which can often be combined or at least deferred until the cost of performing the operation is lower.</li>
+</ul>
+<p><strong><em>Examples:</em></strong></p>
+<ul>
+<li>A file management utility may use an object for each file visible on the screen. When obtaining the file list, the file name, size and other easy-to-retrieve information would be held in proxy objects. Only when the actual file is viewed (requested) would the real object be created and populated with the full contents of the file, as these are slower to access and require more memory.</li>
+<li>A very large image object can be represented using a virtual proxy object (with thumbnail and other image metadata), only loading the real object &quot;on demand&quot; the real image is requested by the user.</li>
+</ul>
+<h4 id="solving-the-restricted-access-problem"><strong>Solving the Restricted Access Problem</strong></h4>
+<p>By using a <strong>Protection Proxy</strong>, which might be used to control access to a resource based on access rights. The proxy is defined as a wrapper around an object, adding additional logic to enforce some kind of restriction on its use (which presents a different implementation path from the other proxy types).</p>
+<ul>
+<li>A Protection Proxy object usually conforms to a common protocol shared with the wrapped object, which means that proxy objects can be used as seamless replacements without having to modify calling clients.</li>
+<li>The proxy intercepts requests to access the properties and methods of the underlying object and will pass them on only if an access control policy has been satisfied.</li>
+</ul>
+<p>The Proxy pattern is implemented correctly when the proxy object can be used to perform operations on the resource it represents.</p>
+<p>Note, too, that proxies can reveal as much or as little of their implementation detail as they choose.</p>
+<h2 id="in-class-activity-i-25-min">In Class Activity I (25 min)</h2>
+<p>In this exercise, you are going to create an <code>Image</code> protocol and concrete classes implementing it:</p>
+<ul>
+<li><code>ProxyImage</code> is a a proxy class created to reduce the memory footprint created when loading the image.</li>
+<li>Loading the image will up to the <code>RealImage</code> object.</li>
+</ul>
+<p>Your &quot;client&quot; will use <code>ProxyImage</code> to get an <code>Image</code> object to load and display, as needs.</p>
+<pre><code class="language-swift">import UIKit
+
+//Step 1 - Create a protocol (interface)
+
+    //TODO: Create Image protocol, with a display() function
+
+//Step 2 - Create concrete classes implementing the same protocol
+class RealImage: Image {
+
+    var fileName: String
+
+    init (fileName: String) {
+        self.fileName = fileName
+        loadFromDisk(fileName: fileName)
+    }
+
+    func display() {
+        print(&quot;Displaying&quot;, fileName)
+    }
+
+      //TODO: Create loadFromDisk(_:) function that will accept a fileName and print &quot;Loading&quot; along with the fileName
+
+}
+
+class ProxyImage: Image {
+
+    //TODO: Create vars needed
+
+    init (fileName: String) {
+        self.fileName = fileName
+    }
+
+    func display() {
+        if realImage != nil {
+            print(&quot;realImage already loaded&quot;)
+        } else {
+            print(&quot;Load realImage&quot;)
+
+            //TODO: If realImage var is nil, create/load a new RealImage object, and pass it to realImage var
+        }
+        realImage!.display()
+    }
+}
+
+//Step 3 - Client uses ProxyImage object to load the image through the RealImage class, but only when needed
+let image: ProxyImage = ProxyImage(fileName: &quot;test_10mb.jpg&quot;)
+image.display()
+print(&quot;&quot;) // Add line break for separation in output
+image.display()
+
+/* Output should be:
+
+ Load realImage
+ Loading test_10mb.jpg
+ Displaying test_10mb.jpg
+
+ realImage already loaded
+ Displaying test_10mb.jpg
+ */</code></pre>
+<p><em>Adapted from this Java example:</em> </br>
+<a href="https://www.tutorialspoint.com/design_pattern/proxy_pattern.htm">https://www.tutorialspoint.com/design_pattern/proxy_pattern.htm</a></p>
+<h2 id="overviewtt-ii-20-min">Overview/TT II (20 min)</h2>
+<h4 id="facade-office">Facade &nbsp;:office:</h4>
+<p><img src="facade.png" alt="facade"></p>
+<p>The Facade pattern is used to define a simplified interface to a more complex subsystem: a library, a framework, or a complex system of classes.</p>
+<p>The primary purpose of the Facade pattern is to hide the complexity of a system, class or API and provide all of its functionality behind a simple interface.</p>
+<p>The <strong><em>central actor</em></strong> in this pattern is an <strong><em>object that serves as a front-facing interface</em></strong> that masks more complex underlying, structural code.</p>
+<h4 id="problems-addressed-1">Problems Addressed</h4>
+<p>Clients that access a complex subsystem directly refer to, and depend on, many different objects having different interfaces (tight coupling), which makes the clients hard to implement, change, test, and reuse.</p>
+<h4 id="benefits-1">Benefits</h4>
+<p>Facade can make a complex subsystem easier to use.</p>
+<p>A facade can:</p>
+<ul>
+<li>improve readability and usability of a software library by masking interaction with more complex components behind a single, simplified API</li>
+<li>provide a context-specific interface to more generic functionality</li>
+<li>serve as a launching point for a broader refactoring of monolithic or tightly-coupled systems</li>
+</ul>
+<h4 id="pitfalls-1">Pitfalls</h4>
+<p>The primary pitfall when implementing the façade pattern is to leak details of, or create tight dependency to, the underlying objects. This means that the calling components are still dependent on the underlying classes or supporting types and will require modification when they change.</p>
+<p>Also steer clear of creating a “god” facade, which might need to know too many details about every class in your app.</p>
+<h4 id="when-to-use-1">When to use</h4>
+<p><strong>Think, Pair, Share:</strong> When should you use the Facade pattern?</p>
+<!--Facade is often used when a system is very complex, or it is difficult to understand because it has a large number of interdependent classes, or because its source code is unavailable.
+
+Use Facade when:
+- you want to provide a simple or unified interface to a complex subsystem.
+- you need to decompose a subsystem into separate layers.
+
+The facade pattern is ideal when working with a large number of interdependent classes, or with classes that require the use of multiple methods, particularly when they are complicated to use or difficult to understand.
+
+Facade is __*particularly useful*__ when wrapping __*poorly designed subsystems*__ but cannot be refactored because the __*source code is unavailable*__ or the existing interface is too widely used.-->
+
+<h4 id="implementation-notes-1">Implementation Notes</h4>
+<p>This <strong>core component</strong> of this pattern a single class - <strong><em>the facade class</em></strong> - which provides simplified methods required by client and which delegates calls to methods of existing system classes.</p>
+<p>The facade class is a <em>wrapper</em> that contains a set of members that are easily understood and simple to use. Members access the subsystem on behalf of the facade client, hiding the implementation details of the subsystem.</p>
+<p>This minimize dependencies on a subsystem by offloading work to the Facade object, which provides a single, simplified interface to the more general facilities of the subsystem.</p>
+<p><strong>To implement</strong> Facade:</p>
+<ol>
+<li><strong>Identify target system(s)</strong> whose functionality you seek to simplify.</li>
+<li><strong>Define a Facade object</strong> which provides simple methods to interact with the system and allows clients to use the facade instead of needing to interact with multiple classes in the system. The Facade object could also perform additional functionality before or after forwarding a request/interaction with the target system.</li>
+</ol>
+<p>The façade pattern is implemented correctly when common tasks can be performed without the calling components having any dependency on the underlying objects or their supporting data types.</p>
+<p>In addition, consider whether additional Facades would add value: You may decide to implement more than one facade to provide subsets of functionality for different purposes.</p>
+<p>For example, if you notice a facade has functionality that some classes use and other functionality that other classes use, consider splitting it into two or more facades.
+</br></p>
+<h5 id="--simplified-example--">- Simplified Example -</h5>
+<p>In this example, three simple classes - <code>SubSystemOne</code>, <code>SubSystemTwo</code>, and <code>SubSystemThree</code> - represent three separate systems, each potentially with its own set of functions and/or properties.</p>
+<p>Though these are classes, each one could be a separate collection of related classes, as in an API.</p>
+<pre><code class="language-swift">///Subsystem 1
+class SubSystemOne {
+
+    func performActionOne()
+    {
+        // Do something cool...
+        print(&quot;printing on line \(#line) in function \(#function)&quot;)
+    }
+}
+
+///Subsystem 2
+class SubSystemTwo {
+
+    func performActionTwo()
+    {
+        // Do something else cool...
+        print(&quot;printing on line \(#line) in function \(#function)&quot;)
+    }
+}
+
+///Subsystem 3
+class SubSystemThree {
+
+    func performActionThree(item: String)
+    {
+        // Do something even more cool...
+        print(&quot;printing on line \(#line) in function \(#function), with \(item) passed as the arg&quot;)
+    }
+}</code></pre>
+<p>Note that after <em>wrapping</em> each of the three &quot;subsystems,&quot; the Facade class can choose which behaviors of a given subsystem are to be exercised. The Facade class can also aggregate similar subsystem functions into a single function, simplifying the executions of several functions.</p>
+<pre><code class="language-swift">
+///Facade class
+class Facade {
+    let subSystemOne = SubSystemOne()
+    let subSystemTwo = SubSystemTwo()
+    let subSystemThree = SubSystemThree()
+
+    func performActionA() {
+
+        print(&quot;printing on line \(#line) in function \(#function) from Facade class&quot;)
+
+        subSystemOne.performActionOne()
+        subSystemTwo.performActionTwo()
+    }
+
+    func performActionB() {
+
+        print(&quot;printing on line \(#line) in function \(#function) from Facade class&quot;)
+
+        subSystemOne.performActionOne()
+        subSystemThree.performActionThree(item: &quot;Thing&quot;)
+    }
+}
+
+///Client
+let facade = Facade()
+facade.performActionA()
+facade.performActionB()
+
+/* This will print:
+
+ printing on line 41 in function performActionA() from Facade class
+ printing on line 9 in function performActionOne()
+ printing on line 19 in function performActionTwo()
+ printing on line 49 in function performActionB() from Facade class
+ printing on line 9 in function performActionOne()
+ printing on line 29 in function performActionThree(item:), with Thing passed as the arg
+ */</code></pre>
+<h5 id="--an-ios-specific-example--">- An iOS-Specific Example -</h5>
+<p>The Facade pattern is commonly used in apps written in Swift. It’s especially handy when working with complex libraries and APIs.</p>
+<p>In this example, the &quot;system&quot; being wrapped by the <em>facade</em> is the <code>UserDefaults</code> system built into iOS.</p>
+<p>Try this in a playground.</p>
+<p><strong>Q:</strong> <em>Can you see how much simpler it is to set and get values from UserDefaults using this facade pattern?</em></p>
+<pre><code class="language-Swift">import UIKit
+
+// Facade class
+final class Defaults {
+
+    private let defaults: UserDefaults
+
+    init(defaults: UserDefaults = .standard) {
+        self.defaults = defaults
+    }
+
+    subscript(key: String) -&gt; String? {
+        get {
+            return defaults.string(forKey: key)
+        }
+
+        set {
+            defaults.set(newValue, forKey: key)
+        }
+    }
+}
+
+// Client
+let storage = Defaults()
+
+// Store
+storage[&quot;Bishop&quot;] = &quot;Disconnect me. I’d rather be nothing&quot;
+
+// Read
+storage[&quot;Bishop&quot;]</code></pre>
+<p><em>From:</em>
+<a href="https://github.com/ochococo/Design-Patterns-In-Swift/blob/master/source/structural/facade.swift">https://github.com/ochococo/Design-Patterns-In-Swift/blob/master/source/structural/facade.swift</a></p>
+<h2 id="in-class-activity-ii-15-min">In Class Activity II (15 min)</h2>
+<p>The <code>HotelBooker</code> and <code>FlightBooker</code> classes in the code below represent separate systems. Your customer, a travel agency, would really like to be able to book both airline flights and hotel accommodations in one simple procedure.</p>
+<p><strong>TODO:</strong> Using the Facade pattern, create a class that will unify the calls to these two disparate interfaces for your customer&#39;s app.</p>
+<pre><code class="language-swift">import UIKit
+
+///Subsystem 1
+class HotelBooker {
+
+    func book() {
+        print(&quot;Hotel booked successfully&quot;)
+    }
+}
+
+///Subsystem 2
+class FlightBooker {
+
+    func book() {
+        print(&quot;Flight booked successfully&quot;)
+    }
+}
+
+///Facade
+
+    //TODO: Create a facade class that wraps both systems and invokes each of their separate book() functions
+
+/// Client
+let travelFacade = TravelFacade()
+travelFacade.getFlightsAndHotels()
+
+
+/* This prints:
+Hotel booked successfully
+Flight booked successfully
+*/</code></pre>
+<h2 id="after-class">After Class</h2>
+<ol>
+<li>Research the following concepts:</li>
+</ol>
+<ul>
+<li><code>NSProxy</code></li>
+<li>Lazy initialization</li>
+<li>Anti-pattern</li>
+<li>Indirection</li>
+<li>Distributed object communication</li>
+</ul>
+<ol start="2">
+<li><strong>TODO:</strong> - Get started with the Course Project</li>
+</ol>
+<h2 id="wrap-up-5-min">Wrap Up (5 min)</h2>
+<ul>
+<li>Continue working on your current tutorial</li>
+<li>Complete reading</li>
+<li>Complete challenges</li>
+</ul>
+<h2 id="additional-resources">Additional Resources</h2>
+<ol>
+<li><a href="https://docs.google.com/presentation/d/1IFSv5SJR7c-Y1MMKmLcSPvIQ_pMrEBX_TOkiXkl4i94/edit?usp=sharing">Slides</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Proxy_pattern">Proxy pattern - wikipedia</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Facade_pattern">Facade pattern - wikipedia</a></li>
+<li><a href="http://devmonologue.com/ios/proxy-design-pattern-ios/">Proxy design pattern in iOS - an article</a></li>
+</ol>
+<p><sup>1</sup> The term <em>expensive</em> is used to refer to any aspect of an operation that should be minimized, including:</p>
+<ul>
+<li>the amount  of computation required</li>
+<li>the memory needed,</li>
+<li>the load on the device battery,</li>
+<li>the bandwidth consumed,</li>
+<li>and the elapsed time that the user has to wait.</li>
+</ul>
+<!-- SOLUTION TO ACTIVITY 1:
+import UIKit
+
+//Step 1 - Create a protocol (interface)
+protocol Image {
+    func display()
+}
+
+//Step 2 - Create concrete classes implementing the same protocol
+class RealImage: Image {
+
+    var fileName: String
+
+    init (fileName: String) {
+        self.fileName = fileName
+        loadFromDisk(fileName: fileName)
+    }
+
+    func display() {
+        print("Displaying", fileName)
+    }
+
+    func loadFromDisk(fileName: String) {
+        print("Loading", fileName)
+    }
+}
+
+class ProxyImage: Image {
+
+    var realImage: RealImage?
+    var fileName: String
+
+    init (fileName: String) {
+        self.fileName = fileName
+    }
+
+    func display() {
+        if realImage != nil {
+            print("realImage already loaded")
+        } else {
+            print("Load realImage")
+            realImage = RealImage(fileName: fileName)
+        }
+        realImage!.display()
+    }
+}
+
+//Step 3 - Client uses ProxyImage object to load the image through the RealImage class, but only when needed
+let image: ProxyImage = ProxyImage(fileName: "test_10mb.jpg")
+image.display()
+print("") // Add line break for separation in output
+image.display()
+
+
+/* Output should be:
+
+ Load realImage
+ Loading test_10mb.jpg
+ Displaying test_10mb.jpg
+
+ realImage already loaded
+ Displaying test_10mb.jpg
+ */
+
+-->
+
+
+<!-- SOLUTION TO ACTIVITY 2:
+
+import UIKit
+
+///Subsystem 1
+class HotelBooker {
+
+    func book() {
+        print("Hotel booked successfully")
+    }
+}
+
+///Subsystem 2
+class FlightBooker {
+
+    func book() {
+        print("Flight booked successfully")
+    }
+}
+
+///Facade
+class TravelFacade {
+
+    private let hotelBooker = HotelBooker()
+    private let flightBooker = FlightBooker()
+
+    init() {
+
+    }
+    func getFlightsAndHotels() {
+        hotelBooker.book()
+        flightBooker.book()
+    }
+}
+
+/// Client
+let travelFacade = TravelFacade()
+travelFacade.getFlightsAndHotels()
+
+
+/* This prints:
+Hotel booked successfully
+Flight booked successfully
+*/
+  --></aside></script></section></div>
+    </div>
+
+    <script src="./../js/reveal.js"></script>
+
+    <script>
+      function extend() {
+        var target = {};
+        for (var i = 0; i < arguments.length; i++) {
+          var source = arguments[i];
+          for (var key in source) {
+            if (source.hasOwnProperty(key)) {
+              target[key] = source[key];
+            }
+          }
+        }
+        return target;
+      }
+
+      // Optional libraries used to extend on reveal.js
+      var deps = [
+        { src: './../plugin/markdown/marked.js', condition: function() { return !!document.querySelector('[data-markdown]'); } },
+        { src: './../plugin/markdown/markdown.js', condition: function() { return !!document.querySelector('[data-markdown]'); } },
+        { src: './../plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+        { src: './../plugin/zoom-js/zoom.js', async: true },
+        { src: './../plugin/notes/notes.js', async: true },
+        { src: './../plugin/math/math.js', async: true }
+      ];
+
+      // default options to init reveal.js
+      var defaultOptions = {
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+        transition: 'default', // none/fade/slide/convex/concave/zoom
+        dependencies: deps
+      };
+
+      // options from URL query string
+      var queryOptions = Reveal.getQueryHash() || {};
+
+      var options = extend(defaultOptions, {"controls":true,"progress":true,"autoPlayMedia":false,"slideNumber":"c/t","showSlideNumber":"all","controlsTutorial":true,"controlsLayout":"edges","transition":"slide","transitionSpeed":"medium","minScale":0.5,"maxScale":3}, queryOptions);
+    </script>
+
+
+    <script>
+      Reveal.initialize(options);
+    </script>
+  </body>
+</html>

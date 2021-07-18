@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<playground version='6.0' target-platform='osx' display-mode='rendered' last-migration='0800'>
+    <pages>
+        <page name='01-Welcome'/>
+        <page name='02-Crush-The-Block-I'/>
+        <page name='03-Crush-The-Block-II'/>
+        <page name='04-Crush-The-Block-III'/>
+        <page name='05-Save-The-Lemmings'/>
+        <page name='06-Fix-The-Clock'/>
+    </pages>
+</playground>

@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+
+{% block title %} makereddit {% endblock %}
+
+{% block content %}
+<main role="main" class="container" style="margin-top: 4vh;">
+
+  
+  <div id="posts-container">
+
+    <!-- TODO: Replace all instances of 'REPLACE_ME_WITH_ID' with the post's 
+      '_id' field. -->
+
+    <!-- TODO: Use the post's author, text, content, and url fields to correctly 
+      display the data. -->
+      
+    <!-- STRETCH GOAL: Display the correct number of upvotes for each post. 
+      (HINT: Use the |length operator to get the length of a list.) -->
+    
+    <div class="card mb-3" style="display: flex; flex-direction: row;">
+      <div class="vote-box">
+        <a onclick="upvote(this, 1);"><i class="fas fa-arrow-up"></i></a>
+        <p class="numvotes">1</p>
+        <a onclick="downvote(this, 1);"><i class="fas fa-arrow-down"></i></a>
+      </div>
+      <div class="card-body border-dark">
+        <p class="post-title card-text text-dark">
+          <small class="text-muted">Posted by <b>Lorem Ipsum</b></small>
+          <h4>
+            <a href="https://google.com">Lorem ipsum dolor sit amet</a>
+          </h4>
+
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do 
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim 
+            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut 
+            aliquip ex ea commodo consequat. Duis aute irure dolor in 
+            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla 
+            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in 
+            culpa qui officia deserunt mollit anim id est laborum.
+          </p>
+          <hr>
+          
+          <form>
+              <div class="form-group">
+                <label for="comment-text">Write a comment as <b>{{ username }}</b></label>
+                <textarea class="form-control" id="comment-text" rows="3"></textarea>
+              </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
+
+        </p>
+      </div>
+    </div>
+
+  </div>
+
+</main>
+{% endblock %}

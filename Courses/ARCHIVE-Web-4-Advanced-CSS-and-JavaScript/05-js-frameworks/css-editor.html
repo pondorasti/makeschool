@@ -1,0 +1,47 @@
+<div>
+  <div id="editor-1-content">
+    <h1>Heading</h1>
+    <p>Paragraph</p>
+  </div>
+  <form id="editor-1-form">
+    <p>
+      <label for="input-border-width">border-width:</label>
+      <input id="input-border-width" type="number" value="1">
+    </p>
+    <p>
+      <label for="input-border-color">border-color:</label>
+      <input id="input-border-color" type="color" value="#000">
+    </p>
+    <p>
+      <label for="">border-style:</label>
+      <select id="select-border-style">
+        <option>solid</option>
+        <option>dashed</option>
+      </select>
+    </p>
+    <p><button type="submit">Submit</button></p>
+  </form>
+</div>
+
+
+<script>
+  const editor_1_form = document.getElementById('editor-1-form')
+  const editor_1_content = document.getElementById('editor-1-content')
+  
+  const input_border_width = document.getElementById('input-border-width')
+  const input_border_color = document.getElementById('input-border-color')
+  const select_border_style = document.getElementById('select-border-style')
+  
+  editor_1_form.onsubmit = function(e) {
+    e.preventDefault()
+    const borderWidth = input_border_width.value
+    const borderStyle = select_border_style.value
+    const borderColor = input_border_color.value
+    
+    editor_1_content.style.borderWidth = borderWidth
+    editor_1_content.style.borderStyle = borderStyle
+    editor_1_content.style.borderColor = borderColor
+    
+    console.log(borderWidth, borderStyle, borderColor)
+  }
+</script>
