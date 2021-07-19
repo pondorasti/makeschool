@@ -15,15 +15,15 @@ interface IConcentration {
 
 const concentrations: IConcentration[] = [
   { name: "Front End Web Concentration", courses: [
-    { name: "FEW 1.1", description: "Foundation Web", instructor: "Dani", link: "/courses/FEW-1.1" },
-    { name: "FEW 1.2", description: "Foundation JavaScript", instructor: "Dani", link: "/courses/FEW-1.2" },
-    { name: "FEW 1.3", description: "Responsive Web Design", instructor: "Dani", link: "/courses/FEW-1.3" },
-    { name: "FEW 2.1", description: "Writing JavaScript Libraries", instructor: "Dani", link: "/courses/FEW-2.1" },
-    { name: "FEW 2.2", description: "Advanced CSS and Visual Design", instructor: "Dani", link: "/courses/FEW-2.2" },
-    { name: "FEW 2.3", description: "Single Page Applications", instructor: "Dani", link: "/courses/FEW-2.3" },
-    { name: "FEW 2.4", description: "React Native", instructor: "Dani", link: "/courses/FEW-2.4" },
-    { name: "FEW 2.5", description: "Data & Visualization", instructor: "Dani", link: "/courses/FEW-2.5" },
-    { name: "FEW 2.9", description: "GraphQL", instructor: "Dani", link: "/courses/FEW-2.9" },
+    { name: "FEW 1.1", description: "Foundation Web", instructor: "Mitchell", link: "/courses/FEW-1.1" },
+    { name: "FEW 1.2", description: "Foundation JavaScript", instructor: "Mitchell", link: "/courses/FEW-1.2" },
+    { name: "FEW 1.3", description: "Responsive Web Design", instructor: "Mitchell", link: "/courses/FEW-1.3" },
+    { name: "FEW 2.1", description: "Writing JavaScript Libraries", instructor: "Mitchell", link: "/courses/FEW-2.1" },
+    { name: "FEW 2.2", description: "Advanced CSS and Visual Design", instructor: "Mitchell", link: "/courses/FEW-2.2" },
+    { name: "FEW 2.3", description: "Single Page Applications", instructor: "Mitchell", link: "/courses/FEW-2.3" },
+    { name: "FEW 2.4", description: "React Native", instructor: "Mitchell", link: "/courses/FEW-2.4" },
+    { name: "FEW 2.5", description: "Data & Visualization", instructor: "Mitchell", link: "/courses/FEW-2.5" },
+    { name: "FEW 2.9", description: "GraphQL", instructor: "Mitchell", link: "/courses/FEW-2.9" },
     ]
   },
   { name: "Back End Web Concentration", courses: [
@@ -65,7 +65,7 @@ export default function Home() {
               {concentration.name}
             </h3>
 
-            <div className="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
+            <div className="shadow overflow-x-auto border-b border-gray-200 sm:rounded-lg">
               <table  className="min-w-full divide-y divide-gray-200">
                 <thead>
                   <tr>
