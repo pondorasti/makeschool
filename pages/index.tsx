@@ -13,15 +13,27 @@ interface IConcentration {
 }
 
 const concentrations: IConcentration[] = [
+  { name: "Front End Web Concentration", courses: [
+    { name: "FEW 1.1", description: "Foundation Web", instructor: "Dani", link: "/courses/FEW-1.1" },
+    { name: "FEW 1.2", description: "Foundation JavaScript", instructor: "Dani", link: "/courses/FEW-1.2" },
+    { name: "FEW 1.3", description: "Responsive Web Design", instructor: "Dani", link: "/courses/FEW-1.3" },
+    { name: "FEW 2.1", description: "Writing JavaScript Libraries", instructor: "Dani", link: "/courses/FEW-2.1" },
+    { name: "FEW 2.2", description: "Advanced CSS and Visual Design", instructor: "Dani", link: "/courses/FEW-2.2" },
+    { name: "FEW 2.3", description: "Single Page Applications", instructor: "Dani", link: "/courses/FEW-2.3" },
+    { name: "FEW 2.4", description: "React Native", instructor: "Dani", link: "/courses/FEW-2.4" },
+    { name: "FEW 2.5", description: "Data & Visualization", instructor: "Dani", link: "/courses/FEW-2.5" },
+    { name: "FEW 2.9", description: "GraphQL", instructor: "Dani", link: "/courses/FEW-2.9" },
+    ]
+  },
   { name: "Back End Web Concentration", courses: [
     { name: "BEW 1.1", description: "RESTful & Resourceful MVC Architecture", instructor: "Dani", link: "/courses/BEW-1.1" },
-    { name: "BEW 1.2", description: "Authentication & Associations", instructor: "Dani", link: "/courses/BEW-1.2" },
-    { name: "BEW 1.3", description: "Server Side Architectures & Frameworks", instructor: "Dani", link: "/courses/BEW-1.3" },
-    { name: "BEW 2.1", description: "Advanced Web Patterns", instructor: "Dani", link: "/courses/BEW-2.1" },
-    { name: "BEW 2.2", description: "Docker DevOps Deployments", instructor: "Dani", link: "/courses/BEW-2.2" },
-    { name: "BEW 2.3", description: "Web-Security", instructor: "Dani", link: "/courses/BEW-2.3" },
+    { name: "BEW 1.2", description: "Authentication, Associations, & Advanced Queries", instructor: "Dani", link: "/courses/BEW-1.2" },
+    { name: "BEW 1.3", description: "Server-Side Architectures & Frameworks", instructor: "Dani", link: "/courses/BEW-1.3" },
+    { name: "BEW 2.1", description: "Advanced Web Patterns in Node.js", instructor: "Dani", link: "/courses/BEW-2.1" },
+    { name: "BEW 2.2", description: "Docker, DevOps, & Deployments", instructor: "Dani", link: "/courses/BEW-2.2" },
+    { name: "BEW 2.3", description: "Intro to Web Security", instructor: "Dani", link: "/courses/BEW-2.3" },
     { name: "BEW 2.4", description: "Decentralized Apps & Distributed Protocols", instructor: "Dani", link: "/courses/BEW-2.4" },
-    { name: "BEW 2.5", description: "Go - Strongly Types Languages", instructor: "Dani", link: "/courses/BEW-2.5" },
+    { name: "BEW 2.5", description: "Go - Patterns & Practices in Strongly Typed Languages", instructor: "Dani", link: "/courses/BEW-2.5" },
     ]
   }
 ]
@@ -47,7 +59,7 @@ export default function Home() {
         </div>
 
         {concentrations.map((concentration) => (
-          <div key={concentration.name}>
+          <div key={concentration.name} className="mb-12">
             <h3 className="text-2xl font-bold text-gray-900 tracking-tight sm:text-3xl">
               {concentration.name}
             </h3>

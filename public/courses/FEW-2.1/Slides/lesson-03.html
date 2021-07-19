@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <title>Syllabus Template Slides</title>
+    <link rel="shortcut icon" href="./favicon.ico"/>
+    <link rel="stylesheet" href="./dist/reveal.css" />
+    <link rel="stylesheet" href="./dist/theme/white.css" id="theme" />
+    <link rel="stylesheet" href="./css/highlight/zenburn.css" />
+    <link rel="stylesheet" href="./assets/Reveal/makeschool.css" />
+
+    <script>
+      document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>');
+    </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides"><section  data-markdown><script type="text/template"><!-- .slide: data-background="./Images/header.svg" data-background-repeat="none" data-background-size="40% 40%" data-background-position="center 10%" class="header" -->
+# FEW 2.1 - Unit Testing
+
+<small style="display:block;text-align:center">Unit Testing</small>
+
+<!-- Put a link to the slides so that students can find them -->
+
+➡️ [**Slides**](https://docs.google.com/presentation/d/1aBUDlkov4Bg3BHjALA3u6NQPDSsLvHNwgO-pzNvcl-4/edit?usp=sharing ':ignore')
+
+### Video Lessons
+
+- https://youtu.be/xXm_8DYjW6w
+- https://youtu.be/04y5jPykoIY
+</script></section><section  data-markdown><script type="text/template">
+## Overview
+
+**Quality code** is test passing code. 
+
+Unit testing is used to test **units of code**. 
+
+Code that passes the test is **deemed quality** and fit for publication. 
+
+Unit testing is a part of the **Agile Methodology**.
+</script></section><section  data-markdown><script type="text/template">
+### Why use unit tests?
+</script></section><section  data-markdown><script type="text/template">
+**Improves code quality** by exposing edge cases and finding bugs.
+</script></section><section  data-markdown><script type="text/template">
+**Spots bugs earlier.** Using tests will bring bugs to light before you publish your app.
+</script></section><section  data-markdown><script type="text/template">
+**Reduces defects** when integrating new features.
+</script></section><section  data-markdown><script type="text/template">
+**Professionals use unit tests.** If you are planning to get a job with a company that employs more than a single developer, you will probably be writing unit tests at some point.
+</script></section><section  data-markdown><script type="text/template">
+## Learning Objectives
+
+By the end of this lesson you should by able to: 
+
+1. Define unit testing
+1. Identify what to test
+1. Write Unit tests
+1. Measure code coverage
+</script></section><section  data-markdown><script type="text/template">
+## Unit Testing
+</script></section><section  data-markdown><script type="text/template">
+**Q:** What is a unit test?
+</script></section><section  data-markdown><script type="text/template">
+**A:** A unit test is a test of a software system, _usually a single function._ 
+
+**Important! A unit test is most often testing the expected output of a function is correct for a given input.**
+</script></section><section  data-markdown><script type="text/template">
+**Q:** How do you unit test?
+</script></section><section  data-markdown><script type="text/template">
+**A:** Unit tests are run by software. 
+
+In this class, we will use [Jest](https://jestjs.io).
+</script></section><section  data-markdown><script type="text/template">
+**Q:** What is Jest?
+</script></section><section  data-markdown><script type="text/template">
+**A:** [Jest](https://jestjs.io) is a JavaScript testing framework that was written by Facebook. It works with:
+
+- JavaScript
+- TypeScript
+- Node
+- React
+- Vue
+- Angular
+- and more ...
+</script></section><section  data-markdown><script type="text/template">
+**Q:** Why Jest?
+</script></section><section  data-markdown><script type="text/template">
+**A:** It's it's straight forward to use and Jest works well with React. 
+
+If you're building React apps Jest is a good choice. 
+</script></section><section  data-markdown><script type="text/template">
+**Q:** How do you write a test?
+</script></section><section  data-markdown><script type="text/template">
+**A:** Before writing a test you'll want to think about what you are testing and what the test will consider passing.
+</script></section><section  data-markdown><script type="text/template">
+For example, you wrote a function that uppercases the first letter of a string. 
+
+Your unit test might expect the following input and output:
+
+<div><code>widget -> Widget</code></div>
+</script></section><section  data-markdown><script type="text/template">
+## Testing example
+</script></section><section  data-markdown><script type="text/template">
+**Heard of Fizz Buzz?** Everyone is writing this program but no one is writing tests! There are so many faulty FizzBuzz applications in the world we could have a major problem on our hands!
+
+If you haven't heard of FizzBuzz take a quick read.
+
+- https://en.wikipedia.org/wiki/Fizz_buzz
+- https://www.tomdalling.com/blog/software-design/fizzbuzz-in-too-much-detail/
+- https://wiki.c2.com/?FizzBuzzTest
+- https://blog.codinghorror.com/why-cant-programmers-program/
+</script></section><section  data-markdown><script type="text/template">
+Pair with someone **you haven't paired with before**.
+
+The goal of this exercise is to write some tests with Jest that test the functions in the [Fizz Buzz sample code](https://github.com/Make-School-Labs/fizz-buzz-test).
+
+**Download this repo now.** Download the repo as a zip file and unzip it.
+</script></section><section  data-markdown><script type="text/template">
+### Getting Started Fizz Buzz
+
+- Navigate the terminal to the directory
+- `npm init -y` 
+</script></section><section  data-markdown><script type="text/template">
+### Writing tests with Jest
+
+Jest is a framework that you will use as a *dev dependency*. 
+
+A dev dependency is one that is used for development but _not used in your source code_.
+</script></section><section  data-markdown><script type="text/template">
+Add Jest:
+
+- `npm install --save-dev jest`
+
+`--save-dev` creates an entry under - `"devDependencies"` in your `package.json`. Look for this right now.
+</script></section><section  data-markdown><script type="text/template">
+Now that jest is installed, you need a test command. Add this to `package.json`. Add/edit `package.json` to look like this:
+
+```JSON
+"scripts": {
+  "test": "jest"
+},
+```
+</script></section><section  data-markdown><script type="text/template">
+You'll run a test with:
+
+`npm run test`
+
+Try it now. You should see an error:
+
+```
+...
+No tests found, exiting with code 1
+...
+```
+
+You haven't written any tests yet so this makes sense.
+</script></section><section  data-markdown><script type="text/template">
+Add a new directory named "tests".
+
+- `mkdir tests`
+
+Now add a new file `tests/test.js`. Your tests will be written here.  
+
+- `touch tests/test.js`
+</script></section><section  data-markdown><script type="text/template">
+When you run Jest it will look for any files with `test.js` in the name and run any test code found there. 
+
+Jest logs the results of all tests to the console.
+</script></section><section  data-markdown><script type="text/template">
+A test is run by calling:
+
+```JavaScript
+test(desc, callback)
+```
+
+You supply two parameters a *description string* and a *callback function*.
+</script></section><section  data-markdown><script type="text/template">
+Open `test.js` and write a test:
+
+```JavaScript
+test('Sanity check', () => {
+
+})
+```
+</script></section><section  data-markdown><script type="text/template">
+Run your test.
+
+`npm run test`
+
+You should see some output in the console.
+
+```
+...
+ PASS  tests/test.js
+  ✓ Sanity check (1ms)
+
+Test Suites: 1 passed, 1 total
+Tests:       1 passed, 1 total
+...
+```
+
+Looks like 1 test  passed out of a total of 1 test.
+</script></section><section  data-markdown><script type="text/template">
+**What did you test?**
+
+Nothing. The callback function will register an error **only** if any code executed inside it *throws an error*, otherwise the test is passing.
+</script></section><section  data-markdown><script type="text/template">
+Add the following inside the callback.
+
+```
+test('Sanity check', () => {
+  expect(2+2).toBe(5)
+})
+```
+</script></section><section  data-markdown><script type="text/template">
+Run your test again. The test should *fail* this time.
+
+```
+...
+Test Suites: 1 failed, 1 total
+Tests:       1 failed, 1 total
+...
+```
+
+### Assertions
+
+`expect().toBe()` is an assertion. An assertion is you expressing the answer you are expecting to get. *Here you are saying you expect `2+2` to be `5`*. Expecting `2+2` to `5` is insane so the assertion fails.
+</script></section><section  data-markdown><script type="text/template">
+Fix the test by changing `5` to `4` and run it again. This time the test passes since no error was thrown.
+
+https://jestjs.io/docs/en/getting-started
+</script></section><section  data-markdown><script type="text/template">
+## Testing Fizz Buzz
+
+Your goal is to examine the source code and write some tests. The [Fizz Buzz sample code](https://github.com/Make-School-Labs/fizz-buzz-test) contains these functions. Each function takes some input and returns output. 
+
+- `isFizzy()`
+- `isBuzzy()`
+- `fizzyBuzzy()`
+- `fizzBuzz()`
+</script></section><section  data-markdown><script type="text/template">
+You'll need to import these methods into your `test.js`. The example code is set up for a Node. Use require at the top of the file:
+
+`const fb = require('../fizzbuzz')`
+
+All of the methods exported from `fizzbuzz.js` will be on the `fb` object. For example: 
+
+`fb.fizzBuzz(16)`
+</script></section><section  data-markdown><script type="text/template">
+The fizzbuzz package/module has 3 constants, and 4 methods. You should test them all!
+
+Constants: 
+
+- `FIZZ`
+- `BUZZ`
+- `FIZZBUZZ`
+
+Methods: 
+
+- `isFizzy(n: Number)`
+- `isBuzzy(n: Number)`
+- `fizzBuzzy(n: Number)`
+- `fizzBuzz(n: Number)`
+</script></section><section  data-markdown><script type="text/template">
+For example, the `isFizzy()` function takes a number and returns true if that number is divisible by 3. The test for this might look like:
+
+```JavaScript
+test('Test isFizzy', () => {
+  expect(tests.isFizzy(1)).toBe(false)
+  expect(tests.isFizzy(3)).toBe(true)
+  expect(tests.isFizzy(4)).toBe(false)
+  expect(tests.isFizzy(6)).toBe(true)
+})
+```
+</script></section><section  data-markdown><script type="text/template">
+Use `expect(x).toBe(y)` to compare the value of x and y.
+
+`expect(99).toBe(99)` passes
+
+`expect(99).toBe(100)` throws an error
+
+
+```JS 
+function getAnswer() {
+  return 42
+}
+...
+expect(getAnswer()).tobe(42) // passes
+```
+</script></section><section  data-markdown><script type="text/template">
+### Testing basics 
+
+**[`expect()`](https://jestjs.io/docs/en/expect)**
+
+Use `expect()` to look at a value. Call one of these methods to check that value: 
+
+- [`.toBe(value)`](https://jestjs.io/docs/en/expect#tobevalue) to compare primitive values
+- [`.toEqual(value)`](https://jestjs.io/docs/en/expect#toequalvalue) to check equality of objects. This does a recursive "deep" check for equality. 
+- [`.not`](https://jestjs.io/docs/en/expect#not) to check something is not the value you were expecting. 
+
+See the link to the docs above for more information. 
+</script></section><section  data-markdown><script type="text/template">
+## Activity
+
+**Before writing any code.** Discuss with a partner what you are going to test. 
+
+Describe the test you are going to write. Your partner should think of any edge cases or problems areas. Switch roles for each test you write.
+
+Write tests for FizzBuzz. Write a test for each function.
+</script></section><section  data-markdown><script type="text/template">
+Import fizzbuzz functions from `fizzbuzz.js` with require: 
+
+`const fb = require('../fizzbuzz')`
+
+From here you can all of any of the fizzbuzz methods on `fb` for example: 
+
+- `fb.isFizzy(n)`
+- `fb.isBuzzy(n)`
+- `fb.fizzBuzz(n)`
+- etc ...
+</script></section><section  data-markdown><script type="text/template">
+Refer to the [Jest docs](https://jestjs.io/docs/en/getting-started.html) while you work. 
+</script></section><section  data-markdown><script type="text/template">
+## Checking Coverage
+
+How much of your code is covered by the test you wrote? Pretty good question huh?
+
+Jest will automate this for you. 
+
+`npx jest --coverage`
+</script></section><section  data-markdown><script type="text/template">
+This should provide output similar to: 
+
+```
+----------|----------|----------|----------|----------|-------------------|
+File      |  % Stmts | % Branch |  % Funcs |  % Lines | Uncovered Line #s |
+----------|----------|----------|----------|----------|-------------------|
+All files |    96.88 |      100 |       80 |    96.55 |                   |
+ index.js |    96.88 |      100 |       80 |    96.55 |                70 |
+----------|----------|----------|----------|----------|-------------------|
+```
+
+This tells you what % of code statements were covered by the tests. What % of code branches were covered, these are if else, switch cases etc. What % of functions were tested. What % of lines of code were tested, and line numbers for lines of code that were not tested. 
+
+Check coverage and identify what has not been tested. 
+</script></section><section  data-markdown><script type="text/template">
+### Debriefing the tests
+
+Discuss these questions
+
+- What did you test?
+- What was easy to test?
+- What was difficult to test?
+- How many things did a test have to look at?
+- Are you confident that your tests will catch errors that might arise with any possible input?
+</script></section><section  data-markdown><script type="text/template">
+## Testing the string functions
+
+To use your library in your tests you'll need to import it. Tests are run in the Node environment use `require()` to import them as a module.
+
+`const lib = require('../index.js')`
+
+Modify the line above to suit your situation. The name of the var can be anything. The path and name to point to your string lib relative to `test.js`.
+</script></section><section  data-markdown><script type="text/template">
+Note! If your functions are global or they are added to the prototype of a global object you can just use something like:
+
+`require('../index.js')`
+</script></section><section  data-markdown><script type="text/template">
+Use the coverage command with Jest to test the coverage of your tests. 
+</script></section><section  data-markdown><script type="text/template">
+### Homework
+
+[Add Unit Tests](../assignments/assignment-03.md)
+</script></section><section  data-markdown><script type="text/template">
+## Wrap Up
+
+- Q: Why use unit tests? 
+- Q: What makes a good test?
+- Q: What is Jest?
+</script></section><section  data-markdown><script type="text/template">
+## Additional Resources
+
+1. https://github.com/Make-School-Labs/fizz-buzz-test
+1. https://jestjs.io
+
+</script></section><section  data-markdown><script type="text/template">
+## Minute-by-Minute 
+
+| **Elapsed** | **Time** | **Activity** |
+| ----------- | -------- | ------------ |
+| 0:10 | 0:10 | [Overview](#overview) (Lecture) |
+| 0:05 | 0:15 | [Learning Objectives](#learning-objectives) (Lecture) |
+| 0:10 | 0:25 | [Unit Testing](#unit-testing) (Discussion) |
+| 0:15 | 0:40 | [Testing Example](#testing-example) (Demo/setup) |
+| 1:00 | 1:40 | [Testing Fizz Buzz](#testing-fizz-buzz) (Activity) |
+| 0:10 | 1:50 | BREAK |
+| 0:15 | 2:05 | Discuss Testing |
+| 0:30 | 2:35 | Start Homework |
+| 0:10 | 2:45 | Wrap up |</script></section></div>
+    </div>
+
+    <script src="./dist/reveal.js"></script>
+
+    <script src="./plugin/markdown/markdown.js"></script>
+    <script src="./plugin/highlight/highlight.js"></script>
+    <script src="./plugin/zoom/zoom.js"></script>
+    <script src="./plugin/notes/notes.js"></script>
+    <script src="./plugin/math/math.js"></script>
+    <script>
+      function extend() {
+        var target = {};
+        for (var i = 0; i < arguments.length; i++) {
+          var source = arguments[i];
+          for (var key in source) {
+            if (source.hasOwnProperty(key)) {
+              target[key] = source[key];
+            }
+          }
+        }
+        return target;
+      }
+
+      // default options to init reveal.js
+      var defaultOptions = {
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+        transition: 'default', // none/fade/slide/convex/concave/zoom
+        plugins: [
+          RevealMarkdown,
+          RevealHighlight,
+          RevealZoom,
+          RevealNotes,
+          RevealMath
+        ]
+      };
+
+      // options from URL query string
+      var queryOptions = Reveal().getQueryHash() || {};
+
+      var options = extend(defaultOptions, {"controls":true,"progress":true,"autoPlayMedia":false,"slideNumber":"c/t","showSlideNumber":"all","controlsTutorial":true,"controlsLayout":"edges","transition":"slide","transitionSpeed":"medium","minScale":0.5,"maxScale":3}, queryOptions);
+    </script>
+
+
+    <script>
+      Reveal.initialize(options);
+    </script>
+  </body>
+</html>

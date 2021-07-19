@@ -1,0 +1,477 @@
+/** MakeSchool theme for Reveal.js. */
+
+@import url('https://use.typekit.net/zyr1voy.css');
+@import url('https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700&display=swap');
+
+section.has-dark-background,
+section.has-dark-background h1,
+section.has-dark-background h2,
+section.has-dark-background h3,
+section.has-dark-background h4,
+section.has-dark-background h5,
+section.has-dark-background h6 {
+  color: #F3F3F3;
+}
+
+section.has-dark-background p code {
+    color: #0D4062;
+    border: 1px white solid;
+    background: white;
+}
+
+section.has-dark-background a {
+    color: #18a9f5;
+}
+
+/*********************************************
+ * GLOBAL STYLES
+ *********************************************/
+body {
+  background: #F3F3F3 url('https://res.cloudinary.com/makeschool/image/upload/v1/BrandGuidelines/logo_white_background.svg') no-repeat left 8px bottom 10px;
+  background-size: 116px 32px;
+  background-clip: border-box;
+  color: #303030;
+}
+
+.reveal {
+  font-family: "proxima-nova", Helvetica, sans-serif;
+  font-size: 2rem;
+  font-weight: normal;
+  color: #303030;
+}
+
+::selection {
+  color: #fff;
+  background: #48bcf7;
+  text-shadow: none;
+}
+
+::-moz-selection {
+  color: #fff;
+  background: #48bcf7;
+  text-shadow: none;
+}
+
+.reveal .slides section,
+.reveal .slides section>section {
+  line-height: 1.3;
+  font-weight: inherit;
+}
+
+/*********************************************
+ * HEADERS
+ *********************************************/
+.reveal h1,
+.reveal h2,
+.reveal h3,
+.reveal h4,
+.reveal h5,
+.reveal h6 {
+  margin: 0 0 20px 0;
+  color: #4A4A4A;
+  font-family: "proxima-nova", Helvetica, sans-serif;
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: normal;
+  text-transform: uppercase;
+  text-shadow: none;
+  word-wrap: break-word;
+}
+
+.reveal h1 {
+  font-size: 2em;
+  color: #0D4062;
+  border: 5px #0D4062 dashed;
+  border-radius: 25px;
+}
+
+.reveal .header h1 {
+    margin-top: 20%;
+    border: none;
+}
+
+.reveal h2 {
+  font-size: 1.6em;
+  color: #087CB8;
+}
+
+.reveal h3 {
+  font-size: 1.3em;
+  margin: 0 0 -5px 0;
+}
+
+.reveal h4,
+.reveal h5,
+.reveal h6 {
+  font-size: 1em;
+  color: #87898C;
+}
+
+.reveal h1 {
+  text-shadow: none;
+}
+
+/*********************************************
+ * OTHER
+ *********************************************/
+.reveal p {
+  margin: 40px 0;
+  line-height: 1.3;
+  text-align: left;
+}
+
+/* Ensure certain elements are never larger than the slide itself */
+.reveal img,
+.reveal video,
+.reveal iframe {
+  max-width: 95%;
+  max-height: 95%;
+}
+
+.reveal strong,
+.reveal b {
+  font-weight: bold;
+}
+
+.reveal em {
+  font-style: italic;
+}
+
+.reveal ol,
+.reveal dl,
+.reveal ul {
+  display: block;
+  margin: 18px 0 54px 1em;
+}
+
+.reveal ol {
+  list-style-type: decimal;
+}
+
+.reveal ul {
+  list-style-type: disc;
+}
+
+.reveal ul ul {
+  list-style-type: square;
+}
+
+.reveal ul ul ul {
+  list-style-type: circle;
+}
+
+.reveal ul ul,
+.reveal ul ol,
+.reveal ol ol,
+.reveal ol ul {
+  display: block;
+  margin-left: 54px;
+  margin-top: 9px;
+  margin-bottom: 18px;
+}
+
+.reveal ul li,
+.reveal ul li,
+.reveal ol li,
+.reveal ol li {
+  margin-bottom: 18px;
+}
+
+.reveal .compact p {
+    margin-bottom: 20px;
+}
+
+.reveal .compact ul {
+    margin: 0px;
+}
+
+.reveal .compact ul li,
+.reveal .compact ul li,
+.reveal .compact ol li,
+.reveal .compact ol li {
+  margin-bottom: 2px;
+}
+
+.reveal ul ul li,
+.reveal ul ol li,
+.reveal ol ol li,
+.reveal ol ul li {
+  font-size: 1.7rem;
+  color: #4A4A4A;
+}
+
+.reveal dt {
+  font-weight: bold;
+}
+
+.reveal dd {
+  margin-left: 40px;
+}
+
+.reveal blockquote {
+  display: block;
+  position: relative;
+  width: 100%;
+  margin: 20px auto;
+  padding: 5px;
+  font-style: italic;
+  background: rgba(255, 255, 255, 0.05);
+  line-height: 100%;
+}
+
+.reveal blockquote p:first-child,
+.reveal blockquote p:last-child {
+  display: inline-block;
+}
+
+.reveal q {
+  font-style: italic;
+}
+
+.reveal pre {
+  display: block;
+  position: relative;
+  width: 100%;
+  margin: 0 auto;
+  text-align: left;
+  font-size: 0.75em;
+  font-family: monospace;
+  line-height: 1.2em;
+  word-wrap: break-word;
+  font-family: 'Ubuntu Mono', monospace;
+  font-weight: 400;
+}
+
+.reveal code {
+  font-family: monospace;
+  text-transform: none;
+  font-family: 'Ubuntu Mono', monospace;
+  font-weight: 400;
+}
+
+.reveal p code,
+.reveal ol li code,
+.reveal ul li code {
+  font-family: 'Ubuntu Mono', monospace;
+  font-weight: 400;
+  border: 1px #12739e solid;
+  background-color: white;
+  padding: 1px 5px 2px 5px;
+  display: inline-block;
+  vertical-align: baseline;
+  font-size: 1.75rem;
+}
+
+.reveal pre code {
+  display: block;
+  padding: 5px;
+  overflow: autoa;
+  max-height: 300px;
+  word-wrap: break-word;
+  font-family: 'Ubuntu Mono', monospace;
+  font-weight: 400;
+  font-size: 1.5rem;
+}
+
+.reveal table {
+  margin: auto;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.reveal table th {
+  font-weight: bold;
+}
+
+.reveal table th,
+.reveal table td {
+  text-align: left;
+  padding: 0.2em 0.5em 0.2em 0.5em;
+  border-bottom: 1px solid;
+}
+
+.reveal table th[align="center"],
+.reveal table td[align="center"] {
+  text-align: center;
+}
+
+.reveal table th[align="right"],
+.reveal table td[align="right"] {
+  text-align: right;
+}
+
+.reveal table tbody tr:last-child th,
+.reveal table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.reveal sup {
+  vertical-align: super;
+  font-size: smaller;
+}
+
+.reveal sub {
+  vertical-align: sub;
+  font-size: smaller;
+}
+
+.reveal small {
+  display: inline-block;
+  font-size: 0.6em;
+  line-height: 1.2em;
+  vertical-align: top;
+}
+
+.reveal small * {
+  vertical-align: top;
+}
+
+/*********************************************
+ * LINKS
+ *********************************************/
+.reveal a {
+  color: #087CB8;
+  text-decoration: none;
+  -webkit-transition: color .15s ease;
+  -moz-transition: color .15s ease;
+  transition: color .15s ease;
+}
+
+.reveal a:hover {
+  color: #18a9f5;
+  text-shadow: none;
+  border: none;
+}
+
+.reveal .roll span:after {
+  color: #fff;
+  background: #054b6f;
+}
+
+/*********************************************
+ * IMAGES
+ *********************************************/
+.reveal section img {
+  display: block;
+  margin: 0px auto;
+  background: rgba(255, 255, 255, 0.12);
+  border: 0px solid #303030;
+}
+
+.reveal section img.plain {
+  border: 0;
+}
+
+.reveal a img {
+  -webkit-transition: all .15s linear;
+  -moz-transition: all .15s linear;
+  transition: all .15s linear;
+}
+
+.reveal a:hover img {
+  background: rgba(255, 255, 255, 0.3);
+  border-color: #087CB8;
+}
+
+.reveal .slide-number {
+  background-color: #87898C20;
+}
+
+.reveal .slide-number a {
+  color: #4A4A4A80;
+  font-weight: 700;
+}
+
+.reveal .slide-number a:hover,
+.reveal .slide-number a:active {
+  color: #4A4A4A;
+}
+
+/*********************************************
+ * NAVIGATION CONTROLS
+ *********************************************/
+.reveal .controls {
+  color: #4BB1E4;
+  border-right-width: 22px;
+}
+
+.reveal .controls button {
+    font-size: 0.5em;
+    width: 0; 
+    height: 0; 
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent; 
+    border-left: 10px solid transparent; 
+    border-right: 10px solid transparent; 
+    top: auto !important;
+    left: auto !important;
+}
+.reveal .controls .controls-arrow:before, 
+.reveal .controls .controls-arrow:after {
+    display: none;
+}
+
+.reveal .slide-number {
+    display: none !important;
+}
+
+.reveal .controls .navigate-left {
+    border-right:15px solid #087CB8; 
+    right: 12.6em !important;
+    bottom: 7.4em !important;
+}
+
+.reveal .controls .navigate-right {
+    border-left: 15px solid #087CB8;
+    right: 1.2em !important;
+    bottom: 7.4em !important;
+}
+
+.reveal .controls .navigate-up {
+    border-bottom: 15px solid #087CB8;
+    right: 7.4em !important;
+    bottom: 12.6em !important;
+}
+
+.reveal .controls .navigate-down {
+    border-top: 15px solid #087CB8;
+    right: 7.4em !important;
+    bottom: 1.2em !important;
+}
+
+
+
+/*********************************************
+ * PROGRESS BAR
+ *********************************************/
+.reveal .progress {
+  background: rgba(0, 0, 0, 0.3);
+  color: #087CB8;
+}
+
+.reveal .progress span {
+  -webkit-transition: width 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985);
+  -moz-transition: width 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985);
+  transition: width 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985);
+}
+
+/*********************************************
+ * PRINT BACKGROUND
+ *********************************************/
+@media print {
+  .backgrounds {
+    background-color: #ffffff;
+  }
+}
+
+.reveal pre {
+  border: 2px solid #87898C33;
+}
+
+.reveal p,
+.reveal pre,
+.reveal small,
+.reveal .slides section,
+.reveal .slides section>section {
+  line-height: 1.2;
+}

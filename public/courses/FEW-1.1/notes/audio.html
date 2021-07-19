@@ -1,0 +1,46 @@
+<button id="start">start</button>
+<button id="stop">Stop</button>
+<input type="range">
+
+<style>
+  input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    background-color: Green;
+    opacity: 0.5;
+    width: 10px;
+    height: 40px;
+  }
+</style>
+
+<script>
+  //  const AudioContext = window.AudioContext || window.webkitAudioContext;
+  //  const audioCtx = new AudioContext();
+  //
+  //  const oscillatorNode = audioCtx.createOscillator();
+  //  const gainNode = audioCtx.createGain();
+  //  const finish = audioCtx.destination;
+  //  
+  //  
+  //  
+
+
+  // create web audio api context
+  var audioCtx = new(window.AudioContext || window.webkitAudioContext)();
+
+  // create Oscillator node
+  var oscillator = audioCtx.createOscillator();
+
+  oscillator.type = 'sine';
+  oscillator.frequency.setValueAtTime(440, audioCtx.currentTime); // value in hertz
+  oscillator.connect(audioCtx.destination);
+
+
+  document.getElementById('start').onclick = function() {
+    oscillator.start();
+  }
+
+  document.getElementById('stop').onclick = function() {
+    oscillator.stop(1);
+  }
+
+</script>

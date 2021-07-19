@@ -1,0 +1,166 @@
+<div class="container">
+  <div class="box"><span>Option 1</span></div>
+  <div class="box"><span>Option 2</span></div>
+  <div class="box"><span>Option 5</span></div>
+  <div class="box"><span>Option 3</span></div>
+  <div class="box selected"><span>Option 4</span></div>
+</div>
+
+<div>
+  <h1 id="title">???</h1>
+  <input id="title-input" type="text">
+</div>
+
+<div>
+  <h1 id="choice">???</h1>
+  <select id="choose">
+    <option>Chocolate Chip</option>
+    <option>Snickerdoodle</option>
+    <option>Biscotti</option>
+    <option>Sugar</option>
+  </select>
+</div>
+
+
+<img src="my.svg">
+
+<style>
+  * {
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: Helvetica;
+  }
+  
+  .container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 10px;
+    width: 210px;
+  }
+  
+  .box {
+    color: #fff;
+    width: 100px;
+    background-color: red;
+    width: 100px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .box.selected {
+    border: 10px solid rgba(0, 0, 0, 0.25);
+  }
+  
+  input {
+    padding: 0.5em;
+  }
+  
+  .input-fcous {
+    border: 4px solid;
+  }
+  
+  
+</style>
+
+
+<script>
+  // Get all boxes
+  const options = Array.from(document.getElementsByClassName('box'));
+	
+	console.log(options)
+	
+	options.forEach(function(btn) {
+		btn.onclick = function(e) {
+			console.log(this)
+      this.classList.toggle('selected');
+    }
+	})
+	
+  // For each box 
+//  for (var i in options) {
+//    // Click event listener added to each object
+//    options[i].onclick = function(e) {
+//      this.classList.toggle('selected');
+//    }
+//  }
+  
+
+class Obj {
+	constructor(a, b, c) {
+		this.a = a 
+		this.b = b 
+		this.c = c
+	}
+	
+	test() {
+		console.log('test'+ this.b)
+		console.log(this)
+	}
+	
+	sayHello() {
+		console.log(this.c)
+	}
+}
+	
+const o = new Obj(11, 22, '33 hello')
+	
+console.log(o.a) // 99
+o.test()
+
+setTimeout(function() {
+	o.test()
+	o.sayHello()
+}, 1000)
+	
+var zz = 'Eh oh!';
+
+console.log(window)
+	
+
+	
+	
+	
+  const title = document.getElementById('title');
+  const titleInput = document.getElementById('title-input');
+  
+  const choice = document.getElementById('choice');
+  const choose = document.getElementById('choose');
+  choose.oninput = function(e) {
+    choice.innerHTML = this.value;
+  }
+  
+  titleInput.onfocus = function(e) {
+    console.log(this, "has focus!");
+    this.classList.add('input-fcous');
+  }
+  
+  titleInput.onblur = function(e) {
+    console.log(this, "blur!");
+    this.classList.remove('input-fcous');
+  }
+  
+  titleInput.oninput = function(e) {
+    console.log(this.value);
+    title.innerHTML = this.value;
+  }
+  
+  
+  
+  // Challenges 
+  
+  // 1) Add another box
+  // 2) Use the focus and blur event to add a class to the input
+  // 3) Use the change event to show the item chosen from the select
+  
+  
+  
+	
+  
+  
+  
+</script>
+

@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <title>Syllabus Template Slides</title>
+    <link rel="shortcut icon" href="./favicon.ico"/>
+    <link rel="stylesheet" href="./dist/reveal.css" />
+    <link rel="stylesheet" href="./dist/theme/white.css" id="theme" />
+    <link rel="stylesheet" href="./css/highlight/zenburn.css" />
+    <link rel="stylesheet" href="./assets/Reveal/makeschool.css" />
+
+    <script>
+      document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>');
+    </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides"><section  data-markdown><script type="text/template"><!-- .slide: data-background="./Images/header.svg" data-background-repeat="none" data-background-size="40% 40%" data-background-position="center 10%" class="header" -->
+# FEW 2.1 - Continuous Integration
+
+<small style="display:block;text-align:center">Continuous Integration</small>
+
+<!-- Put a link to the slides so that students can find them -->
+
+<!-- ➡️ [**Slides**](/Syllabus-Template/Slides/Lesson1.html ':ignore') -->
+</script></section><section  data-markdown><script type="text/template">
+Continuous Integration (CI) is the term for automated processes that continuously integrate changes into a software project.
+</script></section><section  data-markdown><script type="text/template">
+Continuous Integration emphasizes merging small changes frequently over merging large changes at the end of the development cycle. 
+</script></section><section  data-markdown><script type="text/template">
+A big piece of CI is automatically running tests and providing feedback on the current state of a code base. 
+</script></section><section  data-markdown><script type="text/template">
+Another use of CI is running tests and providing other feedback as each new addition is integrated into the codebase.
+</script></section><section  data-markdown><script type="text/template">
+In this lesson, you will apply some of these ideas to your code base. 
+</script></section><section  data-markdown><script type="text/template">
+### Quick Discussion
+
+Read this: https://codeship.com/continuous-integration-essentials
+
+Pair up and answer these questions: 
+
+**Q:** Do you see any advantages of using CI?
+
+**Q:** Do you see any downsides to CI?
+</script></section><section  data-markdown><script type="text/template">
+## Why should you learn about Continuous Integration?
+
+CI is a modern software development *best practice*. You should always be striving to follow best practices in your work and be familiar with what industry considers best practices if you plan to integrate yourself with the industry! 
+
+Using CI will provide automated feedback on the quality of a codebase as each new change is pushed. Feedback is good, automated feedback is even better since it saves you time and energy!
+</script></section><section  data-markdown><script type="text/template">
+## Learning Objectives
+
+1. Use Linting to improve code quality and catch bugs
+1. Use Continuous Integration to automate testing
+1. Implement industry best practices
+</script></section><section  data-markdown><script type="text/template">
+## Install ESLint and lint your work!
+
+Linting is not a CI but is related as a part of industry best practices and code quality. We've covered this in other classes but it's important so we will review it again here. 
+</script></section><section  data-markdown><script type="text/template">
+### Q: Why lint? 
+
+Linting is an automated process that looks at your code and evaluates it for consistent style and quality. This has two effects on your work.
+
+- When working in a team it ensures that everyone on the team is coding with a **consistent style**. 
+- **Catches errors** and questionable coding structures before they get merged into a larger code base. 
+
+As a student **you should always be using the linter.** Think of every suggestion the linter makes as mentorship from a senior software engineer.
+</script></section><section  data-markdown><script type="text/template">
+ESLint needs to be installed in two places: 
+
+- _in the project_ through npm 
+- _in your editor_.
+</script></section><section  data-markdown><script type="text/template">
+**Q:** Do you consider your self an advanced coder who follows professional best practices?
+</script></section><section  data-markdown><script type="text/template">
+**A:** You have already install installed ESLint, and you do it for every project!
+</script></section><section  data-markdown><script type="text/template">
+### Install in npm project
+
+Follow the instruction here: 
+
+https://eslint.org/docs/user-guide/getting-started
+
+tl;dr
+
+`npm install eslint --save-dev`
+
+`eslint --init`
+</script></section><section  data-markdown><script type="text/template">
+Choose: 
+
+- Use a popular Styleguide
+- Choose: Airbnb style guide 
+- Use React: No
+- Format: JavaScript
+- Install Now: Yes
+</script></section><section  data-markdown><script type="text/template">
+### Install ESLint in Editor
+
+You'll also need to add the ESLint plugin in your editor. The process for this is different for each editor but generally follows these steps: 
+
+1. Go to Settings Extensions/Plugins
+1. Add a new Extension/Plugin
+1. Search ESLint
+1. Install 
+
+You may need to close and reopen your project in your editor before the Linter starts registering errors. 
+
+**Do this now!** If you haven't already.  
+</script></section><section  data-markdown><script type="text/template">
+## Pair up and solve linting errors
+
+Pair with a person _you haven't paired with_ before. 
+
+Using a **single computer** spend 10 mins solving linter errors person A's project. Switch computers after 10 mins and continue solving linter errors on person B's project. 
+</script></section><section  data-markdown><script type="text/template">
+### Discuss the linter suggestions
+
+- **Q:** What suggestions did the linter make that were obviously useful? 
+- **Q:** Did the linter suggest anything that seemed strange or not obvious? 
+- **Q:** Do you think your code is of better quality after?
+</script></section><section  data-markdown><script type="text/template">
+## Travis CI 
+
+[Travis CI](https://travis-ci.com) is a Continuous Integration platform. It automates building and testing your software projects. 
+
+Follow the instructions here: 
+
+https://docs.travis-ci.com/user/for-beginners/
+
+https://docs.travis-ci.com/user/tutorial/#to-get-started-with-travis-ci
+</script></section><section  data-markdown><script type="text/template">
+### Setup Travis-CI 
+
+Travis-CI connects to your GitHub repos and automatically process files when it sees you push to a master or a branch. To make this magic work you'll need to authorize Travis through GitHub.
+
+[Sign up for Travis](https://travis-ci.com) with GitHub.
+
+Authorize Travis with your GitHub account.
+</script></section><section  data-markdown><script type="text/template">
+#### Add .travis.yml
+
+Travis uses a config file to describe how it should work with the files in your repos. 
+
+Add a new file to the root directory of your String Lib project. Name this file:
+
+`.travis.yml`
+</script></section><section  data-markdown><script type="text/template">
+Add the following to this file: 
+
+```yml
+sudo: false
+language: node_js
+node_js:
+- stable
+branches:
+  only:
+  - master
+cache:
+  directories:
+  - node_modules
+before_install:
+- npm update
+install:
+- npm install
+script:
+- npm test
+- npm run coveralls
+```
+</script></section><section  data-markdown><script type="text/template">
+This config script uses the latest stable version of node, builds your project from the master branch, install node modules, and then runs your npm test script followed by the coveralls script. 
+
+The `coverall` script you haven't added yet! Coveralls is another service that provides more information about your builds. You'll set this up this in the next step. 
+
+https://docs.travis-ci.com/user/tutorial/
+</script></section><section  data-markdown><script type="text/template">
+### Coveralls 
+
+Coveralls is a service that helps you track code coverage. Code coverage answers the question: how much of my code is covered by the testing? Essentially it will give you a score telling you how much of your code is covered by the unit tests that exist. 
+
+Go to [Coveralls.io](https://coveralls.io)
+</script></section><section  data-markdown><script type="text/template">
+Create an account and login.
+
+Click your account and link your GitHub.
+
+Click Add Repo and add your String Lib Repo to Coveralls.
+
+Click Repos then click the Name of string repo.
+</script></section><section  data-markdown><script type="text/template">
+Add the Coveralls package to your project. 
+
+`npm install coveralls --save-dev`
+
+Add this line to your `package.json`:
+
+```JSON
+"scripts": {
+  ...
+  "coveralls": "jest --coverage --coverageReporters=text-lcov | coveralls",
+  ...
+},
+```
+</script></section><section  data-markdown><script type="text/template">
+Find the "Coverage" badge. Click the embed button to the upper right. Copy the Markdown text. You can paste this into the README.md in the GitHub Repo of your library. 
+
+https://coveralls.io
+
+https://medium.com/@ollelauribostr/start-measuring-coverage-with-jest-travis-ci-and-coveralls-1867928aca42
+</script></section><section  data-markdown><script type="text/template">
+### Give yourself a badge! 
+
+Give yourself a badge or two, you've earned them! Both Travis and Coveralls provide dynamic badges that show the state of a project in a repo. You should attach these badges to your repo. 
+
+**Q:** Why add these badges? 
+
+**A:** It will show the status of your software project at a glance. It increases the credibility of your repositories.
+</script></section><section  data-markdown><script type="text/template">
+#### Travis badge 
+
+Go to your repo on Travis. You should see a badge to the left of the GitHub repo name. 
+
+Click this and choose "Markdown" from the menu.  
+
+Copy the Markdown code from the text box and paste it into your README. 
+</script></section><section  data-markdown><script type="text/template">
+#### Coveralls Badge
+
+Go to Coveralls. Visit the page for the repo you were working on. 
+
+It should display a coverage badge near the right side. Click the tiny embed button up and to the right of the badge. 
+
+Copy the Markdown code in the text box. 
+
+Paste the markdown code into your repo. 
+</script></section><section  data-markdown><script type="text/template">
+## Stretch goals
+
+**Stretch Goal** - 
+
+Version 2 of your library should add some new features. Your goal is to identify new string functions and utilities you can add to your library.
+
+- Invent your own utility functions. 
+- Research existing libraries on npm to identify useful functions you can implement. Research these: 
+  - https://www.npmjs.com/package/string
+  - https://www.npmjs.com/package/query-string
+  - https://www.npmjs.com/package/chalk
+  - https://www.npmjs.com/package/validator
+  - https://www.npmjs.com/package/camelcase
+  - https://www.npmjs.com/package/crypto-random-string
+  - https://www.npmjs.com/package/url-parse
+  - https://www.npmjs.com/package/magic-string
+
+**Stretch Goal** - 
+
+Use CodeClimate to analyze and give your code a report card: https://codeclimate.com/dashboard 
+
+Note! Code Climate is free for open source projects! 
+
+
+### Homework
+
+[Continuous Integration](./assignments/assignment-04.md)
+</script></section><section  data-markdown><script type="text/template">
+## Additional Resources
+
+- 
+</script></section><section  data-markdown><script type="text/template">
+<!-- 
+## Minute-by-Minute [OPTIONAL]
+
+| **Elapsed** | **Time**  | **Activity** |
+| ----------- | --------- | -------------- |
+| 0:00        | 0:05      | Introducntion  |
+| 0:05        | 0:05      | Objectives     |
+| 0:10        | 0:30      | Linting        |
+| 0:40        | 0:10      | BREAK          |
+| 0:50        | 0:15      | Travis CI      |
+| 1:05        | 0:15      | Coveralls      |
+| 1:20        | 0:25      | ** ??? **      |
+| 1:45        | 0:05      | Wrap up review objectives |
+| TOTAL       | 1:50      | -              | -->
+</script></section></div>
+    </div>
+
+    <script src="./dist/reveal.js"></script>
+
+    <script src="./plugin/markdown/markdown.js"></script>
+    <script src="./plugin/highlight/highlight.js"></script>
+    <script src="./plugin/zoom/zoom.js"></script>
+    <script src="./plugin/notes/notes.js"></script>
+    <script src="./plugin/math/math.js"></script>
+    <script>
+      function extend() {
+        var target = {};
+        for (var i = 0; i < arguments.length; i++) {
+          var source = arguments[i];
+          for (var key in source) {
+            if (source.hasOwnProperty(key)) {
+              target[key] = source[key];
+            }
+          }
+        }
+        return target;
+      }
+
+      // default options to init reveal.js
+      var defaultOptions = {
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+        transition: 'default', // none/fade/slide/convex/concave/zoom
+        plugins: [
+          RevealMarkdown,
+          RevealHighlight,
+          RevealZoom,
+          RevealNotes,
+          RevealMath
+        ]
+      };
+
+      // options from URL query string
+      var queryOptions = Reveal().getQueryHash() || {};
+
+      var options = extend(defaultOptions, {"controls":true,"progress":true,"autoPlayMedia":false,"slideNumber":"c/t","showSlideNumber":"all","controlsTutorial":true,"controlsLayout":"edges","transition":"slide","transitionSpeed":"medium","minScale":0.5,"maxScale":3}, queryOptions);
+    </script>
+
+
+    <script>
+      Reveal.initialize(options);
+    </script>
+  </body>
+</html>

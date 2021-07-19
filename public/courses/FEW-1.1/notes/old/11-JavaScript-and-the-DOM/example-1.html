@@ -1,0 +1,114 @@
+<div class="wrapper">
+  <div class="container">
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+    <div>4</div>
+    <div>5</div>
+    <div>6</div>
+    <div class="special">
+      <h1>7</h1>
+      <div>X</div>
+    </div>
+    <div>8</div>
+    <div>9</div>
+    <div class="happy">10</div>
+    <div>11</div>
+    <div>12</div>
+  </div>
+</div>
+
+
+
+<style>
+  body, html {
+    height: 100%;
+    box-sizing: border-box;
+    font-size: 24px;
+  }
+  .wrapper {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .container {
+/*    position: relative;*/
+    display: grid;
+    grid-template-columns: repeat(4, 170px);
+    grid-gap: 10px;
+  }
+  
+  .container > div {
+    height: 100px;
+    padding: 1em;
+  }
+  
+  /* -----------------------------------------------------
+  
+  Use relative position to move an elment relative 
+  to the position where the layout system would have placed it. 
+  The values below move the element 20px to the right of 
+  and 20px down from where it normally would be placed. 
+  
+  */
+  
+  
+  /* Rule applies to the 7th child in container */
+  .special {
+    position: relative; 
+    /* use relative position */
+    left: 20px;         /* Push 20px from the left edge */
+    top: 30px;          /* Push 30px down from the top */
+  }
+  
+  .happy {
+    position: fixed;
+    width: 100%;
+    left: 0;
+    top: 0;
+  }
+  
+  
+  .container > div > h1 {
+    position: absolute;
+    background-color: rgba(255,0,0, 0.5);
+    padding: 1em;
+    font-size: 18px;
+    left: 50px;
+    bottom: 75px;
+    margin: 0;
+  }
+  
+  .container > div > div {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: rgba(0,0,0, 1);
+    text-align: center;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  
+  
+  /* ----------------------------------------------------- */
+  
+  .container > div:nth-child(1) { background-color: #ffd07b; }
+  .container > div:nth-child(2) { background-color: #ffff7c; }
+  .container > div:nth-child(3) { background-color: #bcff7b; }
+  .container > div:nth-child(4) { background-color: #ffa6ff; }
+  .container > div:nth-child(5) { background-color: #90d8d5; }
+  .container > div:nth-child(6) { background-color: #eabe9f; }
+  .container > div:nth-child(7) { background-color: #3bc1f7; }
+  .container > div:nth-child(8) { background-color: #e8cbe8; }
+  .container > div:nth-child(9) { background-color: #e2b6e0; }
+  .container > div:nth-child(10) { background-color: #bcd192; }
+  .container > div:nth-child(11) { background-color: #9fea9f; }
+  .container > div:nth-child(12) { background-color: #edacac; }
+</style>

@@ -1,0 +1,197 @@
+/* --------------------------------------------
+  
+  The modal will fill the entire screen from top 
+  to bottom. For this to work the body and html
+  elements must fill the entire screen top to 
+  bottom. 
+  
+  */
+
+body,
+html {
+  height: 100%;
+  /* expand to the height of the window */
+  font-size: 18px;
+  font-family: Helvetica;
+  background-color: #82d7f0;
+  margin: 0;
+}
+
+/* 
+    
+  Places a div that covers the entire page. Position at 
+  the upper left, sized to fill the screen. Children are
+  centered in the area. 
+  
+  */
+.modal {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  visibility: hidden;
+}
+
+/* 
+  
+  This inner box contains a some message text and 
+  a close button. The close button needs to be displayed 
+  in the upper right and ignore positioning of other elements. 
+  
+  */
+
+.modal__inner {
+  position: relative;
+  background-color: #fff;
+  width: 300px;
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.5);
+  border-radius: 1em;
+}
+
+.modal__title {
+  font-size: 2em;
+  font-weight: bold;
+}
+
+.modal__close {
+  width: 2em;
+  height: 2em;
+  border-radius: 50%;
+  border: 3px solid;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  text-align: center;
+  line-height: 2em;
+  user-select: none;
+  cursor: pointer;
+}
+
+.show-modal {
+  visibility: visible;
+}
+
+/* -------------------------------- 
+  The code here displays a warning 
+  message that appears in the header. 
+  Currently the warning is display: none.
+*/
+.warning-header {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  
+  border: 4px solid #ff5757;
+  background-color: #ffc8c8;
+  color: #ff5757;
+  
+  visibility: hidden;
+}
+
+.warning-positive {
+  border: 4px solid #23c023;
+  background-color: #c8ffc8;
+  color: #23c023;
+}
+
+.show-warning {
+  visibility: visible;
+}
+
+.warning-message {
+  font-size: 1.25em;
+}
+
+.warning-close {
+  border: 4px solid #ff5757;
+  border-radius: 50%;
+  margin: 1em;
+  padding: 1em;
+}
+
+.warning-positive > .warning-close {
+  border: 4px solid #23c023;
+}
+
+.warning-close::before {
+  content: "";
+  display: block;
+  position: absolute;
+  background-color: #ff5757;
+  width: 1em;
+  height: 4px;
+  transform: translate(-0.5em, -2px) rotate(45deg);
+}
+
+.warning-positive > .warning-close::before,
+.warning-positive > .warning-close::after
+{
+  background-color: #23c023;
+}
+
+.warning-close::after {
+  content: "";
+  display: block;
+  position: absolute;
+  background-color: #ff5757;
+  width: 1em;
+  height: 4px;
+  transform: translate(-0.5em, -2px) rotate(-45deg);
+}
+
+
+/* -------------------------------- */
+
+
+* {
+  box-sizing: border-box;
+}
+
+.header {
+  background-color: #666;
+  width: 100%;
+  color: #ddd;
+  text-align: center;
+  margin-bottom: 2em;
+}
+
+h1 {
+  
+}
+
+p {
+  
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.button {
+  width: 200px;
+  padding: 1em;
+  margin: 1em;
+  border: 3px solid #a8a8a8;
+  border-radius: 0.5em;
+  background-color: #eee;
+  font-size: 1em;
+}

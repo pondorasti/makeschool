@@ -1,0 +1,37 @@
+<script src="data.js"></script>
+<script>
+  // -----------------------------------------
+  // What is this...
+  
+  function User(first, last) {
+    this.first = first;
+    this.last = last;
+  }
+	
+	User("Newt", "Forager")
+	
+	console.log(this.first)
+	console.log(this.last)
+	
+	// Notice: first and last are available on this here! 
+	// Whats window?
+	
+	console.log(window.first)
+	console.log(window.last)
+	
+	// First and last are also on the window object! 
+	
+	const me = new User('Winston', 'Frango')
+	
+	console.log(me.first)
+	console.log(me.last)
+	
+	// Whatt happened here?
+	
+	// Conclusion:
+	// 1. this is an object
+	// 2. this can be the window object (sometimes)
+	
+	
+  
+</script>
