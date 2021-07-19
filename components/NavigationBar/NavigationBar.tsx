@@ -10,6 +10,7 @@ const DynamicDarkModeSwitch = dynamic(
     const promise = import("react-toggle-dark-mode").then((module) => module.DarkModeSwitch)
     return promise
   },
+  // eslint-disable-next-line react/display-name
   { ssr: false, loading: () => <DarkModeSwitch checked={false} onChange={() => undefined} /> }
 )
 

@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import classNames from '@utils/classNames'
 
 interface ICourseWebsite {
   name: string;
@@ -39,8 +40,8 @@ const concentrations: IConcentration[] = [
 ]
 
 export default function Home() {
-  const headerStyling = "border-b-[3px] uppercase text-left text-xs font-bold tracking-wider py-1 px-3 text-gray-500 border-gray-500"
-  const rowStyling = "p-3 text-gray-900"
+  const headerStyling = "border-b-1 uppercase text-left text-xs font-semibold tracking-wider p-3 text-gray-500 border-gray-500"
+  const rowStyling = "p-3 text-gray-900 whitespace-nowrap"
   const linkStyling = "text-blue-600"
 
   return (
@@ -60,30 +61,32 @@ export default function Home() {
 
         {concentrations.map((concentration) => (
           <div key={concentration.name} className="mb-12">
-            <h3 className="text-2xl font-bold text-gray-900 tracking-tight sm:text-3xl">
+            <h3 className="text-2xl font-bold text-gray-900 tracking-tight sm:text-3xl mb-5">
               {concentration.name}
             </h3>
-          
-            <table  className="table-auto w-full mt-5">
-              <thead>
-                <tr>
-                  <th className={headerStyling}>Course</th>
-                  <th className={headerStyling}>Description</th>
-                  <th className={headerStyling}>Instructor</th>
-                </tr>
-              </thead>
-              <tbody>
-              {concentration.courses.map((course) => (
-                <tr key={course.description}>
-                  <td className={rowStyling}>
-                    <a className={linkStyling} href={course.link} target="_blank" rel="noreferrer">{course.name}</a>
-                  </td>
-                  <td className={rowStyling}>{course.description}</td>
-                  <td className={rowStyling}>{course.instructor}</td>
-                </tr>
-              ))}
-              </tbody>
-            </table>
+
+            <div className="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
+              <table  className="min-w-full divide-y divide-gray-200">
+                <thead>
+                  <tr>
+                    <th className={headerStyling}>Course</th>
+                    <th className={headerStyling}>Description</th>
+                    <th className={headerStyling}>Instructor</th>
+                  </tr>
+                </thead>
+                <tbody>
+                {concentration.courses.map((course, index) => (
+                  <tr key={course.description} className={index % 2 === 0 ? 'bg-white dark:bg-gray-800' : 'bg-gray-50'}>
+                    <td className={classNames("w-1/6", rowStyling)}>
+                      <a className={linkStyling} href={course.link} target="_blank" rel="noreferrer">{course.name}</a>
+                    </td>
+                    <td className={classNames("w-3/5", rowStyling)}>{course.description}</td>
+                    <td className={rowStyling}>{course.instructor}</td>
+                  </tr>
+                ))}
+                </tbody>
+              </table>
+            </div>
           </div>
         ))}
       </main>
