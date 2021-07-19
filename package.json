@@ -12,6 +12,7 @@
     "@tailwindcss/forms": "^0.3.3",
     "@tailwindcss/line-clamp": "^0.2.1",
     "@tailwindcss/typography": "github:tailwindcss/typography",
+    "fathom-client": "^3.0.0",
     "next": "11.0.1",
     "next-themes": "^0.0.15",
     "nightwind": "^1.1.12",
