@@ -39,10 +39,10 @@ export default function Home() {
       </Head>
 
       <main>
-        <div className="text-center">
+        <div className="text-center my-20">
           <h1 className="text-4xl tracking-tight font-bold text-gray-900 sm:text-5xl md:text-6xl">
             <span className="block">Hello again,</span>
-            <span className="block text-blue-900">Make School</span>
+            <span className="block text-blue-900 dark:text-blue-400">Make School</span>
           </h1>
         </div>
 
