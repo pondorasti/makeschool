@@ -1,0 +1,29 @@
+# WEB 1.0 - Shop Tutorial
+
+## Description 
+
+The goal of this assignment is to work your eway through the tutorial linked below. The tutorial combines all of the ideas covered in class so far. You'll combined 
+
+https://www.makeschool.com/academy/track/ecommerce-tutorial-wd8
+
+### Why this assignment?
+
+This assignment will give you chance to revist the ideas from class and combine them with JavaScript to create a front end web application. 
+
+## Project requirements
+
+You should complete the tutorial.
+
+## Deliverable
+
+Your work in a GitHub repo. Submit your work to Gradescope. 
+
+## Due date
+
+Class 10 - Tue, Sept 22
+
+## Assessing the assignment
+
+Submit your completed tutorial as either a Zip file or GitHub Repo to Gradescope. This assignment will be graded on completion.
+
+

@@ -1,10 +1,10 @@
 module.exports = {
   rewrites: async () => {
     return [
-      // {
-      //   source: "/courses/WEB-1.0",
-      //   destination: "/courses/WEB-1.0/index.html",
-      // },
+      {
+        source: "/courses/WEB-1.0",
+        destination: "/courses/WEB-1.0/index.html",
+      },
       {
         source: "/courses/WEB-1.1",
         destination: "/courses/WEB-1.1/index.html",
