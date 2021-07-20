@@ -125,10 +125,6 @@ module.exports = {
         source: "/courses/DS-2.4",
         destination: "/courses/DS-2.4/index.html",
       },
-      // {
-      //   source: "/courses/DS-2.5",
-      //   destination: "/courses/DS-2.5/index.html",
-      // },
       {
         source: "/courses/DS-2.9",
         destination: "/courses/DS-2.9/index.html",
