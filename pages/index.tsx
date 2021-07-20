@@ -15,7 +15,7 @@ interface IConcentration {
 
 const concentrations: IConcentration[] = [
   {
-    name: "Web Foundations (FEW & BEW)",
+    name: "Web Foundations",
     courses: [
       {
         name: "WEB 1.0",
@@ -25,7 +25,7 @@ const concentrations: IConcentration[] = [
       },
       {
         name: "WEB 1.1",
-        description: "RESTful & Resourceful MVC Architecture",
+        description: "Web Architecture",
         instructor: "Meredith",
         link: "/courses/WEB-1.1",
       },
@@ -182,10 +182,10 @@ const concentrations: IConcentration[] = [
     name: "Data Science",
     courses: [
       {
-        name: "DS 1.11",
-        description: "Introduction to Data Science Workflow",
+        name: "DS 1.1",
+        description: "Data Analysis & Visualization",
         instructor: "Joseph",
-        link: "/courses/DS-1.11",
+        link: "/courses/DS-1.1",
       },
       {
         name: "DS 2.1",
@@ -230,19 +230,19 @@ const concentrations: IConcentration[] = [
     courses: [
       {
         name: "CS 1.0",
-        description: "Intro to Programming",
+        description: "Introduction to Programming",
         instructor: "Joi",
         link: "/courses/CS-1.0",
       },
       {
         name: "CS 1.1",
-        description: "Programming Fundamentals",
+        description: "Object Oriented Programming",
         instructor: "Joi",
         link: "/courses/CS-1.1",
       },
       {
         name: "CS 1.2",
-        description: "How Data Structures Work",
+        description: "Introduction to Data Structures",
         instructor: "Joi",
         link: "/courses/CS-1.2",
       },
@@ -312,12 +312,6 @@ const concentrations: IConcentration[] = [
         link: "/courses/SPD-2.2",
       },
       {
-        name: "SPD 2.3",
-        description: "Testing and Architecture",
-        instructor: "Braus",
-        link: "/courses/SPD-2.3",
-      },
-      {
         name: "SPD 2.31",
         description: "Testing and Architecture",
         instructor: "Braus",
@@ -332,7 +326,7 @@ const concentrations: IConcentration[] = [
     ],
   },
   {
-    name: "Misc Courses",
+    name: "Miscellaneous",
     courses: [
       {
         name: "QL 1.1",
