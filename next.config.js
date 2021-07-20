@@ -106,16 +106,16 @@ module.exports = {
         destination: "/courses/MOB-2.9/index.html",
       },
       {
-        source: "/courses/DS-1.11",
-        destination: "/courses/DS-1.11/index.html",
+        source: "/courses/DS-1.1",
+        destination: "/courses/DS-1.1/index.html",
       },
       {
         source: "/courses/DS-2.1",
-        destination: "/courses/DS-2.1/readme.md",
+        destination: "/courses/DS-2.1/README.md",
       },
       {
         source: "/courses/DS-2.2",
-        destination: "/courses/DS-2.2/readme.md",
+        destination: "/courses/DS-2.2/README.md",
       },
       {
         source: "/courses/DS-2.3",
@@ -184,10 +184,6 @@ module.exports = {
       {
         source: "/courses/SPD-2.2",
         destination: "/courses/SPD-2.2/index.html",
-      },
-      {
-        source: "/courses/SPD-2.3",
-        destination: "/courses/SPD-2.3/index.html",
       },
       {
         source: "/courses/SPD-2.31",
