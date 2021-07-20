@@ -1,0 +1,28 @@
+{
+  "extends": [
+    "airbnb-typescript",
+    "next",
+
+    "plugin:@typescript-eslint/recommended",
+
+    // Uses the recommended rules from @eslint-plugin-react and @eslint-plugin-react-hooks
+    "plugin:react/recommended",
+    "plugin:react-hooks/recommended",
+
+    // Enables eslint-plugin-prettier and eslint-config-prettier.
+    // Also disables ESLint rules from @typescript-eslint/eslint-plugin that would conflict with prettier.
+    // This will display prettier errors as ESLint errors.
+    // Make sure this is always the last configuration in the extends array.
+    "plugin:prettier/recommended"
+  ],
+  "parser": "@typescript-eslint/parser", // Specifies the ESLint parser
+  "parserOptions": {
+    "project": "./tsconfig.json"
+  },
+  "rules": {
+    // Suppress errors for missing 'import React' in files, Nextjs already does that for you.
+    "react/react-in-jsx-scope": "off",
+    "react-hooks/exhaustive-deps": "off",
+    "react/display-name": "off"
+  }
+}
