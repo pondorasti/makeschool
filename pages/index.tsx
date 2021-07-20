@@ -15,13 +15,29 @@ interface IConcentration {
 
 const concentrations: IConcentration[] = [
   {
+    name: "Web Foundations (FEW & BEW)",
+    courses: [
+      // {
+      //   name: "WEB 1.0",
+      //   description: "Web Foundations",
+      //   instructor: "Meredith",
+      //   link: "/courses/WEB-1.0",
+      // },
+      {
+        name: "WEB 1.1",
+        description: "RESTful & Resourceful MVC Architecture",
+        instructor: "Meredith",
+        link: "/courses/WEB-1.1",
+      },
+    ],
+  },
+  {
     name: "Front End Web Concentration",
     courses: [
       {
-        // Technically there was no FEW1.1 it was WEB1.1. Also there was a WEB1.0.
         name: "FEW 1.1",
-        description: "Web Foundations",
-        instructor: "Meredith",
+        description: "Foundations Web",
+        instructor: "Mitchell",
         link: "/courses/FEW-1.1",
       },
       {
@@ -30,12 +46,12 @@ const concentrations: IConcentration[] = [
         instructor: "Mitchell",
         link: "/courses/FEW-1.2",
       },
-      {
-        name: "FEW 1.3",
-        description: "Responsive Web Design",
-        instructor: "Mitchell",
-        link: "/courses/FEW-1.3",
-      },
+      // {
+      //   name: "FEW 1.3",
+      //   description: "Responsive Web Design",
+      //   instructor: "Mitchell",
+      //   link: "/courses/FEW-1.3",
+      // },
       {
         name: "FEW 2.1",
         description: "Writing JavaScript Libraries",
@@ -77,13 +93,6 @@ const concentrations: IConcentration[] = [
   {
     name: "Back End Web Concentration",
     courses: [
-      // Technically there was no BEW1.1 it was WEB1.1
-      {
-        name: "BEW 1.1",
-        description: "RESTful & Resourceful MVC Architecture",
-        instructor: "Meredith",
-        link: "/courses/BEW-1.1",
-      },
       {
         name: "BEW 1.2",
         description: "Authentication, Associations, & Advanced Queries",
@@ -126,12 +135,12 @@ const concentrations: IConcentration[] = [
         instructor: "Dani",
         link: "/courses/BEW-2.5",
       },
-      {
-        name: "BEW 2.9",
-        description: "Advanced Technical Seminar (BEW)",
-        instructor: "Dani",
-        link: "/courses/BEW-2.9",
-      },
+      // {
+      //   name: "BEW 2.9",
+      //   description: "Advanced Technical Seminar (BEW)",
+      //   instructor: "Dani",
+      //   link: "/courses/BEW-2.9",
+      // },
     ],
   },
   {
@@ -167,12 +176,12 @@ const concentrations: IConcentration[] = [
         instructor: "Adriana",
         link: "/courses/MOB-2.2",
       },
-      {
-        name: "MOB 2.3",
-        description: "Concurrency & Parallelism in iOS",
-        instructor: "Adriana",
-        link: "/courses/MOB-2.3",
-      },
+      // {
+      //   name: "MOB 2.3",
+      //   description: "Concurrency & Parallelism in iOS",
+      //   instructor: "Adriana",
+      //   link: "/courses/MOB-2.3",
+      // },
       {
         name: "MOB 2.4",
         description: "Advanced Architectural Patterns in iOS",
@@ -190,12 +199,12 @@ const concentrations: IConcentration[] = [
   {
     name: "Data Science",
     courses: [
-      {
-        name: "DS 1.0",
-        description: "Data Exploration and Visualization",
-        instructor: "Joseph",
-        link: "/courses/DS-1.0",
-      },
+      // {
+      //   name: "DS 1.0",
+      //   description: "Data Exploration and Visualization",
+      //   instructor: "Joseph",
+      //   link: "/courses/DS-1.0",
+      // },
       {
         name: "DS 1.11",
         description: "Introduction to Data Science Workflow",
@@ -226,12 +235,12 @@ const concentrations: IConcentration[] = [
         instructor: "Joseph",
         link: "/courses/DS-2.4",
       },
-      {
-        name: "DS 2.5",
-        description: "Natural Language Processing",
-        instructor: "Joseph",
-        link: "/courses/DS-2.5",
-      },
+      // {
+      //   name: "DS 2.5",
+      //   description: "Natural Language Processing",
+      //   instructor: "Joseph",
+      //   link: "/courses/DS-2.5",
+      // },
       {
         name: "DS 2.9",
         description: "Advanced Technical Seminar (DS)",
@@ -241,7 +250,7 @@ const concentrations: IConcentration[] = [
     ],
   },
   {
-    name: "Core Computer Science",
+    name: "Computer Science (Core)",
     courses: [
       {
         name: "CS 1.0",
@@ -284,6 +293,18 @@ const concentrations: IConcentration[] = [
   {
     name: "Software Product Development",
     courses: [
+      // {
+      //   name: "SPD 1.01",
+      //   description: "Engineering Careers 1",
+      //   instructor: "Braus",
+      //   link: "/courses/SPD-1.01",
+      // },
+      // {
+      //   name: "SPD 1.02",
+      //   description: "Engineering Careers 2",
+      //   instructor: "Braus",
+      //   link: "/courses/SPD-1.02",
+      // },
       {
         name: "SPD 1.1",
         description: "Introduction to Software Development",
@@ -326,34 +347,34 @@ const concentrations: IConcentration[] = [
         instructor: "Braus",
         link: "/courses/SPD-2.2",
       },
+      // {
+      //   name: "SPD 2.3",
+      //   description: "Testing and Architecture",
+      //   instructor: "Braus",
+      //   link: "/courses/SPD-2.3",
+      // },
       {
-        name: "SPD 2.3",
+        name: "SPD 2.31",
         description: "Testing and Architecture",
         instructor: "Braus",
-        link: "/courses/SPD-2.3",
+        link: "/courses/SPD-2.31",
       },
       {
-        name: "SPD 2.4",
+        name: "SPD 2.41",
         description: "Onboarding into Companies",
         instructor: "Braus",
-        link: "/courses/SPD-2.4",
+        link: "/courses/SPD-2.41",
       },
     ],
   },
   {
-    name: "Web Foundations",
+    name: "Prerequisites",
     courses: [
       {
-        name: "WEB 1.0",
-        description: "Web Foundations",
-        instructor: "Meredith",
-        link: "/courses/WEB-1.0",
-      },
-      {
-        name: "WEB 1.1",
-        description: "RESTful & Resourceful MVC Architecture",
-        instructor: "Meredith",
-        link: "/courses/WEB-1.1",
+        name: "QL 1.1",
+        description: "Quantitative Reasoning",
+        instructor: "Kami",
+        link: "/courses/QL-1.1",
       },
     ],
   },
