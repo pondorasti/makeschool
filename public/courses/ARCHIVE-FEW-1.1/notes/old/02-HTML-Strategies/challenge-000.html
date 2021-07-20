@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+    <style>
+      body, html {
+        height: 100%;
+      }
+      body {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+      .container {
+        width: 600px;
+        height: 400px;
+        border: 1px solid;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+
+      #screen {
+        border: 1px solid;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <canvas id="screen" width="400" height="300"></canvas>
+      <form id="form">
+        <label>Speed:
+          <input type="range" min="-100" max="100">
+        </label>
+        
+      </form>
+    </div>
+
+    <script>
+      const form = document.getElementById('form')
+      const canvas = document.getElementById('canvas')
+      const ctx = canvas.getContext('2d')
+
+
+    </script>
+  </body>
+</html>

@@ -1,0 +1,37 @@
+<div class="container">
+  <div class="box">
+     <h1>The Box Model</h1>
+    <p>When laying out a document, the browser's rendering engine represents each element as a rectangular box according to the standard CSS basic box model. CSS determines the size, position, and properties (color, background, border size, etc.) of these boxes.</p>
+  </div>
+</div>
+
+
+<style>
+
+/*
+  .container {
+    background-color: #ddd;
+    padding: 20px;
+    border: 12px solid black;
+    margin: auto;
+    width: 400px;
+    box-sizing: border-box;
+  }
+*/
+  
+  .container {
+    width: 400px;
+    margin: auto;
+    border: 3px solid black;
+  }
+  
+  .box {
+    border: 3px solid red;
+    padding: 1em;
+    margin: 10px;
+    width: calc(100% - 10px * 2);
+    box-sizing: border-box;
+  }
+  
+  
+</style>

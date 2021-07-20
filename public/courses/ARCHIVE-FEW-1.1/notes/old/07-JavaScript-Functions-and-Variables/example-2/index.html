@@ -1,0 +1,62 @@
+<!doctype html>
+<html>
+
+<head>
+  <title>JS Example 2</title>
+  <script>
+    // Scripts loaded here won't have access to elements later in the document
+    
+    // const titleElement = document.getElementById('title');
+    // titleElement.innerHTML = 'Hello World';
+    // titleElement.style.color = '#dd2255';
+
+  </script>
+</head>
+
+<body>
+
+  <!-- This element can not be accessed until it has been loaded -->
+  <h1 id="title">Foo Bar</h1>
+
+  <p>
+    <button id="button-orange">Orange</button>
+    <button id="button-blue">Blue</button>
+    <button id="button-green">Green</button>
+  </p>
+
+  <!-- Scripts -->
+  <script>
+    // These scripts run after everything above has been loaded.
+
+    // What can you do with JS? Here are few concepts to get started
+
+    // Get a reference to elements defined in the DOM
+    // This line gets an element by it's ID name
+    const titleElement = document.getElementById('title');
+
+    const buttonOrange = document.getElementById('button-orange');
+    const buttonBlue = document.getElementById('button-blue');
+    const buttonGreen = document.getElementById('button-green');
+
+    // Modify the DOM by setting properties an element
+    titleElement.innerHTML = 'Hello World';
+    titleElement.style.color = '#dd2255';
+    titleElement.style.fontFamily = 'Helvetica';
+
+    // Handle click events
+    buttonOrange.addEventListener('click', function() {
+      titleElement.style.color = '#efa93a';
+    });
+
+    buttonBlue.addEventListener('click', function() {
+      titleElement.style.color = '#3abeef';
+    });
+
+    buttonGreen.addEventListener('click', function() {
+      titleElement.style.color = '#6bc93a';
+    });
+
+  </script>
+</body>
+
+</html>

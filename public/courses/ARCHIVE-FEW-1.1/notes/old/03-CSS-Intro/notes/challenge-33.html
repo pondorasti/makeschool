@@ -1,0 +1,61 @@
+
+<!-- 
+ 
+ 
+ -->
+ <!doctype html>
+ <html>
+   
+<body>
+<form action="/your/api" method="">
+ 
+  <!-- use a p or other block tag to organize form elements onto lines -->
+  <p>
+    <label>Name</label>
+    <input name="name" type="text" placeholder="Your name">
+  </p>
+  
+  <label>Email</label>
+  <input name="email" type="email">
+  
+  <label>Pet Count</label>
+  <input name="pets">
+  
+  <label>Birthday</label>
+  <input name="birthday">
+  
+  <select name="prefix">
+    <option>Mr</option>
+    <option>Mrs</option>
+    <option>Ms</option>
+    <option>Sir</option>
+    <option>Madam</option>
+    <option>Dr</option>
+    <option>None</option>
+  </select>
+  
+  <!-- Associate labels with form elements with for and id -->
+  <input id="radio-admin" type="radio" name="role" value="Admin"/>
+  <label for="radio-admin">Admin</label>
+  
+  <input type="radio" name="role" value="Editor" />
+  <label>Editor</label>
+  
+  <input type="radio" name="role" value="Contributor" />
+  <label>Contributor</label>
+  
+  <input type="checkbox" name="public">
+  <label>Public Bio</label>
+  
+  <textarea name="bio"></textarea>
+  
+  <label>Upload Image</label>
+  <input name="image" type="file">
+  
+  <label>Self Destruct</label>
+  <input name="self-destruct" type="check">
+  
+  <button type="submit">Submit</button>
+</form>
+</body>
+ </html>

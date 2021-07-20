@@ -1,0 +1,94 @@
+
+ <div class="container">
+   
+  <div 
+       class="box" 
+       data-name="One" 
+       data-data-type="cookie"><!-- this.dataset.dataType -->
+    <span>Option 1</span>
+   </div>
+  <div class="box" data-name="Two"><span>Option 2</span></div>
+  <div class="box" data-name="Three"><span>Option 3</span></div>
+  <div class="box selected" data-name="Four"><span>Option 4</span></div>
+</div>
+
+<h1 id="display">??</h1>
+
+
+<style>
+  * {
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: Helvetica;
+    color: #fff;
+  }
+  
+  .container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 10px;
+    width: 210px;
+  }
+  
+  .box {
+    width: 100px;
+    background-color: red;
+    width: 100px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .box.selected {
+    border: 10px solid rgba(0, 0, 0, 0.25);
+  }
+  
+  h1 {
+    color: #000;
+  }
+</style>
+
+<script>
+  
+  const display = document.getElementById('display');
+  const options = document.getElementsByClassName('box');
+  
+  for (var i in options) {
+    options[i].onclick = function(e) {
+      this.classList.toggle('selected');
+      const name = this.dataset.name;
+      console.log(this.dataset.dataType);
+      console.log(name);
+      display.innerHTML = name;
+      display.dataset.name = name;
+    }
+  }
+  
+  // ** Challenge!
+  
+  // 1) Add another box or two each with their own label and data. 
+  
+  // 2) Only one of the boxes should show as selected. 
+  // When a new box is selected remove selected from 
+  // the other boxes.
+  
+  // These might be useful
+  
+  // Adds or removes classname
+  // this.classList.toggle('classname');  
+  
+  // Removes classname
+  // this.classList.remove('classname'); 
+  
+  // Adds classname
+  // this.classList.add('classname'); 
+  
+  // 3) Generate boxes with events via code!d
+  
+  // 4) Create a class that represents a box and display these
+  
+</script>
+

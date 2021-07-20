@@ -1,0 +1,162 @@
+<!doctype html>
+<html>
+  <head>
+  <title></title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <!-- Page content -->
+  <div id="container" class="container">
+    <div class="header">
+      <h1>Messaging System</h1>
+      <p>A place to display messages</p>
+    </div>
+    <button id="show-modal" class="button">Modal Test</button>
+    <button id="show-info" class="button">Show Information</button>
+    <button id="show-time" class="button">Show the time</button>
+    <button id="scary-message" class="button">Scary Message</button>
+    <button id="scary-message" class="button">Happy Message</button>
+  </div>
+
+  <!-- Modal Dialog -->
+  <div id="dialog-box" class="modal hide">
+    <div class="modal__inner">
+      <div class="modal__title">Foo</div>
+      <div class="modal__message">Bar</div>
+      <div id="close-dialog" class="modal__close">X</div>
+    </div>
+  </div>
+  
+  <div id="warning-header" class="warning-header">
+    <div id="warning-message" class="warning-message">
+      This is the warning message
+    </div>
+    <div id="warning-close" class="warning-close"></div>
+  </div>
+
+  
+  <script>
+    // Get references to DOM elements you want to work with
+    const dialogBox = document.getElementById('dialog-box');
+    const showModal = document.getElementById('show-modal');
+    const closeDialog = document.getElementById('close-dialog');
+    const showTime = document.getElementById('show-time');
+    
+    // Add a click method to the open dialog button
+    showModal.onclick = function(e) {
+      // Add show-modal class to reveal the modal element
+      dialogBox.classList.add('show-modal');
+    };
+
+    // Add a click event to the close dialog element
+    closeDialog.onclick = function(e) {
+      // Remove the show-modal class to hide the modal
+      dialogBox.classList.remove('show-modal');
+    };
+
+    
+    // Challenges 
+
+    // The messaging center needs to keep the interests of it's 
+    // visitors, to do this it needs more messages! 
+
+    // Challenge 1)
+    // You need to display information about the computer. 
+    // Take a look at the console log messages below. 
+
+    // Display the platform, vendor, appName, and appCodeName in 
+    // the modal dialog. 
+    
+    // The new info should display itself inside the modal__title
+    // and modal__message elements. Title should say System Info. 
+    // The rest goes in message. 
+
+    const showInfo = document.getElementById('show-info');
+
+    showInfo.onclick = function(e) {
+      console.log('1 -----------------------------')
+      console.log(navigator);
+      console.log(navigator.platform);
+      console.log(navigator.vendor);
+      console.log(navigator.appName);
+      console.log(navigator.appCodeName);
+    }
+
+    // Challenge 2)
+    
+    // Use the Modal Test button. If it still shows the system
+    // info there is a problem! Modal Test should Always display 
+    // Foo and Bar. 
+    
+    // A good solution would be to create a function that takes 
+    // the title and message strings and opens the dialog box. 
+    
+    
+    
+    // Challenge 3) 
+    
+    // Use your function to show the current time when the 
+    // show time button is clicked. Below is a function that 
+    // prints the time to the console. 
+    
+    showTime.onclick = function(e) {
+      const date = new Date();
+      const hours = date.getHours();
+      const mins = date.getMinutes();
+      const secs = date.getSeconds();
+      
+      console.log(`${hours}:${mins}:${secs}`);
+    }
+    
+    
+    // Challenge 4) 
+    
+    // There is a hidden warning at the top of the screen. The 
+    // html element is: #warning-header. Look at the stylesheet
+    // You'll see some styles for this element. Right now it is 
+    // visiblity: hidden. Which is why it's not visible. 
+    
+    // The warning has two child elements. A message div and a
+    // close div. The first displays some message text, the second
+    // shows circle with an X in it. 
+    
+    // Your job is to write a function that  displays the
+    // #warning-header by adding the class show-warning. This 
+    // function should also take a message string and display 
+    // it in the div #warning-message. 
+    
+    // Now write a function that removes the class show-warning
+    // from #warning-header. Do this by adding an onclick function 
+    // to the #warning-close div. 
+    
+    // Use the scary message button to display the message: 
+    // This website is full of bugs! in the warning header. 
+    
+    
+    // Challenge 5) 
+    // The UX team thinks the header would work better if it 
+    // displayed at the bottom of the page. 
+    // Move the warning header to the bottom of the page. 
+    
+    // Challenge 6) 
+    // The design team says that red is scaring customers. 
+    // Some messages are positive and the message header should 
+    // appear green. 
+    
+    // Luckily design gave us a class for this: warning-positive. 
+    
+    // Modify your function that it takes a parameter that 
+    // indicates whether the message is positive or negative. 
+    // Positive messages should add the class warning-positive
+    // to the warning-header. 
+    
+    
+  </script>
+
+</body>
+</html>
+
+
+
+

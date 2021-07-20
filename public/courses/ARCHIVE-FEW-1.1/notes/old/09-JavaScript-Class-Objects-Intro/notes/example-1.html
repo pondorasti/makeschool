@@ -1,0 +1,94 @@
+<script>
+  // Making Objects - Raw Object
+  
+  const flinx = {
+    name:'Flinx', 
+    age:9.9, 
+    color:'striped',
+    describe: function() {
+      return `${this.name} is ${this.age} years old and ${this.color}`;
+    }
+  };
+  
+  console.log('--------------------------------');
+  console.log('Hey I made a cat!')
+  console.log(flinx);
+  console.log(flinx.name);
+  console.log(flinx.age);
+  console.log(flinx.color);
+  console.log(flinx.describe());
+  
+  // -------------------------------------------------------
+  // Lets define a cat factory! - Function based Class
+  
+  // Making a constructor function
+  function Cat(name, age, color) {
+    this.name = name;
+    this.age = age;
+    this.color = color;
+    // while the function could be added here it's a problem...
+  }
+  // Add methods to the prototype!
+  Cat.prototype.describe = function() {
+    return `${this.name} is ${this.age} years old and ${this.color}`;
+  }
+  
+  const julip = new Cat('Julip', 5.7, 'calico');
+  
+  console.log('--------------------------------');
+  console.log('Hey my factory made a cat!')
+  console.log(julip);
+  console.log(julip.name);
+  console.log(julip.age);
+  console.log(julip.color);
+  console.log(julip.describe());
+  
+  // -------------------------------------------------------
+  // Let's do that with the Class syntax
+  
+  
+  // Define a Class
+  class Feline {
+    // Use the contructor to initialize your class
+    constructor(name, age, color) {
+      this.name = name;
+      this.age = age;
+      this.color = color;
+      Feline.count += 1; // For fun keep track of a count in a static property
+    }
+    
+    // Add methods - notice the syntax doesn't use the word function
+    describe() {
+      return `${this.name} is ${this.age} years old and ${this.color}`;
+    }
+  }
+  
+  const mewkers = new Feline('Mewkers', 6.1, 'fluffy');
+  
+  console.log('--------------------------------');
+  console.log('This cat has class!')
+  console.log(mewkers);
+  console.log(mewkers.name);
+  console.log(mewkers.age);
+  console.log(mewkers.color);
+  console.log(mewkers.describe());
+  
+  // -----------------------------------------------------
+  
+  class Tiger extends Feline {
+    constructor(age, color) {
+      super('Tiger', age, color)
+      
+    }
+    
+    describe() {
+      
+    }
+    
+    roar() {
+      // 
+    }
+  }
+  
+  console.log(new Tiger(44, 'Yellow'))
+</script>

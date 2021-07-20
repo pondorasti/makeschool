@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+<head>
+  <title>Alien Catalog</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+  <div id="container" class="aliens container">
+    <!-- Aliens here -->
+  </div>
+  
+  <div id="overlay" class="overlay hide">
+    <div>
+      <h1 id="overlay-title">Alien Name</h1>
+      <ul>
+        <li>Power: <span id="alien-power">00</span></li>
+        <li>Rate of Fire: <span id="alien-rof">00</span></li>
+        <li>Health: <span id="alien-health">000</span></li>
+      </ul>
+      <button id="overlay-close" class="overlay-close">Close</button>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="scripts/data.js"></script>
+  <!-- Load the main script it makes use of data loaded above --> 
+  <script src="scripts/main.js"></script>
+</body>
+</html>

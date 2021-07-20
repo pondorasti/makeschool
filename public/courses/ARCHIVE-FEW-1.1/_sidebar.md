@@ -1,0 +1,17 @@
+- **[Syllabus](README.md)**
+- **Lessons**
+  - [Semantic HTML](Lessons/01-Semantic-HTML/)
+  - [HTML Attributes](Lessons/02-HTML-Attributes/)
+  - [CSS Intro](Lessons/03-CSS-Intro/)
+  - [CSS Box Model](Lessons/04-CSS-Box-Model/)
+  - [CSS Flex Box](Lessons/05-CSS-Flex-Box/)
+  - [CSS Grid](Lessons/06-CSS-Grid/)
+  - [Review](Lessons/07-Review/)
+  - [JS Intro](Lessons/08-JS-Intro/)
+  - [JS Control Flow](Lessons/09-JS-Control-Flow/)
+  - [JS Objects](Lessons/10-JS-Objects)
+  - [Lesson 11](Lessons/Lesson11.md)
+  - [Lesson 12](Lessons/Lesson12.md)
+  - Final Class (Presentations, Demos, etc)
+  - Final Exam/Presentations
+- **[Project](Assignments/Sample_Project.md)**
