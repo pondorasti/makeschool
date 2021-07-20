@@ -17,12 +17,12 @@ const concentrations: IConcentration[] = [
   {
     name: "Web Foundations (FEW & BEW)",
     courses: [
-      // {
-      //   name: "WEB 1.0",
-      //   description: "Web Foundations",
-      //   instructor: "Meredith",
-      //   link: "/courses/WEB-1.0",
-      // },
+      {
+        name: "WEB 1.0",
+        description: "Web Foundations",
+        instructor: "Meredith",
+        link: "/courses/WEB-1.0",
+      },
       {
         name: "WEB 1.1",
         description: "RESTful & Resourceful MVC Architecture",

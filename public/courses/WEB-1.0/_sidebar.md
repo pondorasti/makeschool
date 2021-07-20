@@ -1,0 +1,27 @@
+- **[Syllabus](README.md)**
+- **Lessons**
+  - [Semantic HTML](Lessons/01-Semantic-HTML)
+  - [HTML Attributes](Lessons/02-HTML-Attributes)
+  - [CSS Intro](Lessons/03-CSS-Intro)
+  - [CSS Box Model & Flexbox](Lessons/04-CSS-Box-Model)
+  - [CSS Grid](Lessons/05-CSS-Grid)
+  - Review / Lab
+  - [Responsive Design](Lessons/07-Responsive-Design)
+  - [JavaScript Intro](Lessons/08-JS-Intro)
+  - [JavaScript in the DOM](Lessons/09-JS-in-the-DOM)
+  - [Fetch & Promises](Lessons/10-Fetch-Promises)
+  - [JavaScript Objects](Lessons/11-JS-Objects)
+  - Review / Lab
+  - Final Assessment
+  - Final Project Presentations
+
+- **Homework Assignments**
+  - [Portfolio Part 1: Semantic Markup](Assignments/01-Portfolio-Part-1-Structure.md)
+  - [Markup, Attributes, Forms](Assignments/02-Markup-Attributes-Forms.md)
+  - [Portfolio Part 2: Styles](Assignments/03-Portfolio-Part-2-Styles.md)
+  - [Portfolio Part 3: CSS Grid](Assignments/04-Portfolio-Part-3-Grid.md)
+  - [Single Page Site](Assignments/05-Single-Page-Site.md)
+  - [Tip Calculator](Assignments/07-Tip-Calculator.md)
+  - [JS Shopping Cart](Assignments/08-JS-Shopping-Cart.md)
+  - [JS Slide Show](Assignments/09-JS-Slide-Show.md)
+  - [Final Project](Assignments/10-Final-Project)

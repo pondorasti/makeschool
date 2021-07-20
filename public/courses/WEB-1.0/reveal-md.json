@@ -1,0 +1,15 @@
+{
+  "separator": "^\n<!-- > -->\n",
+  "verticalSeparator": "^\n<!-- v -->\n",
+  "theme": "black",
+  "watch": true,
+  "title": "Syllabus Template Slides",
+  "static": "Slides",
+  "scripts": [
+  ],
+  "assetsDir": "assets",
+  "staticDirs": "Lessons/Images",
+  "css": [
+      "Reveal/makeschool.css"
+  ]
+}
