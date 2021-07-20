@@ -211,12 +211,6 @@ const concentrations: IConcentration[] = [
         instructor: "Joseph",
         link: "/courses/DS-2.4",
       },
-      // {
-      //   name: "DS 2.5",
-      //   description: "Natural Language Processing",
-      //   instructor: "Joseph",
-      //   link: "/courses/DS-2.5",
-      // },
       {
         name: "DS 2.9",
         description: "Advanced Technical Seminar (DS)",
