@@ -23,6 +23,7 @@
     // Suppress errors for missing 'import React' in files, Nextjs already does that for you.
     "react/react-in-jsx-scope": "off",
     "react-hooks/exhaustive-deps": "off",
-    "react/display-name": "off"
+    "react/display-name": "off",
+    "import/no-extraneous-dependencies": "off"
   }
 }

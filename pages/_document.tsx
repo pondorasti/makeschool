@@ -4,8 +4,7 @@ export default class Document extends NextDocument {
   render(): JSX.Element {
     return (
       <Html lang="en" className="nightwind">
-        <Head>
-        </Head>
+        <Head />
         <body className="max-w-7xl mx-auto bg-gray-50">
           <Main />
           <NextScript />
