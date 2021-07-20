@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <title>FEW 1.1 Slides</title>
+    <link rel="stylesheet" href="./css/reveal.css" />
+    <link rel="stylesheet" href="./css/theme/black.css" id="theme" />
+    <link rel="stylesheet" href="./css/highlight/atom-one-light.css" />
+    <link rel="stylesheet" href="./css/print/paper.css" type="text/css" media="print" />
+    <link rel="stylesheet" href="./assets/Reveal/makeschool.css" />
+
+    <script>
+      document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>');
+    </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides"><section  data-markdown><script type="text/template"># FEW 1.1 - Semantic HTML
+
+➡️ [**Slides**](https://make-school-courses.github.io/FEW-1.1-Web-Foundations/Slides/01-Semantic-Html/README.html ':ignore')
+</script></section><section  data-markdown><script type="text/template">
+### Learning Objectives
+
+- Describe semantic HTML
+- Use Semantic HTML
+- Write HTML with correct syntax
+- Markup content and preserve context and meaning
+</script></section><section  data-markdown><script type="text/template">
+### What is HTML?
+
+The Language of the Web
+
+HTML stands for "HyperText Markup Language", which refers to "hypertext" (i.e. links) in digital documents. The Web is, essentially, made up of lots of digital documents which link to each other.
+</script></section><section  data-markdown><script type="text/template">
+### A Short History
+
+In 1989 Tim Berners-Lee, a physicist at <a href="/wiki/CERN" title=""><abbr title="European Organization for Nuclear Research">CERN</abbr></a>, proposed a system for researchers to share documents. 
+
+<!-- .element: class="fragment" -->
+
+The system was an internet-based hypertext system. Hypertext is text displayed on a computer screen that uses hyperlinks to connect other documents.
+
+<!-- .element: class="fragment" -->
+
+![asdf](images/hyperlinks.gif)
+<!-- .element: class="fragment" -->
+</script></section><section  data-markdown><script type="text/template">
+### How do we use it?
+
+HTML uses tags to "markup" a document. Tags describe and provide context to content. 
+
+Below the `p`, or paragraph, tag describes the text Hello World as a paragraph. 
+
+```html
+<p>Hello World.</p>
+```
+
+The opening tag `<p>` is followed by a closing tag `</p>` which has a slash `/`.
+</script></section><section  data-markdown><script type="text/template">
+### Combining Tags
+
+Many different tags can be combined and nested one within another. 
+
+```html
+<article>
+  <h1>HTML</html>
+  <p><abbr>HTML</abbr> is the best!</p>
+</article>
+```
+</script></section><section  data-markdown><script type="text/template">
+### Tags cannot overlap!
+
+Good:
+
+```HTML
+<p><abbr>HTML</abbr> is the best!</p>
+```
+
+Bad: 
+```HTML
+<p><abbr>HTML</p></abbr> is the best!
+```
+
+(the `</p>` closes before the inner `</abbr>`)
+<!-- .element: class="fragment" -->
+</script></section><section  data-markdown><script type="text/template">
+## Semantic HTML
+</script></section><section  data-markdown><script type="text/template">
+### What is semantic HTML?
+
+**Semantic** (adj.): of or relating to meaning in language
+
+To use a *word* semantically is to use a word in a way that properly aligns with its meaning.
+<!-- .element: class="fragment" -->
+
+**Semantic markup** is to use tags that properly align with the **content** the tags mark up.
+<!-- .element: class="fragment" -->
+</script></section><section  data-markdown><script type="text/template">
+### Some Examples
+</script></section><section  data-markdown><script type="text/template">
+#### "Valentines day! ♥️"
+
+How would you mark this up?
+<!-- .element: class="fragment" -->
+
+A time or date uses the `time` tag.
+<!-- .element: class="fragment" -->
+
+```html
+<time>Valentines day! ♥️</time>
+```
+<!-- .element: class="fragment" -->
+
+Or better
+<!-- .element: class="fragment" -->
+```html
+<time datetime="2020-02-14">Valentines day! </time>
+```
+<!-- .element: class="fragment" -->
+</script></section><section  data-markdown><script type="text/template">
+#### "HTML"
+
+How would you mark this up? (seriously)
+<!-- .element: class="fragment" -->
+
+Abbreviations and acronyms use the `abbr` tag.
+<!-- .element: class="fragment" -->
+
+```html
+<abbr>HTML</abbr>
+```
+<!-- .element: class="fragment" -->
+
+Or, better
+<!-- .element: class="fragment" -->
+
+```html
+<abbr title="Hyper Text Markup Language">HTML</abbr>
+```
+<!-- .element: class="fragment" -->
+</script></section><section  data-markdown><script type="text/template">
+<abbr title="Hyper Text Markup Language">HTML</abbr> was invented by Tim Berners Lee.
+</script></section><section  data-markdown><script type="text/template">
+#### "How would you mark this up? (seriously)"
+
+```HTML
+<p>How would <em>you</em> mark this up? <strong>(seriously)</strong></p>
+```
+<!-- .element: class="fragment" -->
+
+`em` and `strong` are inline tags that control the voice of what you are saying.
+<!-- .element: class="fragment" -->
+
+<em>Always</em> use inline tags <strong>inside a block!</strong>
+<!-- .element: class="fragment" -->
+</script></section><section  data-markdown><script type="text/template">
+### Sarcasm
+
+What about a sarcasm tag?  
+<!-- .element: class="fragment" -->
+
+Would this be useful? Discuss... 
+<!-- .element: class="fragment" -->
+
+What tags would find useful for communication? Discuss... 
+<!-- .element: class="fragment" -->
+</script></section><section  data-markdown><script type="text/template">
+### Some Rules
+</script></section><section  data-markdown><script type="text/template">
+- Pairs end with / - `<p>...</p>`
+- Some tags don't have a pair - `<hr>`
+- Tags can't overlap! - `<p><time>Valentines day!</time></p>`
+- Attributes are name value pairs the value is always in quotes - `<img src="./picture.png">`
+</script></section><section  data-markdown><script type="text/template">
+### Activity
+
+Pair up and research tags. 
+
+https://developer.mozilla.org/en-US/docs/Web/HTML/Element
+
+Take a look at what the HTML5 Dr has to say about your tags: http://html5doctor.com
+
+Choose **one tag from each category** to present to your classmates. Include an example of the tags in use to show context.
+</script></section><section  data-markdown><script type="text/template">
+1.
+- address
+- article, section, aside
+- nav, main
+- footer, header
+- h1-6, hgroup
+
+2.
+- blockquote
+- dd, dl, dt, ul, ol, li
+- figure, figcaption
+- pre, code
+
+3.
+- a
+- abbr, time, 
+- dfn
+- i, b, u, strong, em, sup, sub
+- mark, del, ins, q
+
+4.
+- area
+- audio, video, source, img, track
+
+- embed, iframe, object
+
+- canvas
+- details, dialog, menu, menuitem, summary
+</script></section><section  data-markdown><script type="text/template">
+### BREAK 
+
+Take a ten minute break and wrap a tag around everything you see. 
+</script></section><section  data-markdown><script type="text/template">
+### Lab
+
+Mark up challenges 1-4 here: https://github.com/soggybag/learn-semantic-markup. Choose the bext tags to describe the content of the text in each of these documents. 
+
+Write a description for intensive project. Include the following information: 
+
+- When you made it and a date
+- Title or name of the project
+- Why you made it, what is the rationale for creating this project. What problems does it solve? 
+- Short description of the process and tools used. 
+- Meta info, where is it hosted, where is the code, how to get started etc. 
+</script></section><section  data-markdown><script type="text/template">
+- Markup your project description 
+- Use semantic markup, use tags:
+    - article
+    - headings
+    - Parargraphs
+    - List
+    - etc. 
+</script></section><section  data-markdown><script type="text/template">
+## After Lab
+
+Questions?
+
+Pair up and markup the example text.
+
+https://github.com/soggybag/learn-semantic-markup
+</script></section><section  data-markdown><script type="text/template">
+### Homework 
+
+[Assignment 1](../assignments/assignment-01.md) will be due at the beginning of next class. We'll submit it together during class.
+</script></section><section  data-markdown><script type="text/template">
+### Wrap-Up 
+
+- What were the learning objectives? 
+- What is a learning Objective? 
+- How would you check your understanding of the learning objectives? 
+</script></section><section  data-markdown><script type="text/template">
+### What are learning Objectives? 
+
+learning Objectives are the concepts and ideas that you need to know to claim mastery of a subject. When you have mastered a learning objective you will be able to explain it and put into practice. 
+</script></section><section  data-markdown><script type="text/template">
+Test your knowledge by explaining the concept to someone else. 
+
+Some learning objects you will implement in code. 
+
+Others learnign objects are ideas that exist in the world at larger or are overaching ideas. 
+</script></section><section  data-markdown><script type="text/template">
+### Additional Resources
+
+1. http://html5doctor.com
+1. https://en.wikipedia.org/wiki/HTML
+1. https://developer.mozilla.org/en-US/docs/Web/HTML/Element
+</script></section></div>
+    </div>
+
+    <script src="./js/reveal.js"></script>
+
+    <script>
+      function extend() {
+        var target = {};
+        for (var i = 0; i < arguments.length; i++) {
+          var source = arguments[i];
+          for (var key in source) {
+            if (source.hasOwnProperty(key)) {
+              target[key] = source[key];
+            }
+          }
+        }
+        return target;
+      }
+
+      // Optional libraries used to extend on reveal.js
+      var deps = [
+        { src: './plugin/markdown/marked.js', condition: function() { return !!document.querySelector('[data-markdown]'); } },
+        { src: './plugin/markdown/markdown.js', condition: function() { return !!document.querySelector('[data-markdown]'); } },
+        { src: './plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+        { src: './plugin/zoom-js/zoom.js', async: true },
+        { src: './plugin/notes/notes.js', async: true },
+        { src: './plugin/math/math.js', async: true }
+      ];
+
+      // default options to init reveal.js
+      var defaultOptions = {
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+        transition: 'default', // none/fade/slide/convex/concave/zoom
+        dependencies: deps
+      };
+
+      // options from URL query string
+      var queryOptions = Reveal.getQueryHash() || {};
+
+      var options = extend(defaultOptions, {"controls":true,"progress":true,"autoPlayMedia":false,"slideNumber":"c/t","showSlideNumber":"all","controlsTutorial":true,"controlsLayout":"edges","transition":"slide","transitionSpeed":"medium","minScale":0.5,"maxScale":3}, queryOptions);
+    </script>
+
+
+    <script>
+      Reveal.initialize(options);
+    </script>
+  </body>
+</html>

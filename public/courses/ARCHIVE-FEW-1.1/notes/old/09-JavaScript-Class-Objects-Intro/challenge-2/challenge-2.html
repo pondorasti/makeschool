@@ -1,0 +1,43 @@
+<script src="data.js"></script>
+<script>
+	// -----------------------------------------
+	// Define an Object with Class Syntax
+
+	// The class below defines an Object with tewo properties 
+	// and one method. 
+	
+	// The constructor method is special. Use it to initialize 
+	// Objects created from the class. 
+
+	class User {
+		constructor(first, last) {
+			this.first = first;
+			this.last = last;
+		}
+
+		fullName() {
+			return `${this.first} ${this.last}`;
+		}
+
+	}
+	
+	// Challenges 
+	// 1) Add a new property prefix
+	// 2) Add the prefix to the fullname
+	// 3) Add a describe method. 
+	// 4) Add a date property. It should make a new Date from the string provided. 
+	
+
+	// ----------------------------------------
+
+	// The prefix and dates are provided you'll need to access them 
+	// in the order shown. 
+
+	const joeSmith = new User('Joe', 'Smith', "Rev", "2017-04-02 13:03:57");
+	const janeDoe = new User('Jane', 'Doe', "Dr", "2017-06-09 04:18:01");
+
+	console.log(joeSmith.fullName());
+
+	console.log(new Date("2017-04-02 13:03:57")); // Makes a Date with a SQL time date string
+
+</script>

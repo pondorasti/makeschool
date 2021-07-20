@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <title>FEW 1.1 Slides</title>
+    <link rel="stylesheet" href="./css/reveal.css" />
+    <link rel="stylesheet" href="./css/theme/black.css" id="theme" />
+    <link rel="stylesheet" href="./css/highlight/atom-one-light.css" />
+    <link rel="stylesheet" href="./css/print/paper.css" type="text/css" media="print" />
+    <link rel="stylesheet" href="./assets/Reveal/makeschool.css" />
+
+    <script>
+      document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>');
+    </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides"><section  data-markdown><script type="text/template"><!-- .slide: data-background="./Images/header.svg" data-background-repeat="none" data-background-size="40% 40%" data-background-position="center 10%" class="header" -->
+# FEW 1.1 - Lesson 7 - JS Introduction
+
+<!-- Put a link to the slides so that students can find them -->
+
+➡️ [**Slides**](/Syllabus-Template/Slides/Lesson1.html ':ignore')
+</script></section><section  data-markdown><script type="text/template">
+## JavaScript
+
+You need to learn some JavaScript! This class will be an introduction to the JavaScript langauge and programming for the web browser. 
+</script></section><section  data-markdown><script type="text/template">
+### Why JavaScript?
+
+JavaScript is probably the most important language in use today. JavaScript has a wide range of uses from web pages, to mobile applications, is embeded in hardware devices, and web servers. **You could build entire application ecosystems with only JavaScript.** 
+
+It's a good time to learn JavaScript.
+</script></section><section  data-markdown><script type="text/template">
+## Objectives 
+
+- Use JavaScript
+  - variables 
+  - functions 
+- Use the Browser API
+  - reference DOM elements 
+  - events and listeners
+</script></section><section  data-markdown><script type="text/template">
+## JavaScript
+</script></section><section  data-markdown><script type="text/template">
+## Where do you write JavaScript?
+
+Written in a tag
+
+Written in JS files
+</script></section><section  data-markdown><script type="text/template">
+```HTML
+<script>
+  // This tage could be embedded in a Web Page
+  function countToFive() {
+    for (let i = 1; i < 6; i += i) {
+      console.log(i)
+    }
+  }
+__SCRIPT_END__
+```
+</script></section><section  data-markdown><script type="text/template">
+```HTML
+<script src="main.js">__SCRIPT_END__
+```
+
+```JS
+// This written in main.js
+function countToFive() {
+  for (let i = 1; i < 6; i += i) {
+    console.log(i)
+  }
+}
+```
+</script></section><section  data-markdown><script type="text/template">
+## The JavaScript Language
+
+- variables 
+- functions 
+- flow control 
+- objects 
+</script></section><section  data-markdown><script type="text/template">
+### Variables
+
+Define a variable with:
+
+- var 
+- const 
+- let 
+</script></section><section  data-markdown><script type="text/template">
+```js 
+var x = 199
+let name = 'Hello'
+const pi = 3.14
+```
+</script></section><section  data-markdown><script type="text/template">
+What's the difference? 
+
+- `var` is function scope
+- `let` is block scope
+- `const` is block scope and immutable
+</script></section><section  data-markdown><script type="text/template">
+**Block Scope**
+
+```JS
+function calculate() {
+  let t = 0
+  for (let i = 1; i < 10; i += 1>) {
+    t += i * i
+  }
+  console.log(t) // some number 285
+  console.log(i) // ReferenceError: i is not defined
+}
+```
+</script></section><section  data-markdown><script type="text/template">
+**Function Scope**
+
+```JS
+function calculate() {
+  var t = 0
+  for (var i = 1; i < 10; i += 1>) {
+    t += i * i
+  }
+  console.log(t) // 285
+  console.log(i) // 10
+}
+```
+</script></section><section  data-markdown><script type="text/template">
+Best practice: 
+
+Use `const` when a value won't change and `let` when it will. Don't use `var`. 
+</script></section><section  data-markdown><script type="text/template">
+### functions 
+</script></section><section  data-markdown><script type="text/template">
+define a function
+
+```JS 
+function calculateArea(length, width) {
+  const area = length * width
+  return area
+}
+```
+
+Execute a function:
+
+```js 
+const area = calculateArea(10, 3) // 30
+```
+</script></section><section  data-markdown><script type="text/template">
+### Flow control 
+
+Flow control is how your program makes decisions. This includes things like if else statements and loops. 
+</script></section><section  data-markdown><script type="text/template">
+#### if else 
+
+```js 
+if (area > 50) {
+  console.log('More than 50')
+} else {
+  console.log('Less than 50)
+}
+```
+</script></section><section  data-markdown><script type="text/template">
+#### for loop 
+
+```JS 
+for (let i = 0; i < 10; i += 1) {
+  console.log(i)
+}
+```
+</script></section><section  data-markdown><script type="text/template">
+### types 
+
+Any value in JavaScript will be one of these types: 
+
+- Number
+- String 
+- Object
+</script></section><section  data-markdown><script type="text/template">
+### Numbers
+
+Numbers are what you expect numbers.
+
+- 0 
+- 1
+- 3.1456
+- -0.988
+</script></section><section  data-markdown><script type="text/template">
+### Strings
+
+A String is any number of characters between quotation marks. 
+
+- 'Hello World'
+- "Foo Bar"
+- ''
+</script></section><section  data-markdown><script type="text/template">
+### Concatenate String 
+
+Concatenation is the processs of combining Strings and numbers into a single string. For example: 
+
+```JS
+const name = 'Burger'
+const price = 2.99
+const nameAndPrice = `${name} $${price}`
+console.log(nameAndPrice) // Burger $2.99
+```
+</script></section><section  data-markdown><script type="text/template">
+### Getting a Reference
+
+Elements created in the DOM are objects. They have methods and properties. You'll need a reference to an element if you need to:
+
+- change the text it displays
+- get the value currently displayed
+- change it's style 
+</script></section><section  data-markdown><script type="text/template">
+To get a reference to an element you'll need to find it in the DOM. An easy method is using an id. ids are unique there should only be one element with a given id!
+
+Use: 
+
+```js
+<div id="display-hello">Foo Bar</div>
+...
+const displayHello = document.getElementById('display-hello')
+```
+</script></section><section  data-markdown><script type="text/template">
+### Display text with innerHTML
+
+Setting the innerHTML of an element replaces everything between the tags with something new. 
+
+```JS 
+displayHello.innerHTML = 'Hello World'
+```
+</script></section><section  data-markdown><script type="text/template">
+### Working with Inputs
+
+DOM elements are not all the same. Different types of elements have different proeprties. `<input>` elements for example allow user input and store the input value in a value property. 
+
+```JS
+<input id="input-name">
+const inputName = document.getElementById('input-name')
+console.log( inputName.value ) // shows the value if input
+```
+</script></section><section  data-markdown><script type="text/template">
+## Events and Listeners 
+
+Events are things that happen in the program. They are things like: 
+
+- text input
+- clicking the mouse
+- interacting with the keyboard
+- and more...
+</script></section><section  data-markdown><script type="text/template">
+Add a listener to "listen" for an event type and define a handler to handle the event when it occurs.
+
+```JS
+<button id="submit-button">Submit</button>
+...
+const button = document.getElementById('submit-button')
+button.addEventListener('click', buttonHandler)
+function buttonHandler(event) {
+  ...
+}
+```
+</script></section><section  data-markdown><script type="text/template">
+element.addEventListener() takes two parameters: an event type and an event handler. 
+
+An event type is a string. Some event types are: 
+
+- 'click'
+- 'change'
+- 'keydown'
+</script></section><section  data-markdown><script type="text/template">
+A handler is a function that takes an event as a parameter. 
+
+In JavaScript functions are also values you could rewrite the code above like this: 
+
+```JS
+<button id="submit-button">Submit</button>
+...
+const button = document.getElementById('submit-button')
+button.addEventListener('click', function(e) { ... })
+```
+
+Here we would way the function is anonymous since it doesn't have a name. 
+</script></section><section  data-markdown><script type="text/template">
+## Lab - Tip calculator
+
+Start working on Assignment [Assignment 7](../assignments/assignment-07.md)
+
+Be sure to use the resources below. 
+</script></section><section  data-markdown><script type="text/template">
+## After Class
+
+[Assignment 7](../assignments/assignment-07.md)
+
+## Resources 
+
+- https://javascript.info
+- https://javascript.info/variables
+- https://javascript.info/function-basics
+- https://javascript.info/closure
+- https://javascript.info/searching-elements-dom
+- https://javascript.info/introduction-browser-events
+
+</script></section></div>
+    </div>
+
+    <script src="./js/reveal.js"></script>
+
+    <script>
+      function extend() {
+        var target = {};
+        for (var i = 0; i < arguments.length; i++) {
+          var source = arguments[i];
+          for (var key in source) {
+            if (source.hasOwnProperty(key)) {
+              target[key] = source[key];
+            }
+          }
+        }
+        return target;
+      }
+
+      // Optional libraries used to extend on reveal.js
+      var deps = [
+        { src: './plugin/markdown/marked.js', condition: function() { return !!document.querySelector('[data-markdown]'); } },
+        { src: './plugin/markdown/markdown.js', condition: function() { return !!document.querySelector('[data-markdown]'); } },
+        { src: './plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+        { src: './plugin/zoom-js/zoom.js', async: true },
+        { src: './plugin/notes/notes.js', async: true },
+        { src: './plugin/math/math.js', async: true }
+      ];
+
+      // default options to init reveal.js
+      var defaultOptions = {
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+        transition: 'default', // none/fade/slide/convex/concave/zoom
+        dependencies: deps
+      };
+
+      // options from URL query string
+      var queryOptions = Reveal.getQueryHash() || {};
+
+      var options = extend(defaultOptions, {"controls":true,"progress":true,"autoPlayMedia":false,"slideNumber":"c/t","showSlideNumber":"all","controlsTutorial":true,"controlsLayout":"edges","transition":"slide","transitionSpeed":"medium","minScale":0.5,"maxScale":3}, queryOptions);
+    </script>
+
+
+    <script>
+      Reveal.initialize(options);
+    </script>
+  </body>
+</html>

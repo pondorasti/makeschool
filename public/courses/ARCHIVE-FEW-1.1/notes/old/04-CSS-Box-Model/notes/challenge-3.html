@@ -1,0 +1,77 @@
+
+<!-- 
+ 
+ 
+ -->
+ <h1>Burger <br> King</h1>
+ 
+ 
+ <!doctype html>
+ <html>
+   
+<body>
+  <form action="/your/api" method="">
+
+    <!-- use a p or other block tag to organize form elements onto lines -->
+    <p>
+      <label>Name</label>
+      <input name="name" type="text" placeholder="Your name">
+    </p>
+
+    <p>
+      <label>Email</label>
+      <input name="email" type="email">
+    </p>
+    <p>
+      <label>Pet Count</label>
+      <input name="pets">
+    </p>
+    <p>
+      <label>Birthday</label>
+      <input name="birthday">
+    </p>
+    <p>
+      <select name="prefix">
+    <option>Mr</option>
+    <option>Mrs</option>
+    <option>Ms</option>
+    <option>Sir</option>
+    <option>Madam</option>
+    <option>Dr</option>
+    <option>None</option>
+  </select>
+    </p>
+    <p>
+      <!-- Associate labels with form elements with for and id -->
+      <input id="radio-admin" type="radio" name="role" value="Admin" />
+      <label for="radio-admin">Admin</label>
+    </p>
+    <p>
+      <input type="radio" name="role" value="Editor" />
+      <label>Editor</label>
+    </p>
+    <p>
+      <input type="radio" name="role" value="Contributor" />
+      <label>Contributor</label>
+    </p>
+    <p>
+      <input type="checkbox" name="public">
+      <label>Public Bio</label>
+    </p>
+    <p>
+      <textarea name="bio"></textarea>
+    </p>
+    <p>
+      <label>Upload Image</label>
+      <input name="image" type="file">
+    </p>
+    <p>
+      <label>Self Destruct</label>
+      <input name="self-destruct" type="check">
+    </p>
+    <p>
+      <button type="submit">Submit</button>
+    </p>
+  </form>
+</body>
+ </html>

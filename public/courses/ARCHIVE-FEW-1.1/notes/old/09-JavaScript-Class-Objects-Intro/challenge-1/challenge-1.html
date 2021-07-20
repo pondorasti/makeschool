@@ -1,0 +1,48 @@
+<script src="data.js"></script>
+<script>
+  // -----------------------------------------
+  // Define a Class with a function
+  
+  // Challenge 1) Extend the example below to include 
+  // properties of:
+  // - prefix
+  // - email 
+  // - age
+  // Create parameters for each of these and store 
+  // the values with in properties. 
+  
+  function User(first, last) {
+    this.first = first;
+    this.last = last;
+  }
+  
+  // Challenge 2) Extend the method below to also 
+  // include the prefix before the first name. 
+  
+  User.prototype.fullName = function() {
+    return `${this.first} ${this.last}`;
+  }
+	
+	// Challenge 3) Add a new method that returns a description of 
+	// a User. This should return a string that includes all of a 
+	// users properties: first, last, age, email, prefix. 
+	// Add this new method to the prototype!
+	
+	
+  
+  // ----------------------------------------
+  
+  // Add prefix, email, and age arguments when 
+  // you initialize the Users below. 
+  
+  const joeSmith = new User('Joe', 'Smith');
+  const janeDoe = new User('Jane', 'Doe');
+  
+  console.log(joeSmith.fullName());
+	console.log(janeDoe.fullName());
+	
+	// Test the description method here. 
+	
+	
+	
+</script>

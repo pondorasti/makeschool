@@ -35,23 +35,11 @@ const concentrations: IConcentration[] = [
     name: "Front End Web Concentration",
     courses: [
       {
-        name: "FEW 1.1",
-        description: "Foundations Web",
-        instructor: "Mitchell",
-        link: "/courses/FEW-1.1",
-      },
-      {
         name: "FEW 1.2",
         description: "JavaScript Foundations",
         instructor: "Mitchell",
         link: "/courses/FEW-1.2",
       },
-      // {
-      //   name: "FEW 1.3",
-      //   description: "Responsive Web Design",
-      //   instructor: "Mitchell",
-      //   link: "/courses/FEW-1.3",
-      // },
       {
         name: "FEW 2.1",
         description: "Writing JavaScript Libraries",
@@ -135,12 +123,6 @@ const concentrations: IConcentration[] = [
         instructor: "Dani",
         link: "/courses/BEW-2.5",
       },
-      // {
-      //   name: "BEW 2.9",
-      //   description: "Advanced Technical Seminar (BEW)",
-      //   instructor: "Dani",
-      //   link: "/courses/BEW-2.9",
-      // },
     ],
   },
   {
@@ -176,12 +158,12 @@ const concentrations: IConcentration[] = [
         instructor: "Adriana",
         link: "/courses/MOB-2.2",
       },
-      // {
-      //   name: "MOB 2.3",
-      //   description: "Concurrency & Parallelism in iOS",
-      //   instructor: "Adriana",
-      //   link: "/courses/MOB-2.3",
-      // },
+      {
+        name: "MOB 2.3",
+        description: "Concurrency & Parallelism in iOS",
+        instructor: "Adriana",
+        link: "/courses/MOB-2.3",
+      },
       {
         name: "MOB 2.4",
         description: "Advanced Architectural Patterns in iOS",
@@ -199,12 +181,6 @@ const concentrations: IConcentration[] = [
   {
     name: "Data Science",
     courses: [
-      // {
-      //   name: "DS 1.0",
-      //   description: "Data Exploration and Visualization",
-      //   instructor: "Joseph",
-      //   link: "/courses/DS-1.0",
-      // },
       {
         name: "DS 1.11",
         description: "Introduction to Data Science Workflow",
@@ -293,18 +269,6 @@ const concentrations: IConcentration[] = [
   {
     name: "Software Product Development",
     courses: [
-      // {
-      //   name: "SPD 1.01",
-      //   description: "Engineering Careers 1",
-      //   instructor: "Braus",
-      //   link: "/courses/SPD-1.01",
-      // },
-      // {
-      //   name: "SPD 1.02",
-      //   description: "Engineering Careers 2",
-      //   instructor: "Braus",
-      //   link: "/courses/SPD-1.02",
-      // },
       {
         name: "SPD 1.1",
         description: "Introduction to Software Development",
@@ -337,22 +301,22 @@ const concentrations: IConcentration[] = [
       },
       {
         name: "SPD 2.1",
-        description: "Industry Collaboration Project Part 1",
+        description: "Industry Collaboration Project Part 1: Client Work",
         instructor: "Braus",
         link: "/courses/SPD-2.1",
       },
       {
         name: "SPD 2.2",
-        description: "Industry Collaboration Project Part 2",
+        description: "Industry Collaboration Project Part 2: Analytics & Growth",
         instructor: "Braus",
         link: "/courses/SPD-2.2",
       },
-      // {
-      //   name: "SPD 2.3",
-      //   description: "Testing and Architecture",
-      //   instructor: "Braus",
-      //   link: "/courses/SPD-2.3",
-      // },
+      {
+        name: "SPD 2.3",
+        description: "Testing and Architecture",
+        instructor: "Braus",
+        link: "/courses/SPD-2.3",
+      },
       {
         name: "SPD 2.31",
         description: "Testing and Architecture",
@@ -368,7 +332,7 @@ const concentrations: IConcentration[] = [
     ],
   },
   {
-    name: "Prerequisites",
+    name: "Misc Courses",
     courses: [
       {
         name: "QL 1.1",
