@@ -191,7 +191,7 @@ module.exports = {
       },
       {
         source: "/courses/QL-1.1",
-        destination: "/courses/QL-1.1/README.md",
+        destination: "/courses/QL-1.1/Web/index.html",
       },
     ]
   },
