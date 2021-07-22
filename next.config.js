@@ -193,6 +193,10 @@ module.exports = {
         source: "/courses/QL-1.1",
         destination: "/courses/QL-1.1/Web/index.html",
       },
+      {
+        source: "/badges",
+        destination: "/courses/make-badges/index.html",
+      },
     ]
   },
 }
