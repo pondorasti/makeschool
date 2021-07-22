@@ -4,7 +4,7 @@ import concentrations from "./config"
 export default function Concentrations(): JSX.Element {
   const headerStyling = "uppercase text-left text-xs font-semibold tracking-wider p-3 text-gray-500"
   const rowStyling = "p-3 text-gray-900 whitespace-nowrap"
-  const linkStyling = "text-blue-600"
+  const linkStyling = "text-blue-600 hover:text-blue-700 hover:underline"
 
   return (
     <>
