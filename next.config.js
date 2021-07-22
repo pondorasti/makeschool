@@ -111,11 +111,11 @@ module.exports = {
       },
       {
         source: "/courses/DS-2.1",
-        destination: "/courses/DS-2.1/README.md",
+        destination: "/courses/DS-2.1/index.html",
       },
       {
         source: "/courses/DS-2.2",
-        destination: "/courses/DS-2.2/README.md",
+        destination: "/courses/DS-2.2/index.html",
       },
       {
         source: "/courses/DS-2.3",
