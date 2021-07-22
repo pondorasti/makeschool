@@ -1,2 +1,0 @@
-class TopTrack < ApplicationRecord
-end

@@ -1,2 +1,0 @@
-gradescope-utils>=0.3.1
-requests>=2.23.0

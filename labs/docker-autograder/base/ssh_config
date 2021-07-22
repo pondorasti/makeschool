@@ -1,3 +1,0 @@
-Host github.com
-  IdentityFile /root/.ssh/deploy_key
-  IdentitiesOnly yes

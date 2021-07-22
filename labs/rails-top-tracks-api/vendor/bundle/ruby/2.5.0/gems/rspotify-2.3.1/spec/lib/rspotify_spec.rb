@@ -1,2 +1,0 @@
-describe RSpotify do
-end

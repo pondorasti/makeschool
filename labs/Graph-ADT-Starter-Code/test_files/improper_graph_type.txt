@@ -1,4 +1,0 @@
-This line is invalid
-1,2,3,4
-(1,2)
-(3,4)
