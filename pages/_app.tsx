@@ -4,6 +4,7 @@ import { useRouter } from "next/router"
 import "tailwindcss/tailwind.css"
 import { ThemeProvider } from "next-themes"
 import NavigationBar from "@components/NavigationBar"
+import Footer from "@components/Footer"
 import * as Fathom from "fathom-client"
 
 function MyApp({ Component, pageProps }: AppProps): JSX.Element {
@@ -38,6 +39,7 @@ function MyApp({ Component, pageProps }: AppProps): JSX.Element {
         {/* eslint-disable-next-line react/jsx-props-no-spreading */}
         <Component {...pageProps} />
       </div>
+      <Footer />
     </ThemeProvider>
   )
 }
