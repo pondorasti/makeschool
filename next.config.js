@@ -197,6 +197,10 @@ module.exports = {
         source: "/badges",
         destination: "/courses/make-badges/index.html",
       },
+      {
+        source: "/institutional-plan",
+        destination: "/institutional-plan/index.html",
+      },
     ]
   },
 }
