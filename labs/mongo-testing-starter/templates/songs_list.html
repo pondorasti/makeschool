@@ -1,9 +1,0 @@
-<a href="/">Back to Home</a>
-
-<h1>Songs:</h1>
-
-<ul>
-    {% for song in songs %}
-    <li><a href="/song/{{ song._id }}">{{ song.title }}</a></li>
-    {% endfor %}
-</ul>

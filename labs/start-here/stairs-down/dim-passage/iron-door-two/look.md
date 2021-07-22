@@ -1,1 +1,0 @@
-This small stone room is empty except for the a rat which looks at you with critical eye before scurrying through a drain in the corner. 
