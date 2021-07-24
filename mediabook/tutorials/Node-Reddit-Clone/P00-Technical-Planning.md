@@ -1,5 +1,5 @@
 ---
-title: 'User Narratives, Wire Frames, and Technical Planning'
+title: "User Narratives, Wire Frames, and Technical Planning"
 slug: technical-planning
 ---
 
@@ -66,18 +66,22 @@ Now it's time to get started by making a step-by-step plan. Here are some of the
 
 In what order should we fulfill these tasks? What do you think? Write it down step by step somewhere. When you are done, hover over the solution to see what order these tasks are implemented from within this tutorial.
 
-> [solution] We should work from the fundamental to the desirable --- the structure of our program comes first, then any nice-to-haves. Generally, it's best to delay the implementation of authentication as that can cause some initial complexity; we'll do authentication in the middle. Voting could come sooner or later; we put it at the very end. Until that point, we'll have a somewhat-themed Twitter or Facebook wall... until there is voting and sorting on votes, that is!
+:::solution
 
-> 1. Create a post
-> 2. Show all posts
-> 3. Comment on posts
-> 4. Create subreddits
-> 5. Create a post on a subreddit
-> 6. Show all subreddits
-> 7. Sign up and Login
-> 8. Associate posts, comments, and votes with their author
-> 9. Make comments on comments
-> 10. Vote a post up or down
+We should work from the fundamental to the desirable --- the structure of our program comes first, then any nice-to-haves. Generally, it's best to delay the implementation of authentication as that can cause some initial complexity; we'll do authentication in the middle. Voting could come sooner or later; we put it at the very end. Until that point, we'll have a somewhat-themed Twitter or Facebook wall... until there is voting and sorting on votes, that is!
+
+1. Create a post
+2. Show all posts
+3. Comment on posts
+4. Create subreddits
+5. Create a post on a subreddit
+6. Show all subreddits
+7. Sign up and Login
+8. Associate posts, comments, and votes with their author
+9. Make comments on comments
+10. Vote a post up or down
+
+:::
 
 ## Starting Express.js
 
@@ -90,25 +94,34 @@ Follow this video for how to setup an Express.js project with Handlebars:
 1. Create an npm project (hint: `npm init`) - remember to make your main file called `server.js`. Use the express documentation or a previous project to set up the boilerplate code for the server.
 2. Start Express.js. You can use Handlebars or Jade as a templating engine if you like. **This tutorial will use Handlebars**. Should you use Handlebars, you should make sure that `express-handlebars` is installed. Navigate to [express-handlebars](https://github.com/express-handlebars/express-handlebars) and read the **Usage** documentation for how to do this.
 3. Run your server with `nodemon` and see that your `home.handlebars` and `layout.handlebars` templates are working and displaying correctly.
-5. Add Bootstrap to your layout template `<head>` using the CDN. Use the following [starter template](https://getbootstrap.com/docs/5.0/getting-started/introduction/#starter-template) as a guide for your own!
+4. Add Bootstrap to your layout template `<head>` using the CDN. Use the following [starter template](https://getbootstrap.com/docs/5.0/getting-started/introduction/#starter-template) as a guide for your own!
 
 > [action] Create a `views` folder and in there we can create a `main.handlebars` file that will serve as our base.
 
 > ```html
-> <!doctype html>
+> <!DOCTYPE html>
 > <html lang="en">
 >   <head>
->     <meta charset="utf-8">
->     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+>     <meta charset="utf-8" />
+>     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 >
->     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+>     <link
+>       href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
+>       rel="stylesheet"
+>       integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
+>       crossorigin="anonymous"
+>     />
 >
 >     <title>Reddit.js</title>
 >   </head>
 >   <body>
 >     <h1>Reddit.js</h1>
 >
->     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+>     <script
+>       src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+>       integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+>       crossorigin="anonymous"
+>     ></script>
 >   </body>
 > </html>
 > ```
