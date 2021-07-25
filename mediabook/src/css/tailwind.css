@@ -1,0 +1,170 @@
+*, ::before, ::after {
+  --tw-border-opacity: 1;
+  border-color: rgba(229, 231, 235, var(--tw-border-opacity))
+}
+
+.container {
+  width: 100%
+}
+
+@media (min-width: 640px) {
+  .container {
+    max-width: 640px
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    max-width: 768px
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    max-width: 1024px
+  }
+}
+
+@media (min-width: 1280px) {
+  .container {
+    max-width: 1280px
+  }
+}
+
+@media (min-width: 1536px) {
+  .container {
+    max-width: 1536px
+  }
+}
+
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto
+}
+
+.my-20 {
+  margin-top: 5rem;
+  margin-bottom: 5rem
+}
+
+.mb-8 {
+  margin-bottom: 2rem
+}
+
+.mb-4 {
+  margin-bottom: 1rem
+}
+
+.mt-1 {
+  margin-top: 0.25rem
+}
+
+.block {
+  display: block
+}
+
+.flex {
+  display: flex
+}
+
+.h-48 {
+  height: 12rem
+}
+
+.w-full {
+  width: 100%
+}
+
+.flex-shrink-0 {
+  flex-shrink: 0
+}
+
+.flex-col {
+  flex-direction: column
+}
+
+.rounded-lg {
+  border-radius: 0.5rem
+}
+
+.border-8 {
+  border-width: 8px
+}
+
+.border-gray-200 {
+  --tw-border-opacity: 1;
+  border-color: rgba(229, 231, 235, var(--tw-border-opacity))
+}
+
+.object-cover {
+  object-fit: cover
+}
+
+.text-center {
+  text-align: center
+}
+
+.text-4xl {
+  font-size: 2.25rem;
+  line-height: 2.5rem
+}
+
+.text-lg {
+  font-size: 1.125rem;
+  line-height: 1.75rem
+}
+
+.font-bold {
+  font-weight: 700
+}
+
+.tracking-tight {
+  letter-spacing: -0.025em
+}
+
+.text-gray-900 {
+  --tw-text-opacity: 1;
+  color: rgba(17, 24, 39, var(--tw-text-opacity))
+}
+
+.text-blue-900 {
+  --tw-text-opacity: 1;
+  color: rgba(30, 58, 138, var(--tw-text-opacity))
+}
+
+@media (prefers-color-scheme: dark) {
+  .dark\:text-blue-400 {
+    --tw-text-opacity: 1;
+    color: rgba(96, 165, 250, var(--tw-text-opacity))
+  }
+}
+
+@media (min-width: 640px) {
+  .sm\:mb-0 {
+    margin-bottom: 0px
+  }
+
+  .sm\:mr-4 {
+    margin-right: 1rem
+  }
+
+  .sm\:flex {
+    display: flex
+  }
+
+  .sm\:w-48 {
+    width: 12rem
+  }
+
+  .sm\:text-5xl {
+    font-size: 3rem;
+    line-height: 1
+  }
+}
+
+@media (min-width: 768px) {
+  .md\:text-6xl {
+    font-size: 3.75rem;
+    line-height: 1
+  }
+}
