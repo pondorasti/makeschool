@@ -12,7 +12,6 @@ module.exports = {
   organizationName: "Pondorasti",
   projectName: "Mediabook",
   themeConfig: {
-    sidebarCollapsible: false,
     colorMode: {
       // "light" | "dark"
       defaultMode: "dark",
@@ -58,6 +57,7 @@ module.exports = {
       "@docusaurus/preset-classic",
       {
         docs: {
+          sidebarCollapsible: false,
           sidebarPath: require.resolve("./sidebars.js"),
           path: "tutorials",
           routeBasePath: "/",
