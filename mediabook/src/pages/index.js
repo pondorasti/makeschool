@@ -30,12 +30,12 @@ export default function Home() {
     <Layout title={`Hello from ${siteConfig.title}`} description="Description will go into a meta tag in <head />">
       <main>
         <HomepageHeader />
-        {gallery.map(({ title, teaser_text, cover, slug }) => (
+        {gallery.map(({ title, teaser_text, cover, slug, first_page }) => (
           <article key={slug}>
             <h1 className="article__title">{title}</h1>
             <p className="article__description">{teaser_text}</p>
             <img src={slug + cover} alt={title} />
-            <Link className="button button--primary" to={slug}>
+            <Link className="button button--primary" to={slug + first_page}>
               Read the tutorial
             </Link>
           </article>
