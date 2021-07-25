@@ -42,12 +42,6 @@ module.exports = {
       title: "Make School Tutorials",
       items: [
         {
-          type: "doc",
-          docId: "intro",
-          position: "right",
-          label: "Tutorials",
-        },
-        {
           href: "https://github.com/facebook/docusaurus",
           label: "GitHub",
           position: "right",

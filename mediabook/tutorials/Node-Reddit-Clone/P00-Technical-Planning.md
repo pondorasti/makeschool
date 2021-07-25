@@ -1,5 +1,5 @@
 ---
-title: "User Narratives, Wire Frames, and Technical Planning"
+title: "1. User Narratives, Wire Frames, and Technical Planning"
 slug: technical-planning
 ---
 
