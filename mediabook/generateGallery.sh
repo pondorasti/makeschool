@@ -21,13 +21,12 @@ for directory in ./tutorials/* ; do
   mkdir "./static/$directory"
   cp "$directory/assets/$cover_image" "./static/$directory"
 
-  # Update yaml file inline with first page slug
+  # Retrieve first_page_slug
   first_page_document=$(ls $directory | grep "^P00")
   first_page_slug=$(yq e --front-matter=extract "$directory/$first_page_document" | grep "^slug:" | awk -F' ' '{print $NF}')
-  yq eval -i '.first_page = "'"$first_page_slug"'"' "$directory/tutorial.yaml"
-
-  # Add tutorial slug and export to json
-  tutorial=$(yq eval '.slug = "'"$directory"'/"' "$directory/tutorial.yaml" | yq eval -j)
+  
+  # Add first_page_slug and tutorial_slug ==> export to json
+  tutorial=$(yq eval '.first_page = "'"$first_page_slug"'" | .slug = "'"$directory"'/"' "$directory/tutorial.yaml" | yq eval -j)
 
   if [ "$documentation" != "[" ]; then
     documentation+=",$tutorial"
@@ -38,5 +37,10 @@ done
 
 documentation+="]"
 
-# echo "$documentation" | jq
 echo "$documentation" | jq > ./tutorials/gallery.json
+
+
+# Archaic Commands
+
+# Inline yaml file update
+# yq eval -i '.first_page = "'"$first_page_slug"'"' "$directory/tutorial.yaml"
