@@ -4,8 +4,8 @@
   "private": true,
   "scripts": {
     "generate": "./generateGallery.sh",
-    "tailwind": "tailwindcss -o ./src/css/tailwind.css --jit --purge './src/**/*.{js,ts,jsx,tsx}'",
-    "tailwind:watch": "tailwindcss -o ./src/css/tailwind.css --jit --purge './src/**/*.{js,ts,jsx,tsx}' --watch",
+    "tailwind": "tailwindcss -c tailwind.config.js -o ./src/css/tailwind.css",
+    "tailwind:watch": "tailwindcss -c tailwind.config.js -o ./src/css/tailwind.css --watch",
     "docusaurus": "docusaurus",
     "dev": "concurrently \"npm run tailwind:watch\" \"docusaurus start\"",
     "build": "npm run generate && npm run tailwind && docusaurus build",
