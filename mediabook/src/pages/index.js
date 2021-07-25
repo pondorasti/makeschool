@@ -5,6 +5,7 @@ import Link from "@docusaurus/Link"
 import useDocusaurusContext from "@docusaurus/useDocusaurusContext"
 import styles from "./index.module.css"
 import gallery from "../../tutorials/gallery.json"
+import useBaseUrl from "@docusaurus/useBaseUrl"
 
 function HomepageHeader() {
   const { siteConfig } = useDocusaurusContext()
@@ -13,11 +14,7 @@ function HomepageHeader() {
       <div className="container">
         <h1 className="hero__title">{siteConfig.title}</h1>
         <p className="hero__subtitle">{siteConfig.tagline}</p>
-        <div className={styles.buttons}>
-          <Link className="button button--secondary button--lg" to="/tutorials/intro">
-            Docusaurus Tutorial - 5min ⏱️
-          </Link>
-        </div>
+        <div className={styles.buttons}>Docusaurus Tutorial - 5min ⏱️</div>
       </div>
     </header>
   )
@@ -34,9 +31,9 @@ export default function Home() {
           <article key={slug}>
             <h1 className="article__title">{title}</h1>
             <p className="article__description">{teaser_text}</p>
-            <img src={slug + cover} alt={title} />
-            <Link className="button button--primary" to={slug + first_page}>
-              Read the tutorial
+            <img src={useBaseUrl(slug + cover)} alt={title} />
+            <Link className="button button--primary" to={"." + slug + first_page}>
+              {slug}
             </Link>
           </article>
         ))}

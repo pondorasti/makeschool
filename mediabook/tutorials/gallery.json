@@ -1,16 +1,16 @@
 [
   {
     "title": "Make School Environment Setup",
-    "cover": "assets/cover.png",
+    "cover": "cover.png",
     "teaser_text": "This tutorial will cover skills critical to setting up your development environment.",
     "first_page": "welcome",
-    "slug": "../../tutorials/Environment-Setup/"
+    "slug": "./tutorials/Environment-Setup/"
   },
   {
     "title": "Reddit.js",
-    "cover": "assets/cover.jpg",
+    "cover": "cover.jpg",
     "teaser_text": "Build a Reddit clone in Node.js, You'll use MongoDB and Express.js",
     "first_page": "technical-planning",
-    "slug": "../../tutorials/Node-Reddit-Clone/"
+    "slug": "./tutorials/Node-Reddit-Clone/"
   }
 ]

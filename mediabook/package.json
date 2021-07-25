@@ -3,13 +3,15 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
+    "generate": "./generateGallery.sh",
     "docusaurus": "docusaurus",
     "dev": "docusaurus start",
-    "build": "docusaurus build",
+    "build": "npm run generate && docusaurus build",
+    "serve": "docusaurus serve",
+    "build:serve": "npm run build && npm run serve",
     "swizzle": "docusaurus swizzle",
     "deploy": "docusaurus deploy",
     "clear": "docusaurus clear",
-    "serve": "docusaurus serve",
     "write-translations": "docusaurus write-translations",
     "write-heading-ids": "docusaurus write-heading-ids"
   },
