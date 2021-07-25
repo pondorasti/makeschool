@@ -32,6 +32,9 @@ module.exports = {
         ".px-body": {
           "@apply px-4 sm:px-6 xl:px-8": {},
         },
+        ".html-body": {
+          "@apply max-w-7xl mx-auto bg-gray-50": {},
+        },
       })
     }),
   ],
