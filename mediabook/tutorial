@@ -1,4 +1,4 @@
 title: "Reddit.js"
 cover: assets/cover.jpg
 teaser_text: "Build a Reddit clone in Node.js, You'll use MongoDB and Express.js"
-first_page: 'technical-planning'
+slug: ../../tutorials/Node-Reddit-Clone/

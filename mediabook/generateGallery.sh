@@ -11,9 +11,9 @@ for directory in ./tutorials/* ; do
     continue;
   fi
 
-  # archaic solution
-  # yq eval -i '.slug = "'"$directory"'"' "$directory/tutorial.yaml"
-  # tutorial=$(yq eval -j "$directory/tutorial.yaml")
+  first_page_document=$(ls $directory | grep "^P00")
+  first_page_slug=$(yq e --front-matter=extract '.a="chocolate"' "$directory/$first_page_document" | grep "^slug:" | awk -F' ' '{print $NF}')
+  yq eval -i '.first_page = "'"$first_page_slug"'"' "$directory/tutorial.yaml"
 
   tutorial=$(yq eval '.slug = "../.'"$directory"'/"' "$directory/tutorial.yaml" | yq eval -j)
 
