@@ -75,7 +75,7 @@ const concentrations: IConcentration[] = [
       {
         name: "BEW 1.2",
         description: "Authentication, Associations, & Advanced Queries",
-        instructor: "Dani",
+        instructor: "Meredith",
         link: "/courses/BEW-1.2",
       },
       {
@@ -265,25 +265,25 @@ const concentrations: IConcentration[] = [
       {
         name: "SPD 1.1",
         description: "Introduction to Software Development",
-        instructor: "Braus",
+        instructor: "Braus, Adriana",
         link: "/courses/SPD-1.1",
       },
       {
         name: "SPD 1.2",
         description: "Agile Product Development & UI/UX",
-        instructor: "Braus",
+        instructor: "Braus, Adriana",
         link: "/courses/SPD-1.2",
       },
       {
         name: "SPD 1.3",
         description: "Team Software Project",
-        instructor: "Braus",
+        instructor: "Braus, Meredith",
         link: "/courses/SPD-1.3",
       },
       {
         name: "SPD 1.41",
         description: "Engineering Careers 1: Communication & Interviewing",
-        instructor: "Braus",
+        instructor: "Braus, Meredith",
         link: "/courses/SPD-1.41",
       },
       {
@@ -295,13 +295,13 @@ const concentrations: IConcentration[] = [
       {
         name: "SPD 2.1",
         description: "Industry Collaboration Project Part 1: Client Work",
-        instructor: "Braus",
+        instructor: "Dan",
         link: "/courses/SPD-2.1",
       },
       {
         name: "SPD 2.2",
         description: "Industry Collaboration Project Part 2: Analytics & Growth",
-        instructor: "Braus",
+        instructor: "Dan",
         link: "/courses/SPD-2.2",
       },
       {
@@ -313,7 +313,7 @@ const concentrations: IConcentration[] = [
       {
         name: "SPD 2.41",
         description: "Onboarding into Companies",
-        instructor: "Braus",
+        instructor: "Dan",
         link: "/courses/SPD-2.41",
       },
     ],
