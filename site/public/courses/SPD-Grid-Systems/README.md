@@ -1,2 +1,0 @@
-# SPD-Grid-Systems
-

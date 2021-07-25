@@ -1,1 +1,0 @@
-- [Syllabus](README.md)
