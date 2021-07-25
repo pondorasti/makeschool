@@ -11,7 +11,7 @@ export default function Concentrations(): JSX.Element {
       {concentrations.map((concentration) => (
         <div key={concentration.name} className="mb-12">
           <h3 className="text-2xl font-bold text-gray-900 tracking-tight sm:text-3xl mb-5">{concentration.name}</h3>
-
+          <h3 className="text-gray-900 mb-5">{concentration.description}</h3>
           <div className="shadow-lg overflow-x-auto border border-gray-200 rounded-lg">
             <table className="min-w-full">
               <thead className="border-b border-gray-200">
