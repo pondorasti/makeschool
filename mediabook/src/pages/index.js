@@ -29,7 +29,7 @@ export default function Home() {
         <HomepageHeader />
         {gallery.map(({ title, teaser_text, cover, slug, first_page }) => (
           <article key={slug}>
-            <h1 className="article__title">{title}</h1>
+            <h1 className="text-red-500">{title}</h1>
             <p className="article__description">{teaser_text}</p>
             <img src={useBaseUrl(slug + cover)} alt={title} />
             <Link className="button button--primary" to={"." + slug + first_page}>

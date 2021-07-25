@@ -132,6 +132,11 @@
   color: rgba(30, 58, 138, var(--tw-text-opacity))
 }
 
+.text-red-500 {
+  --tw-text-opacity: 1;
+  color: rgba(239, 68, 68, var(--tw-text-opacity))
+}
+
 @media (prefers-color-scheme: dark) {
   .dark\:text-blue-400 {
     --tw-text-opacity: 1;

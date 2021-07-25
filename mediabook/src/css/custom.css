@@ -16,7 +16,7 @@
   --ifm-color-primary: #60a5fa;
   --ifm-color-primary-dark: #3e92f9;
   --ifm-color-primary-darker: #2e89f8;
-  --ifm-color-primary-darkest: #076deb;
+  --ifm-color-primary-darkest: #076deb; /* tailwindcss */
   --ifm-color-primary-light: #82b8fb;
   --ifm-color-primary-lighter: #92c1fc;
   --ifm-color-primary-lightest: #c5defd;
@@ -35,7 +35,7 @@ html[data-theme="dark"] .docusaurus-highlight-code-line {
 }
 
 :root[data-theme="dark"] {
-  --ifm-color-primary: #60a5fa;
+  --ifm-color-primary: #60a5fa; /* tailwindcss */
   --ifm-color-primary-dark: #3e92f9;
   --ifm-color-primary-darker: #2e89f8;
   --ifm-color-primary-darkest: #076deb;
@@ -43,9 +43,9 @@ html[data-theme="dark"] .docusaurus-highlight-code-line {
   --ifm-color-primary-lighter: #92c1fc;
   --ifm-color-primary-lightest: #c5defd;
 
-  --ifm-background-color: #111827;
-  --ifm-navbar-background-color: #111827;
-  --ifm-toc-border-color: #374151;
+  --ifm-background-color: #111827; /* tailwindcss */
+  --ifm-navbar-background-color: #111827; /* tailwindcss */
+  --ifm-toc-border-color: #374151; /* tailwindcss */
 }
 
 .navbar,
