@@ -1,6 +1,8 @@
 const concentrations: IConcentration[] = [
   {
     name: "Web Foundations",
+    description:
+      "Prerequisite courses for all students. Understand the architecture of web applications, creating modular applications, professional best practices, request-response cycle, server-side templating, APIs, databases & unit testing, language-independent web server frameworks, and patterns in full-stack web design.",
     courses: [
       {
         name: "WEB 1.0",
@@ -18,6 +20,8 @@ const concentrations: IConcentration[] = [
   },
   {
     name: "Front End Web Concentration",
+    description:
+      "Create meaningful user experiences, interact directly with users to collect valuable feedback, build visualizations of data, and design amazing modes of user interaction for web, mobile, and desktop applications.",
     courses: [
       {
         name: "FEW 1.2",
@@ -65,6 +69,8 @@ const concentrations: IConcentration[] = [
   },
   {
     name: "Back End Web Concentration",
+    description:
+      "Learn the patterns, practices, and paradigms that ensure you can use, develop, and release standardized server-side applications. Work with syntactic language features, web applications and APIs, deployment, web security, and scaling. ",
     courses: [
       {
         name: "BEW 1.2",
@@ -112,6 +118,8 @@ const concentrations: IConcentration[] = [
   },
   {
     name: "Mobile Development",
+    description:
+      "Learn the theory and application of the entire product development process for creating interactive mobile iOS applications. Work with Swift, and front-end and advanced frameworks used in industry along with mobile-specific programming paradigms.",
     courses: [
       {
         name: "MOB 1.1",
@@ -165,6 +173,8 @@ const concentrations: IConcentration[] = [
   },
   {
     name: "Data Science",
+    description:
+      "Learn to understand, process, visualize and extract value from data through analysis, building appropriate models to predict unseen data, use data with neural networks to mimic human perception, and implement recommendation systems.",
     courses: [
       {
         name: "DS 1.1",
@@ -206,6 +216,8 @@ const concentrations: IConcentration[] = [
   },
   {
     name: "Computer Science (Core)",
+    description:
+      "How computers work. The fundamentals of programming, software development. Starting with the basics like variables, conditionals, and loops and building further into complex algorithms, advanced data structures, graph theory, and other programming concepts.",
     courses: [
       {
         name: "CS 1.0",
@@ -247,6 +259,8 @@ const concentrations: IConcentration[] = [
   },
   {
     name: "Software Product Development",
+    description:
+      "Understanding the software development process and foundational skills of successful engineers. Everything from building a startup to working on engineering teams, personal and professional development, AGILE, SCRUM, marketing and other software development skills.",
     courses: [
       {
         name: "SPD 1.1",
@@ -306,6 +320,7 @@ const concentrations: IConcentration[] = [
   },
   {
     name: "Miscellaneous",
+    description: "",
     courses: [
       {
         name: "QL 1.1",

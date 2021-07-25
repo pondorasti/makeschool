@@ -7,5 +7,6 @@ interface ICourseWebsite {
 
 interface IConcentration {
   name: string
+  description: string
   courses: ICourseWebsite[]
 }
