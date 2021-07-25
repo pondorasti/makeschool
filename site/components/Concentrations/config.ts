@@ -7,7 +7,7 @@ const concentrations: IConcentration[] = [
       {
         name: "WEB 1.0",
         description: "Web Foundations",
-        instructor: "Meredith",
+        instructor: "Mitchell, Meredith",
         link: "/courses/WEB-1.0",
       },
       {
@@ -32,7 +32,7 @@ const concentrations: IConcentration[] = [
       {
         name: "FEW 2.1",
         description: "Writing JavaScript Libraries",
-        instructor: "Mitchell",
+        instructor: "Mitchell, Meredith",
         link: "/courses/FEW-2.1",
       },
       {
@@ -81,19 +81,19 @@ const concentrations: IConcentration[] = [
       {
         name: "BEW 1.3",
         description: "Server-Side Architectures & Frameworks",
-        instructor: "Dani",
+        instructor: "Dani, Meredith, Mitchell",
         link: "/courses/BEW-1.3",
       },
       {
         name: "BEW 2.1",
         description: "Advanced Web Patterns in Node.js",
-        instructor: "Dani",
+        instructor: "Braus, Dani",
         link: "/courses/BEW-2.1",
       },
       {
         name: "BEW 2.2",
         description: "DevOps, Deployment & Containers",
-        instructor: "Dani",
+        instructor: "Dani, Jay",
         link: "/courses/BEW-2.2",
       },
       {
@@ -179,7 +179,7 @@ const concentrations: IConcentration[] = [
       {
         name: "DS 1.1",
         description: "Data Analysis & Visualization",
-        instructor: "Joseph",
+        instructor: "Joseph, Jess",
         link: "/courses/DS-1.1",
       },
       {
@@ -191,7 +191,7 @@ const concentrations: IConcentration[] = [
       {
         name: "DS 2.2",
         description: "Deep Learning",
-        instructor: "Joseph",
+        instructor: "Joseph, Jess",
         link: "/courses/DS-2.2",
       },
       {
@@ -203,7 +203,7 @@ const concentrations: IConcentration[] = [
       {
         name: "DS 2.4",
         description: "Core Applications of Artificial Intelligence",
-        instructor: "Joseph",
+        instructor: "Braus, Mitchell, Joseph",
         link: "/courses/DS-2.4",
       },
       {
@@ -222,37 +222,37 @@ const concentrations: IConcentration[] = [
       {
         name: "CS 1.0",
         description: "Introduction to Programming",
-        instructor: "Joi",
+        instructor: "Joi, Jess",
         link: "/courses/CS-1.0",
       },
       {
         name: "CS 1.1",
         description: "Object Oriented Programming",
-        instructor: "Joi",
+        instructor: "Joi, Jess",
         link: "/courses/CS-1.1",
       },
       {
         name: "CS 1.2",
         description: "Introduction to Data Structures",
-        instructor: "Joi",
+        instructor: "Jess, Joi, Alan",
         link: "/courses/CS-1.2",
       },
       {
         name: "CS 1.3",
         description: "Core Data Structures and Algorithms",
-        instructor: "Joi",
+        instructor: "Alan, Jess, Joi",
         link: "/courses/CS-1.3",
       },
       {
         name: "CS 2.1",
         description: "Advanced Trees & Sorting Algorithms",
-        instructor: "Joi",
+        instructor: "Alan, Jess",
         link: "/courses/CS-2.1",
       },
       {
         name: "CS 2.2",
         description: "Advanced Recursion & Graphs",
-        instructor: "Joi",
+        instructor: "Anne, Meredith",
         link: "/courses/CS-2.2",
       },
     ],
@@ -265,31 +265,31 @@ const concentrations: IConcentration[] = [
       {
         name: "SPD 1.1",
         description: "Introduction to Software Development",
-        instructor: "Braus, Adriana",
+        instructor: "Dan, Braus, Mitchell",
         link: "/courses/SPD-1.1",
       },
       {
         name: "SPD 1.2",
         description: "Agile Product Development & UI/UX",
-        instructor: "Braus, Adriana",
+        instructor: "Dan, Adriana, Mitchell",
         link: "/courses/SPD-1.2",
       },
       {
         name: "SPD 1.3",
         description: "Team Software Project",
-        instructor: "Braus, Meredith",
+        instructor: "Dan, Braus",
         link: "/courses/SPD-1.3",
       },
       {
         name: "SPD 1.41",
         description: "Engineering Careers 1: Communication & Interviewing",
-        instructor: "Braus, Meredith",
+        instructor: "Meredith, Braus",
         link: "/courses/SPD-1.41",
       },
       {
         name: "SPD 1.5",
         description: "Engineering Careers 2: Management and Leadership",
-        instructor: "Braus",
+        instructor: "Jay, Dan, Dani",
         link: "/courses/SPD-1.5",
       },
       {
@@ -301,19 +301,19 @@ const concentrations: IConcentration[] = [
       {
         name: "SPD 2.2",
         description: "Industry Collaboration Project Part 2: Analytics & Growth",
-        instructor: "Dan",
+        instructor: "Dan, Dani",
         link: "/courses/SPD-2.2",
       },
       {
         name: "SPD 2.31",
         description: "Testing and Architecture",
-        instructor: "Braus",
+        instructor: "Kami",
         link: "/courses/SPD-2.31",
       },
       {
         name: "SPD 2.41",
         description: "Onboarding into Companies",
-        instructor: "Dan",
+        instructor: "Kami, Jay",
         link: "/courses/SPD-2.41",
       },
     ],
@@ -327,6 +327,12 @@ const concentrations: IConcentration[] = [
         description: "Quantitative Reasoning",
         instructor: "Kami",
         link: "/courses/QL-1.1",
+      },
+      {
+        name: "ENT 2.1",
+        description: "Entrepreneurship",
+        instructor: "Braus, Anne",
+        link: "/courses/ENT-2.1",
       },
     ],
   },
