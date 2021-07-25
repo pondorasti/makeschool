@@ -4,6 +4,7 @@ import Layout from "@theme/Layout"
 import Link from "@docusaurus/Link"
 import useDocusaurusContext from "@docusaurus/useDocusaurusContext"
 import styles from "./index.module.css"
+import gallery from "../../tutorials/gallery.json"
 
 function HomepageHeader() {
   const { siteConfig } = useDocusaurusContext()
@@ -24,10 +25,21 @@ function HomepageHeader() {
 
 export default function Home() {
   const { siteConfig } = useDocusaurusContext()
+
   return (
     <Layout title={`Hello from ${siteConfig.title}`} description="Description will go into a meta tag in <head />">
       <main>
         <HomepageHeader />
+        {gallery.map(({ title, teaser_text, cover, slug }) => (
+          <article key={slug}>
+            <h1 className="article__title">{title}</h1>
+            <p className="article__description">{teaser_text}</p>
+            <img src={slug + cover} alt={title} />
+            <Link className="button button--primary" to={slug}>
+              Read the tutorial
+            </Link>
+          </article>
+        ))}
       </main>
     </Layout>
   )
