@@ -119,7 +119,7 @@ const concentrations: IConcentration[] = [
   {
     name: "Mobile Development",
     description:
-      "Learn the theory and application of the entire product development process for creating interactive mobile iOS applications. Work with Swift, and front-end and advanced frameworks used in industry along with mobile-specific programming paradigms.",
+      "Learn the theory and application of the entire product development process for creating interactive mobile iOS applications. Work with Swift, and advanced frameworks used in industry along with mobile-specific programming paradigms.",
     courses: [
       {
         name: "MOB 1.1",
