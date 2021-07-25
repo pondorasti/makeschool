@@ -18,7 +18,7 @@ export default function Concentrations(): JSX.Element {
                 <tr>
                   <th className={headerStyling}>Course</th>
                   <th className={headerStyling}>Description</th>
-                  <th className={headerStyling}>Instructor</th>
+                  <th className={headerStyling}>Instructors</th>
                 </tr>
               </thead>
               <tbody>
