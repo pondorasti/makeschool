@@ -4,9 +4,11 @@
   "private": true,
   "scripts": {
     "generate": "./generateGallery.sh",
+    "tailwind": "tailwindcss -o ./src/css/tailwind.css --jit --purge './src/**/*.{js,ts,jsx,tsx}'",
+    "tailwind:watch": "tailwindcss -o ./src/css/tailwind.css --jit --purge './src/**/*.{js,ts,jsx,tsx}' --watch",
     "docusaurus": "docusaurus",
-    "dev": "docusaurus start",
-    "build": "npm run generate && docusaurus build",
+    "dev": "concurrently \"npm run tailwind:watch\" \"docusaurus start\"",
+    "build": "npm run generate && npm run tailwind && docusaurus build",
     "serve": "docusaurus serve",
     "build:serve": "npm run build && npm run serve",
     "swizzle": "docusaurus swizzle",
@@ -38,5 +40,11 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.3.1",
+    "concurrently": "^6.2.0",
+    "postcss": "^8.3.6",
+    "tailwindcss": "^2.2.7"
   }
 }
