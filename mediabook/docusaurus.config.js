@@ -4,7 +4,7 @@ const darkCodeTheme = require("prism-react-renderer/themes/dracula")
 /** @type {import('@docusaurus/types').DocusaurusConfig} */
 module.exports = {
   title: "Make School Tutorials",
-  tagline: "Dinosaurs are cool",
+  tagline: "A collection of tech related tutorials.",
   url: "https://your-docusaurus-test-site.com",
   baseUrl: "/tutorials/",
   onBrokenLinks: "throw",
@@ -18,7 +18,7 @@ module.exports = {
 
       // Should we use the prefers-color-scheme media-query,
       // using user system preferences, instead of the hardcoded defaultMode
-      respectPrefersColorScheme: false,
+      respectPrefersColorScheme: true,
 
       // Dark/light switch icon options
       switchConfig: {
@@ -43,10 +43,6 @@ module.exports = {
         },
       ],
     },
-    // footer: {
-    //   style: "dark",
-    //   copyright: `Copyright © ${new Date().getFullYear()} Alexandru Turcanu`,
-    // },
     prism: {
       theme: lightCodeTheme,
       darkTheme: darkCodeTheme,
