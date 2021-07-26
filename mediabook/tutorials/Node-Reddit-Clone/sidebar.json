@@ -1,9 +1,9 @@
-module.exports = [
+[
   {
-    type: "category",
-    label: "Reddit",
-    collapsed: false,
-    items: [
+    "type": "category",
+    "label": "Reddit",
+    "collapsed": false,
+    "items": [
       "Node-Reddit-Clone/P00-Technical-Planning",
       "Node-Reddit-Clone/P01-Create-A-Post",
       "Node-Reddit-Clone/P02-Displaying-Posts",
@@ -14,7 +14,7 @@ module.exports = [
       "Node-Reddit-Clone/P07-Associate-Posts-And-Comments-With-User",
       "Node-Reddit-Clone/P08-Testing-Authentication",
       "Node-Reddit-Clone/P09-Comments-On-Comments",
-      "Node-Reddit-Clone/P10-Vote-On-A-Post",
-    ],
-  },
+      "Node-Reddit-Clone/P10-Vote-On-A-Post"
+    ]
+  }
 ]
