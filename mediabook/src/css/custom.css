@@ -21,6 +21,9 @@
   --ifm-color-primary-lighter: #92c1fc;
   --ifm-color-primary-lightest: #c5defd;
   --ifm-code-font-size: 95%;
+
+  --ifm-background-color: #f9fafb; /* tailwindcss */
+  --ifm-navbar-background-color: #f9fafb; /* tailwindcss */
 }
 
 .docusaurus-highlight-code-line {
@@ -52,4 +55,8 @@ html[data-theme="dark"] .docusaurus-highlight-code-line {
 .main-wrapper {
   box-shadow: none;
   border-bottom: 1px solid var(--ifm-toc-border-color);
+}
+
+a.no-underline:hover {
+  text-decoration: none;
 }
