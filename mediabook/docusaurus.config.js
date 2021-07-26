@@ -5,8 +5,8 @@ const darkCodeTheme = require("prism-react-renderer/themes/dracula")
 module.exports = {
   title: "Make School Tutorials",
   tagline: "A collection of tech related tutorials.",
-  url: "https://github.com/Pondorasti/makeschool",
-  baseUrl: "/tutorials/",
+  url: "https://makeschool.fail/",
+  baseUrl: "/",
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
   organizationName: "Pondorasti",
@@ -47,6 +47,10 @@ module.exports = {
       theme: lightCodeTheme,
       darkTheme: darkCodeTheme,
     },
+    fathomAnalytics: {
+      siteId: "XGMHRMOT",
+      customDomain: "makeschool.fail",
+    },
   },
   presets: [
     [
@@ -74,4 +78,5 @@ module.exports = {
       },
     ],
   ],
+  plugins: [require.resolve("docusaurus-plugin-fathom")],
 }
