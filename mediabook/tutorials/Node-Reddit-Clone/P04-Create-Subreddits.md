@@ -1,5 +1,5 @@
 ---
-title: "Creating Subreddits"
+title: "5. Creating Subreddits"
 slug: create-subreddits
 ---
 
@@ -10,8 +10,8 @@ We've got posts, but let's categorize them into subreddits.
 1. Show one post
 1. Comment on posts
 1. **Create subreddits**
-    1. Add a `subreddit` attribute to our post resource
-    1. Navigate to view all the posts of the same subreddit
+   1. Add a `subreddit` attribute to our post resource
+   1. Navigate to view all the posts of the same subreddit
 1. Sign up and Login
 1. Associate posts and comments with their author
 1. Make comments on comments
@@ -31,16 +31,16 @@ If we were using a SQL database we would have to make a new table called "subred
 
 > [action]
 > First, we work from what the users sees, so we need to add a subreddit field to our posts form in `posts-new`.
->
+
 ```html
 <div class="form-group">
   <label for="post-subreddit">Subreddit</label>
-  <input name="subreddit" type="text" class="form-control" id="post-subreddit" placeholder="Subreddit">
+  <input name="subreddit" type="text" class="form-control" id="post-subreddit" placeholder="Subreddit" />
 </div>
 ```
->
->Next we update our `Post` model to have a `subreddit` attribute. This attribute will just be a `String`.
->
+
+> Next we update our `Post` model to have a `subreddit` attribute. This attribute will just be a `String`.
+
 ```js
 subreddit: { type: String, required: true },
 ```
@@ -55,7 +55,7 @@ The post should save with its new subreddit string, but we won't be able to see 
 
 > [action]
 > Let's see that subreddit by adding it to the display of our posts in `posts-index`.
->
+
 ```html
 <li class="list-group-item">
   <div class="lead">
@@ -74,7 +74,7 @@ Once again, we start with what the user sees and can do. Let's turn each post's 
 
 > [action]
 > Tweak your code in `posts-index` to allow for the subreddit to be a link:
->
+
 ```html
 <li class="list-group-item">
   <div class="lead">
@@ -97,43 +97,45 @@ Let's see if we can make this route work.
 
 > [action]
 > As a sanity check on our route setting, let's have the terminal output the subreddit name in the url when you navigate to it. Add the following code to your `posts` controller. Remember to put it AFTER you require all the middleware:
->
+
 ```js
 // SUBREDDIT
-app.get('/n/:subreddit', (req, res) => {
-  console.log(req.params.subreddit);
-});
+app.get("/n/:subreddit", (req, res) => {
+  console.log(req.params.subreddit)
+})
 ```
 
 **Async/Await stretch challenge!**
->[challenge]
+
+> [challenge]
 >
-Refactor the code block above to be async/await.
-If you get stuck, there are video and text resources linked at the first async/await stretch challenge in the Displaying All Posts section.
+> Refactor the code block above to be async/await.
+> If you get stuck, there are video and text resources linked at the first async/await stretch challenge in the Displaying All Posts section.
 
 Let's switch out our console log for an actual navigation to our subreddit! We want to ensure that we only return posts that have a `subreddit` that matches the one passed into the url.
 
 We can also reuse our `posts-index` template for displaying our posts in the subreddit!
 
 > [action]
->Tweak your `app.get('/n/:subreddit'` call to return actual posts:
->
+> Tweak your `app.get('/n/:subreddit'` call to return actual posts:
+
 ```js
 // SUBREDDIT
-app.get('/n/:subreddit', (req, res) => {
-  Post.find({ subreddit: req.params.subreddit }).lean()
-    .then((posts) => res.render('posts-index', { posts }))
+app.get("/n/:subreddit", (req, res) => {
+  Post.find({ subreddit: req.params.subreddit })
+    .lean()
+    .then((posts) => res.render("posts-index", { posts }))
     .catch((err) => {
-      console.log(err);
-    });
-});
+      console.log(err)
+    })
+})
 ```
 
 <!-- -->
 
->[challenge]
+> [challenge]
 >
-Refactor the code block above to be async/await.
+> Refactor the code block above to be async/await.
 
 # Product So Far
 

@@ -1,5 +1,5 @@
 ---
-title: "Testing Authentication"
+title: "9. Testing Authentication"
 slug: testing-authentication
 ---
 
@@ -19,7 +19,7 @@ The biggest challenge is tracking the `cookie` set by the server when a user log
 
 > [action]
 > Create the file `test/auth.js`. Within, we'll require the libraries we're going to need.
->
+
 ```js
 // test/auth.js
 const chai = require('chai');
@@ -45,49 +45,49 @@ We can now write our first test that verifies that you cannot login if you haven
 
 > [action]
 > Add this test within your `User` block:
->
+
 ```js
-it('should not be able to login if they have not registered', function (done) {
-  agent.post('/login', { email: 'wrong@example.com', password: 'nope' }).end(function (err, res) {
-    res.should.have.status(401);
-    done();
-  });
-});
+it("should not be able to login if they have not registered", function (done) {
+  agent.post("/login", { email: "wrong@example.com", password: "nope" }).end(function (err, res) {
+    res.should.have.status(401)
+    done()
+  })
+})
 ```
 
 Let's add a slightly more complex one: signing up a user!
 
 > [action]
 > Add this `signup` test to `test/auth.js`:
->
+
 ```js
 // signup
-it('should be able to signup', function (done) {
-  User.findOneAndRemove({ username: 'testone' }, function() {
+it("should be able to signup", function (done) {
+  User.findOneAndRemove({ username: "testone" }, function () {
     agent
-      .post('/sign-up')
-      .send({ username: 'testone', password: 'password' })
+      .post("/sign-up")
+      .send({ username: "testone", password: "password" })
       .end(function (err, res) {
-        console.log(res.body);
-        res.should.have.status(200);
-        agent.should.have.cookie('nToken');
-        done();
-      });
-  });
-});
+        console.log(res.body)
+        res.should.have.status(200)
+        agent.should.have.cookie("nToken")
+        done()
+      })
+  })
+})
 ```
 
 It's important to note that the server started by the `agent` will not automatically close following the completion of your tests. It's important that we close down the agent after the tests to ensure the program exits appropriately.
 
->[action]
+> [action]
 > Add an `after` hook to your `auth` tests:
->
+
 ```js
 after(function () {
-  agent.close();
-});
+  agent.close()
+})
 ```
->
+
 > Do not forget to add `after` to your require statement.
 
 # Now Commit
@@ -108,18 +108,18 @@ Let's revisit our `/test/posts` file and see what needs to be done in order to g
 
 First, we want to make sure we're using the `agent` that we used in our last `auth` tests, otherwise we'll have no way to pass cookies (like the kind that pass login information)
 
->[action]
+> [action]
 > Add the following line to the top of the file as the last `const`:
->
+
 ```js
-const agent = chai.request.agent(app);
+const agent = chai.request.agent(app)
 ```
 
 Now we need to make sure we have a user.
 
->[action]
+> [action]
 > Add the following `user` below the `newPost const`:
->
+
 ```js
 const newPost = {
 ...
@@ -136,35 +136,35 @@ Next we need to add a `before` hook. Much like the `after` hook cleans up our te
 
 > [action]
 > Underneath your new `user const`, add the following `before` hook that signs up a user:
->
+
 ```js
 before(function (done) {
   agent
-    .post('/sign-up')
-    .set('content-type', 'application/x-www-form-urlencoded')
+    .post("/sign-up")
+    .set("content-type", "application/x-www-form-urlencoded")
     .send(user)
     .then(function (res) {
-      done();
+      done()
     })
     .catch(function (err) {
-      done(err);
-    });
-});
+      done(err)
+    })
+})
 ```
->
+
 > Remember to require `before` from `mocha` at the top of the file
 
 Almost finished, just have to clean up now. Much like we deleted the test post in our `after` hook, we have to also delete the test user now too, in addition to closing the `agent`.
 
 > [action]
-> Require your user model file at the top of the file 
->
+> Require your user model file at the top of the file
+
 ```js
-const User = require('../models/user');
+const User = require("../models/user")
 ```
->
+
 > Replace your `after` hook with the following code block:
->
+
 ```js
 after(function (done) {
   Post.findOneAndDelete(newPost)
@@ -210,19 +210,19 @@ Next, write a test that verifies that your login implementation works properly:
 
 > [action]
 > Add this `login` test to `test/auth.js`:
->
+
 ```js
 // login
-it('should be able to login', function (done) {
+it("should be able to login", function (done) {
   agent
-    .post('/login')
-    .send({ username: 'testone', password: 'password' })
+    .post("/login")
+    .send({ username: "testone", password: "password" })
     .end(function (err, res) {
-      res.should.have.status(200);
-      agent.should.have.cookie('nToken');
-      done();
-    });
-});
+      res.should.have.status(200)
+      agent.should.have.cookie("nToken")
+      done()
+    })
+})
 ```
 
 Can you make the test red (not pass) and then green (pass)?
@@ -231,16 +231,16 @@ Finally, we write a test to verify that the logout functionality works as expect
 
 > [action]
 > Add this `logout` test to `test/auth.js`:
->
+
 ```js
 // logout
-it('should be able to logout', function (done) {
-  agent.get('/logout').end(function (err, res) {
-    res.should.have.status(200);
-    agent.should.not.have.cookie('nToken');
-    done();
-  });
-});
+it("should be able to logout", function (done) {
+  agent.get("/logout").end(function (err, res) {
+    res.should.have.status(200)
+    agent.should.not.have.cookie("nToken")
+    done()
+  })
+})
 ```
 
 # Now Commit

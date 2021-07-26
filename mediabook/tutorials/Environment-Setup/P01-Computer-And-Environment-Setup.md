@@ -1,5 +1,5 @@
 ---
-title: "Computer And Environment Setup"
+title: "2. Computer And Environment Setup"
 slug: computer-and-environment-setup
 ---
 
@@ -32,15 +32,12 @@ Next you must download and install - or update - your operating system. The oper
 
 > [action]
 >
->
 > Update your MacBook's operating system (OSX) to the [most recent stable version of the Apple operating system](https://www.apple.com/macos/how-to-upgrade/)
 
 <!-- -->
 
 > [info]
-This download may take multiple hours to complete, so please start it now before continuing. 
+> This download may take multiple hours to complete, so please start it now before continuing.
 
 > [info]
-Note you may need to delete some files to make sure you have enough space to download the applications in this tutorial
-
-
+> Note you may need to delete some files to make sure you have enough space to download the applications in this tutorial

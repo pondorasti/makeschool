@@ -1,5 +1,5 @@
 ---
-title: "Testing Posts"
+title: "4. Testing Posts"
 slug: testing-posts
 ---
 
@@ -11,19 +11,19 @@ Mocha.js is a test framework for Node.js, and Chai.js is an assertion library th
 
 > [action]
 > We're going to add these to our `devDependencies` in our `package.json` file because we don't need the testing libraries in production.
->
+
 ```bash
 $ npm install mocha chai chai-http -D
 ```
->
+
 > Note: `-D` is just a shorthand for `--save-dev`. Both save the package to our devDependencies
 >
-Now create a folder called `test` in the root of your project.
+> Now create a folder called `test` in the root of your project.
 >
 > Add a file to your new `test` folder called `index.js` and let's require our testing libraries and then create our first `hello world` style test.
 > We can use `assert`, `expect`, or `should`. Check out this [Stack Overflow article](https://stackoverflow.com/questions/21396524/what-is-the-difference-between-assert-expect-and-should-in-chai) to get a better understanding of the differences. In this tutorial we will use `should`.
 > Using destructuring, we will import `describe` and `it` from mocha in order to keep our linter happy.
->
+
 ```js
 // test/index.js
 const chai = require('chai');
@@ -56,7 +56,7 @@ describe('site', function () {
 
 This test tests that the response should have a status of 200 - which if you recall your HTTP status codes, means the response is successful.
 
->[info]
+> [info]
 > Notice we did **not** use `ES6` syntax for our anonymous functions in our tests. That is because using arrow functions is [discouraged in Mocha](https://mochajs.org/#arrow-functions), as they make it so that `this` cannot access the Mocha context.
 >
 > What is happening to `this` to cause the issue? Hint: it relates to scope.
@@ -65,29 +65,29 @@ Before we can run **any** of our tests, we're going to need to add a line to `se
 
 > [action]
 > Add this line to the bottom of `server.js`:
->
+
 ```js
-module.exports = app;
+module.exports = app
 ```
 
 Now let's run the test.
 
 > [action]
->First update your `package.json` file to have a test command:
->
+> First update your `package.json` file to have a test command:
+
 ```json
 "scripts": {
   "test": "mocha --exit"
 },
 ```
->
+
 > Note: the `--exit` command exits the tests after they are done
 
 In order for this test to run the server will have to be running on `localhost 3000`, so make sure you've killed `nodemon` before running your tests.
 
->[action]
+> [action]
 > Now we can run our tests with:
->
+
 ```bash
 $ npm run test
 ```
@@ -98,9 +98,9 @@ What was the result? Can you make the test fail?
 
 Next let's make a test for the `/posts/create` route we made. We can make a new file in `test` called `posts.js`.
 
->[action]
+> [action]
 > Create `/test/posts.js` with some boilerplate code that we'll need for testing
->
+
 ```js
 // test/posts.js
 const chai = require('chai');
@@ -143,47 +143,47 @@ Now let's take this pseudocode and make something of it! For these tests we're g
 
 > [action]
 > Fill in the `it` statement to fulfill the needs of the pseudocode:
->
+
 ```js
-it('Should create with valid attributes at POST /posts/new', function(done) {
+it("Should create with valid attributes at POST /posts/new", function (done) {
   // Checks how many posts there are now
   Post.estimatedDocumentCount()
     .then(function (initialDocCount) {
       agent
-        .post('/posts/new')
+        .post("/posts/new")
         // This line fakes a form post,
         // since we're not actually filling out a form
-        .set('content-type', 'application/x-www-form-urlencoded')
+        .set("content-type", "application/x-www-form-urlencoded")
         // Make a request to create another
         .send(newPost)
         .then(function (res) {
           Post.estimatedDocumentCount()
             .then(function (newDocCount) {
               // Check that the database has status 200
-              res.should.have.status(200);
+              res.should.have.status(200)
               // Check that the database has one more post in it
               newDocCount.should.equal(initialDocCount + 1)
-              done();
+              done()
             })
             .catch(function (err) {
-              done(err);
-            });
+              done(err)
+            })
         })
         .catch(function (err) {
-          done(err);
-        });
+          done(err)
+        })
     })
     .catch(function (err) {
-        done(err);
-    });
-});
+      done(err)
+    })
+})
 ```
 
 This is a good test, but there's one problem: **each time we run our test suite we will be creating this post**. We need to make sure we **delete** this post **after** we run the test. We can use `mongoose`'s [findOneAndDelete](https://mongoosejs.com/docs/api.html#model_Model.findOneAndDelete) function to easily help us with this, as well as Mocha's [after hook](https://mochajs.org/#hooks), which is used to clean up after tests have finished running.
 
 > [action]
 > Update your test to remove the `post` at the by utilizing mocha's `after` hook:
->
+
 ```js
 it('Should create with valid attributes at POST /posts/new', function(done) {
 >
@@ -195,7 +195,7 @@ after(function () {
   Post.findOneAndDelete(newPost);
 });
 ```
->
+
 > Also add `after` to your deconstruction of `require('mocha')` to rid yourself of any linter warnings
 
 Now we have a test for the `/posts/create` route that should be green! Can you make it fail? How about if our `post` object doesn't have a title, url, or summary? Those are all required fields. What do you see if you change that and run the test? Does it fail? How do you know what made it fail?

@@ -1,5 +1,5 @@
 ---
-title: "Academic Policies"
+title: "7. Academic Policies"
 slug: academic-policies
 ---
 
