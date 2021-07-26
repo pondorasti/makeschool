@@ -5,10 +5,11 @@
   "scripts": {
     "generate": "./generateGallery.sh",
     "tailwind": "tailwindcss -c tailwind.config.js -o ./src/css/tailwind.css",
-    "tailwind:watch": "tailwindcss -c tailwind.config.js -o ./src/css/tailwind.css --watch",
+    "tailwind:watch": "npm run tailwind -- --watch",
+    "tailwind:minify": "npm run tailwind -- --minify",
     "docusaurus": "docusaurus",
     "dev": "concurrently \"npm run tailwind:watch\" \"docusaurus start\"",
-    "build": "npm run generate && npm run tailwind && docusaurus build",
+    "build": "npm run generate && npm run tailwind:minify && docusaurus build",
     "serve": "docusaurus serve",
     "build:serve": "npm run build && npm run serve",
     "swizzle": "docusaurus swizzle",
