@@ -60,7 +60,7 @@ module.exports = {
           sidebarCollapsible: false,
           sidebarPath: require.resolve("./sidebars.js"),
           path: "tutorials",
-          routeBasePath: "/",
+          routeBasePath: "/tutorials",
           editUrl: "https://github.com/Pondorasti/makeschool/tree/main/mediabook/tutorials",
           admonitions: {
             customTypes: {

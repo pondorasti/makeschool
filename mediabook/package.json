@@ -9,7 +9,7 @@
     "tailwind:minify": "npm run tailwind -- --minify",
     "docusaurus": "docusaurus",
     "dev": "concurrently \"npm run tailwind:watch\" \"docusaurus start\"",
-    "build": "docusaurus build",
+    "build": "npm run tailwind:minify && docusaurus build",
     "serve": "docusaurus serve",
     "build:serve": "npm run build && npm run serve",
     "swizzle": "docusaurus swizzle",
