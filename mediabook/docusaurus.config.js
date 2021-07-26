@@ -37,7 +37,7 @@ module.exports = {
       title: "Make School Tutorials",
       items: [
         {
-          href: "https://github.com/facebook/docusaurus",
+          href: "https://github.com/Pondorasti/makeschool/",
           label: "GitHub",
           position: "right",
         },
@@ -61,7 +61,7 @@ module.exports = {
           sidebarPath: require.resolve("./sidebars.js"),
           path: "tutorials",
           routeBasePath: "/tutorials",
-          editUrl: "https://github.com/Pondorasti/makeschool/tree/main/mediabook/tutorials",
+          editUrl: "https://github.com/Pondorasti/makeschool/tree/main/mediabook/",
           admonitions: {
             customTypes: {
               icons: "emoji",
