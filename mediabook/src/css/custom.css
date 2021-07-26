@@ -25,7 +25,8 @@
   --ifm-background-color: #f9fafb; /* tailwindcss */
   --ifm-navbar-background-color: #f9fafb; /* tailwindcss */
 
-  --toc-header-color: rgb(107, 114, 128); /* tailwindcss */
+  --tw-text-gray-500: rgb(107, 114, 128); /* tailwindcss */
+  --tw-border-gray-200: rgb(210, 213, 218); /* tailwindcss */
 }
 
 .docusaurus-highlight-code-line {
@@ -51,7 +52,9 @@ html[data-theme="dark"] .docusaurus-highlight-code-line {
   --ifm-background-color: #111827; /* tailwindcss */
   --ifm-navbar-background-color: #111827; /* tailwindcss */
   --ifm-toc-border-color: #374151; /* tailwindcss */
-  --toc-header-color: rgb(156, 163, 175); /* tailwindcss */
+
+  --tw-text-gray-500: rgb(156, 163, 175); /* tailwindcss */
+  --tw-border-gray-200: rgb(55, 65, 81); /* tailwindcss */
 }
 
 .navbar,
@@ -60,19 +63,23 @@ html[data-theme="dark"] .docusaurus-highlight-code-line {
   border-bottom: 1px solid var(--ifm-toc-border-color);
 }
 
+/* Gallery Card Styling */
 a.no-underline:hover {
   text-decoration: none;
 }
+a.no-underline {
+  border: 1px solid var(--tw-border-gray-200) !important;
+}
 
+/* Sidebar TOC Styling */
 .menu__list .menu__list {
   margin-left: 0;
 }
-
 .menu > .menu__list > .menu__list-item > .menu__link {
   margin-bottom: 4px;
   letter-spacing: 0.05em;
   text-transform: uppercase;
   font-size: 14px;
   font-weight: 600;
-  color: var(--toc-header-color);
+  color: var(--tw-text-gray-500);
 }

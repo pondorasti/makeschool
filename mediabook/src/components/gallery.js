@@ -6,7 +6,7 @@ import useThemeContext from "@theme/hooks/useThemeContext"
 export default function Gallery() {
   const { isDarkTheme } = useThemeContext()
   const cardStyling =
-    "no-underline flex flex-col overflow-hidden transform transition duration-300 ease-out rounded-lg hover:scale-[1.03]"
+    "no-underline card flex flex-col overflow-hidden transform transition duration-300 ease-out rounded-lg hover:scale-[1.03]"
   const headerStyling = "mb-0 text-xl font-semibold no-underline"
   const descriptionStyling = "mb-0 mt-3 text-base"
   return (
@@ -16,7 +16,7 @@ export default function Gallery() {
         <div className="text-center my-20">
           <h1 className={"text-4xl tracking-tight font-bold sm:text-5xl md:text-6xl"}>
             <span className={isDarkTheme ? "text-white-50 block" : "text-gray-900 block"}>Hello again,</span>
-            <span className={isDarkTheme ? "text-blue-400 block" : "text-blue-700 block"}>Tutorials</span>
+            <span className={isDarkTheme ? "text-blue-400 block" : "text-blue-900 block"}>Tutorials</span>
           </h1>
         </div>
         <div className="mt-12 max-w-lg md:max-w-xl mx-auto grid gap-8 lg:grid-cols-3 lg:max-w-none">
@@ -24,7 +24,7 @@ export default function Gallery() {
             <a
               key={slug}
               className={
-                isDarkTheme ? `bg-gray-800 ${cardStyling}` : `bg-gray-50 shadow-lg hover:shadow-2xl ${cardStyling}`
+                isDarkTheme ? `bg-gray-800 ${cardStyling}` : `bg-white shadow-lg hover:shadow-2xl ${cardStyling}`
               }
               href={"." + slug + first_page}
             >
