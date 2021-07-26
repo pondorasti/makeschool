@@ -18,7 +18,7 @@ function MyApp({ Component, pageProps }: AppProps): JSX.Element {
     }
 
     Fathom.load(siteId, {
-      includedDomains: ["make-school.vercel.app", "makeschool.fail"],
+      includedDomains: ["makeschool.fail"],
     })
 
     function onRouteChangeComplete() {
