@@ -5,7 +5,7 @@ const darkCodeTheme = require("prism-react-renderer/themes/dracula")
 module.exports = {
   title: "Make School Tutorials",
   tagline: "A collection of tech related tutorials.",
-  url: "https://your-docusaurus-test-site.com",
+  url: "https://github.com/Pondorasti/makeschool",
   baseUrl: "/tutorials/",
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
@@ -57,8 +57,7 @@ module.exports = {
           sidebarPath: require.resolve("./sidebars.js"),
           path: "tutorials",
           routeBasePath: "/",
-          // Please change this to your repo.
-          editUrl: "https://github.com/facebook/docusaurus/edit/master/website/",
+          editUrl: "https://github.com/Pondorasti/makeschool/tree/main/mediabook/tutorials",
           admonitions: {
             customTypes: {
               icons: "emoji",
