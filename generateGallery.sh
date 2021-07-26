@@ -3,6 +3,11 @@ if ! command -v yq &> /dev/null; then
 	exit 1;
 fi
 
+if ! command -v yq &> /dev/null; then
+	echo "jq command is required (https://github.com/stedolan/jq).";
+	exit 1;
+fi
+
 # Initial Cleanup
 rm -rf "./site/public/mediabook/tutorials/"
 mkdir "./site/public/mediabook/tutorials/"

@@ -1,0 +1,17 @@
+[
+  {
+    "type": "category",
+    "label": "Outcomes",
+    "collapsed": false,
+    "items": [
+      "Outcomes-Track/P00-Intro",
+      "Outcomes-Track/P01-Resume",
+      "Outcomes-Track/P02-LinkedIn",
+      "Outcomes-Track/P03-Github-Cleanup",
+      "Outcomes-Track/P04-Personal-Odyssey",
+      "Outcomes-Track/P05-Cover-Letters",
+      "Outcomes-Track/P06-Behavioral-Interviews",
+      "Outcomes-Track/P07-Industry-Contacts"
+    ]
+  }
+]
