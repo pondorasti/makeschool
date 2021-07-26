@@ -1,5 +1,5 @@
 ---
-title: "iOS Install Instructions"
+title: "6. iOS Install Instructions"
 slug: ios-install-instructions
 ---
 
@@ -12,7 +12,7 @@ Install the Xcode Command Line Tools, which is a bundle of command-line based so
 > [action]
 >
 > Install Command Line Tools by running this command in terminal:
->
+
 ```bash
 $ xcode-select --install
 ```

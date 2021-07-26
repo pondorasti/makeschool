@@ -1,5 +1,5 @@
 ---
-title: "Setting Up VS Code"
+title: "4. Setting Up VS Code"
 slug: setup-vs-code
 ---
 

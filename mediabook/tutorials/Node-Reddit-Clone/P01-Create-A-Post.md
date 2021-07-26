@@ -1,5 +1,5 @@
 ---
-title: "Create a Post"
+title: "2. Create a Post"
 slug: create-a-post
 ---
 
@@ -56,22 +56,11 @@ Now, use the [bootstrap form classes](https://getbootstrap.com/docs/5.0/forms/ov
       </div>
       <div class="form-group">
         <label for="post-url">Url</label>
-        <input
-          type="url"
-          name="url"
-          class="form-control"
-          id="post-url"
-          placeholder="https://www.google.com"
-        />
+        <input type="url" name="url" class="form-control" id="post-url" placeholder="https://www.google.com" />
       </div>
       <div class="form-group">
         <label for="post-summary">Summary</label>
-        <textarea
-          name="summary"
-          class="form-control"
-          id="post-summary"
-          placeholder="Summary"
-        ></textarea>
+        <textarea name="summary" class="form-control" id="post-summary" placeholder="Summary"></textarea>
       </div>
       <div class="text-right">
         <button type="submit" class="btn btn-primary">Create Post</button>

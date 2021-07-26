@@ -1,5 +1,5 @@
 ---
-title: "Welcome to Make School!"
+title: "1. Welcome to Make School!"
 slug: welcome
 ---
 
@@ -14,7 +14,7 @@ We'll see you in a few short weeks, but until then, we've prepared some tasks fo
 >
 > **Watch the following video** by Dan, a Make School instructor, to get an overview of what you'll accomplish in this tutorial:
 >
->![ms-video-youtube](https://www.youtube.com/watch?v=S7eSqgI0Tyk)
+> ![ms-video-youtube](https://www.youtube.com/watch?v=S7eSqgI0Tyk)
 
 Once you finish each section, click the "Mark as Complete" checkbox. If you've made it this far, go ahead and click the one below this box now!
 

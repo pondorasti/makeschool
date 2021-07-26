@@ -1,5 +1,5 @@
 ---
-title: "Culture of Feedback"
+title: "8. Culture of Feedback"
 slug: culture-of-feedback
 ---
 
@@ -48,9 +48,10 @@ In the spirit of collecting feedback, we'd love to hear your thoughts on this en
 Hit the `Mark as Complete` box once you've done the above survey! And finally...
 
 # That's a Wrap!
- **Congrats on completing your environment setup!**
 
- ![congrats](https://media.giphy.com/media/rY93u9tQbybks/giphy.gif)
- <sub>Source: [giphy](https://giphy.com/gifs/great-dicaprio-leonardo-rY93u9tQbybks)</sub><br/><br/>
+**Congrats on completing your environment setup!**
 
- We'll see you soon, and we're excited for you to be joining us 😁
+![congrats](https://media.giphy.com/media/rY93u9tQbybks/giphy.gif)
+<sub>Source: [giphy](https://giphy.com/gifs/great-dicaprio-leonardo-rY93u9tQbybks)</sub><br/><br/>
+
+We'll see you soon, and we're excited for you to be joining us 😁

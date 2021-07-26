@@ -1,9 +1,9 @@
 ---
-title: "Terminal Setup"
+title: "3. Terminal Setup"
 slug: terminal-setup
 ---
 
-The Terminal is an application that gives you command line control over your system, meaning you can type commands in  text form and the computer does stuff. For developers the terminal is one of the most important tools in our toolbox. It may seem weird to want to use a simple text based command system when we have all these awesome graphics, but the Terminal gives you control over almost everything on your computer! It can also be faster and more flexible as you dive deeper into the world of coding.
+The Terminal is an application that gives you command line control over your system, meaning you can type commands in text form and the computer does stuff. For developers the terminal is one of the most important tools in our toolbox. It may seem weird to want to use a simple text based command system when we have all these awesome graphics, but the Terminal gives you control over almost everything on your computer! It can also be faster and more flexible as you dive deeper into the world of coding.
 
 Since it's one of our most important tools we are going to make sure to polish it up (we're going to make our terminal pretty and work well).
 
@@ -34,18 +34,18 @@ A best practice to organize your code projects is to create one folder called ei
 > **REMEMBER: Don't include the `$` when you paste a command in to your terminal!**
 >
 > 1. Use your terminal to make this now.
->
-	```bash
-	$ mkdir dev
-	$ cd dev
-	```
->
+
+    ```bash
+    $ mkdir dev
+    $ cd dev
+    ```
+
 > 1. Now you are in your `dev` folder. You should create your portfolio coding projects in this folder!
 > 1. Let's add one more thing which is a folder for your courses. In this folder you can make directories for your coursework.
->
-	```bash
-	$ mkdir courses
-	```
+
+    ```bash
+    $ mkdir courses
+    ```
 
 ![Terminal Dev Folder](assets/make-dev-folder.gif)
 
@@ -100,7 +100,7 @@ Node is an open-source, cross-platform, JavaScript runtime environment that exec
 > [action]
 >
 > Install Node by running the following in Terminal:
->
+
 ```bash
 $ brew install node
 ```
@@ -110,7 +110,6 @@ If you've already installed Node, you can verify that it's been updated to the l
 ```bash
 $ node -v
 ```
-
 
 # Run Make School's Bash Setup Script
 
