@@ -1,9 +1,13 @@
 {
+  "trailingSlash": false,
   "rewrites": [
-    { "source": "/tutorials", "destination": "https://mediabook.makeschool.fail/tutorials" },
     {
       "source": "/tutorials/:match*",
       "destination": "https://mediabook.makeschool.fail/tutorials/:match*"
+    },
+    {
+      "source": "/assets/:match*",
+      "destination": "https://mediabook.makeschool.fail/assets/:match*"
     }
   ]
 }

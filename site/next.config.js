@@ -1,6 +1,14 @@
 module.exports = {
   rewrites: async () => {
     return [
+      // {
+      //   source: "/tutorials/:match*",
+      //   destination: "https://mediabook.makeschool.fail/tutorials/:match*",
+      // },
+      // {
+      //   source: "/assets/:match*",
+      //   destination: "https://mediabook.makeschool.fail/assets/:match*",
+      // },
       {
         source: "/courses/WEB-1.0",
         destination: "/courses/WEB-1.0/index.html",
