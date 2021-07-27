@@ -63,6 +63,10 @@ html[data-theme="dark"] .docusaurus-highlight-code-line {
   border-bottom: 1px solid var(--ifm-toc-border-color);
 }
 
+.navbar__logo {
+  display: none !important;
+}
+
 /* Gallery Card Styling */
 a.no-underline:hover {
   text-decoration: none;
