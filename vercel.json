@@ -1,0 +1,9 @@
+{
+  "rewrites": [
+    { "source": "/tutorials", "destination": "https://mediabook.makeschool.fail/tutorials" },
+    {
+      "source": "/tutorials/:match*",
+      "destination": "https://mediabook.makeschool.fail/tutorials/:match*"
+    }
+  ]
+}
