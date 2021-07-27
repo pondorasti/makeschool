@@ -49,7 +49,7 @@ module.exports = {
     },
     fathomAnalytics: {
       siteId: "XGMHRMOT",
-      customDomain: "makeschool.fail",
+      customDomain: "mediabook.makeschool.fail",
     },
   },
   presets: [
