@@ -1,15 +1,11 @@
 import Image from "next/image"
+import Hero from "@components/Hero"
 import gallery from "../public/mediabook/gallery.json"
 
 export default function Gallery(): JSX.Element {
   return (
     <main>
-      <div className="text-center my-20">
-        <h1 className="text-4xl tracking-tight font-bold sm:text-5xl md:text-6xl">
-          <span className="block">Hello again,</span>
-          <span className="block text-blue-900 dark:text-blue-400">Tutorials</span>
-        </h1>
-      </div>
+      <Hero ctaText="Tutorials" />
       <div className="mt-12 max-w-lg md:max-w-xl mx-auto grid gap-8 lg:grid-cols-3 lg:max-w-none">
         {gallery.map(({ title, teaser_text, cover, slug, first_page }: ITutorial) => (
           <a
