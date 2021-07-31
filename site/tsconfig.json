@@ -20,5 +20,5 @@
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
-  "exclude": ["node_modules", "labs", "public/courses"]
+  "exclude": ["node_modules", "public"]
 }
