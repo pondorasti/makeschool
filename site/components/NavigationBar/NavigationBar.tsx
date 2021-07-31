@@ -4,6 +4,7 @@ import { useState, useEffect } from "react"
 import { useTheme } from "next-themes"
 import { DarkModeSwitch } from "react-toggle-dark-mode"
 import classNames from "@utils/classNames"
+import useWindowDimensions from "@utils/hooks/useWindowDimensions"
 
 const iconSize = "w-5 h-5"
 
@@ -19,6 +20,7 @@ const DynamicDarkModeSwitch = dynamic(
 export default function NavigationBar(): JSX.Element {
   const [, setMounted] = useState(false)
   const { resolvedTheme, setTheme } = useTheme()
+  const { width } = useWindowDimensions()
 
   // When mounted on client, show theme switcher
   useEffect(() => setMounted(true), [])
@@ -36,10 +38,20 @@ export default function NavigationBar(): JSX.Element {
       <div className="flex items-center justify-between py-5 border-b border-opacity-75 border-gray-200 h-navbar">
         <Link href="/">
           {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-          <a className="text-gray-900 text-md font-normal flex items-center">Make School Archives</a>
+          <a className="text-gray-900 text-md font-normal flex items-center">
+            {width && width < 640 ? "MS" : "Make School Archives"}
+          </a>
         </Link>
 
         <div className="flex items-center space-x-3">
+          <Link href="/concentrations">
+            {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
+            <a className="navbar-link">Concentrations</a>
+          </Link>
+          <Link href="/tutorials">
+            {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
+            <a className="navbar-link">Tutorials</a>
+          </Link>
           <DynamicDarkModeSwitch
             className={classNames("navbar-link", iconSize)}
             checked={resolvedTheme === "dark"}
