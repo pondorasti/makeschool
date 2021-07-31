@@ -16,7 +16,7 @@ export default function Gallery(): JSX.Element {
         {gallery.map(({ title, teaser_text, cover, slug, first_page }: ITutorial) => (
           <a
             key={slug}
-            className="bg-white dark:bg-gray-800 border border-gray-200 shadow-lg hover:shadow-2xl no-underline card flex flex-col overflow-hidden transform transition duration-300 ease-out rounded-lg hover:scale-[1.03]"
+            className="bg-white dark:bg-gray-800 border border-gray-200 shadow-lg hover:shadow-2xl no-underline card flex flex-col overflow-hidden transform !transition !duration-300 !ease-out rounded-lg hover:scale-[1.03]"
             href={`${slug}${first_page}`.replace("./mediabook", "")}
           >
             <div className="flex-shrink-0 h-48 overflow-hidden">
