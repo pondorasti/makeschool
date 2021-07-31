@@ -10,3 +10,11 @@ interface IConcentration {
   description: string
   courses: ICourseWebsite[]
 }
+
+interface ITutorial {
+  title: string
+  teaser_text: string
+  cover: string
+  slug: string
+  first_page: string
+}
