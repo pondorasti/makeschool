@@ -67,14 +67,6 @@ html[data-theme="dark"] .docusaurus-highlight-code-line {
   display: none !important;
 }
 
-/* Gallery Card Styling */
-a.no-underline:hover {
-  text-decoration: none;
-}
-a.no-underline {
-  border: 1px solid var(--tw-border-gray-200) !important;
-}
-
 /* Sidebar TOC Styling */
 .menu__list .menu__list {
   margin-left: 0;
