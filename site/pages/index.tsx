@@ -1,5 +1,6 @@
 import Head from "next/head"
 import Concentrations from "@components/Concentrations"
+import Hero from "@components/Hero"
 
 export default function Home(): JSX.Element {
   return (
@@ -10,13 +11,7 @@ export default function Home(): JSX.Element {
       </Head>
 
       <main>
-        <div className="text-center my-20">
-          <h1 className="text-4xl tracking-tight font-bold text-gray-900 sm:text-5xl md:text-6xl">
-            <span className="block">Hello again,</span>
-            <span className="block text-blue-900 dark:text-blue-400">Make School</span>
-          </h1>
-        </div>
-
+        <Hero ctaText="Make School" />
         <Concentrations />
       </main>
     </div>
