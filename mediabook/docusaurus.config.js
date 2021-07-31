@@ -7,7 +7,6 @@ module.exports = {
   tagline: "A collection of tech related tutorials.",
   url: "https://makeschool.fail/",
   baseUrl: "/",
-  onBrokenLinks: "ignore",
   onBrokenMarkdownLinks: "warn",
   organizationName: "Pondorasti",
   projectName: "Mediabook",
@@ -38,16 +37,19 @@ module.exports = {
       logo: {
         alt: "Make School Archives",
         src: "assets/blank.png",
-        href: "/..",
+        href: "https://makeschool.fail/",
+        target: "_self",
       },
       items: [
         {
-          to: "/../courses",
+          to: "https://makeschool.fail/courses",
+          target: "_self",
           label: "Courses",
           position: "right",
         },
         {
-          to: "/",
+          to: "https://makeschool.fail/tutorials",
+          target: "_self",
           label: "Tutorials",
           position: "right",
           activeBaseRegex: "tutorials$", // intentionally broken
