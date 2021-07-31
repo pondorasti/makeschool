@@ -1,10 +1,16 @@
 import Image from "next/image"
 import Hero from "@components/Hero"
+import Head from "next/head"
 import gallery from "../public/mediabook/gallery.json"
 
 export default function Gallery(): JSX.Element {
   return (
     <main>
+      <Head>
+        <title>Make School</title>
+        <meta name="description" content="A collection of tech related tutorials." />
+      </Head>
+
       <Hero ctaText="Tutorials" />
       <div className="mt-12 max-w-lg md:max-w-xl mx-auto grid gap-8 lg:grid-cols-3 lg:max-w-none">
         {gallery.map(({ title, teaser_text, cover, slug, first_page }: ITutorial) => (

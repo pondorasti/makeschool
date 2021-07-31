@@ -44,9 +44,9 @@ export default function NavigationBar(): JSX.Element {
         </Link>
 
         <div className="flex items-center space-x-3">
-          <Link href="/concentrations">
+          <Link href="/courses">
             {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-            <a className="navbar-link">Concentrations</a>
+            <a className="navbar-link">Courses</a>
           </Link>
           <Link href="/tutorials">
             {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
