@@ -11,7 +11,7 @@ export default function Gallery(): JSX.Element {
         <meta name="description" content="A collection of tech related tutorials." />
       </Head>
 
-      <Hero ctaText="Tutorials" />
+      <Hero titleCta="Tutorials" />
       <div className="mt-12 max-w-lg md:max-w-xl mx-auto grid gap-8 lg:grid-cols-3 lg:max-w-none">
         {gallery.map(({ title, teaser_text, cover, slug, first_page }: ITutorial) => (
           <a
