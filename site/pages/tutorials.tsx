@@ -7,8 +7,8 @@ export default function Gallery(): JSX.Element {
   return (
     <main>
       <Head>
-        <title>Make School</title>
-        <meta name="description" content="A collection of tech related tutorials." />
+        <title>Tutorials</title>
+        <meta name="description" content="A collection of tech related tutorials offered by Make School." />
       </Head>
 
       <Hero titleCta="Tutorials" />
