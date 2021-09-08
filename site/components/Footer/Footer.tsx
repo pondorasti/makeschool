@@ -19,8 +19,8 @@ export default function Footer(): JSX.Element {
       external: true,
     },
     {
-      title: "Digital Library",
-      href: "https://docs.google.com/document/d/1NwnW67ddta7uM5nn3Jzoc-ZnWvh3KoPL4OMRI4qzPWw/edit?usp=sharing",
+      title: "GDrive",
+      href: "https://drive.google.com/drive/folders/13S_zQXRgdj7XhWWF3hT6uwjoyamYbk9p?usp=sharing",
       external: true,
     },
   ]
