@@ -19,5 +19,12 @@
     "teaser_text": "Build a Reddit clone in Node.js, You'll use MongoDB and Express.js",
     "first_page": "technical-planning",
     "slug": "./mediabook/tutorials/Node-Reddit-Clone/"
+  },
+  {
+    "title": "Outcomes Preparation",
+    "cover": "cover.png",
+    "teaser_text": "Learn how to prep for that internship or full time job!",
+    "first_page": "intro",
+    "slug": "./mediabook/tutorials/Outcomes-Track/"
   }
 ]
