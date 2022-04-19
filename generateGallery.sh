@@ -29,7 +29,7 @@ for directory in ./mediabook/tutorials/* ; do
   first_page_slug=$(yq e --front-matter=extract "$directory/$first_page_document" | grep "^slug:" | awk -F' ' '{print $NF}')
   
   # Add first_page_slug and tutorial_slug ==> export to json
-  tutorial=$(yq eval '.first_page = "'"$first_page_slug"'" | .slug = "'"$directory"'/"' "$directory/tutorial.yaml" | yq eval -j)
+  tutorial=$(yq eval '.first_page = "'"$first_page_slug"'" | .slug = "'"$directory"'/"' "$directory/tutorial.yaml" | yq eval -o=json)
 
   if [ "$documentation" != "[" ]; then
     documentation+=",$tutorial"
