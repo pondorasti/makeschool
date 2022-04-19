@@ -1,0 +1,34 @@
+[
+  {
+    "type": "category",
+    "label": "Gif Search",
+    "collapsed": false,
+    "items": [
+      {
+        "type": "doc",
+        "id": "Gif-Search/P00",
+        "label": ""
+      },
+      {
+        "type": "doc",
+        "id": "Gif-Search/P01",
+        "label": "Getting Started"
+      },
+      {
+        "type": "doc",
+        "id": "Gif-Search/P02",
+        "label": "Create Server"
+      },
+      {
+        "type": "doc",
+        "id": "Gif-Search/P03",
+        "label": "Search Gifs"
+      },
+      {
+        "type": "doc",
+        "id": "Gif-Search/P04",
+        "label": "Styling"
+      }
+    ]
+  }
+]
