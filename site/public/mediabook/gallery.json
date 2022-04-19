@@ -7,6 +7,13 @@
     "slug": "./mediabook/tutorials/Environment-Setup/"
   },
   {
+    "title": "Gif Search",
+    "cover": "gif-search.png",
+    "teaser_text": "Build an application that allows users to search for gifs",
+    "first_page": "welcome",
+    "slug": "./mediabook/tutorials/Gif-Search/"
+  },
+  {
     "title": "Reddit.js",
     "cover": "cover.jpg",
     "teaser_text": "Build a Reddit clone in Node.js, You'll use MongoDB and Express.js",
