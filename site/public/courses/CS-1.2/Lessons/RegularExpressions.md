@@ -17,7 +17,7 @@ After completing this class session and the associated tutorial challenges, stud
 - Use Cheatography's [regular expressions cheat sheet] as a reference guide
 - Solve interactive challenges in UBC's [regular expressions lab webpage][UBC regex lab]
 - Use [RegExr] or [RegEx Pal] to build and test regular expression patterns on text samples
-- Use [RegExper] to visualize railroad diagrams of regular expression patterns
+- Use [RegExper] or [Cyrilex] to visualize railroad diagrams of regular expression patterns
 - Read StackOverflow answers to questions about using regular expressions to parse HTML: first [some comedic relief][SO match HTML tags] and then [an explanation of why you shouldn't][SO why not HTML]
 
 ## Challenges
@@ -51,6 +51,7 @@ These challenges are more difficult and help you push your skills and understand
 [RegExr]: https://regexr.com/
 [RegEx Pal]: https://www.regexpal.com/
 [RegExper]: https://regexper.com/
+[Cyrilex]: https://extendsclass.com/regex-tester.html
 [SO match HTML tags]: http://stackoverflow.com/questions/1732348/regex-match-open-tags-except-xhtml-self-contained-tags
 [SO why not HTML]: http://stackoverflow.com/questions/590747/using-regular-expressions-to-parse-html-why-not
 
